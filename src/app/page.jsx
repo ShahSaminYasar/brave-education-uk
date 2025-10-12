@@ -1,3 +1,4 @@
+import AboutSection from "@/components/about/AboutSection";
 import HeroSection from "@/components/hero/HeroSection";
 import Image from "next/image";
 
@@ -6,6 +7,7 @@ const page = () => {
     <>
       <main>
         <HeroSection />
+        <AboutSection />
       </main>
 
       {/* BG */}

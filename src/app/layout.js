@@ -13,6 +13,8 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
+import { ReactLenis } from "@/utils/Lenis";
+
 export const metadata = {
   title: "Brave Education UK",
   description: "From guidance to graduation",
@@ -21,7 +23,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>{children}</body>
+      <ReactLenis root>
+        <body className={`${montserrat.className} antialiased`}>
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }

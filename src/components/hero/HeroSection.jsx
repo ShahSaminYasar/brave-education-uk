@@ -1,10 +1,9 @@
 "use client";
-import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
-import Image from "next/image";
+// import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import ReviewCard from "./ReviewCard";
-import { US } from "country-flag-icons/react/3x2";
+import { DK, IE, US } from "country-flag-icons/react/3x2";
 
 const HeroSection = () => {
   return (
@@ -64,7 +63,7 @@ const HeroSection = () => {
 
         <ReviewCard
           name={"Tanim Iram"}
-          flag={<US className="w-[30px]" />}
+          flag={<DK className="w-[30px]" />}
           description={
             "Thank you Brave Education for the awesome guidance. Will be ever grateful to you."
           }
@@ -76,7 +75,7 @@ const HeroSection = () => {
 
         <ReviewCard
           name={"Akib Rahman"}
-          flag={<US className="w-[30px]" />}
+          flag={<IE className="w-[30px]" />}
           description={
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et temporibus quaerat saepe aut.."
           }
