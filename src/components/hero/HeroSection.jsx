@@ -4,12 +4,19 @@ import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 import { DK, IE, US } from "country-flag-icons/react/3x2";
+import ShinyText from "../ui/ShinyText";
+import { motion } from "motion/react";
 
 const HeroSection = () => {
   return (
     <section className="section min-h-screen relative flex flex-col justify-center">
-      <div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5">
-        <h1 className="text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto">
+      <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5">
+        <motion.h1
+          initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
+        >
           From Guidance to{" "}
           <span className="relative w-fit inline-block p-2">
             <svg
@@ -29,19 +36,53 @@ const HeroSection = () => {
             <span className="z-10 relative">Graduation</span>
           </span>{" "}
           ~ We Get You There
-        </h1>
+        </motion.h1>
 
-        <p className="text-xs block text-center w-fit mx-auto bg-primary py-1 px-6 rounded-2xl text-white uppercase font-medium">
-          Certified by British Council
-        </p>
+        {/* <BlurText
+          text="From Guidance to Graduation ~ We Get You There"
+          delay={150}
+          direction="bottom"
+          stepDuration={0.27}
+          className="text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[610px] mx-auto justify-center"
+        /> */}
 
-        <p className="text-sm text-center block w-fit max-w-[480px] text-muted">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="w-fit mx-auto py-1 px-6 rounded-2xl shine shadow-xl"
+          style={{
+            backgroundImage:
+              "linear-gradient(120deg,rgba(242, 136, 136, 1) 0%, rgba(240, 34, 34, 1) 45%, rgba(250, 190, 190, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(242, 136, 136, 1) 100%)",
+            backgroundSize: "200% 100%",
+            WebkitBackgroundClip: "border-box",
+          }}
+        >
+          <ShinyText
+            text={"Certified by British Council"}
+            className="text-xs block text-center uppercase font-medium"
+            disabled={false}
+            speed={3}
+          />
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.75 }}
+          className="text-sm text-center block w-fit max-w-[480px] text-muted"
+        >
           For international and UK students, our licensed consultants provide
           end-to-end support from course selection and applications to visa
           assistance and placements in top universities worldwide.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-row items-center gap-3 justify-center mt-1">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.4 }}
+          className="flex flex-row items-center gap-3 justify-center mt-1"
+        >
           <Button>
             Explore Options <ArrowUpRight />
           </Button>
@@ -49,7 +90,7 @@ const HeroSection = () => {
           <Button variant={"secondary"}>
             Check Eligibility <ArrowUpRight />
           </Button>
-        </div>
+        </motion.div>
 
         <ReviewCard
           name={"Raisul Ahmed"}
@@ -58,7 +99,8 @@ const HeroSection = () => {
             "Best wishes for a successful and fulfilling journey. Best wishes for a successful and fulfilling journey."
           }
           date={"September 2025"}
-          className={"absolute top-[-6%] left-[-10%] -z-20 blur-[1.2px]"}
+          className={"absolute top-[-6%] left-[-10%] -z-20"}
+          delay={0}
         />
 
         <ReviewCard
@@ -68,9 +110,8 @@ const HeroSection = () => {
             "Thank you Brave Education for the awesome guidance. Will be ever grateful to you."
           }
           date={"January 2025"}
-          className={
-            "absolute top-[50%] -translate-y-1/2 right-0 -z-20 blur-[0.6px]"
-          }
+          className={"absolute top-[50%] -translate-y-1/2 right-0 -z-20"}
+          delay={1.6}
         />
 
         <ReviewCard
@@ -80,9 +121,10 @@ const HeroSection = () => {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et temporibus quaerat saepe aut.."
           }
           date={"September 2025"}
-          className={"absolute bottom-[-170px] left-[16%] -z-20 blur-[2px]"}
+          className={"absolute bottom-[-170px] left-[16%] -z-20"}
+          delay={3.2}
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

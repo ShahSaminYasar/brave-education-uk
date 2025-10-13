@@ -1,4 +1,30 @@
+"use client";
+import { useEffect, useState } from "react";
+import BlurTextSectionTitle from "./BlurTextSectionTitle";
+import { motion } from "motion/react";
+
 const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
+  const [title, setTitle] = useState([]);
+
+  useEffect(() => {
+    const parted = text.split("");
+    setTitle(parted);
+  }, [text]);
+
+  const containerVariant = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+      },
+    },
+  };
+
+  const letterVariant = {
+    hidden: { filter: "blur(3px)", y: 10, opacity: 0 },
+    visible: { filter: "blur(0px)", y: 0, opacity: 1 },
+  };
+
   return (
     <div
       className={`w-fit flex flex-col gap-2 mb-2 ${
@@ -27,9 +53,37 @@ const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
           ></span>
         </>
       )}
-      <h2 className="text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-transparent bg-clip-text">
+      {/* <h2 className="">
         {text}
-      </h2>
+      </h2> */}
+
+      {/* <BlurTextSectionTitle
+        text={text}
+        direction="bottom"
+        className="text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
+      /> */}
+
+      <motion.div
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="visible"
+        className="text-5xl font-montserrat font-semibold"
+        viewport={{
+          amount: 0,
+          once: false,
+          margin: "0px 0px -30% 0px",
+        }}
+      >
+        {title?.map((letter, index) => (
+          <motion.span
+            key={`${letter}_${index}`}
+            variants={letterVariant}
+            className="inline-block"
+          >
+            {letter === " " ? <>&nbsp;</> : letter}
+          </motion.span>
+        ))}
+      </motion.div>
     </div>
   );
 };

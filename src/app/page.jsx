@@ -8,6 +8,8 @@ const page = () => {
       <main>
         <HeroSection />
         <AboutSection />
+
+        <div className="mt-[200vh]"></div>
       </main>
 
       {/* BG */}

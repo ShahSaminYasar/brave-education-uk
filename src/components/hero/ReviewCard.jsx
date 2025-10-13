@@ -1,8 +1,24 @@
-import { US } from "country-flag-icons/react/3x2";
+import { motion } from "motion/react";
 
-const ReviewCard = ({ name, flag, description, date, className }) => {
+const ReviewCard = ({
+  name,
+  flag,
+  description,
+  date,
+  className,
+  delay = 0,
+}) => {
   return (
-    <div
+    <motion.div
+      initial={{ filter: "blur(4px)" }}
+      animate={{ filter: "blur(0px)" }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "reverse",
+        delay: delay,
+        ease: "easeInOut",
+      }}
       className={`bg-white rounded-lg shadow-sm p-3 flex flex-col gap-2 w-full max-w-[232px] text-sm ${
         className && className
       }`}
@@ -17,7 +33,7 @@ const ReviewCard = ({ name, flag, description, date, className }) => {
       </p>
 
       <span className="font-semibold">{date}</span>
-    </div>
+    </motion.div>
   );
 };
 export default ReviewCard;

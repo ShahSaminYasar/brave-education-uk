@@ -160,3 +160,24 @@ html.lenis body {
   font-weight: 400;
   color: #676767;
 }
+
+.shine {
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  animation: animate-shine 5s linear infinite;
+}
+
+@keyframes animate-shine {
+  from {
+    background-position: 100%;
+  }
+  to {
+    background-position: -100%;
+  }
+}
