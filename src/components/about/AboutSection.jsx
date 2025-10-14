@@ -1,11 +1,64 @@
-import * as motion from "motion/react-client";
+"use client";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import SectionTitle from "../ui/SectionTitle";
 import Image from "next/image";
 import ScrollReveal from "../ScrollReveal";
+import { useEffect, useRef, useState } from "react";
 
 const AboutSection = () => {
+  const { scrollY } = useScroll();
+
+  // Refs
+  const imageCardsContainerRef = useRef(null);
+
+  // States
+  const [containerInView, setContainerInView] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("down");
+
+  const imageVariants = {
+    hidden: { opacity: 0, filter: "blur(5px)", scale: 0.7 },
+    visible: { opacity: 1, filter: "blur(0px)", scale: 1 },
+  };
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previous = scrollY.getPrevious();
+    if (!previous || previous === undefined) return;
+
+    const diff = current - previous;
+
+    if (diff > 0) {
+      setScrollDirection("down");
+    } else if (diff < 0) {
+      setScrollDirection("up");
+    }
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+          setContainerInView(true);
+        }
+      },
+      {
+        threshold: [0, 0.1, 0.5, 0.9, 1],
+        rootMargin: "0px",
+      }
+    );
+
+    if (imageCardsContainerRef.current) {
+      observer.observe(imageCardsContainerRef.current);
+    }
+
+    return () => {
+      if (imageCardsContainerRef.current) {
+        observer.unobserve(imageCardsContainerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className="relative section bg-[radial-gradient(#0000001a_1px,#f8fafc_1px)] bg-[size:22px_22px]">
       <div className="absolute bg-gradient-to-r from-white to-transparent w-[80%] h-full top-0 left-0"></div>
@@ -41,19 +94,20 @@ const AboutSection = () => {
             we’re here to guide you step by step.
           </ScrollReveal>
 
-          <Button animatedEntry={true}>
+          <Button animatedEntry={true} className={"mt-2"}>
             Our Team <ArrowUpRight />
           </Button>
         </div>
 
-        <div className="relative w-full min-h-screen">
+        <motion.div
+          ref={imageCardsContainerRef}
+          className="relative w-full min-h-[650px]"
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{
-              once: false,
-              margin: "100% 0px -30% 0px",
-            }}
+            variants={imageVariants}
+            initial="hidden"
+            animate={containerInView ? "visible" : "hidden"}
+            transition={{ duration: 0.2, delay: 0 }}
             className="absolute top-0 right-0 shadow-2xl skew-x-[-7deg] skew-y-[5deg]"
           >
             <Image
@@ -66,12 +120,10 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{
-              once: false,
-              margin: "100% 0px -30% 0px",
-            }}
+            variants={imageVariants}
+            initial="hidden"
+            animate={containerInView ? "visible" : "hidden"}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 shadow-2xl skew-x-[2deg] skew-y-[-2deg]"
           >
             <Image
@@ -84,12 +136,10 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{
-              once: false,
-              margin: "100% 0px -30% 0px",
-            }}
+            variants={imageVariants}
+            initial="hidden"
+            animate={containerInView ? "visible" : "hidden"}
+            transition={{ duration: 0.2, delay: 0.2 }}
             className="absolute bottom-0 left-0 shadow-2xl -rotate-6 skew-x-[-9deg] skew-y-[9deg]"
           >
             <Image
@@ -100,7 +150,7 @@ const AboutSection = () => {
               className="block w-[220px] rounded-lg aspect-[9/13] bg-red-50 overflow-hidden object-cover object-center"
             />
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

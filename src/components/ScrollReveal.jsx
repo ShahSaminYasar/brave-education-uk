@@ -15,7 +15,7 @@ const ScrollReveal = ({
   containerClassName = "",
   textClassName = "",
   rotationEnd = "bottom bottom",
-  wordAnimationEnd = "bottom 70%",
+  wordAnimationEnd = "bottom 80%",
 }) => {
   const containerRef = useRef(null);
 

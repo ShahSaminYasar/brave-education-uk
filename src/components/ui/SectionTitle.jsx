@@ -71,7 +71,7 @@ const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
         viewport={{
           amount: 0,
           once: false,
-          margin: "0px 0px -30% 0px",
+          margin: "0px 0px -20% 0px",
         }}
       >
         {title?.map((letter, index) => (
