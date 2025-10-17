@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ReactLenis root>
+      <ReactLenis root options={{ lerp: 0.05 }}>
         <body className={`${montserrat.className} antialiased`}>
           {children}
         </body>

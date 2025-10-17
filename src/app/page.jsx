@@ -1,5 +1,6 @@
 import AboutSection from "@/components/about/AboutSection";
 import HeroSection from "@/components/hero/HeroSection";
+import ServicesSection from "@/components/services/ServicesSection";
 import Image from "next/image";
 
 const page = () => {
@@ -8,7 +9,7 @@ const page = () => {
       <main>
         <HeroSection />
         <AboutSection />
-
+        <ServicesSection />
         <div className="mt-[200vh]"></div>
       </main>
 

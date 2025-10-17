@@ -53,7 +53,7 @@ const HeroSection = () => {
           className="w-fit mx-auto py-1 px-6 rounded-2xl shine shadow-xl"
           style={{
             backgroundImage:
-              "linear-gradient(120deg,rgba(242, 136, 136, 1) 0%, rgba(240, 34, 34, 1) 45%, rgba(250, 190, 190, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(242, 136, 136, 1) 100%)",
+              "linear-gradient(120deg,rgba(242, 136, 136, 1) 0%, rgba(240, 34, 34, 1) 45%, rgba(240, 34, 34, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(242, 136, 136, 1) 100%)",
             backgroundSize: "200% 100%",
             WebkitBackgroundClip: "border-box",
           }}

@@ -111,7 +111,7 @@ const AboutSection = () => {
             className="absolute top-0 right-0 shadow-2xl skew-x-[-7deg] skew-y-[5deg]"
           >
             <Image
-              src={"/assets/images/uk_classroom.jpg"}
+              src={"/assets/images/graduates_group_pic.jpg"}
               width={720}
               height={1080}
               alt="UK classroom"
