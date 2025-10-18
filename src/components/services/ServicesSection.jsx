@@ -21,7 +21,7 @@ const ServicesSection = () => {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.5, 0.75, 1],
+    [0, 0.45, 0.75, 1],
     [0, 0, 1, 1]
   );
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 0.8, 1]);

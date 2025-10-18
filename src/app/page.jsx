@@ -1,6 +1,9 @@
 import AboutSection from "@/components/about/AboutSection";
 import AdmissionPathwaySection from "@/components/admission/AdmissionPathwaySection";
+import FeaturedSection from "@/components/featured/FeaturedSection";
+import GallerySection from "@/components/gallery/GallerySection";
 import HeroSection from "@/components/hero/HeroSection";
+import PerksSection from "@/components/perks/PerksSection";
 import ServicesSection from "@/components/services/ServicesSection";
 import Image from "next/image";
 
@@ -12,6 +15,9 @@ const page = () => {
         <AboutSection />
         <ServicesSection />
         <AdmissionPathwaySection />
+        <PerksSection />
+        <FeaturedSection />
+        <GallerySection />
         <div className="mt-[200vh]"></div>
       </main>
 

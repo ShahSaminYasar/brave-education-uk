@@ -27,7 +27,7 @@ const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
 
   return (
     <div
-      className={`w-fit flex flex-col gap-2 mb-2 ${
+      className={`w-full flex flex-col gap-2 mb-2 ${
         align == "left"
           ? "items-start"
           : align == "center"

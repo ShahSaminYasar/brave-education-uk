@@ -9,6 +9,7 @@ import { useRef } from "react";
 import ProcessBox from "./ProcessBox";
 import Aurora from "../ui/Aurora";
 import Particles from "../ui/Particles";
+import DotGrid from "../ui/DotGrid";
 
 const AdmissionPathwaySection = () => {
   const parentContainerRef = useRef(null);
@@ -41,7 +42,7 @@ const AdmissionPathwaySection = () => {
     <div ref={parentContainerRef} className="w-full relative">
       <section className="sticky top-0 w-full section h-screen flex flex-col items-center justify-center gap-2 bg-white">
         <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-screen -z-10">
-          <Particles
+          {/* <Particles
             particleColors={["#ffd6fc", "#ff00bb", "#00ff0d", "#ff7b00"]}
             particleCount={400}
             particleSpread={20}
@@ -50,10 +51,22 @@ const AdmissionPathwaySection = () => {
             moveParticlesOnHover={false}
             alphaParticles={false}
             disableRotation={false}
+          /> */}
+
+          <DotGrid
+            dotSize={10}
+            gap={15}
+            baseColor="#e8f9ff"
+            activeColor="#b3ddff"
+            proximity={120}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
           />
         </div>
 
-        <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-screen backdrop-blur-[30px] bg-gradient-to-b from-white to-transparent -z-10"></div>
+        {/* <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-screen backdrop-blur-[30px] bg-gradient-to-b from-white to-transparent -z-10"></div> */}
 
         <motion.h4
           style={{
@@ -74,9 +87,14 @@ const AdmissionPathwaySection = () => {
         </motion.h2>
       </section>
 
-      <div className="h-[180vh]"></div>
+      <div className="h-[130vh]"></div>
 
-      <section className="px-5 py-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px]">
+      <section
+        className="px-5 py-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px] border-t-2 border-zinc-900"
+        style={{
+          boxShadow: "0px -5px 20px 0px rgba(0,0,0,0.06)",
+        }}
+      >
         <ProcessBox
           sl={"1"}
           title={"Initial Consultations"}
