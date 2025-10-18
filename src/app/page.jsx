@@ -3,6 +3,7 @@ import AdmissionPathwaySection from "@/components/admission/AdmissionPathwaySect
 import FeaturedSection from "@/components/featured/FeaturedSection";
 import Footer from "@/components/footer/Footer";
 import GallerySection from "@/components/gallery/GallerySection";
+import Header from "@/components/header/Header";
 import HeroSection from "@/components/hero/HeroSection";
 import PerksSection from "@/components/perks/PerksSection";
 import ServicesSection from "@/components/services/ServicesSection";
@@ -11,6 +12,7 @@ import Image from "next/image";
 const page = () => {
   return (
     <>
+      <Header />
       <main>
         <HeroSection />
         <AboutSection />
@@ -19,8 +21,8 @@ const page = () => {
         <PerksSection />
         <FeaturedSection />
         <GallerySection />
-        <Footer />
       </main>
+      <Footer />
 
       {/* BG */}
       <div className="fixed top-0 left-0 bottom-0 w-full -z-50">
