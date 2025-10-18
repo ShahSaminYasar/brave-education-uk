@@ -10,7 +10,7 @@ const GallerySection = () => {
         align="center"
       />
 
-      <div style={{ width: "100vw", height: "80vh" }}>
+      <div className="w-[100vw] h-[65vh] md:h-[80vh]">
         <GraduatesGallery />
       </div>
     </section>

@@ -12,10 +12,14 @@ const ProcessBox = ({ sl, title, description }) => {
         damping: 15,
         stiffness: 400,
       }}
-      className="flex flex-col gap-1 items-center justify-center w-full min-h-[190px] max-w-sm bg-white p-5 rounded-2xl border-4 border-zinc-800"
+      className="flex flex-col gap-1 items-center justify-center w-full min-h-[190px] max-w-sm bg-white p-5 rounded-2xl border-2 border-zinc-800"
     >
-      <span className="font-satisfy text-xl text-[#a6a6a6] block">{sl}</span>
-      <h5 className="text-2xl text-primary font-semibold">{title}</h5>
+      <span className="font-satisfy text-xl text-[#a6a6a6] block text-center -mb-1">
+        {sl}
+      </span>
+      <h5 className="text-2xl text-primary font-semibold block text-center">
+        {title}
+      </h5>
       <p className="para block text-center">{description}</p>
     </motion.div>
   );

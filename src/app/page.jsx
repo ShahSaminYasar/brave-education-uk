@@ -1,6 +1,7 @@
 import AboutSection from "@/components/about/AboutSection";
 import AdmissionPathwaySection from "@/components/admission/AdmissionPathwaySection";
 import FeaturedSection from "@/components/featured/FeaturedSection";
+import Footer from "@/components/footer/Footer";
 import GallerySection from "@/components/gallery/GallerySection";
 import HeroSection from "@/components/hero/HeroSection";
 import PerksSection from "@/components/perks/PerksSection";
@@ -18,11 +19,11 @@ const page = () => {
         <PerksSection />
         <FeaturedSection />
         <GallerySection />
-        <div className="mt-[200vh]"></div>
+        <Footer />
       </main>
 
       {/* BG */}
-      <div className="h-full fixed top-0 left-0 w-full -z-50">
+      <div className="fixed top-0 left-0 bottom-0 w-full -z-50">
         {/* <div className="block absolute top-0 left-0 w-full h-full bg-sky-50/90 z-10 mix-blend-hard-light backdrop-blur-2xl"></div> */}
         {/* <ShaderGradientCanvas
           style={{

@@ -56,8 +56,8 @@ const AdmissionPathwaySection = () => {
           <DotGrid
             dotSize={10}
             gap={15}
-            baseColor="#e8f9ff"
-            activeColor="#b3ddff"
+            baseColor="#fbfbfb"
+            activeColor="#ebebeb"
             proximity={120}
             shockRadius={250}
             shockStrength={5}
@@ -90,16 +90,16 @@ const AdmissionPathwaySection = () => {
       <div className="h-[130vh]"></div>
 
       <section
-        className="px-5 py-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px] border-t-2 border-zinc-900"
+        className="px-5 py-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px]"
         style={{
-          boxShadow: "0px -5px 20px 0px rgba(0,0,0,0.06)",
+          boxShadow: "0px -5px 20px 0px rgba(0,0,0,0.03)",
         }}
       >
         <ProcessBox
           sl={"1"}
           title={"Initial Consultations"}
           description={
-            "Our first step is to understand you and your child on an academic and personal level."
+            "Our first step is to understand your academic background and plans for higher study."
           }
         />
 
@@ -109,14 +109,14 @@ const AdmissionPathwaySection = () => {
           whileInView="trackVisible"
           viewport={{ margin: "300px 0px -45% 0px" }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="origin-top w-0 h-[100px] border-r-4 border-zinc-800 border-dashed"
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
         ></motion.div>
 
         <ProcessBox
           sl={"2"}
-          title={"School & University Search"}
+          title={"Select your destination & university"}
           description={
-            "We review our recommended school and university options with you in detail."
+            "We will review your chosen university and course with entry requirements."
           }
         />
 
@@ -126,7 +126,7 @@ const AdmissionPathwaySection = () => {
           whileInView="trackVisible"
           viewport={{ margin: "300px 0px -45% 0px" }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="origin-top w-0 h-[100px] border-r-4 border-zinc-800 border-dashed"
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
         ></motion.div>
 
         <ProcessBox
@@ -143,15 +143,13 @@ const AdmissionPathwaySection = () => {
           whileInView="trackVisible"
           viewport={{ margin: "300px 0px -45% 0px" }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="origin-top w-0 h-[100px] border-r-4 border-zinc-800 border-dashed"
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
         ></motion.div>
 
         <ProcessBox
           sl={"4"}
-          title={"Entrance Exams"}
-          description={
-            "We utilize our resources and network of tutors  to help you prepare for exams."
-          }
+          title={"CO/UCO Issue"}
+          description={"We will have your offer in the given timeframe."}
         />
 
         <motion.div
@@ -160,14 +158,14 @@ const AdmissionPathwaySection = () => {
           whileInView="trackVisible"
           viewport={{ margin: "300px 0px -45% 0px" }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="origin-top w-0 h-[100px] border-r-4 border-zinc-800 border-dashed"
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
         ></motion.div>
 
         <ProcessBox
           sl={"5"}
           title={"Interview Preparation"}
           description={
-            "Our admissions specialists work to build your skills and confidence."
+            "Our admissions specialists work to build your skills and confidence for Pre-CAS interview.."
           }
         />
 
@@ -177,14 +175,31 @@ const AdmissionPathwaySection = () => {
           whileInView="trackVisible"
           viewport={{ margin: "300px 0px -45% 0px" }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="origin-top w-0 h-[100px] border-r-4 border-zinc-800 border-dashed"
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
         ></motion.div>
 
         <ProcessBox
           sl={"6"}
-          title={"Portfolio Building"}
+          title={"Receive your CAS/Acceptance letter"}
           description={
-            "Our advisors may suggest extra-curricular activities to improve student profiles."
+            "Our compliance team will guide to get all ready smoother way."
+          }
+        />
+
+        <motion.div
+          variants={trackVariants}
+          initial="trackHidden"
+          whileInView="trackVisible"
+          viewport={{ margin: "300px 0px -45% 0px" }}
+          transition={{ ease: "easeInOut", duration: 0.3 }}
+          className="origin-top w-0 h-[100px] border-r-2 border-zinc-800 border-dashed"
+        ></motion.div>
+
+        <ProcessBox
+          sl={"7"}
+          title={"Visa"}
+          description={
+            "Legal team will handle your visa application to take stress and confusion out of the process."
           }
         />
       </section>

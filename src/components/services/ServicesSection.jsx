@@ -33,17 +33,6 @@ const ServicesSection = () => {
     >
       <section className="sticky top-0 w-full min-h-screen max-w-6xl mx-auto bg-white flex flex-col items-center justify-center">
         <motion.div
-          className="absolute"
-          style={{
-            left: x,
-            top: y,
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
-        </motion.div>
-
-        <motion.div
           className="flex flex-col items-center justify-center gap-4"
           style={{
             opacity,
@@ -93,8 +82,19 @@ const ServicesSection = () => {
             transform: "translate(50%, 50%)",
           }}
         >
+          <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
+        </motion.div>
+
+        <motion.div
+          className="absolute"
+          style={{
+            left: x,
+            top: y,
+            transform: "translate(-50%, -50%)",
+          }}
+        >
           <ServiceBox
-            title={"Higher Education"}
+            title={"University Admission"}
             icon={<University size={20} />}
           />
         </motion.div>
