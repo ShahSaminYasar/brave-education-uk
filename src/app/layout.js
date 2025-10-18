@@ -1,4 +1,4 @@
-import { Montserrat, Poppins } from "next/font/google";
+import { Montserrat, Poppins, Satisfy } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -13,6 +13,12 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
+const satisfy = Satisfy({
+  variable: "--font-satisfy",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 import { ReactLenis } from "@/utils/Lenis";
 
 export const metadata = {
@@ -24,7 +30,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <ReactLenis root options={{ lerp: 0.05 }}>
-        <body className={`${montserrat.className} antialiased`}>
+        <body
+          className={`${montserrat?.variable} ${satisfy?.variable} ${poppins?.variable} antialiased`}
+        >
           {children}
         </body>
       </ReactLenis>

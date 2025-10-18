@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import SectionTitle from "../ui/SectionTitle";
 import Image from "next/image";
-import ScrollReveal from "../ScrollReveal";
+import ScrollReveal from "../ui/ScrollReveal";
 import { useEffect, useRef, useState } from "react";
 
 const AboutSection = () => {
@@ -72,7 +72,7 @@ const AboutSection = () => {
             enableBlur={true}
             baseRotation={5}
             blurStrength={10}
-            textClassName="para"
+            textClassName="para mb-1"
           >
             At Brave Education UK, we help students and professionals achieve
             their dreams of studying, working, and settling abroad. Our services

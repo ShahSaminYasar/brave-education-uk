@@ -50,7 +50,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="w-fit mx-auto py-1 px-6 rounded-2xl shine shadow-xl"
+          className="w-fit mx-auto py-1 pt-[2px] px-6 rounded-2xl shine shadow-xl"
           style={{
             backgroundImage:
               "linear-gradient(120deg,rgba(242, 136, 136, 1) 0%, rgba(240, 34, 34, 1) 45%, rgba(240, 34, 34, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(242, 136, 136, 1) 100%)",

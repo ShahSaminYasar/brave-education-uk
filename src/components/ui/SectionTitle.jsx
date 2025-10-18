@@ -67,7 +67,7 @@ const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
         variants={containerVariant}
         initial="hidden"
         whileInView="visible"
-        className="text-5xl font-montserrat font-semibold"
+        className="text-5xl font-montserrat font-semibold text-zinc-900"
         viewport={{
           amount: 0,
           once: false,

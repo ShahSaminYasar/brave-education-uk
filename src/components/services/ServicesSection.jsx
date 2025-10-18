@@ -29,9 +29,20 @@ const ServicesSection = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[650vh] w-full bg-white section"
+      className="relative min-h-[500vh] w-full bg-white section"
     >
-      <section className="sticky top-0 w-full min-h-screen bg-white flex flex-col items-center justify-center">
+      <section className="sticky top-0 w-full min-h-screen max-w-6xl mx-auto bg-white flex flex-col items-center justify-center">
+        <motion.div
+          className="absolute"
+          style={{
+            left: x,
+            top: y,
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
+        </motion.div>
+
         <motion.div
           className="flex flex-col items-center justify-center gap-4"
           style={{
@@ -56,11 +67,11 @@ const ServicesSection = () => {
           className="absolute"
           style={{
             left: x,
-            top: y,
-            transform: "translate(-50%, -50%)",
+            bottom: y,
+            transform: "translate(-50%, 50%)",
           }}
         >
-          <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
+          <ServiceBox title={"Company Setup"} icon={<Building size={20} />} />
         </motion.div>
 
         <motion.div
@@ -72,17 +83,6 @@ const ServicesSection = () => {
           }}
         >
           <ServiceBox title={"Visa Application"} icon={<Plane size={20} />} />
-        </motion.div>
-
-        <motion.div
-          className="absolute"
-          style={{
-            left: x,
-            bottom: y,
-            transform: "translate(-50%, 50%)",
-          }}
-        >
-          <ServiceBox title={"Company Setup"} icon={<Building size={20} />} />
         </motion.div>
 
         <motion.div
