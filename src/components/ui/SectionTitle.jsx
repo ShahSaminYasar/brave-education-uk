@@ -3,7 +3,14 @@ import { useEffect, useState } from "react";
 import BlurTextSectionTitle from "./BlurTextSectionTitle";
 import { motion } from "motion/react";
 
-const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
+const SectionTitle = ({
+  text,
+  subtext,
+  className,
+  style,
+  align = "left",
+  animate = true,
+}) => {
   const [title, setTitle] = useState([]);
 
   useEffect(() => {
@@ -53,37 +60,40 @@ const SectionTitle = ({ text, subtext, className, style, align = "left" }) => {
           ></span>
         </>
       )}
-      {/* <h2 className="">
-        {text}
-      </h2> */}
+
+      {animate ? (
+        <motion.h2
+          variants={containerVariant}
+          initial="hidden"
+          whileInView="visible"
+          className="text-5xl block font-montserrat font-semibold text-zinc-900"
+          viewport={{
+            amount: 0,
+            once: false,
+            margin: "0px 0px -20% 0px",
+          }}
+        >
+          {title?.map((letter, index) => (
+            <motion.span
+              key={`${letter}_${index}`}
+              variants={letterVariant}
+              className="inline-block"
+            >
+              {letter === " " ? <>&nbsp;</> : letter}
+            </motion.span>
+          ))}
+        </motion.h2>
+      ) : (
+        <h2 className="text-5xl block font-montserrat font-semibold text-zinc-900">
+          {text}
+        </h2>
+      )}
 
       {/* <BlurTextSectionTitle
         text={text}
         direction="bottom"
         className="text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
       /> */}
-
-      <motion.div
-        variants={containerVariant}
-        initial="hidden"
-        whileInView="visible"
-        className="text-5xl font-montserrat font-semibold text-zinc-900"
-        viewport={{
-          amount: 0,
-          once: false,
-          margin: "0px 0px -20% 0px",
-        }}
-      >
-        {title?.map((letter, index) => (
-          <motion.span
-            key={`${letter}_${index}`}
-            variants={letterVariant}
-            className="inline-block"
-          >
-            {letter === " " ? <>&nbsp;</> : letter}
-          </motion.span>
-        ))}
-      </motion.div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 const HeroSection = () => {
   return (
     <section className="section min-h-screen relative flex flex-col justify-center">
-      <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5">
+      <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5 pt-[35px]">
         <motion.h1
           initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}

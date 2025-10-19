@@ -3,6 +3,7 @@ import { GraduationCap, Headset, ShieldCheck, Users } from "lucide-react";
 import Perk from "./Perk";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "motion/react";
+import SectionTitle from "../ui/SectionTitle";
 
 const PerksSection = () => {
   // Refs
@@ -35,9 +36,11 @@ const PerksSection = () => {
   return (
     <div ref={containerRef} className="w-full min-h-[400vh] relative bg-white">
       <section className="section max-w-6xl mx-auto sticky top-0 w-full h-screen grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">
-        <h3 className="text-5xl font-semibold text-zinc-900 block text-left leading-[130%]">
-          Why you should choose us
-        </h3>
+        <SectionTitle
+          text={"Why you should choose us"}
+          align="left"
+          animate={false}
+        />
 
         <div className="flex flex-col gap-5 items-start">
           <motion.div style={{ opacity: opacity1 }}>

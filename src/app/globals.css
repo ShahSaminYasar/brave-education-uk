@@ -188,6 +188,14 @@ body {
   font-family: "Montserrat";
 }
 
+body.scroll-block {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  position: relative;
+}
+
 .section {
   padding: 80px 20px;
 }
@@ -233,4 +241,17 @@ body {
   display: block;
   text-align: left;
   margin-bottom: 4px;
+}
+
+.animation-marquee {
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

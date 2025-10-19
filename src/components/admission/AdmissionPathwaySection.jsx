@@ -5,18 +5,23 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ProcessBox from "./ProcessBox";
-import Aurora from "../ui/Aurora";
-import Particles from "../ui/Particles";
+// import Aurora from "../ui/Aurora";
+// import Particles from "../ui/Particles";
 import DotGrid from "../ui/DotGrid";
 
 const AdmissionPathwaySection = () => {
   const parentContainerRef = useRef(null);
-  const titleContainerRef = useRef(null);
+  // const titleContainerRef = useRef(null);
+  const processesContainerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: parentContainerRef,
+  });
+  const { scrollYProgress: processesScrollYProgress } = useScroll({
+    target: processesContainerRef,
+    offset: ["start start", "end 20%"],
   });
 
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
@@ -31,12 +36,37 @@ const AdmissionPathwaySection = () => {
     [1.1, 1.1, 1]
   );
 
+  const progressContainerScale = useTransform(
+    processesScrollYProgress,
+    [0, 0.85, 0.875],
+    [0.85, 0.85, 1]
+  );
+  const progressScaleX = useTransform(processesScrollYProgress, [0, 1], [0, 1]);
+  const progressBGColor = useTransform(
+    processesScrollYProgress,
+    [0, 0.65, 0.95],
+    ["#ffabfc", "#abfbff", "#abffbe"]
+  );
+
   const trackVariants = {
     trackHidden: { scaleY: 0 },
     trackVisible: {
       scaleY: 1,
     },
   };
+
+  const [sectionTitleVisible, setSectionTitleVisible] = useState(false);
+
+  useMotionValueEvent(processesScrollYProgress, "change", (current) => {
+    console.log(current);
+    const diff = current - processesScrollYProgress?.getPrevious();
+
+    if (current > 0.04 && diff > 0) {
+      setSectionTitleVisible(true);
+    } else {
+      setSectionTitleVisible(false);
+    }
+  });
 
   return (
     <div ref={parentContainerRef} className="w-full relative">
@@ -90,11 +120,44 @@ const AdmissionPathwaySection = () => {
       <div className="h-[130vh]"></div>
 
       <section
-        className="px-5 py-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px]"
+        ref={processesContainerRef}
+        className="px-5 pt-[150px] relative w-full flex flex-col items-center gap-0 bg-white bg-[linear-gradient(to_right,#aaaaaa2e_1px,transparent_1px),linear-gradient(to_bottom,#aaaaaa2e_1px,transparent_1px)] bg-[size:40px_40px]"
         style={{
           boxShadow: "0px -5px 20px 0px rgba(0,0,0,0.03)",
         }}
       >
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{
+            opacity: sectionTitleVisible ? 1 : 0,
+            y: sectionTitleVisible ? 0 : -20,
+          }}
+          transition={{ duration: 0.15, ease: "easeInOut" }}
+          className="sticky top-0 left-0 w-full p-5 z-40"
+        >
+          <motion.div
+            className={`w-full max-w-sm mx-auto rounded-[100px] shadow-sm border-x-2 border-slate-200 flex flex-col items-center justify-center pt-3 px-5 overflow-hidden`}
+            style={{
+              background: progressBGColor,
+              scale: progressContainerScale,
+            }}
+          >
+            <span className="text-xs font-semibold block text-center">
+              Admission Process
+            </span>
+
+            <div className="w-full bg-slate-700 border-t border-slate-300 h-[3px] rounded-md mt-3 scale-x-110">
+              <motion.span
+                className={`block w-full h-full origin-left`}
+                style={{
+                  scaleX: progressScaleX,
+                  background: progressBGColor,
+                }}
+              ></motion.span>
+            </div>
+          </motion.div>
+        </motion.div>
+
         <ProcessBox
           sl={"1"}
           title={"Initial Consultations"}
@@ -202,6 +265,8 @@ const AdmissionPathwaySection = () => {
             "Legal team will handle your visa application to take stress and confusion out of the process."
           }
         />
+
+        <div className="h-[150px]"></div>
       </section>
     </div>
   );
