@@ -7,7 +7,7 @@ const SectionTitle = ({
   text,
   subtext,
   className,
-  style,
+  style = {},
   align = "left",
   animate = true,
 }) => {
@@ -66,7 +66,10 @@ const SectionTitle = ({
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
-          className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900"
+          className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
+            className && className
+          }`}
+          style={style}
           viewport={{
             amount: 0,
             once: false,
@@ -84,7 +87,12 @@ const SectionTitle = ({
           ))}
         </motion.h2>
       ) : (
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900">
+        <h2
+          className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
+            className && className
+          }`}
+          style={style}
+        >
           {text}
         </h2>
       )}
@@ -92,7 +100,7 @@ const SectionTitle = ({
       {/* <BlurTextSectionTitle
         text={text}
         direction="bottom"
-        className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
+        className="text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
       /> */}
     </div>
   );

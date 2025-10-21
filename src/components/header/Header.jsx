@@ -10,27 +10,7 @@ import {
   useScroll,
 } from "motion/react";
 import { useState } from "react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
-import { NavigationMenuSub } from "@radix-ui/react-navigation-menu";
-import MobileMenuLink from "./MobileMenuLink";
 import FlowingMenu from "../ui/FlowingMenu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -152,20 +132,45 @@ const Header = () => {
 
           {/* Courses Dropdown */}
           <div className="relative group">
-            <span className={`${navLinkStyle} cursor-pointer leading-[40px]`}>
+            <Link
+              href={"/courses"}
+              className={`${navLinkStyle} cursor-pointer leading-[40px]`}
+            >
               Courses <ChevronDown size={16} />
-            </span>
+            </Link>
 
             <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+              <span className="text-xs font-bold text-slate-900 block w-full text-left p-2 pb-1 border-b-[1px] border-zinc-400">
+                Courses
+              </span>
+
+              <Link
+                href={"/courses"}
+                className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+              >
+                All Courses
+              </Link>
+
               {menuItemsCourses?.map((course, index) => (
                 <Link
                   href={course?.link}
                   key={`${index}_${course?.link}`}
-                  className={`border-b border-zinc-200 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-center font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                  className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
                 >
                   {course?.text}
                 </Link>
               ))}
+
+              <span className="text-xs font-bold text-slate-900 block w-full text-left p-2 pb-1 border-b-[1px] border-zinc-400">
+                Tests
+              </span>
+
+              <Link
+                href={"#"}
+                className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+              >
+                Trinity College Test
+              </Link>
             </div>
           </div>
 

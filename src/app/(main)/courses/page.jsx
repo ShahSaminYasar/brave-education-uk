@@ -1,0 +1,160 @@
+"use client";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import CourseBox from "@/components/courses/CourseBox";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { BookOpenCheck } from "lucide-react";
+
+const page = () => {
+  return (
+    <main>
+      <motion.section
+        initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+        animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+        transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+        className="pt-[140px] px-5 pb-20 flex flex-col-reverse justify-center items-center gap-8 md:grid md:grid-cols-2 md:gap-10 max-w-6xl mx-auto"
+      >
+        <div className="flex flex-col items-start gap-2">
+          <SectionTitle
+            text={"Brave English Centre"}
+            style={{
+              fontSize: "50px",
+              fontWeight: "800",
+            }}
+            animate={false}
+          />
+
+          <p className="para" style={{ fontWeight: 500 }}>
+            A language course is a structured program of study designed to teach
+            individuals a specific language.Language courses can cover various
+            aspects of language learning, including grammar, vocabulary,
+            pronunciation, cultural nuances, and practical
+          </p>
+        </div>
+
+        <div className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-fit">
+          <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden max-w-[520px] aspect-[10/7]">
+            <Swiper
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              className="w-full h-full [&_.swiper-slide]:flex [&_.swiper-slide]:items-center [&_.swiper-slide]:justify-center"
+            >
+              <SwiperSlide>
+                <Image
+                  src={"/assets/images/bd_office_desk.jpg"}
+                  width={600}
+                  height={400}
+                  alt="Brave Education"
+                  className="w-full h-full object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={"/assets/images/graduates_group_pic.jpg"}
+                  width={600}
+                  height={400}
+                  alt="Brave Education"
+                  className="w-full h-full object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={"/assets/images/uk_office.jpg"}
+                  width={600}
+                  height={400}
+                  alt="Brave Education"
+                  className="w-full h-full object-cover"
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
+      </motion.section>
+
+      <div className="bg-white w-full px-5 py-20">
+        <div className="w-full max-w-6xl mx-auto">
+          <section className="w-full flex flex-col items-center justify-center gap-6">
+            <SectionTitle
+              text={"Our Courses"}
+              subtext={"Education"}
+              align="center"
+            />
+
+            <CourseBox
+              name={"B1 Course"}
+              classNo={"21"}
+              mockNo={"2"}
+              duration={"1 hr 10 mins"}
+              fees={"£150"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/b1.jpg"}
+            />
+
+            <CourseBox
+              name={"A1 Course"}
+              classNo={"14"}
+              mockNo={"2"}
+              duration={"1 hr 10 mins"}
+              fees={"£150"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/b1.jpg"}
+              bgColor="#e02f33"
+              accentColor="#b50e12"
+            />
+
+            <CourseBox
+              name={"Life in the UK"}
+              classNo={"10"}
+              mockNo={"2"}
+              duration={"1 hr 10 mins"}
+              fees={"£150"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/b1.jpg"}
+              bgColor="#262626"
+              accentColor="#3b3b3b"
+            />
+          </section>
+
+          <span className="block w-full max-w-6xl mx-auto h-px bg-zinc-300 my-10"></span>
+
+          <section className="w-full flex flex-col items-center justify-center gap-6">
+            <div className="flex flex-row items-center justify-center gap-2">
+              <BookOpenCheck size={35} className="text-[#e02f33]" />
+              <SectionTitle
+                text={"Tests"}
+                align="center"
+                style={{
+                  color: "#e02f33",
+                  fontSize: "28px",
+                  fontWeight: "800",
+                }}
+              />
+            </div>
+
+            <Link
+              href={"#"}
+              target="_blank"
+              className="block w-full max-w-3xl mx-auto"
+            >
+              <Image
+                src={"/assets/images/courses/trinity_test.jpg"}
+                width={1000}
+                height={333}
+                alt="Trinity College SELT Test"
+                className="w-full rounded-2xl shadow-sm"
+              />
+            </Link>
+          </section>
+        </div>
+      </div>
+    </main>
+  );
+};
+export default page;
