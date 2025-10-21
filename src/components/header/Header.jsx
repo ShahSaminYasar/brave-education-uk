@@ -23,6 +23,14 @@ import {
 import { NavigationMenuSub } from "@radix-ui/react-navigation-menu";
 import MobileMenuLink from "./MobileMenuLink";
 import FlowingMenu from "../ui/FlowingMenu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -111,7 +119,7 @@ const Header = () => {
   ];
 
   const navLinkStyle =
-    "text-sm font-normal text-slate-500 flex items-center flex-row gap-2";
+    "text-sm font-medium font-montserrat text-slate-600 hover:text-primary flex items-center flex-row gap-2";
 
   return (
     <motion.header
@@ -132,82 +140,58 @@ const Header = () => {
           />
         </Link>
 
-        {/* <nav className="flex flex-row items-center justify-center gap-8">
-          <Link href={"/about"} className={navLinkStyle}>
-            About
+        <div className="hidden lg:flex items-center gap-6">
+          {/* Regular Links */}
+          <Link href="/about" className={navLinkStyle}>
+            About Us
           </Link>
-          <Link href={"/services"} className={navLinkStyle}>
+
+          <Link href="/services" className={navLinkStyle}>
             Services
           </Link>
-          <Link href={"/courses"} className={navLinkStyle}>
-            Courses <ChevronDown size={18} />
-          </Link>
-          <Link href={"/contact"} className={navLinkStyle}>
-            Contact
-          </Link>
-          <Link href={"/contact"} className={navLinkStyle}>
-            More <ChevronDown size={18} />
-          </Link>
-        </nav> */}
 
-        <NavigationMenu className={"hidden lg:flex"}>
-          <NavigationMenuLink href={"/about"} className={navLinkStyle}>
-            About
-          </NavigationMenuLink>
+          {/* Courses Dropdown */}
+          <div className="relative group">
+            <span className={`${navLinkStyle} cursor-pointer leading-[40px]`}>
+              Courses <ChevronDown size={16} />
+            </span>
 
-          <NavigationMenuLink href={"/services"} className={navLinkStyle}>
-            Services
-          </NavigationMenuLink>
-
-          <NavigationMenuLink href={"/courses"} className={navLinkStyle}>
-            Courses
-          </NavigationMenuLink>
-
-          {/* <NavigationMenuItem>
-            <NavigationMenuTrigger>Courses</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink
-                href={"/courses#life-in-the-uk"}
-                className={navLinkStyle}
-              >
-                Life in the UK
-              </NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem> */}
-
-          <NavigationMenuLink href={"/contact"} className={navLinkStyle}>
-            Contact
-          </NavigationMenuLink>
-
-          <NavigationMenuLink href={"/contact"} className={navLinkStyle}>
-            More <ChevronDown size={18} />
-          </NavigationMenuLink>
-
-          {/* <NavigationMenu.Item>
-            <NavigationMenu.Trigger />
-            <NavigationMenu.Content>
-              <NavigationMenu.Sub>
-                <NavigationMenu.List />
-                <NavigationMenu.Viewport />
-              </NavigationMenu.Sub>
-            </NavigationMenu.Content>
-          </NavigationMenu.Item> */}
-
-          {/* <NavigationMenuItem>
-            <NavigationMenuTrigger>More</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuSub>
-                <NavigationMenuLink
-                  href={"/courses#life-in-the-uk"}
-                  className={navLinkStyle}
+            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+              {menuItemsCourses?.map((course, index) => (
+                <Link
+                  href={course?.link}
+                  key={`${index}_${course?.link}`}
+                  className={`border-b border-zinc-200 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-center font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
                 >
-                  Life in the UK
-                </NavigationMenuLink>
-              </NavigationMenuSub>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList> */}
-        </NavigationMenu>
+                  {course?.text}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link href="/contact" className={navLinkStyle}>
+            Contact
+          </Link>
+
+          {/* More Dropdown */}
+          <div className="relative group">
+            <span className={`${navLinkStyle} cursor-pointer leading-[40px]`}>
+              More <ChevronDown size={16} />
+            </span>
+
+            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+              {menuItemsMore?.map((item, index) => (
+                <Link
+                  href={item?.link}
+                  key={`${index}_${item?.link}`}
+                  className={`border-b border-zinc-200 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-center font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                >
+                  {item?.text}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <div className="flex flex-row items-center gap-5">
           <Button>
