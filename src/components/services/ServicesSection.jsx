@@ -4,6 +4,7 @@ import ServiceBox from "./ServiceBox";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, scale } from "motion/react";
 import { Button } from "../ui/button";
+import SectionTitle from "../ui/SectionTitle";
 
 const ServicesSection = () => {
   // Refs
@@ -11,8 +12,8 @@ const ServicesSection = () => {
 
   const { scrollYProgress } = useScroll({ target: containerRef });
 
-  const x = useTransform(scrollYProgress, [0, 0.75, 1], ["50%", "20%", "16%"]);
-  const y = useTransform(scrollYProgress, [0, 0.75, 1], ["50%", "20%", "16%"]);
+  const x = useTransform(scrollYProgress, [0, 0.75, 1], ["33%", "20%", "16%"]);
+  const y = useTransform(scrollYProgress, [0, 0.75, 1], ["33%", "20%", "16%"]);
 
   const contentVariant = {
     hidden: { opacity: 0, scale: 0.85 },
@@ -21,28 +22,29 @@ const ServicesSection = () => {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.45, 0.75, 1],
+    [0, 0.08, 0.25, 1],
     [0, 0, 1, 1]
   );
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 0.8, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.19, 1], [0.82, 0.82, 1]);
 
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[500vh] w-full bg-white section"
+      className="relative min-h-[250vh] w-full bg-white section"
     >
       <section className="sticky top-0 w-full min-h-screen max-w-6xl mx-auto bg-white flex flex-col items-center justify-center">
+        {/* Droplet */}
+        <div className="droplet absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-10 w-full max-w-md"></div>
+
         <motion.div
-          className="flex flex-col items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-4 relative"
           style={{
             opacity,
             scale,
           }}
         >
-          <h2 className="text-5xl font-montserrat font-semibold block text-center">
-            Our Services
-          </h2>
-          <p className="w-full max-w-sm block text-center para">
+          <SectionTitle animate={false} text={"Our Services"} align="center" />
+          <p className="w-full max-w-sm block text-center para -mt-3 mb-1">
             We provide end-to-end support for students and professionals — from
             counselling and university admissions to visa assistance, English
             courses, and even company setup in the UK.

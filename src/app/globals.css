@@ -55,7 +55,8 @@
   --primary: oklch(0.637 0.237 25.331);
   --primary-foreground: oklch(0.971 0.013 17.38);
   --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
+  /* --secondary-foreground: oklch(0.21 0.006 285.885); */
+  --secondary-foreground: #221e52;
   --muted: #676767;
   --muted-foreground: oklch(0.552 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
@@ -210,7 +211,13 @@ body.scroll-block {
   font-size: 16px;
   font-family: "Montserrat";
   font-weight: 400;
-  color: #676767;
+  color: #999999;
+}
+
+@media screen and (max-width: 1450px) {
+  .para {
+    font-size: 14px;
+  }
 }
 
 .shine {
@@ -254,4 +261,73 @@ body.scroll-block {
   to {
     transform: translateX(-50%);
   }
+}
+
+/* Water droplet */
+.droplet {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(169, 234, 255, 0.5) 70%,
+    rgb(0, 162, 255)
+  );
+  box-shadow: inset -15px -15px 25px rgba(255, 255, 255, 0.7),
+    inset 10px 10px 25px rgba(0, 0, 0, 0.01), 0 20px 40px rgba(0, 0, 0, 0.01);
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Highlight reflection */
+.droplet::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9),
+    transparent 70%
+  );
+  filter: blur(2px);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(5px) scale(1.08);
+  }
+}
+
+.aboutSectionSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

@@ -1,4 +1,5 @@
-import AboutSection from "@/components/about/AboutSection";
+// import AboutSection from "@/components/about/AboutSection";
+import AboutSectionV2 from "@/components/about/AboutSectionV2";
 import AdmissionPathwaySection from "@/components/admission/AdmissionPathwaySection";
 import FeaturedSection from "@/components/featured/FeaturedSection";
 import Footer from "@/components/footer/Footer";
@@ -15,8 +16,10 @@ const page = () => {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ServicesSection />
+        <div className="relative h-fit w-full">
+          <AboutSectionV2 />
+          <ServicesSection />
+        </div>
         <AdmissionPathwaySection />
         <PerksSection />
         <FeaturedSection />

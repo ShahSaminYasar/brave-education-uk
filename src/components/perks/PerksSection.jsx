@@ -1,5 +1,11 @@
 "use client";
-import { GraduationCap, Headset, ShieldCheck, Users } from "lucide-react";
+import {
+  GraduationCap,
+  Headset,
+  Mouse,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import Perk from "./Perk";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "motion/react";
@@ -34,7 +40,7 @@ const PerksSection = () => {
   );
 
   return (
-    <div ref={containerRef} className="w-full min-h-[400vh] relative bg-white">
+    <div ref={containerRef} className="w-full min-h-[300vh] relative bg-white">
       <section className="section max-w-6xl mx-auto sticky top-0 w-full h-screen grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">
         <SectionTitle
           text={"Why you should choose us"}
@@ -71,6 +77,11 @@ const PerksSection = () => {
             />
           </motion.div>
         </div>
+
+        <Mouse
+          size={28}
+          className="text-zinc-300 absolute left-1/2 bottom-10 -translate-x-1/2 animate-bounce"
+        />
       </section>
     </div>
   );

@@ -10,6 +10,7 @@ import ProcessBox from "./ProcessBox";
 // import Aurora from "../ui/Aurora";
 // import Particles from "../ui/Particles";
 import DotGrid from "../ui/DotGrid";
+import { Mouse } from "lucide-react";
 
 const AdmissionPathwaySection = () => {
   const parentContainerRef = useRef(null);
@@ -115,6 +116,11 @@ const AdmissionPathwaySection = () => {
         >
           The Admission Pathway
         </motion.h2>
+
+        <Mouse
+          size={28}
+          className="text-zinc-300 absolute left-1/2 bottom-10 -translate-x-1/2 animate-bounce"
+        />
       </section>
 
       <div className="h-[130vh]"></div>
