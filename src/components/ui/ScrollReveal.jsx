@@ -16,6 +16,7 @@ const ScrollReveal = ({
   textClassName = "",
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom 80%",
+  style = {},
 }) => {
   const containerRef = useRef(null);
 
@@ -111,6 +112,7 @@ const ScrollReveal = ({
     <div ref={containerRef} className={`${containerClassName}`}>
       <p
         className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}
+        style={style}
       >
         {splitText}
       </p>

@@ -81,6 +81,7 @@ const CourseBox = ({
           <div className="flex flex-row items-center gap-3">
             <Link
               href={link}
+              target="_blank"
               className="w-fit px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
               // style={{ background: "#fffff" }}
             >
@@ -89,6 +90,7 @@ const CourseBox = ({
 
             <Link
               href={link}
+              target="_blank"
               className="w-fit px-8 py-2 text-sm font-bold text-white rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
               style={{ background: "#42ea60" }}
             >

@@ -95,6 +95,9 @@ const page = () => {
               fees={"£150"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in B1 course, please tell me the details."
+              )}`}
             />
 
             <CourseBox
@@ -107,6 +110,9 @@ const page = () => {
               image={"/assets/images/courses/b1.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in A1 course, please tell me the details."
+              )}`}
             />
 
             <CourseBox
@@ -119,6 +125,9 @@ const page = () => {
               image={"/assets/images/courses/b1.jpg"}
               bgColor="#262626"
               accentColor="#3b3b3b"
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in the course 'Life in the UK', please tell me the details."
+              )}`}
             />
           </section>
 
