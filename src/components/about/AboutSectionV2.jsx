@@ -46,10 +46,10 @@ const AboutSectionV2 = () => {
   return (
     <>
       {/* Video Section */}
-      <div ref={videoSectionRef} className="w-full min-h-[150vh] relative">
-        <section className="w-full min-h-screen flex items-center justify-center bg-white section sticky top-0">
+      <div ref={videoSectionRef} className="w-[100%] min-h-[150vh] relative">
+        <section className="w-full overflow-x-hidden min-h-screen flex items-center justify-center bg-white section sticky top-0">
           <motion.div
-            className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden mx-auto origin-center relative group"
+            className="w-full max-w-4xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden mx-auto origin-center relative group"
             style={{
               scale: scale,
               y: y,
@@ -85,15 +85,9 @@ const AboutSectionV2 = () => {
         </section>
       </div>
 
-      <div
-        className="bg-white w-full sticky top-0"
-        style={{
-          background:
-            "linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, #231e57 80%, #231e57 100%)",
-        }}
-      >
+      <div className="bg-white w-full sticky top-0 about-content-bg">
         <section className="w-full min-h-screen max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 section">
-          <div className="bg-white flex flex-col items-start justify-center gap-3">
+          <div className="bg-transparent md:bg-white p-5 pt-0 md:p-0 rounded-2xl flex flex-col items-start justify-center gap-3">
             <SectionTitle text={"Who Are We?"} align="left" />
 
             <ScrollReveal
@@ -128,7 +122,7 @@ const AboutSectionV2 = () => {
             </Button>
           </div>
 
-          <div className="md:ml-auto h-full bg-[#0b006b] rounded-2xl overflow-hidden border-[8px] border-white max-h-[500px] aspect-[9/12]">
+          <div className="md:ml-auto h-full bg-[#0b006b] rounded-2xl overflow-hidden border-[8px] border-white max-h-[500px] aspect-[12/9] md:aspect-[9/12] hidden md:block">
             <Swiper
               autoplay={{
                 delay: 2500,

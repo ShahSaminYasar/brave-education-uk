@@ -105,11 +105,11 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
-      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full p-5 ${
+      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full p-2 pt-3 md:p-5 md:pt-5 ${
         headerVisible ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
-      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-8 bg-slate-200/60 backdrop-blur-sm rounded-[80px] shadow-sm">
+      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 bg-slate-200/60 backdrop-blur-sm rounded-[80px] shadow-sm">
         <Link href="/">
           <Image
             src={"/logo.svg"}
@@ -198,9 +198,12 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center gap-5">
-          <Button>
+        <div className="flex flex-row items-center gap-3 md:gap-5">
+          <Button className={"hidden md:flex"}>
             Consult for free <ArrowUpRight />
+          </Button>
+          <Button className="flex md:hidden" size={"sm"}>
+            Consult free <ArrowUpRight />
           </Button>
 
           <button

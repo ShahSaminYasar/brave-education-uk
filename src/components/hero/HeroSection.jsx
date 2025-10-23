@@ -10,12 +10,13 @@ import { motion } from "motion/react";
 const HeroSection = () => {
   return (
     <section className="section min-h-screen relative flex flex-col justify-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-white/40 backdrop-blur-sm mix-blend-multiply block lg:hidden"></div>
       <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5 pt-[35px]">
         <motion.h1
           initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
+          className="text-[40px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
         >
           From Guidance to{" "}
           <span className="relative w-fit inline-block p-2">
@@ -50,7 +51,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="w-fit mx-auto py-1 pt-[2px] px-6 rounded-2xl shine shadow-xl"
+          className="w-fit mx-auto h-[25px] md:h-[30px] grid place-content-center px-4 md:px-6 rounded-2xl shine shadow-xl"
           style={{
             backgroundImage:
               "linear-gradient(120deg,rgba(242, 136, 136, 1) 0%, rgba(240, 34, 34, 1) 45%, rgba(240, 34, 34, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(242, 136, 136, 1) 100%)",
@@ -60,7 +61,7 @@ const HeroSection = () => {
         >
           <ShinyText
             text={"Certified by British Council"}
-            className="text-xs block text-center uppercase font-medium"
+            className="text-[10px] leading-[100%] sm:text-xs block text-center uppercase font-medium"
             disabled={false}
             speed={3}
           />
@@ -70,7 +71,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.75 }}
-          className="text-sm text-center block w-fit max-w-[480px] text-muted"
+          className="para text-center block w-fit max-w-[380px] md:max-w-[480px] text-muted"
         >
           For international and UK students, our licensed consultants provide
           end-to-end support from course selection and applications to visa

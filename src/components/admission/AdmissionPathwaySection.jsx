@@ -112,7 +112,7 @@ const AdmissionPathwaySection = () => {
             opacity: titleOpacity,
             scale: titleScale,
           }}
-          className="text-5xl font-semibold font-montserrat text-zinc-900 block text-center"
+          className="text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat text-center font-semibold text-zinc-900"
         >
           The Admission Pathway
         </motion.h2>

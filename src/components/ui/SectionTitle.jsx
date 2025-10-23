@@ -68,6 +68,12 @@ const SectionTitle = ({
           whileInView="visible"
           className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
             className && className
+          } ${
+            align == "left"
+              ? "text-left"
+              : align == "center"
+              ? "text-center"
+              : "text-right"
           }`}
           style={style}
           viewport={{
@@ -90,6 +96,12 @@ const SectionTitle = ({
         <h2
           className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
             className && className
+          } ${
+            align == "left"
+              ? "text-left"
+              : align == "center"
+              ? "text-center"
+              : "text-right"
           }`}
           style={style}
         >

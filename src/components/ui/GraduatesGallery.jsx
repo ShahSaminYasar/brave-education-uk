@@ -1150,7 +1150,7 @@ export default function GraduatesGallery({
           <div
             className="absolute inset-0 m-auto z-[3] pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, ${overlayBlurColor}) 100%)`,
+              backgroundImage: `radial-gradient(rgba(235, 235, 235, 0) 40%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 95%, var(--overlay-blur-color, ${overlayBlurColor}) 100%)`,
             }}
           />
 

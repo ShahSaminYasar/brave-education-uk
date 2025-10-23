@@ -33,8 +33,69 @@ const ServicesSection = () => {
       className="relative min-h-[250vh] w-full bg-white section"
     >
       <section className="sticky top-0 w-full min-h-screen max-w-6xl mx-auto bg-white flex flex-col items-center justify-center">
+        <div></div>
+
         {/* Droplet */}
-        <div className="droplet absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-10 w-full max-w-md"></div>
+        <div className="droplet absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-10 w-full max-w-[340px] md:max-w-md">
+          {/* Screens < md */}
+          <>
+            <motion.div
+              className="absolute block md:hidden"
+              style={{
+                left: "10px",
+                top: -50,
+              }}
+            >
+              <ServiceBox
+                id={0}
+                title={"University Admission"}
+                icon={<University size={20} />}
+              />
+            </motion.div>
+
+            <motion.div
+              className="absolute block md:hidden"
+              style={{
+                right: "10px",
+                top: -10,
+              }}
+            >
+              <ServiceBox
+                id={8.75}
+                title={"Visa Application"}
+                icon={<Plane size={20} />}
+              />
+            </motion.div>
+
+            <motion.div
+              className="absolute block md:hidden"
+              style={{
+                left: "10px",
+                bottom: -20,
+              }}
+            >
+              <ServiceBox
+                id={17.5}
+                title={"Company Setup"}
+                icon={<Building size={20} />}
+              />
+            </motion.div>
+
+            <motion.div
+              className="absolute block md:hidden"
+              style={{
+                right: "10px",
+                bottom: -60,
+              }}
+            >
+              <ServiceBox
+                id={26.25}
+                title={"English Courses"}
+                icon={<Book size={20} />}
+              />
+            </motion.div>
+          </>
+        </div>
 
         <motion.div
           className="flex flex-col items-center justify-center gap-4 relative"
@@ -44,7 +105,7 @@ const ServicesSection = () => {
           }}
         >
           <SectionTitle animate={false} text={"Our Services"} align="center" />
-          <p className="w-full max-w-sm block text-center para -mt-3 mb-1">
+          <p className="w-full max-w-[280px] md:max-w-sm block text-center para -mt-3 mb-1">
             We provide end-to-end support for students and professionals — from
             counselling and university admissions to visa assistance, English
             courses, and even company setup in the UK.
@@ -54,52 +115,55 @@ const ServicesSection = () => {
           </Button>
         </motion.div>
 
-        <motion.div
-          className="absolute"
-          style={{
-            left: x,
-            bottom: y,
-            transform: "translate(-50%, 50%)",
-          }}
-        >
-          <ServiceBox title={"Company Setup"} icon={<Building size={20} />} />
-        </motion.div>
+        {/* Screens >= md */}
+        <>
+          <motion.div
+            className="absolute hidden md:block"
+            style={{
+              left: x,
+              bottom: y,
+              transform: "translate(-50%, 50%)",
+            }}
+          >
+            <ServiceBox title={"Company Setup"} icon={<Building size={20} />} />
+          </motion.div>
 
-        <motion.div
-          className="absolute"
-          style={{
-            right: x,
-            top: y,
-            transform: "translate(50%, -50%)",
-          }}
-        >
-          <ServiceBox title={"Visa Application"} icon={<Plane size={20} />} />
-        </motion.div>
+          <motion.div
+            className="absolute hidden md:block"
+            style={{
+              right: x,
+              top: y,
+              transform: "translate(50%, -50%)",
+            }}
+          >
+            <ServiceBox title={"Visa Application"} icon={<Plane size={20} />} />
+          </motion.div>
 
-        <motion.div
-          className="absolute"
-          style={{
-            right: x,
-            bottom: y,
-            transform: "translate(50%, 50%)",
-          }}
-        >
-          <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
-        </motion.div>
+          <motion.div
+            className="absolute hidden md:block"
+            style={{
+              right: x,
+              bottom: y,
+              transform: "translate(50%, 50%)",
+            }}
+          >
+            <ServiceBox title={"English Courses"} icon={<Book size={20} />} />
+          </motion.div>
 
-        <motion.div
-          className="absolute"
-          style={{
-            left: x,
-            top: y,
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <ServiceBox
-            title={"University Admission"}
-            icon={<University size={20} />}
-          />
-        </motion.div>
+          <motion.div
+            className="absolute hidden md:block"
+            style={{
+              left: x,
+              top: y,
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <ServiceBox
+              title={"University Admission"}
+              icon={<University size={20} />}
+            />
+          </motion.div>
+        </>
       </section>
     </div>
   );

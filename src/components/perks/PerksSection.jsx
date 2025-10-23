@@ -41,12 +41,24 @@ const PerksSection = () => {
 
   return (
     <div ref={containerRef} className="w-full min-h-[300vh] relative bg-white">
-      <section className="section max-w-6xl mx-auto sticky top-0 w-full h-screen grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">
-        <SectionTitle
-          text={"Why you should choose us"}
-          align="left"
-          animate={false}
-        />
+      <section className="section max-w-6xl mx-auto sticky top-0 w-full h-screen flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 items-center justify-center">
+        <div className="w-full hidden md:flex">
+          <SectionTitle
+            subtext={"Perks"}
+            text={"Why you should choose us"}
+            align="left"
+            animate={false}
+          />
+        </div>
+
+        <div className="w-full flex md:hidden">
+          <SectionTitle
+            subtext={"Perks"}
+            text={"Why you should choose us"}
+            align="center"
+            animate={false}
+          />
+        </div>
 
         <div className="flex flex-col gap-5 items-start">
           <motion.div style={{ opacity: opacity1 }}>
