@@ -85,9 +85,9 @@ const AboutSectionV2 = () => {
         </section>
       </div>
 
-      <div className="bg-white w-full sticky top-0 about-content-bg">
+      <div className="bg-white w-full sticky top-0 md:about-content-bg">
         <section className="w-full min-h-screen max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 section">
-          <div className="bg-transparent md:bg-white p-5 pt-0 md:p-0 rounded-2xl flex flex-col items-start justify-center gap-3">
+          <div className="md:bg-white p-5 pt-0 md:p-0 rounded-2xl flex flex-col items-start justify-center gap-3">
             <SectionTitle text={"Who Are We?"} align="left" />
 
             <ScrollReveal

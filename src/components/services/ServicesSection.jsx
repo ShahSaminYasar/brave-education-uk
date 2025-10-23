@@ -25,7 +25,7 @@ const ServicesSection = () => {
     [0, 0.08, 0.25, 1],
     [0, 0, 1, 1]
   );
-  const scale = useTransform(scrollYProgress, [0, 0.19, 1], [0.82, 0.82, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.19, 1], [0.82, 0.82, 0.9]);
 
   return (
     <div
@@ -42,7 +42,7 @@ const ServicesSection = () => {
             <motion.div
               className="absolute block md:hidden"
               style={{
-                left: "10px",
+                left: "0px",
                 top: -50,
               }}
             >
@@ -56,7 +56,7 @@ const ServicesSection = () => {
             <motion.div
               className="absolute block md:hidden"
               style={{
-                right: "10px",
+                right: "0px",
                 top: -10,
               }}
             >
@@ -70,7 +70,7 @@ const ServicesSection = () => {
             <motion.div
               className="absolute block md:hidden"
               style={{
-                left: "10px",
+                left: "0px",
                 bottom: -20,
               }}
             >
@@ -84,7 +84,7 @@ const ServicesSection = () => {
             <motion.div
               className="absolute block md:hidden"
               style={{
-                right: "10px",
+                right: "0px",
                 bottom: -60,
               }}
             >

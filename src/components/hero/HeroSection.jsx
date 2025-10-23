@@ -10,13 +10,15 @@ import { motion } from "motion/react";
 const HeroSection = () => {
   return (
     <section className="section min-h-screen relative flex flex-col justify-center">
-      <div className="absolute top-0 left-0 w-full h-full bg-white/40 backdrop-blur-sm mix-blend-multiply block lg:hidden"></div>
+      {/* BG Layer */}
+      {/* <div className="absolute top-0 left-0 w-full h-full bg-white/40 backdrop-blur-sm mix-blend-multiply block lg:hidden"></div> */}
+
       <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5 pt-[35px]">
         <motion.h1
           initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-[40px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
+          className="text-[50px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
         >
           From Guidance to{" "}
           <span className="relative w-fit inline-block p-2">
@@ -100,7 +102,7 @@ const HeroSection = () => {
             "Best wishes for a successful and fulfilling journey. Best wishes for a successful and fulfilling journey."
           }
           date={"September 2025"}
-          className={"absolute top-[-6%] left-[-10%] -z-20"}
+          className={"absolute top-[-6%] left-[-10%] -z-20 hidden lg:block"}
           delay={0}
         />
 
@@ -111,7 +113,9 @@ const HeroSection = () => {
             "Thank you Brave Education for the awesome guidance. Will be ever grateful to you."
           }
           date={"January 2025"}
-          className={"absolute top-[50%] -translate-y-1/2 right-0 -z-20"}
+          className={
+            "absolute top-[50%] -translate-y-1/2 right-0 -z-20 hidden lg:block"
+          }
           delay={1.6}
         />
 
@@ -122,7 +126,9 @@ const HeroSection = () => {
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et temporibus quaerat saepe aut.."
           }
           date={"September 2025"}
-          className={"absolute bottom-[-170px] left-[16%] -z-20"}
+          className={
+            "absolute bottom-[-170px] left-[16%] -z-20 hidden lg:block"
+          }
           delay={3.2}
         />
       </motion.div>
