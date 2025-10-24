@@ -54,7 +54,7 @@ const Header = () => {
       image: "https://picsum.photos/600/400?random=3",
     },
     {
-      link: "#",
+      link: "/contact",
       text: "Contact",
       image: "https://picsum.photos/600/400?random=4",
     },
@@ -234,12 +234,16 @@ const Header = () => {
         </div>
 
         <div className="flex flex-row items-center gap-3 md:gap-5">
-          <Button className={"hidden md:flex"}>
-            Consult for free <ArrowUpRight />
-          </Button>
-          <Button className="flex md:hidden" size={"sm"}>
-            Consult free <ArrowUpRight />
-          </Button>
+          <Link href={"/appointment"}>
+            <Button className={"hidden md:flex"}>
+              Consult for free <ArrowUpRight />
+            </Button>
+          </Link>
+          <Link href={"/appointment"}>
+            <Button className="flex md:hidden" size={"sm"}>
+              Consult free <ArrowUpRight />
+            </Button>
+          </Link>
 
           <button
             onClick={() => {

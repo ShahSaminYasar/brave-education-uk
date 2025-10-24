@@ -16,7 +16,7 @@ const page = () => {
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
         transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-        className="pt-[140px] px-5 pb-20 flex flex-col-reverse justify-center items-center gap-8 md:grid md:grid-cols-2 md:gap-10 max-w-6xl mx-auto"
+        className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col-reverse justify-center items-center gap-8 md:grid md:grid-cols-2 md:gap-10 max-w-6xl mx-auto"
       >
         <div className="flex flex-col items-start gap-6">
           <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
@@ -33,8 +33,8 @@ const page = () => {
           </p>
         </div>
 
-        <div className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-fit">
-          <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden max-w-[520px] aspect-[10/7]">
+        <div className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-full max-w-md md:ml-auto">
+          <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden aspect-[10/7]">
             <Swiper
               autoplay={{
                 delay: 2500,
@@ -73,6 +73,21 @@ const page = () => {
             </Swiper>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </motion.section>
 
       <div className="bg-white w-full px-5 py-20">

@@ -52,8 +52,8 @@ const CourseBox = ({
             </h3>
           </div>
 
-          <div className="w-fit grid grid-cols-3 gap-5 items-start justify-start text-lg font-montserrat mb-1">
-            <div className="flex flex-col gap-3 col-span-1">
+          <div className="w-fit grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-5 items-start justify-start text-lg font-montserrat mb-1">
+            <div className="flex flex-col gap-3 lg:col-span-1">
               <span className="flex flex-row items-center gap-2 max-w-[150px]">
                 <ShieldCheck size={22} />
                 <span>{classNo} Classes</span>
@@ -65,7 +65,7 @@ const CourseBox = ({
               </span>
             </div>
 
-            <div className="flex flex-col gap-3 col-span-2">
+            <div className="flex flex-col gap-3 lg:col-span-2">
               <span className="flex flex-row items-center gap-2 max-w-[150px]">
                 <ShieldCheck size={22} />
                 <span>{mockNo} Mock Tests</span>

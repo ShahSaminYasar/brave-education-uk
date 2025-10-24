@@ -82,7 +82,7 @@ const page = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-2xl w-full aspect-video"
+            className="rounded-2xl w-full aspect-square md:aspect-video"
           ></iframe>
 
           <div className="space-y-2">
