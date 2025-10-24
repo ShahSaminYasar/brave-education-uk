@@ -85,7 +85,7 @@ const Header = () => {
     },
   ];
 
-  const menuItemsMore = [
+  const menuItemsServices = [
     {
       link: "/student-finance",
       text: "Student Finance",
@@ -95,6 +95,24 @@ const Header = () => {
       link: "/airport-pickup",
       text: "Airport Pickup",
       image: "https://picsum.photos/600/400?random=8",
+    },
+  ];
+
+  const menuItemsMore = [
+    {
+      link: "/check-eligibility",
+      text: "Check your Eligibility",
+      image: "https://picsum.photos/600/400?random=17",
+    },
+    {
+      link: "/appointment",
+      text: "Book Appointment",
+      image: "https://picsum.photos/600/400?random=14",
+    },
+    {
+      link: "/visa-application",
+      text: "Visa Application",
+      image: "https://picsum.photos/600/400?random=14",
     },
   ];
 
@@ -126,9 +144,26 @@ const Header = () => {
             About Us
           </Link>
 
-          <Link href="/services" className={navLinkStyle}>
-            Services
-          </Link>
+          <div className="relative group">
+            <Link
+              href={"/services"}
+              className={`${navLinkStyle} cursor-pointer leading-[40px]`}
+            >
+              Services <ChevronDown size={16} />
+            </Link>
+
+            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+              {menuItemsServices?.map((item, index) => (
+                <Link
+                  href={item?.link}
+                  key={`${index}_${item?.link}`}
+                  className={`border-b border-zinc-200 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-center font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                >
+                  {item?.text}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Courses Dropdown */}
           <div className="relative group">

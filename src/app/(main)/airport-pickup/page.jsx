@@ -285,7 +285,15 @@ const page = () => {
               </p>
             </div>
 
-            <div className="rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/20">
+            <div
+              className="rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/20"
+              style={{
+                background: "url(/bg-dark.png)",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
               <Image
                 src={"/assets/images/suv-airport.jpeg"}
                 width={1000}
@@ -294,7 +302,9 @@ const page = () => {
                 className="w-full h-full object-cover col-span-1"
               />
 
-              <div className="w-full px-3 py-20 col-span-2 flex justify-center min-h-[80vh] bg-secondary-foreground">
+              {/* <div className="flex flex-col items-end p-5"></div> */}
+
+              <div className="w-full px-3 py-20 col-span-2 flex justify-center min-h-[80vh]">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();

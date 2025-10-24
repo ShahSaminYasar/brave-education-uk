@@ -90,10 +90,25 @@ const PerksSection = () => {
           </motion.div>
         </div>
 
-        <Mouse
+        {/* <Mouse
           size={28}
           className="text-zinc-300 absolute left-1/2 bottom-10 -translate-x-1/2 animate-bounce"
-        />
+        /> */}
+
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </section>
     </div>
   );

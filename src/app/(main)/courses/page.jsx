@@ -18,17 +18,14 @@ const page = () => {
         transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
         className="pt-[140px] px-5 pb-20 flex flex-col-reverse justify-center items-center gap-8 md:grid md:grid-cols-2 md:gap-10 max-w-6xl mx-auto"
       >
-        <div className="flex flex-col items-start gap-2">
-          <SectionTitle
-            text={"Brave English Centre"}
-            style={{
-              fontSize: "50px",
-              fontWeight: "800",
-            }}
-            animate={false}
-          />
+        <div className="flex flex-col items-start gap-6">
+          <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat text-zinc-900 font-[800]">
+              Course We <span className="text-transparent">Offer</span>
+            </h2>
+          </div>
 
-          <p className="para" style={{ fontWeight: 500 }}>
+          <p className="para" style={{ fontWeight: 400 }}>
             A language course is a structured program of study designed to teach
             individuals a specific language.Language courses can cover various
             aspects of language learning, including grammar, vocabulary,

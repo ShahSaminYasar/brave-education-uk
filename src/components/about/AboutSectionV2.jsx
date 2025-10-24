@@ -70,17 +70,37 @@ const AboutSectionV2 = () => {
             />
 
             <div
-              className={`absolute top-0 left-0 w-full h-full flex items-center justify-center ${
-                playing ? "opacity-0 bg-black/10" : "opacity-100 bg-black/20"
-              } group-hover:opacity-100 duration-100`}
+              className={`absolute top-0 left-0 w-full h-full block md:hidden ${
+                playing ? "opacity-0" : "opacity-100"
+              } duration-100`}
+              style={{
+                background:
+                  "url(/assets/videos/about_section_video_thumbnail_portrait.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+              }}
+            ></div>
+
+            <div
+              className={`absolute top-0 left-0 w-full h-full hidden md:block ${
+                playing ? "opacity-0" : "opacity-100"
+              } duration-100`}
+              style={{
+                background:
+                  "url(/assets/videos/about_section_video_thumbnail.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+              }}
+            ></div>
+
+            <button
+              onClick={() => setPlaying((prev) => !prev)}
+              className={`text-white cursor-pointer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                playing ? "opacity-0" : "opacity-100"
+              } group-hover:opacity-100`}
             >
-              <button
-                onClick={() => setPlaying((prev) => !prev)}
-                className="text-white cursor-pointer"
-              >
-                {playing ? <Pause size={80} /> : <Play size={80} />}
-              </button>
-            </div>
+              {playing ? <Pause size={80} /> : <Play size={80} />}
+            </button>
           </motion.div>
         </section>
       </div>

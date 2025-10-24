@@ -135,6 +135,38 @@
   }
 }
 
+@font-face {
+  font-family: "Orlean";
+  src: url("/fonts/orlean-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Orlean";
+  src: url("/fonts/orlean-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Orlean";
+  src: url("/fonts/orlean-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Orlean";
+  src: url("/fonts/orlean-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* LENIS */
 html.lenis,
 html.lenis body {
@@ -201,6 +233,32 @@ body.scroll-block {
   padding: 80px 20px;
 }
 
+.fade {
+  animation: fade 0.3s linear;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.3s linear;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -209,8 +267,8 @@ body.scroll-block {
 
 .para {
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   color: #999999;
 }
 
@@ -222,7 +280,7 @@ body.scroll-block {
 
 @media screen and (max-width: 800px) {
   .para {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 

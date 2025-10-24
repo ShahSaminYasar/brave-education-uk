@@ -66,7 +66,7 @@ const SectionTitle = ({
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
-          className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
+          className={`text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat font-semibold text-zinc-900 ${
             className && className
           } ${
             align == "left"
@@ -94,7 +94,7 @@ const SectionTitle = ({
         </motion.h2>
       ) : (
         <h2
-          className={`text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat font-semibold text-zinc-900 ${
+          className={`text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat font-semibold text-zinc-900 ${
             className && className
           } ${
             align == "left"
@@ -112,7 +112,7 @@ const SectionTitle = ({
       {/* <BlurTextSectionTitle
         text={text}
         direction="bottom"
-        className="text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
+        className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl font-montserrat font-semibold bg-gradient-to-br from-slate-600 via-slate-900 to-slate-600 text-slate-800 bg-clip-text"
       /> */}
     </div>
   );

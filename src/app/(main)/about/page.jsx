@@ -1,11 +1,12 @@
 "use client";
-import AboutPageCounters from "@/components/AboutPageCounters";
-import AboutPageMissionVision from "@/components/AboutPageMissionVision";
+import AboutPageCounters from "@/components/about/AboutPageCounters";
+import AboutPageMissionVision from "@/components/about/AboutPageMissionVision";
 import Map from "@/components/Map";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { Pause, Play } from "lucide-react";
 import {
+  AnimatePresence,
   motion,
   useMotionValueEvent,
   useScroll,
@@ -20,6 +21,8 @@ const page = () => {
 
   // States
   const [playing, setPlaying] = useState(false);
+  const [videoSectionOverlayVisible, setVideoSectionOverlayVisible] =
+    useState(false);
 
   const { scrollYProgress } = useScroll({
     target: videoSectionRef,
@@ -29,6 +32,13 @@ const page = () => {
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest < 0.12 || latest > 0.85) {
       setPlaying(false);
+    }
+    if (latest > 0.85) {
+      setVideoSectionOverlayVisible(true);
+    } else {
+      if (videoSectionOverlayVisible) {
+        setVideoSectionOverlayVisible(false);
+      }
     }
   });
 
@@ -45,7 +55,7 @@ const page = () => {
     <main
       style={{
         background:
-          "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%), url(/page_bg.jpg)",
+          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/bg-1.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -56,27 +66,92 @@ const page = () => {
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
         transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-        className="py-[100px] px-5 flex items-center justify-center min-h-[100vh]"
+        className="py-[100px] w-full max-w-6xl mx-auto px-5 flex flex-col gap-3 items-center justify-center min-h-[100vh]"
       >
-        <SectionTitle
-          text={"ABOUT US"}
-          style={{
-            fontSize: "70px",
-            fontWeight: "800",
-            color: "#fff",
-          }}
-          align="center"
-          animate={false}
-        />
+        <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
+          <SectionTitle
+            subtext={"About"}
+            text={"Brave Education"}
+            align="center"
+            style={{
+              fontSize: "50px",
+              fontWeight: "800",
+              color: "transparent",
+            }}
+            animate={false}
+          />
+        </div>
+
+        <p className="para block text-center w-full max-w-md mx-auto">
+          Redefining learning for a brave new world. Where curiosity meets
+          courage, and education becomes an adventure.
+        </p>
+
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </motion.section>
 
       <div className="relative min-h-[250vh]">
+        {/* Content Section */}
+        <div className="bg-white h-screen w-full sticky top-0 flex items-center justify-center px-5 py-20">
+          <div className="w-full max-w-6xl mx-auto hidden lg:block">
+            <ScrollReveal
+              baseRotation={0}
+              style={{ fontSize: "30px", fontWeight: "400" }}
+            >
+              Brave Education UK Limited, founded in 2021 and based in London
+              and Sylhet, is a British Council–certified global agency
+              specializing in recruiting students for top universities
+              worldwide. With a strong record of successful enrollments and
+              satisfied students, we offer tailored support across fields like
+              Medicine, Business, IT, Law, and Engineering.
+            </ScrollReveal>
+          </div>
+          <div className="w-full max-w-6xl mx-auto block lg:hidden">
+            <ScrollReveal
+              baseRotation={0}
+              style={{ fontSize: "22", fontWeight: "400" }}
+            >
+              Brave Education UK Limited, founded in 2021 and based in London
+              and Sylhet, is a British Council–certified global agency
+              specializing in recruiting students for top universities
+              worldwide. With a strong record of successful enrollments and
+              satisfied students, we offer tailored support across fields like
+              Medicine, Business, IT, Law, and Engineering.
+            </ScrollReveal>
+          </div>
+        </div>
+
         {/* Video Section */}
         <div
           ref={videoSectionRef}
-          className="w-[100%] min-h-[150vh] relative bg-[#000]"
+          className="w-[100%] min-h-[150vh] relative bg-cyan-50"
         >
-          <section className="w-full overflow-x-hidden min-h-screen flex items-center justify-center section sticky top-0">
+          <section className="w-full overflow-hidden min-h-screen flex items-center justify-center section sticky top-0">
+            <AnimatePresence>
+              {videoSectionOverlayVisible && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent  to-[#08093f] z-10"
+                ></motion.div>
+              )}
+            </AnimatePresence>
+
             <motion.div
               className="w-full max-w-4xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden mx-auto origin-center relative group"
               style={{
@@ -99,38 +174,39 @@ const page = () => {
               />
 
               <div
-                className={`absolute top-0 left-0 w-full h-full flex items-center justify-center ${
+                className={`absolute top-0 left-0 w-full h-full block md:hidden ${
+                  playing ? "opacity-0" : "opacity-100"
+                } duration-100`}
+                style={{
+                  background:
+                    "url(/assets/videos/about_section_video_thumbnail_portrait.jpg)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                }}
+              ></div>
+
+              <div
+                className={`absolute top-0 left-0 w-full h-full hidden md:block ${
                   playing ? "opacity-0" : "opacity-100"
                 } duration-100`}
                 style={{
                   background:
                     "url(/assets/videos/about_section_video_thumbnail.jpg)",
                   backgroundSize: "cover",
+                  backgroundPosition: "center center",
                 }}
+              ></div>
+
+              <button
+                onClick={() => setPlaying((prev) => !prev)}
+                className={`text-white cursor-pointer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                  playing ? "opacity-0" : "opacity-100"
+                } group-hover:opacity-100`}
               >
-                <button
-                  onClick={() => setPlaying((prev) => !prev)}
-                  className="text-white cursor-pointer"
-                >
-                  {playing ? <Pause size={80} /> : <Play size={80} />}
-                </button>
-              </div>
+                {playing ? <Pause size={80} /> : <Play size={80} />}
+              </button>
             </motion.div>
           </section>
-        </div>
-
-        {/* Content Section */}
-        <div className="bg-white h-screen w-full sticky top-0 flex items-center justify-center px-5 py-20">
-          <div className="w-full max-w-6xl mx-auto">
-            <ScrollReveal baseRotation={0} style={{ fontSize: "30px" }}>
-              Brave Education UK Limited, founded in 2021 and based in London
-              and Sylhet, is a British Council–certified global agency
-              specializing in recruiting students for top universities
-              worldwide. With a strong record of successful enrollments and
-              satisfied students, we offer tailored support across fields like
-              Medicine, Business, IT, Law, and Engineering.
-            </ScrollReveal>
-          </div>
         </div>
       </div>
 

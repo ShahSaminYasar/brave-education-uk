@@ -11,7 +11,7 @@ const page = () => {
     <main
       style={{
         background:
-          "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 1) 100%), url(/page_bg.jpg)",
+          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/bg-1.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -22,34 +22,49 @@ const page = () => {
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
         transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-        className="py-[100px] px-5 flex items-center justify-center min-h-[100vh]"
+        className="py-[100px] px-5 flex flex-col gap-3 items-center justify-center min-h-[100vh]"
       >
-        <SectionTitle
-          text={"Our Services"}
-          style={{
-            fontSize: "70px",
-            fontWeight: "800",
-            color: "#fff",
-          }}
-          align="center"
-          animate={false}
-        />
+        <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat text-zinc-900 font-[800]">
+            <span className="text-transparent">Our Services</span>
+          </h2>
+        </div>
+
+        <p className="para block text-center w-full max-w-md mx-auto">
+          Transforming education into an experience. Where curiosity meets
+          clarity, and every step brings students closer to their dreams.
+        </p>
+
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
       </motion.section>
 
-      <div className="w-full section bg-sky-50">
+      <div className="w-full section bg-white">
         <section className="flex flex-row justify-center gap-8 flex-wrap px-4 py-12">
           {/* Card 1 */}
-          <div className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full border border-gray-100">
+          <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
             {/* Icon Container */}
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
               <Pen size={32} className="text-indigo-600" />
             </div>
 
             {/* Content */}
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-indigo-700 transition-colors duration-300">
+            <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-indigo-700 transition-colors duration-300">
               Proper Information
             </h4>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="para">
               Access precise and reliable details on procedures for studying
               abroad to enhance your decision-making process.
             </p>
@@ -58,15 +73,15 @@ const page = () => {
             <div className="w-0 group-hover:w-12 h-1 bg-indigo-600 rounded-full mt-6 transition-all duration-300"></div>
           </div>
 
-          <div className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full border border-gray-100">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
+            <div className="w-14 h-14 bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
               <Pen size={32} className="text-emerald-600" />
             </div>
 
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors duration-300">
+            <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
               ADVICE & CONSULTANCY
             </h4>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="para">
               Ease your path through higher education with professional guidance
               and well-informed consultancy services.
             </p>
@@ -74,31 +89,31 @@ const page = () => {
             <div className="w-0 group-hover:w-12 h-1 bg-emerald-600 rounded-full mt-6 transition-all duration-300"></div>
           </div>
 
-          <div className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full border border-gray-100">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-50 to-red-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Pen size={32} className="text-red-600" />
+          <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
+            <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-red-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+              <Pen size={32} className="text-primary" />
             </div>
 
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors duration-300">
+            <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-red-700 transition-colors duration-300">
               COURSES & UNIVERSITY GUIDELINES
             </h4>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="para">
               Select a course and university that match your long-term academic
               and career objectives.
             </p>
 
-            <div className="w-0 group-hover:w-12 h-1 bg-red-600 rounded-full mt-6 transition-all duration-300"></div>
+            <div className="w-0 group-hover:w-12 h-1 bg-primary rounded-full mt-6 transition-all duration-300"></div>
           </div>
 
-          <div className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full border border-gray-100">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-50 to-yellow-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
+            <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-yellow-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
               <Pen size={32} className="text-yellow-600" />
             </div>
 
-            <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-yellow-700 transition-colors duration-300">
+            <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-yellow-700 transition-colors duration-300">
               EDUCATION TIPS AND TRICKS
             </h4>
-            <p className="text-gray-600 leading-relaxed text-lg">
+            <p className="para">
               Acquire specialized tips and techniques for excelling in both pre
               and post-admission proficiency tests
             </p>
@@ -148,19 +163,28 @@ const page = () => {
         </section>
       </div>
 
-      <div className="w-full py-20 bg-gradient-to-br from-slate-50 to-blue-50 section">
+      <div className="w-full py-20 bg-slate-50 section">
         <section className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left Column - WE ASSIST */}
             <div className="group">
               <div className="mb-8">
-                <SectionTitle text={"We Assist"} align="left" />
-                <div className="w-14 h-1 bg-red-600 rounded-full"></div>
+                <motion.h4
+                  initial={{ opacity: 0, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{
+                    margin: "50px 0px -10% 0px",
+                  }}
+                  className="text-2xl lg:text-3xl font-semibold text-zinc-900 block text-left"
+                >
+                  We <span className="text-primary">Assist</span>
+                </motion.h4>
+                <div className="w-10 h-1 mt-3 bg-primary rounded-full"></div>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 bg-transparent p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item">
-                  <div className="w-2 h-2 bg-red-600 rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+              <div className="space-y-2 bg-white p-3 rounded-2xl border border-zinc-200">
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Applications
@@ -171,8 +195,8 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-transparent p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item">
-                  <div className="w-2 h-2 bg-red-600 rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Student Finance applications
@@ -183,8 +207,8 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-transparent p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item">
-                  <div className="w-2 h-2 bg-red-600 rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Scholarships
@@ -195,8 +219,8 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-transparent p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item">
-                  <div className="w-2 h-2 bg-red-600 rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Interviews
@@ -207,8 +231,8 @@ const page = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-transparent p-4 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 group/item">
-                  <div className="w-2 h-2 bg-red-600 rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       Student counselling
@@ -224,54 +248,69 @@ const page = () => {
             {/* Right Column - We Recruit */}
             <div className="group">
               <div className="mb-8">
-                <SectionTitle text={"We Recruit"} align="left" />
-                <div className="w-14 h-1 bg-secondary-foreground rounded-full"></div>
+                <motion.h4
+                  initial={{ opacity: 0, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{
+                    margin: "50px 0px -10% 0px",
+                  }}
+                  className="text-2xl lg:text-3xl font-semibold text-zinc-900 block text-left"
+                >
+                  We <span className="text-green-600">Recruit</span>
+                </motion.h4>
+                <div className="w-10 h-1 mt-3 bg-green-600 rounded-full"></div>
               </div>
 
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 group/item border border-gray-100">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">UK</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                <div className="grid grid-cols-5 gap-5 p-5 rounded-2xl shadow-none border border-zinc-200 bg-white w-full transition-all duration-100 hover:border-zinc-400">
+                  <div className="w-full h-full bg-gradient-to-br from-green-500 to-green-800 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-white font-bold text-lg">UK</span>
+                  </div>
+
+                  <div className="col-span-4 w-full flex flex-col items-start gap-1">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       UK students
                     </h3>
+
+                    <p className="para">
+                      Supporting domestic students in finding their ideal
+                      educational pathways
+                    </p>
                   </div>
-                  <p className="text-gray-600 pl-16">
-                    Supporting domestic students in finding their ideal
-                    educational pathways
-                  </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 group/item border border-gray-100">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">EU</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                <div className="grid grid-cols-5 gap-5 p-5 rounded-2xl shadow-none border border-zinc-200 bg-white w-full transition-all duration-100 hover:border-zinc-400">
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-800 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-white font-bold text-lg">EU</span>
+                  </div>
+
+                  <div className="col-span-4 w-full flex flex-col items-start gap-1">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       EU students
                     </h3>
+
+                    <p className="para">
+                      Assisting European students with international education
+                      opportunities
+                    </p>
                   </div>
-                  <p className="text-gray-600 pl-16">
-                    Assisting European students with international education
-                    opportunities
-                  </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 group/item border border-gray-100">
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">INT</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                <div className="grid grid-cols-5 gap-5 p-5 rounded-2xl shadow-none border border-zinc-200 bg-white w-full transition-all duration-100 hover:border-zinc-400">
+                  <div className="w-full h-full bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <span className="text-white font-bold text-lg">INT</span>
+                  </div>
+
+                  <div className="col-span-4 w-full flex flex-col items-start gap-1">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       International students
                     </h3>
+
+                    <p className="para">
+                      Global recruitment services for students worldwide seeking
+                      quality education
+                    </p>
                   </div>
-                  <p className="text-gray-600 pl-16">
-                    Global recruitment services for students worldwide seeking
-                    quality education
-                  </p>
                 </div>
               </div>
             </div>
@@ -295,7 +334,7 @@ const page = () => {
                   Select Your Study{" "}
                   <span className="text-primary">Destination</span>
                 </motion.h3>
-                <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-8"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-red-400 rounded-full mb-8"></div>
               </div>
 
               <div className="space-y-6">
@@ -383,7 +422,7 @@ const page = () => {
                 </span>
               </div>
 
-              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-green-400 rounded-2xl -rotate-6 shadow-lg flex items-center justify-center">
+              <div className="absolute -bottom-6 -left-6 w-14 h-14 bg-green-400 rounded-2xl -rotate-6 shadow-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xs text-center">
                   Global Reach
                 </span>
@@ -422,7 +461,7 @@ const page = () => {
       </div>
 
       <div className="px-5 flex items-center justify-center bg-white">
-        <Link href={"#"}>
+        <Link href={"/check-eligibility"}>
           <Button>
             Check your eligibility <ArrowUpRight size={18} />
           </Button>
