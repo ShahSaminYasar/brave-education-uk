@@ -8,6 +8,8 @@ import Header from "@/components/header/Header";
 import HeroSection from "@/components/hero/HeroSection";
 import PerksSection from "@/components/perks/PerksSection";
 import ServicesSection from "@/components/services/ServicesSection";
+// import Sketch from "@/components/sketch/Sketch";
+import SketchSection from "@/components/sketch/SketchSection";
 import Image from "next/image";
 
 const page = () => {
@@ -16,14 +18,23 @@ const page = () => {
       <Header />
       <main>
         <HeroSection />
-        <div className="relative h-fit w-full">
+        <div
+          className="relative h-fit w-full"
+          style={{
+            background: "url(/white-bg-2.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <AboutSectionV2 />
           <ServicesSection />
         </div>
         <AdmissionPathwaySection />
         <PerksSection />
-        <FeaturedSection />
+        {/* <FeaturedSection /> */}
         <GallerySection />
+        <SketchSection />
       </main>
       <Footer />
 

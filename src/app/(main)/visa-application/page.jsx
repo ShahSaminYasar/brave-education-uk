@@ -15,7 +15,7 @@ const page = () => {
   return (
     <div className="px-5 pb-0 pt-28 bg-[#fff]">
       <section
-        className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden p-6 flex flex-col-reverse gap-10 shadow-xl fade-up"
+        className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden p-0 md:p-6 flex flex-col-reverse gap-5 md:gap-10 shadow-xl fade-up"
         style={{
           background: "url(/bg-dark.png)",
           backgroundSize: "cover",
@@ -24,7 +24,7 @@ const page = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="w-full grid grid-cols-3 gap-4 justify-center items-center bg-white/10 backdrop-blur-[5px] rounded-2xl p-6 text-sm text-white">
+        <div className="w-full grid grid-cols-3 gap-4 justify-center items-center bg-white/10 rounded-2xl p-6 text-sm text-white">
           <div>
             <span className="font-semibold block">Phone Number</span>
             <Link href={"tel:+4408009991257"}>0800 999 1257</Link>
@@ -69,7 +69,7 @@ const page = () => {
           </div>
         </div>
 
-        <div className="w-full col-span-3 space-y-4 bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+        <div className="w-full col-span-3 space-y-4 bg-white/10 rounded-2xl p-8">
           <div className="bg-gradient-to-br from-white/100 to-white/5 bg-clip-text space-y-4 mb-7">
             {/* Badge */}
             <div className="bg-gradient-to-br from-white/5 via-white/20 border border-white/30 to-white/5 rounded-2xl p-px w-fit">
@@ -445,7 +445,7 @@ const page = () => {
             </div>
 
             {/* reCAPTCHA Placeholder */}
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <div className="flex items-center gap-2 mb-2">
                 <input type="checkbox" id="robot-check" className="w-4 h-4" />
                 <label
@@ -465,7 +465,7 @@ const page = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <Button
               className={"w-full border border-zinc-600 mt-4"}

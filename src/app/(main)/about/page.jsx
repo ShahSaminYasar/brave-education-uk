@@ -137,7 +137,13 @@ const page = () => {
         {/* Video Section */}
         <div
           ref={videoSectionRef}
-          className="w-[100%] min-h-[150vh] relative bg-cyan-50"
+          className="w-[100%] min-h-[150vh] relative"
+          style={{
+            background: "url(/white-bg-2.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
         >
           <section className="w-full overflow-hidden min-h-screen flex items-center justify-center section sticky top-0">
             <AnimatePresence>

@@ -1,5 +1,12 @@
 "use client";
-import { ArrowUpRight, Book, Building, Plane, University } from "lucide-react";
+import {
+  ArrowUpRight,
+  Book,
+  Building,
+  HandFist,
+  Plane,
+  University,
+} from "lucide-react";
 import ServiceBox from "./ServiceBox";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, scale } from "motion/react";
@@ -28,13 +35,17 @@ const ServicesSection = () => {
   const scale = useTransform(scrollYProgress, [0, 0.19, 1], [0.82, 0.82, 0.9]);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative min-h-[250vh] w-full bg-white section"
-    >
-      <section className="sticky top-0 w-full min-h-screen max-w-6xl mx-auto bg-white flex flex-col items-center justify-center">
-        <div></div>
-
+    <div ref={containerRef} className="relative min-h-[250vh] w-full section">
+      <div
+        className="absolute top-0 left-0 w-full h-full z-0"
+        style={{
+          background: "url(/white-bg-3.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+      <section className="sticky top-0 z-10 w-full min-h-screen max-w-6xl mx-auto bg-transparent flex flex-col items-center justify-center">
         {/* Droplet */}
         <div className="droplet absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-10 w-full max-w-[340px] md:max-w-md">
           {/* Screens < md */}
@@ -62,7 +73,7 @@ const ServicesSection = () => {
             >
               <ServiceBox
                 id={8.75}
-                title={"Visa Application"}
+                title={"Brave Law"}
                 icon={<Plane size={20} />}
               />
             </motion.div>
@@ -76,8 +87,8 @@ const ServicesSection = () => {
             >
               <ServiceBox
                 id={17.5}
-                title={"Company Setup"}
-                icon={<Building size={20} />}
+                title={"Brave HR"}
+                icon={<HandFist size={20} />}
               />
             </motion.div>
 
@@ -125,7 +136,7 @@ const ServicesSection = () => {
               transform: "translate(-50%, 50%)",
             }}
           >
-            <ServiceBox title={"Company Setup"} icon={<Building size={20} />} />
+            <ServiceBox title={"Brave HR"} icon={<HandFist size={20} />} />
           </motion.div>
 
           <motion.div
@@ -136,7 +147,7 @@ const ServicesSection = () => {
               transform: "translate(50%, -50%)",
             }}
           >
-            <ServiceBox title={"Visa Application"} icon={<Plane size={20} />} />
+            <ServiceBox title={"Brave Law"} icon={<Plane size={20} />} />
           </motion.div>
 
           <motion.div
