@@ -12,7 +12,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 
 const page = () => {

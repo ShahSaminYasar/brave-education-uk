@@ -45,25 +45,7 @@ const page = () => {
             >
               <SwiperSlide>
                 <Image
-                  src={"/assets/images/bd_office_desk.jpg"}
-                  width={600}
-                  height={400}
-                  alt="Brave Education"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  src={"/assets/images/uk_classroom_2.jpg"}
-                  width={600}
-                  height={400}
-                  alt="Brave Education"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Image
-                  src={"/assets/images/uk_office.jpg"}
+                  src={"/assets/images/uk_classroom_filled.jpg"}
                   width={600}
                   height={400}
                   alt="Brave Education"
@@ -100,27 +82,14 @@ const page = () => {
             />
 
             <CourseBox
-              name={"B1 English Course (GESE Grade 5)"}
-              classNo={"14"}
-              mockNo={"02"}
-              duration={"1 hr 10 mins"}
-              fees={"£240"}
-              mode={"Online/Offline"}
-              image={"/assets/images/courses/b1.jpg"}
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
-                "I am interested in B1 English Course (GESE Grade 5), please tell me the details."
-              )}`}
-            />
-
-            <CourseBox
               name={"B1 English Test (ISE I)"}
               classNo={"21"}
               mockNo={"02"}
               duration={"1 hr 10 mins"}
               fees={"£380"}
               mode={"In person"}
-              image={"/assets/images/courses/b1.jpg"}
-              bgColor="#e02f33"
+              image={"/assets/images/courses/ise_b1.jpg"}
+              bgColor="#231f52"
               accentColor="#b50e12"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B1 English Test (ISE I), please tell me the details."
@@ -134,11 +103,24 @@ const page = () => {
               duration={"1 hr 10 mins"}
               fees={"£380"}
               mode={"In person"}
-              image={"/assets/images/courses/b1.jpg"}
-              bgColor="#231f52"
+              image={"/assets/images/courses/ise_b2.jpg"}
+              bgColor="#e02f33"
               accentColor="#b50e12"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B2 English Test (ISE II), please tell me the details."
+              )}`}
+            />
+
+            <CourseBox
+              name={"B1 English Course (GESE Grade 5)"}
+              classNo={"14"}
+              mockNo={"02"}
+              duration={"1 hr 10 mins"}
+              fees={"£240"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/b1.jpg"}
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in B1 English Course (GESE Grade 5), please tell me the details."
               )}`}
             />
 
@@ -149,7 +131,7 @@ const page = () => {
               duration={"1 hr 10 mins"}
               fees={"£240"}
               mode={"Online/Offline"}
-              image={"/assets/images/courses/b1.jpg"}
+              image={"/assets/images/courses/a1.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
@@ -164,7 +146,7 @@ const page = () => {
               duration={"1 hr 10 mins"}
               fees={"£240"}
               mode={"Online/Offline"}
-              image={"/assets/images/courses/b1.jpg"}
+              image={"/assets/images/courses/a2.jpg"}
               bgColor="#231f52"
               accentColor="#b50e12"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
@@ -179,7 +161,7 @@ const page = () => {
               duration={"1 hr 10 mins"}
               fees={"£150"}
               mode={"Online/Offline"}
-              image={"/assets/images/courses/b1.jpg"}
+              image={"/assets/images/courses/life-in-the-uk.jpg"}
               bgColor="#262626"
               accentColor="#3b3b3b"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(

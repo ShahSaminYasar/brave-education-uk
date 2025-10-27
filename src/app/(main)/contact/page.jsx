@@ -23,16 +23,14 @@ const page = () => {
 
   const branches = [
     {
-      image:
-        "https://cdn.britannica.com/89/187589-050-E8D5A657/Workers-Big-Ben-London.jpg",
+      image: "/assets/images/london.jpg",
       name: "London, UK",
       address: "129 Whitechapel road, E1 1DT (Opposite to East London Mosque)",
       mapLink: "https://maps.app.goo.gl/5eXR1csBfzyFFnn46",
       phone: "0800 999 1257",
     },
     {
-      image:
-        "https://cdn.daily-sun.com/public/archive/images/print-edition/2018/september/11-09-2018/daily-sun-2018-09-11-22.jpg",
+      image: "/assets/images/sylhet.jpg",
       name: "Sylhet, Bangladesh",
       address:
         "House No. 05,1st floor, Block-C, Main Road, Shahjalal Upashahar Sylhet",

@@ -28,8 +28,37 @@ const germania = Germania_One({
 import { ReactLenis } from "@/utils/Lenis";
 
 export const metadata = {
-  title: "Brave Education UK",
-  description: "From guidance to graduation",
+  title: {
+    template: "%s | Brave Education UK",
+    default: "Brave Education UK",
+  },
+  description: "From guidance to graduation, we help you achieve your goal.",
+  icons: "/favicon.jpg",
+  keywords: [],
+  robots: "index, follow",
+  authors: [{ name: "Brave Education" }],
+  metadataBase: new URL("https://www.braveeducationuk.com"),
+  openGraph: {
+    title: "Brave Education UK",
+    description: "From guidance to graduation, we help you achieve your goal.",
+    url: "https://www.braveeducationuk.com",
+    siteName: "Brave Education UK",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1280,
+        height: 630,
+        alt: "Brave Education UK",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brave Education UK",
+    description: "From guidance to graduation, we help you achieve your goal.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {

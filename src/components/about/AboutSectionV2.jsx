@@ -153,7 +153,7 @@ const AboutSectionV2 = () => {
             >
               <SwiperSlide>
                 <Image
-                  src={"/assets/images/bd_office_desk.jpg"}
+                  src={"/assets/images/uk_consultation.jpg"}
                   width={600}
                   height={400}
                   alt="Brave Education"
@@ -162,7 +162,7 @@ const AboutSectionV2 = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/assets/images/graduates_group_pic.jpg"}
+                  src={"/assets/images/uk_classroom_2.jpg"}
                   width={600}
                   height={400}
                   alt="Brave Education"

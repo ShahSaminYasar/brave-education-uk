@@ -22,7 +22,7 @@ const WhatsAppLink = () => {
         className="w-fit text-nowrap flex flex-row items-center justify-center gap-0 rounded-[80px] p-2 bg-[#42ea60] text-slate-800"
       >
         <span className="text-sm block text-center px-3 font-medium">
-          +44 7476 2004 0881
+          +44 786 204 2900
         </span>
         <span className="bg-white w-fit aspect-square rounded-full block p-[8px]">
           <Image

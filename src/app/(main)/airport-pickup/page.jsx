@@ -295,7 +295,7 @@ const page = () => {
               }}
             >
               <Image
-                src={"/assets/images/suv-airport.jpeg"}
+                src={"/assets/images/suv-airport.jpg"}
                 width={1000}
                 height={1000}
                 alt="SUV in Airport"

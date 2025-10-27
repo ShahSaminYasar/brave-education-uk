@@ -76,16 +76,6 @@ const Header = () => {
       text: "Life in the UK Preparation",
       image: "https://picsum.photos/600/400?random=4",
     },
-    {
-      link: "/course/theory-test-prep",
-      text: "Theory Test Preparation",
-      image: "https://picsum.photos/600/400?random=5",
-    },
-    {
-      link: "/course/english-language-prep",
-      text: "English Language Preparation",
-      image: "https://picsum.photos/600/400?random=6",
-    },
   ];
 
   const menuItemsServices = [
@@ -147,14 +137,14 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center gap-6">
           {/* Regular Links */}
-          <Link
+          {/* <Link
             href="/"
             className={`text-sm font-medium font-montserrat hover:text-primary flex items-center flex-row gap-2 ${
               pathname == "/" ? "text-primary" : " text-slate-600"
             }`}
           >
             Home
-          </Link>
+          </Link> */}
 
           <Link href="/about" className={navLinkStyle("/about")}>
             About Us
@@ -201,16 +191,20 @@ const Header = () => {
 
               <Link
                 href={"/courses"}
-                className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                className={`p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
               >
                 All Courses
               </Link>
+
+              <span className="text-xs font-bold text-slate-900 block w-full text-left p-2 pb-1 border-b-[1px] border-zinc-400">
+                Revision Notes
+              </span>
 
               {menuItemsCourses?.map((course, index) => (
                 <Link
                   href={course?.link}
                   key={`${index}_${course?.link}`}
-                  className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                  className={`p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
                 >
                   {course?.text}
                 </Link>
@@ -221,8 +215,11 @@ const Header = () => {
               </span>
 
               <Link
-                href={"#"}
-                className={`border-b border-zinc-100 p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
+                href={
+                  "https://seltbooking.trinitycollege.co.uk/OEWeb/loadExamDtl.do?ref=1-10672391978"
+                }
+                target="_blank"
+                className={`p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
               >
                 Trinity College Test
               </Link>

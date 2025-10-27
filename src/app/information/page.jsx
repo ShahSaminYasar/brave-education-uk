@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/header/Header";
 import WhatsAppLink from "@/components/ui/WhatsAppLink";
 import {

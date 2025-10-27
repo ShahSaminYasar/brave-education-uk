@@ -18,19 +18,23 @@ const BranchBox = ({ image, name, address, mapLink, phone }) => {
 
         <p className="para">{address}</p>
 
-        <Link
-          href={mapLink}
-          className="block w-fit border-b-2 font-semibold border-zinc-900"
-        >
-          View on map
-        </Link>
+        {mapLink && (
+          <Link
+            href={mapLink}
+            className="block w-fit border-b-2 font-semibold border-zinc-900"
+          >
+            View on map
+          </Link>
+        )}
 
-        <Link
-          href={`tel:${phone}`}
-          className="flex items-center gap-2 w-fit font-semibold"
-        >
-          <PhoneCall size={20} /> {phone}
-        </Link>
+        {phone && (
+          <Link
+            href={`tel:${phone}`}
+            className="flex items-center gap-2 w-fit font-semibold"
+          >
+            <PhoneCall size={20} /> {phone}
+          </Link>
+        )}
       </div>
     </div>
   );
