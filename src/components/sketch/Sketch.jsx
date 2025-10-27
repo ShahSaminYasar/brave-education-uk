@@ -8,6 +8,7 @@ const Sketch = () => {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const totalFrames = 137;
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,27 +17,36 @@ const Sketch = () => {
 
   const currentFrame = useTransform(scrollYProgress, [0, 1], [1, totalFrames]);
 
-  // Load all images
   useEffect(() => {
     const loadImages = async () => {
+      setIsLoading(true);
+      setLoadingProgress(0);
+
+      const imagePromises = [];
       const loadedImages = [];
 
       for (let i = 1; i <= totalFrames; i++) {
         const frameNumber = String(i).padStart(4, "0");
         const img = new Image();
-        img.src = `/assets/images/sketch-frames/frame_${frameNumber}.jpeg`;
 
-        await new Promise((resolve) => {
-          img.onload = resolve;
+        const promise = new Promise((resolve) => {
+          img.onload = () => {
+            setLoadingProgress((prev) => prev + 100 / totalFrames);
+            resolve();
+          };
+          img.src = `/assets/images/sketch-frames/frame_${frameNumber}.jpeg`;
         });
 
+        imagePromises.push(promise);
         loadedImages.push(img);
       }
 
+      await Promise.all(imagePromises);
       setImages(loadedImages);
       setIsLoading(false);
     };
 
+    const loadedImages = [];
     loadImages();
   }, [totalFrames]);
 
@@ -61,7 +71,7 @@ const Sketch = () => {
   return (
     <section
       ref={containerRef}
-      className="w-full h-[300vh] md:h-[920vh] relative bg-white"
+      className="w-full h-[300vh] md:h-[520vh] relative bg-white"
     >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="w-full max-w-6xl mx-auto aspect-video rounded-2xl">

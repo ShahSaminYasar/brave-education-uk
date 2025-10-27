@@ -15,35 +15,36 @@ const SketchSection = () => {
 
   const text1 = useTransform(
     scrollYProgress,
-    [0, 0.04, 0.11, 0.14],
+    [0, 0.0625, 0.171875, 0.21875],
     [0, 1, 1, 0]
   );
   const text2 = useTransform(
     scrollYProgress,
-    [0.14, 0.18, 0.25, 0.28],
+    [0.21875, 0.28125, 0.390625, 0.4375],
     [0, 1, 1, 0]
   );
   const text3 = useTransform(
     scrollYProgress,
-    [0.28, 0.32, 0.39, 0.42],
+    [0.4375, 0.5, 0.609375, 0.65625],
     [0, 1, 1, 0]
   );
   const text4 = useTransform(
     scrollYProgress,
-    [0.42, 0.46, 0.53, 0.56],
+    [0.61, 0.65, 0.715, 0.75],
     [0, 1, 1, 0]
   );
-  const y = useTransform(scrollYProgress, [0.56, 0.8], [120, 0]);
-  const width = useTransform(scrollYProgress, [0.6, 0.9], ["50%", "100%"]);
+  const y = useTransform(scrollYProgress, [0.71, 0.77], [120, 0]);
+  const width = useTransform(scrollYProgress, [0.68, 0.85], ["50%", "100%"]);
 
   return (
     <div
       className="w-full relative bg-transparent"
       style={{
-        background: "url(/bg-dark.png)",
+        background: "url(/bg-dark.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       <motion.div
@@ -58,7 +59,7 @@ const SketchSection = () => {
 
         <div
           ref={textContainerRef}
-          className="w-full h-[340vh] md:h-[920vh] relative px-7"
+          className="w-full h-[340vh] md:h-[520vh] relative px-7"
         >
           <div className="sticky top-0 flex p-5 flex-col items-center justify-center w-full h-screen">
             <motion.div

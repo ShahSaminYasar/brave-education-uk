@@ -17,7 +17,7 @@ const page = () => {
       <section
         className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden p-0 md:p-6 flex flex-col-reverse gap-5 md:gap-10 shadow-xl fade-up"
         style={{
-          background: "url(/bg-dark.png)",
+          background: "url(/bg-dark.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

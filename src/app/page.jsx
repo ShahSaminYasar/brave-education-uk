@@ -92,7 +92,7 @@ const page = () => {
         </ShaderGradientCanvas> */}
 
         <Image
-          src={"/bg-1.png"}
+          src={"/bg-1.jpg"}
           width={1280}
           height={720}
           className="w-full h-full"

@@ -60,7 +60,7 @@ const page = () => {
         className="px-5 py-28"
         style={{
           background:
-            "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), url(/bg-dark.png)",
+            "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), url(/bg-dark.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -70,7 +70,7 @@ const page = () => {
         <section
           className="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden p-6 flex flex-col gap-8 shadow-xl fade-up mb-28"
           style={{
-            background: "url(/bg-dark.png)",
+            background: "url(/bg-dark.jpg)",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",

@@ -27,7 +27,7 @@ const AboutPageCounters = () => {
     <div
       className="w-full min-h-screen flex justify-center items-center"
       style={{
-        background: "url(/bg-dark.png)",
+        background: "url(/bg-dark.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",

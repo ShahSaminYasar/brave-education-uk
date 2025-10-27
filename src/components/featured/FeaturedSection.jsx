@@ -5,7 +5,7 @@ const FeaturedSection = () => {
     <section
       className="section"
       style={{
-        backgroundImage: `url('/bg-dark.png')`,
+        backgroundImage: `url('/bg-dark.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

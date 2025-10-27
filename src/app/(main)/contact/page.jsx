@@ -185,7 +185,7 @@ const page = () => {
         <section
           className="w-full max-w-6xl mx-auto rounded-2xl overflow-hidden p-6 grid grid-cols-1 md:grid-cols-5 items-end justify-between gap-6 shadow-xl"
           style={{
-            background: "url(/bg-dark.png)",
+            background: "url(/bg-dark.jpg)",
             backgroundPosition: "center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

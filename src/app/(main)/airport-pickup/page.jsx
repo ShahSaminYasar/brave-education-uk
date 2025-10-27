@@ -288,7 +288,7 @@ const page = () => {
             <div
               className="rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/20"
               style={{
-                background: "url(/bg-dark.png)",
+                background: "url(/bg-dark.jpg)",
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
