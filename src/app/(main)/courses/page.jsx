@@ -54,7 +54,7 @@ const page = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/assets/images/graduates_group_pic.jpg"}
+                  src={"/assets/images/uk_classroom_2.jpg"}
                   width={600}
                   height={400}
                   alt="Brave Education"
@@ -100,30 +100,75 @@ const page = () => {
             />
 
             <CourseBox
-              name={"B1 Course"}
-              classNo={"21"}
-              mockNo={"2"}
+              name={"B1 English Course (GESE Grade 5)"}
+              classNo={"14"}
+              mockNo={"02"}
               duration={"1 hr 10 mins"}
-              fees={"£150"}
+              fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
-                "I am interested in B1 course, please tell me the details."
+                "I am interested in B1 English Course (GESE Grade 5), please tell me the details."
               )}`}
             />
 
             <CourseBox
-              name={"A1 Course"}
-              classNo={"14"}
-              mockNo={"2"}
+              name={"B1 English Test (ISE I)"}
+              classNo={"21"}
+              mockNo={"02"}
               duration={"1 hr 10 mins"}
-              fees={"£150"}
+              fees={"£380"}
+              mode={"In person"}
+              image={"/assets/images/courses/b1.jpg"}
+              bgColor="#e02f33"
+              accentColor="#b50e12"
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in B1 English Test (ISE I), please tell me the details."
+              )}`}
+            />
+
+            <CourseBox
+              name={"B2 English Test (ISE II)"}
+              classNo={"21"}
+              mockNo={"02"}
+              duration={"1 hr 10 mins"}
+              fees={"£380"}
+              mode={"In person"}
+              image={"/assets/images/courses/b1.jpg"}
+              bgColor="#231f52"
+              accentColor="#b50e12"
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in B2 English Test (ISE II), please tell me the details."
+              )}`}
+            />
+
+            <CourseBox
+              name={"A1 English Course (GESE Grade 2)"}
+              classNo={"14"}
+              mockNo={"02"}
+              duration={"1 hr 10 mins"}
+              fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
               link={`https://wa.me/+447862042900?text=${encodeURIComponent(
-                "I am interested in A1 course, please tell me the details."
+                "I am interested in A1 English Course (GESE Grade 2), please tell me the details."
+              )}`}
+            />
+
+            <CourseBox
+              name={"A2 English Test (GESE Grade 3)"}
+              classNo={"14"}
+              mockNo={"02"}
+              duration={"1 hr 10 mins"}
+              fees={"£240"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/b1.jpg"}
+              bgColor="#231f52"
+              accentColor="#b50e12"
+              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in A2 English Test (GESE Grade 3), please tell me the details."
               )}`}
             />
 
@@ -160,7 +205,9 @@ const page = () => {
             </div>
 
             <Link
-              href={"#"}
+              href={
+                "https://seltbooking.trinitycollege.co.uk/OEWeb/loadExamDtl.do?ref=1-10672391978"
+              }
               target="_blank"
               className="block w-full max-w-3xl mx-auto"
             >

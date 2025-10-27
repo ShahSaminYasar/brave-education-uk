@@ -73,7 +73,7 @@ const PerksSection = () => {
             <motion.div style={{ opacity: opacity1 }}>
               <Perk
                 icon={<Users fontSize={25} />}
-                text={"Licensed and Qualified Staff"}
+                text={"Experienced and Qualified Staff"}
               />
             </motion.div>
 

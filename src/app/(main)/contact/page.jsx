@@ -53,7 +53,7 @@ const page = () => {
     <main
       style={{
         background:
-          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/bg-1.png)",
+          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/white-bg.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -147,7 +147,7 @@ const page = () => {
                   <CalendarClock size={25} />
                 </div>
                 <span className="font-normal">Working hours</span>
-                <span className="font-semibold">9am - 5pm</span>
+                <span className="font-semibold">10am - 7pm</span>
               </div>
 
               <div className="flex flex-col gap-2 items-center justify-center text-sm text-zinc-800 w-[210px]">
@@ -220,7 +220,7 @@ const page = () => {
                 <Instagram size={15} />
               </Link>
               <Link
-                href={"https://wa.me/+44747620040881"}
+                href={"https://wa.me/+447862042900"}
                 target="_blank"
                 className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
               >

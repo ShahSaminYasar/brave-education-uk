@@ -59,7 +59,10 @@ const Sketch = () => {
   }, [currentFrame, images]);
 
   return (
-    <section ref={containerRef} className="w-full h-[600vh] relative bg-white">
+    <section
+      ref={containerRef}
+      className="w-full h-[300vh] md:h-[920vh] relative bg-white"
+    >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="w-full max-w-6xl mx-auto aspect-video rounded-2xl">
           {isLoading && <div className="text-black">Loading frames...</div>}

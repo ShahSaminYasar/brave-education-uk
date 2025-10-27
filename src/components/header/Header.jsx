@@ -11,9 +11,12 @@ import {
 } from "motion/react";
 import { useState } from "react";
 import FlowingMenu from "../ui/FlowingMenu";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+  console.log(pathname);
 
   // const [scrollDirection, setScrollDirection] = useState("down");
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -116,8 +119,12 @@ const Header = () => {
     },
   ];
 
-  const navLinkStyle =
-    "text-sm font-medium font-montserrat text-slate-600 hover:text-primary flex items-center flex-row gap-2";
+  const navLinkStyle = (path) => {
+    return `text-sm font-medium font-montserrat hover:text-primary flex items-center flex-row gap-2 ${
+      pathname?.startsWith(path) ? "text-primary" : " text-slate-600"
+    }`;
+  };
+  ("");
 
   return (
     <motion.header
@@ -140,19 +147,30 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center gap-6">
           {/* Regular Links */}
-          <Link href="/about" className={navLinkStyle}>
+          <Link
+            href="/"
+            className={`text-sm font-medium font-montserrat hover:text-primary flex items-center flex-row gap-2 ${
+              pathname == "/" ? "text-primary" : " text-slate-600"
+            }`}
+          >
+            Home
+          </Link>
+
+          <Link href="/about" className={navLinkStyle("/about")}>
             About Us
           </Link>
 
           <div className="relative group">
             <Link
               href={"/services"}
-              className={`${navLinkStyle} cursor-pointer leading-[40px]`}
+              className={`${navLinkStyle(
+                "/services"
+              )} cursor-pointer leading-[40px]`}
             >
               Services <ChevronDown size={16} />
             </Link>
 
-            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+            <div className="w-[200px] bg-white/100 rounded-[4px] p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
               {menuItemsServices?.map((item, index) => (
                 <Link
                   href={item?.link}
@@ -169,12 +187,14 @@ const Header = () => {
           <div className="relative group">
             <Link
               href={"/courses"}
-              className={`${navLinkStyle} cursor-pointer leading-[40px]`}
+              className={`${navLinkStyle(
+                "/courses"
+              )} cursor-pointer leading-[40px]`}
             >
               Courses <ChevronDown size={16} />
             </Link>
 
-            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+            <div className="w-[200px] bg-white/100 rounded-[4px] p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
               <span className="text-xs font-bold text-slate-900 block w-full text-left p-2 pb-1 border-b-[1px] border-zinc-400">
                 Courses
               </span>
@@ -209,17 +229,17 @@ const Header = () => {
             </div>
           </div>
 
-          <Link href="/contact" className={navLinkStyle}>
-            Contact
-          </Link>
-
           {/* More Dropdown */}
           <div className="relative group">
-            <span className={`${navLinkStyle} cursor-pointer leading-[40px]`}>
+            <span
+              className={`${navLinkStyle(
+                "/more"
+              )} cursor-pointer leading-[40px]`}
+            >
               More <ChevronDown size={16} />
             </span>
 
-            <div className="w-[200px] bg-white/100 rounded-lg p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
+            <div className="w-[200px] bg-white/100 rounded-[4px] p-1 absolute top-[100%] right-0 z-50 flex flex-col items-center gap-0 shadow-xl opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto duration-200">
               {menuItemsMore?.map((item, index) => (
                 <Link
                   href={item?.link}
@@ -231,6 +251,10 @@ const Header = () => {
               ))}
             </div>
           </div>
+
+          <Link href="/contact" className={navLinkStyle("/contact")}>
+            Contact
+          </Link>
         </div>
 
         <div className="flex flex-row items-center gap-3 md:gap-5">

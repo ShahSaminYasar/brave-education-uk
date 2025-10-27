@@ -47,12 +47,12 @@ const AboutPageCounters = () => {
                 y: y1,
               }}
             >
-              <span>5000</span>
-              <span>4000</span>
-              <span>3000</span>
               <span>2000</span>
+              <span>1500</span>
+              <span>1000</span>
+              <span>500</span>
             </motion.div>
-            <span className="opacity-0 block px-1">5000</span>
+            <span className="opacity-0 block px-1">2000</span>
           </div>
           <span className="text-lg font-light text-slate-100 block text-center text-nowrap">
             Happy Clients
@@ -89,16 +89,16 @@ const AboutPageCounters = () => {
                   y: y3,
                 }}
               >
-                <span>10</span>
-                <span>7</span>
-                <span>5</span>
-                <span>3</span>
-                <span>1</span>
+                <span>100</span>
+                <span>80</span>
+                <span>60</span>
+                <span>40</span>
+                <span>20</span>
               </motion.div>
-              <span className="opacity-0 block px-1">10</span>
+              <span className="opacity-0 block px-1">100</span>
             </div>
             <span className="text-6xl font-bold text-slate-100 block -ml-2">
-              k
+              +
             </span>
           </div>
 

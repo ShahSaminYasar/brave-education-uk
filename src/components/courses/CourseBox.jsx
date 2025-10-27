@@ -17,18 +17,20 @@ const CourseBox = ({
   bgColor = "#231f52",
   accentColor = "#44406c",
   link = "#",
+  slug,
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85, y: 50 }}
+      initial={{ opacity: 0.1, scale: 1, y: 50 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       viewport={{
         margin: "200px 0px -20% 0px",
       }}
+      className="w-full max-w-5xl mx-auto"
     >
       <SpotlightCard
-        className={`w-full max-w-5xl rounded-3xl p-5 text-white flex flex-col-reverse gap-8 justify-center items-center md:grid md:grid-cols-2 shadow-sm ${
+        className={`w-full rounded-3xl p-5 text-white flex flex-col-reverse gap-8 justify-center items-center md:grid md:grid-cols-2 shadow-sm ${
           className && className
         }`}
         style={{ background: bgColor }}
@@ -66,7 +68,7 @@ const CourseBox = ({
             </div>
 
             <div className="flex flex-col gap-3 lg:col-span-2">
-              <span className="flex flex-row items-center gap-2 max-w-[150px]">
+              <span className="flex flex-row items-center gap-2 max-w-[170px]">
                 <ShieldCheck size={22} />
                 <span>{mockNo} Mock Tests</span>
               </span>
@@ -80,6 +82,15 @@ const CourseBox = ({
 
           <div className="flex flex-row items-center gap-3">
             <Link
+              href={`/course/${slug}`}
+              target="_blank"
+              className="w-fit px-8 py-2 text-sm font-bold bg-yellow-400 text-slate-900 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
+              // style={{ background: "#fffff" }}
+            >
+              Details <ArrowUpRight size={20} />
+            </Link>
+
+            <Link
               href={link}
               target="_blank"
               className="w-fit px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
@@ -88,7 +99,7 @@ const CourseBox = ({
               Enroll <ArrowUpRight size={20} />
             </Link>
 
-            <Link
+            {/* <Link
               href={link}
               target="_blank"
               className="w-fit px-8 py-2 text-sm font-bold text-white rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
@@ -101,7 +112,7 @@ const CourseBox = ({
                 height={20}
                 alt="whatsapp"
               />
-            </Link>
+            </Link> */}
           </div>
         </div>
 

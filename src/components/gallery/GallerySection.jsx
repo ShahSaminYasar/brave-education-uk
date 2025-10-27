@@ -8,7 +8,7 @@ const GallerySection = () => {
       <section className="w-full max-w-7xl mx-auto flex flex-col gap-2 items-center justify-center">
         <SectionTitle
           subtext={"Our Pride"}
-          text={"Graduate Gallery"}
+          text={"Graduates Gallery"}
           align="center"
         />
 

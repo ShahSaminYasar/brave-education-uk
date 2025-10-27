@@ -125,7 +125,7 @@ const page = () => {
                 <Instagram size={15} />
               </Link>
               <Link
-                href={"https://wa.me/+44747620040881"}
+                href={"https://wa.me/+447862042900"}
                 target="_blank"
                 className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
               >
@@ -145,7 +145,7 @@ const page = () => {
         </section>
       </main>
 
-      <footer className="bg-[#221e52] bg-[radial-gradient(200%_115%_at_50%_0%,rgba(255,255,255,0)_20%,rgba(44,31,187,1)_100%)] -mb-10 min-h-screen flex justify-end flex-col">
+      <footer className="bg-[#221e52] bg-[radial-gradient(200%_115%_at_50%_0%,rgba(255,255,255,0)_20%,rgba(44,31,187,1)_100%)] -mb-10 min-h-screen flex justify-end flex-col relative">
         <section
           className="px-5 pb-[80px] pt-[200px] w-full"
           style={{
@@ -184,7 +184,7 @@ const page = () => {
           </div>
         </section>
 
-        <div className="section max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 items-start text-white">
+        <div className="w-full section max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 items-start text-white">
           {/* Col 1 */}
           <div className="col-span-2 flex flex-col items-start gap-5">
             <Image
@@ -237,7 +237,7 @@ const page = () => {
           </div>
 
           {/* Col 4 */}
-          <div className="flex flex-col gap-3 items-start">
+          <div className="flex flex-col gap-3 items-start col-span-1 sm:col-span-2 md:col-span-1">
             <span className="footer-title">Find Us</span>
 
             <Link
@@ -282,7 +282,7 @@ const page = () => {
                 <Instagram size={15} />
               </Link>
               <Link
-                href={"https://wa.me/+44747620040881"}
+                href={"https://wa.me/+447862042900"}
                 target="_blank"
                 className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
               >
@@ -303,9 +303,48 @@ const page = () => {
           src={"/footer_name.png"}
           width={1405}
           height={275}
-          className="w-full mix-blend-overlay opacity-30"
+          className="w-full h-full mix-blend-overlay opacity-30 mb-5 sm:mb-0"
           alt="Brave Education UK"
         />
+
+        <div className="w-full py-1 px-3 flex flex-row flex-wrap gap-0 text-[10px] text-[#27117e] items-center justify-center font-normal bg-gradient-to-b from-transparent to-[#09002b] to-100% pt-[90px] sm:pt-[220px] absolute bottom-0 left-0 z-10">
+          <span className="block w-fit text-center font-medium font-poppins">
+            Copyright 2025 &copy; BRAVE EDUCATION UK LTD
+          </span>
+
+          <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
+
+          <span className="block w-fit text-center font-medium font-poppins">
+            Developed by{" "}
+            <Link
+              href={"https://shahsaminyasar.vercel.app"}
+              target="_blank"
+              className="font-bold font-satisfy"
+            >
+              Shah Samin Yasar
+            </Link>{" "}
+            &{" "}
+            <Link
+              href={"https://techtalk2.com/"}
+              target="_blank"
+              className="font-bold font-satisfy"
+            >
+              Tech Talk 2
+            </Link>
+          </span>
+
+          <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
+
+          <Link
+            href={`https://wa.me/+8801706898827?text=${encodeURIComponent(
+              "Hi, I have encountered an issue on Brave Education UK's website."
+            )}`}
+            target="_blank"
+            className="font-normal font-poppins underline hidden sm:block"
+          >
+            Report a bug
+          </Link>
+        </div>
       </footer>
     </>
   );

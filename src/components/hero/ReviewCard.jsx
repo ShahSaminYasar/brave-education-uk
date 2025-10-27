@@ -28,11 +28,11 @@ const ReviewCard = ({
         {flag}
       </div>
 
-      <p className="text-slate-500 font-normal text-justify leading-[120%]">
+      <p className="text-slate-400 font-normal text-left my-1 font-satisfy leading-[120%]">
         {description}
       </p>
 
-      <span className="font-semibold">{date}</span>
+      <span className="font-medium text-xs">{date}</span>
     </motion.div>
   );
 };

@@ -55,7 +55,7 @@ const page = () => {
     <main
       style={{
         background:
-          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/bg-1.png)",
+          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/white-bg.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -112,11 +112,12 @@ const page = () => {
               style={{ fontSize: "30px", fontWeight: "400" }}
             >
               Brave Education UK Limited, founded in 2021 and based in London
-              and Sylhet, is a British Council–certified global agency
+              and Sylhet, is a British Council–certified student consultancy
               specializing in recruiting students for top universities
               worldwide. With a strong record of successful enrollments and
               satisfied students, we offer tailored support across fields like
-              Medicine, Business, IT, Law, and Engineering.
+              Medicine, Business, IT, Law, and Engineering. In addition to this,
+              we offer a range of language courses.
             </ScrollReveal>
           </div>
           <div className="w-full max-w-6xl mx-auto block lg:hidden">

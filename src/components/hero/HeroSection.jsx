@@ -96,12 +96,12 @@ const HeroSection = () => {
         </motion.div>
 
         <ReviewCard
-          name={"Raisul Ahmed"}
+          name={"Amit Hasan"}
           flag={<US className="w-[30px]" />}
           description={
-            "Best wishes for a successful and fulfilling journey. Best wishes for a successful and fulfilling journey."
+            "They guided me with clear advice and were always willing to answer my questions. Highly recommend their services to anyone looking for reliable business support!"
           }
-          date={"September 2025"}
+          date={"2 months ago"}
           className={"absolute top-[-6%] left-[-10%] -z-20 hidden lg:block"}
           delay={0}
         />
@@ -110,9 +110,9 @@ const HeroSection = () => {
           name={"Tanim Iram"}
           flag={<DK className="w-[30px]" />}
           description={
-            "Thank you Brave Education for the awesome guidance. Will be ever grateful to you."
+            "They provided me with outstanding support and guidance throughout my visa application process. Their team is highly professional, reliable, and genuinely cares about their clients’ success."
           }
-          date={"January 2025"}
+          date={"August 2025"}
           className={
             "absolute top-[50%] -translate-y-1/2 right-0 -z-20 hidden lg:block"
           }
@@ -123,7 +123,7 @@ const HeroSection = () => {
           name={"Akib Rahman"}
           flag={<IE className="w-[30px]" />}
           description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et temporibus quaerat saepe aut.."
+            "Great service and very helpful team. Highly recommend for any educational consultancy, business support and pre/post visa application support."
           }
           date={"September 2025"}
           className={

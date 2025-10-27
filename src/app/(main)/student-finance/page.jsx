@@ -8,7 +8,7 @@ const page = () => {
     <main
       style={{
         background:
-          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/bg-1.png)",
+          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/white-bg.jpg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -101,10 +101,19 @@ const page = () => {
                 </h3>
               </div>
               <div className="text-[15px] font-medium text-secondary-foreground space-y-3">
+                <Link
+                  href={"https://www.gov.uk/student-finance-register-login"}
+                  target="_blank"
+                  className="block text-primary"
+                >
+                  www.gov.uk/student-finance-register-login
+                </Link>
+
                 <p>
                   Find out the maximum tuition fee and maintenance loan you
                   could get if you're a:
                 </p>
+
                 <ul className="list-disc list-inside space-y-1 ml-2">
                   <li>new full-time student</li>
                   <li>continuing full-time student</li>

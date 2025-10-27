@@ -1,12 +1,5 @@
 "use client";
-import {
-  ArrowUpRight,
-  Book,
-  Building,
-  HandFist,
-  Plane,
-  University,
-} from "lucide-react";
+import { ArrowUpRight, Book, Plane, University, Users } from "lucide-react";
 import ServiceBox from "./ServiceBox";
 import { useRef } from "react";
 import { useScroll, motion, useTransform, scale } from "motion/react";
@@ -88,7 +81,7 @@ const ServicesSection = () => {
               <ServiceBox
                 id={17.5}
                 title={"Brave HR"}
-                icon={<HandFist size={20} />}
+                icon={<Users size={20} />}
               />
             </motion.div>
 
@@ -136,7 +129,7 @@ const ServicesSection = () => {
               transform: "translate(-50%, 50%)",
             }}
           >
-            <ServiceBox title={"Brave HR"} icon={<HandFist size={20} />} />
+            <ServiceBox title={"Brave HR"} icon={<Users size={20} />} />
           </motion.div>
 
           <motion.div

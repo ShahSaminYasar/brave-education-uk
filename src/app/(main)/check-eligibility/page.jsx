@@ -53,7 +53,7 @@ const page = () => {
               <Instagram size={15} />
             </Link>
             <Link
-              href={"https://wa.me/+44747620040881"}
+              href={"https://wa.me/+447862042900"}
               target="_blank"
               className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
             >
@@ -137,7 +137,7 @@ const page = () => {
             </div>
 
             {/* Date Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Date of Birth */}
               <div className="space-y-2">
                 <label className="text-white/80 text-sm font-medium">
@@ -150,7 +150,7 @@ const page = () => {
               </div>
 
               {/* VRP Expiry Date */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <label className="text-white/80 text-sm font-medium">
                   VRP Expiry Date *
                 </label>
@@ -158,7 +158,7 @@ const page = () => {
                   type="date"
                   className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
                 />
-              </div>
+              </div> */}
 
               {/* Passport Expiry Date */}
               <div className="space-y-2">

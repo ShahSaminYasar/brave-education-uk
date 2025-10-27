@@ -196,7 +196,7 @@ const page = () => {
               </div>
 
               {/* <Link
-                href={"https://wa.me/+44747620040881"}
+                href={"https://wa.me/+447862042900"}
                 target="_blank"
                 className="w-fit text-nowrap flex flex-row items-center justify-center gap-0 rounded-[80px] p-2 bg-[#42ea60] text-slate-800 mt-5"
               >

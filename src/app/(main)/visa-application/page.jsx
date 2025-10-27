@@ -53,7 +53,7 @@ const page = () => {
               <Instagram size={15} />
             </Link>
             <Link
-              href={"https://wa.me/+44747620040881"}
+              href={"https://wa.me/+447862042900"}
               target="_blank"
               className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
             >
@@ -109,6 +109,17 @@ const page = () => {
                 <input
                   type="text"
                   placeholder="First Name"
+                  className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-white/80 text-sm font-medium">
+                  Last Name *
+                </label>
+                <input
+                  type="text"
+                  placeholder="Last Name"
                   className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
                 />
               </div>
@@ -250,9 +261,9 @@ const page = () => {
             </div>
 
             {/* Course Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6">
               {/* Course Name */}
-              <div className="space-y-2">
+              <div className="md:col-span-2 space-y-2">
                 <label className="text-white/80 text-sm font-medium">
                   Course Name *
                 </label>
@@ -267,6 +278,17 @@ const page = () => {
               <div className="space-y-2">
                 <label className="text-white/80 text-sm font-medium">
                   Course start date *
+                </label>
+                <input
+                  type="date"
+                  className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
+                />
+              </div>
+
+              {/* Course End Date */}
+              <div className="space-y-2">
+                <label className="text-white/80 text-sm font-medium">
+                  Course end date *
                 </label>
                 <input
                   type="date"

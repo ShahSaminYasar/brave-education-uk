@@ -182,6 +182,46 @@ const GallerySlider = () => {
       src: "/assets/images/graduates/44.jpg",
       alt: "Graduate image",
     },
+    {
+      src: "/assets/images/graduates/45.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/46.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/47.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/48.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/49.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/50.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/51.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/52.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/53.jpg",
+      alt: "Graduate image",
+    },
+    {
+      src: "/assets/images/graduates/54.jpg",
+      alt: "Graduate image",
+    },
   ];
 
   return (

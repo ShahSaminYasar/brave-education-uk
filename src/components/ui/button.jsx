@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap rounded-3xl text-[10px] md:text-xs font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer hover:scale-[103%]",
+  "inline-flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap rounded-3xl text-[12px] md:text-xs font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer hover:scale-[103%]",
   {
     variants: {
       variant: {

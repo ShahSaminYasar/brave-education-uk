@@ -13,29 +13,69 @@ const SketchSection = () => {
     offset: ["start start", "end end"],
   });
 
-  const text1 = useTransform(scrollYProgress, [0, 0.07, 0.14], [0, 1, 0]);
-  const text2 = useTransform(scrollYProgress, [0.14, 0.21, 0.28], [0, 1, 0]);
-  const text3 = useTransform(scrollYProgress, [0.28, 0.35, 0.42], [0, 1, 0]);
-  const text4 = useTransform(scrollYProgress, [0.42, 0.49, 0.56], [0, 1, 0]);
+  const text1 = useTransform(
+    scrollYProgress,
+    [0, 0.04, 0.11, 0.14],
+    [0, 1, 1, 0]
+  );
+  const text2 = useTransform(
+    scrollYProgress,
+    [0.14, 0.18, 0.25, 0.28],
+    [0, 1, 1, 0]
+  );
+  const text3 = useTransform(
+    scrollYProgress,
+    [0.28, 0.32, 0.39, 0.42],
+    [0, 1, 1, 0]
+  );
+  const text4 = useTransform(
+    scrollYProgress,
+    [0.42, 0.46, 0.53, 0.56],
+    [0, 1, 1, 0]
+  );
   const y = useTransform(scrollYProgress, [0.56, 0.8], [120, 0]);
+  const width = useTransform(scrollYProgress, [0.6, 0.9], ["50%", "100%"]);
 
   return (
-    <div className="w-full relative -z-10 bg-transparent">
-      <div className="absolute top-0 left-0 w-1/2 h-full block bg-transparent md:bg-white"></div>
+    <div
+      className="w-full relative bg-transparent"
+      style={{
+        background: "url(/bg-dark.png)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <motion.div
+        className="absolute z-0  top-0 left-0 h-full block bg-transparent md:bg-white"
+        style={{
+          width: width,
+        }}
+      ></motion.div>
 
-      <section className="flex flex-col-reverse md:grid md:grid-cols-2 gap-10 items-center md:items-start justify-center font-satisfy relative z-10">
+      <section className="flex flex-col-reverse md:grid md:grid-cols-2 gap-0 items-center md:items-start justify-center font-satisfy relative z-10">
         <Sketch />
 
-        <div ref={textContainerRef} className="w-full h-[600vh] relative px-7">
+        <div
+          ref={textContainerRef}
+          className="w-full h-[340vh] md:h-[920vh] relative px-7"
+        >
           <div className="sticky top-0 flex p-5 flex-col items-center justify-center w-full h-screen">
             <motion.div
               style={{
                 opacity: text1,
               }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[30px] font-light text-zinc-800 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#d4d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
             >
               <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span className="text-center block">Guidance</span>
+                <span
+                  className="text-center block"
+                  style={{
+                    textShadow: "0px 0px 20px #fff",
+                  }}
+                >
+                  We believe every dream deserves the right guidance.
+                </span>
               </div>
             </motion.div>
 
@@ -43,10 +83,18 @@ const SketchSection = () => {
               style={{
                 opacity: text2,
               }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[30px] font-light text-slate-800 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#fcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
             >
               <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span className="text-center block">Without</span>
+                <span
+                  className="text-center block"
+                  style={{
+                    textShadow: "0px 0px 20px #fff",
+                  }}
+                >
+                  Our experts simplify every step, removing confusion and
+                  hassle.
+                </span>
               </div>
             </motion.div>
 
@@ -54,10 +102,17 @@ const SketchSection = () => {
               style={{
                 opacity: text3,
               }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[30px] font-light text-zinc-800 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#f5d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
             >
               <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span className="text-center block">Confusion</span>
+                <span
+                  className="text-center block"
+                  style={{
+                    textShadow: "0px 0px 20px #fff",
+                  }}
+                >
+                  With the right support by your side,
+                </span>
               </div>
             </motion.div>
 
@@ -65,15 +120,22 @@ const SketchSection = () => {
               style={{
                 opacity: text4,
               }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[30px] font-light text-slate-800 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#dcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
             >
               <div className="w-full h-fit overflow-y-hidden">
-                <span className="text-center block">We help you</span>
+                <span
+                  className="text-center block"
+                  style={{
+                    textShadow: "0px 0px 20px #fff",
+                  }}
+                >
+                  we help you
+                </span>
               </div>
             </motion.div>
 
-            <div className="w-full flex flex-col items-start gap-3 justify-center text-[80px] md:text-[110px] font-light text-zinc-900 font-germania-one leading-[100%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-              <div className="w-full h-fit overflow-y-hidden text-blue-800">
+            <div className="w-full flex flex-col items-start gap-3 justify-center text-[80px] md:text-[110px] font-light text-rose-500 font-germania-one leading-[100%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+              <div className="w-full h-fit overflow-y-hidden text-[#1b1851]">
                 <motion.span
                   style={{
                     display: "block",
@@ -83,7 +145,7 @@ const SketchSection = () => {
                   Achieve
                 </motion.span>
               </div>
-              <div className="w-full h-fit overflow-y-hidden text-primary">
+              <div className="w-full h-fit overflow-y-hidden text-green-600 font-satisfy text-[45px] md:text-[75px] leading-[80%] p-1 pt-2">
                 <motion.span
                   style={{
                     display: "block",
@@ -93,7 +155,7 @@ const SketchSection = () => {
                   Your
                 </motion.span>
               </div>
-              <div className="w-full h-fit overflow-y-hidden text-green-600">
+              <div className="w-full h-fit overflow-y-hidden text-primary">
                 <motion.span
                   style={{
                     display: "block",
@@ -104,6 +166,21 @@ const SketchSection = () => {
                 </motion.span>
               </div>
             </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="absolute bottom-5 left-1/2 -translate-x-1/2 md:-left-10 md:-translate-x-0 transform  z-20"
+            >
+              <div className="w-6 h-9 border-2 border-gray-300 rounded-full bg-gray-50 flex justify-center">
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
