@@ -1,12 +1,20 @@
-"use client";
 import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import SectionTitle from "@/components/ui/SectionTitle";
+// import ScrollReveal from "@/components/ui/ScrollReveal";
+// import SectionTitle from "@/components/ui/SectionTitle";
 import { ArrowUpRight, Pen } from "lucide-react";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Our Services",
+};
+
 const page = () => {
+  const basicVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <main
       style={{
@@ -18,6 +26,7 @@ const page = () => {
         backgroundAttachment: "fixed",
       }}
     >
+      {/* Title Section */}
       <motion.section
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
@@ -51,6 +60,7 @@ const page = () => {
         </motion.div>
       </motion.section>
 
+      {/* Cards */}
       <div className="w-full section bg-white">
         <section className="flex flex-row justify-center gap-8 flex-wrap px-4 py-12">
           {/* Card 1 */}
@@ -123,11 +133,12 @@ const page = () => {
         </section>
       </div>
 
+      {/* Text */}
       <div
         className="w-full relative"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/assets/images/group-pic.jpeg)",
+            "linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/assets/images/group-pic.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -163,6 +174,7 @@ const page = () => {
         </section>
       </div>
 
+      {/* Assist & Recruit */}
       <div className="w-full py-20 bg-slate-50 section">
         <section className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -173,7 +185,7 @@ const page = () => {
                   initial={{ opacity: 0, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{
-                    margin: "50px 0px -10% 0px",
+                    margin: "50px 0px -30% 0px",
                   }}
                   className="text-2xl lg:text-3xl font-semibold text-zinc-900 block text-left"
                 >
@@ -182,7 +194,13 @@ const page = () => {
                 <div className="w-10 h-1 mt-3 bg-primary rounded-full"></div>
               </div>
 
-              <div className="space-y-2 bg-white p-3 rounded-2xl border border-zinc-200">
+              <motion.div
+                variants={basicVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ margin: "50px 0px -20% 0px" }}
+                className="space-y-2 bg-white p-3 rounded-2xl border border-zinc-200"
+              >
                 <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
                   <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
@@ -242,7 +260,7 @@ const page = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Column - We Recruit */}
@@ -261,7 +279,13 @@ const page = () => {
                 <div className="w-10 h-1 mt-3 bg-green-600 rounded-full"></div>
               </div>
 
-              <div className="space-y-6">
+              <motion.div
+                variants={basicVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ margin: "50px 0px -20% 0px" }}
+                className="space-y-6"
+              >
                 <div className="grid grid-cols-5 gap-5 p-5 rounded-2xl shadow-none border border-zinc-200 bg-white w-full transition-all duration-100 hover:border-zinc-400">
                   <div className="w-full h-full bg-gradient-to-br from-green-500 to-green-800 rounded-lg flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
                     <span className="text-white font-bold text-lg">UK</span>
@@ -312,7 +336,7 @@ const page = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>

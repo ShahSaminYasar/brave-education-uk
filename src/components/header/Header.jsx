@@ -80,6 +80,11 @@ const Header = () => {
 
   const menuItemsServices = [
     {
+      link: "/services",
+      text: "All Services",
+      image: "https://picsum.photos/600/400?random=7",
+    },
+    {
       link: "/student-finance",
       text: "Student Finance",
       image: "https://picsum.photos/600/400?random=7",

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
-  Clock,
   Facebook,
   Instagram,
   Linkedin,
@@ -10,6 +9,10 @@ import {
   Send,
 } from "lucide-react";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Appointment Booking",
+};
 
 const page = () => {
   return (

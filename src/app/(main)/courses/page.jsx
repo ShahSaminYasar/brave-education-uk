@@ -1,17 +1,19 @@
-"use client";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay } from "swiper/modules";
 import CourseBox from "@/components/courses/CourseBox";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
+import CourseSwiper from "./CourseSwiper";
+
+export const metadata = {
+  title: "Courses",
+};
 
 const page = () => {
   return (
     <main>
+      {/* Title Section */}
       <motion.section
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
@@ -21,7 +23,7 @@ const page = () => {
         <div className="flex flex-col items-start gap-6">
           <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat text-zinc-900 font-[800]">
-              Course We <span className="text-transparent">Offer</span>
+              Courses We <span className="text-transparent">Offer</span>
             </h2>
           </div>
 
@@ -35,24 +37,7 @@ const page = () => {
 
         <div className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-full max-w-md md:ml-auto">
           <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden aspect-[10/7]">
-            <Swiper
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              modules={[Autoplay]}
-              className="w-full h-full [&_.swiper-slide]:flex [&_.swiper-slide]:items-center [&_.swiper-slide]:justify-center"
-            >
-              <SwiperSlide>
-                <Image
-                  src={"/assets/images/uk_classroom_filled.jpg"}
-                  width={600}
-                  height={400}
-                  alt="Brave Education"
-                  className="w-full h-full object-cover"
-                />
-              </SwiperSlide>
-            </Swiper>
+            <CourseSwiper />
           </div>
         </div>
 

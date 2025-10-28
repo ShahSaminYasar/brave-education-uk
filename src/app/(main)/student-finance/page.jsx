@@ -1,7 +1,10 @@
-"use client";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import Link from "next/link";
+
+export const metadata = {
+  title: "Student Finance",
+};
 
 const page = () => {
   return (

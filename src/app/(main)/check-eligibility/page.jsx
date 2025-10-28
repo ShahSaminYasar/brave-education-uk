@@ -11,6 +11,10 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Eligibility Check",
+};
+
 const page = () => {
   return (
     <div className="px-5 pb-0 pt-28 bg-[#fff]">

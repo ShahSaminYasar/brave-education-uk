@@ -1,6 +1,9 @@
-"use client";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
+
+export const metadata = {
+  title: "Life in the UK Course",
+};
 
 const page = () => {
   return (

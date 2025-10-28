@@ -1,7 +1,5 @@
-"use client";
 import SectionTitle from "@/components/ui/SectionTitle";
-import WhatsAppLink from "@/components/ui/WhatsAppLink";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import BranchBox from "./BranchBox";
 import {
   CalendarClock,
@@ -11,16 +9,15 @@ import {
   Mail,
   MessageSquare,
   Music2,
-  Phone,
-  Send,
 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import ContactForm from "./ContactForm";
+
+export const metadata = {
+  title: "Contact",
+};
 
 const page = () => {
-  const inputStyle =
-    "p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px]";
-
   const branches = [
     {
       image: "/assets/images/london.jpg",
@@ -58,6 +55,7 @@ const page = () => {
         backgroundAttachment: "fixed",
       }}
     >
+      {/* Title Section */}
       <motion.section
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
         animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
@@ -100,6 +98,7 @@ const page = () => {
         </motion.div>
       </motion.section>
 
+      {/* Branches */}
       <div className="w-full bg-white">
         <section className="section w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mx-auto relative">
           {/* Left */}
@@ -126,8 +125,6 @@ const page = () => {
               Whether you prefer a call or an in-person visit, our friendly team
               at any branch is ready to assist you.
             </p>
-
-            {/* <WhatsAppLink /> */}
 
             <div className="flex flex-row flex-wrap gap-8 justify-center mt-5">
               {/* <div className="flex flex-col gap-2 items-center justify-center text-sm text-zinc-800 w-[210px]">
@@ -260,33 +257,7 @@ const page = () => {
               </h2>
             </div>
 
-            <form className="flex flex-col w-full gap-6">
-              <input
-                type="text"
-                placeholder="Your name"
-                className={inputStyle}
-              />
-              <input
-                type="tel"
-                placeholder="Your phone number"
-                className={inputStyle}
-              />
-              <input
-                type="email"
-                placeholder="Your email address"
-                className={inputStyle}
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                className={inputStyle}
-                rows={5}
-              ></textarea>
-
-              <Button className={"w-full border border-zinc-600"} size={"lg"}>
-                Send Message <Send size={18} />
-              </Button>
-            </form>
+            <ContactForm />
           </div>
         </section>
       </div>
