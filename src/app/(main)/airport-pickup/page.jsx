@@ -30,8 +30,6 @@ const page = () => {
         <SectionTitle
           text={"Airport Pick-Up"}
           style={{
-            fontSize: "50px",
-            fontWeight: "800",
             color: "#fff",
           }}
           animate={false}

@@ -34,7 +34,7 @@ const page = () => {
         className="py-[100px] px-5 flex flex-col gap-3 items-center justify-center min-h-[100vh]"
       >
         <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block font-montserrat text-zinc-900 font-[800]">
+          <h2 className="text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 font-[800]">
             <span className="text-transparent">Our Services</span>
           </h2>
         </div>

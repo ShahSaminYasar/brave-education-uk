@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-poppins: var(--font-poppins);
   --font-montserrat: var(--font-montserrat);
+  --font-josefin-sans: var(--font-josefin-sans);
   --font-satisfy: var(--font-satisfy);
   --font-germania-one: var(--font-germania-one);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -121,6 +122,10 @@
 
 .font-montserrat {
   font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-josefin-sans {
+  font-family: var(--font-josefin-sans), "Montserrat", sans-serif;
 }
 
 .font-satisfy {
@@ -270,10 +275,16 @@ body.scroll-block {
   margin: 0 auto;
 }
 
+h2 {
+  font-family: var(--font-josefin-sans), sans-serif;
+  font-weight: 700;
+  margin-top: -3px;
+}
+
 .para {
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-family: "Montserrat", cursive;
+  font-weight: 400;
   color: #999999;
 }
 

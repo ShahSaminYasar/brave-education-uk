@@ -147,7 +147,7 @@ const Footer = () => {
         </div>
 
         {/* Col 4 */}
-        <div className="flex flex-col gap-3 items-start col-span-1 sm:col-span-2 md:col-span-1">
+        <div className="flex flex-col gap-3 items-start col-span-2 sm:col-span-1">
           <span className="footer-title">Find Us</span>
 
           <Link
@@ -219,12 +219,6 @@ const Footer = () => {
 
       <div className="w-full py-1 px-3 flex flex-row flex-wrap gap-0 text-[10px] text-[#27117e] items-center justify-center font-normal bg-gradient-to-b from-transparent to-[#09002b] to-100% pt-[90px] sm:pt-[220px] absolute bottom-0 left-0 z-10">
         <span className="block w-fit text-center font-medium font-poppins">
-          Copyright 2025 &copy; BRAVE EDUCATION UK LTD
-        </span>
-
-        <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
-
-        <span className="block w-fit text-center font-medium font-poppins">
           Developed by{" "}
           <Link
             href={"https://shahsaminyasar.vercel.app"}
@@ -241,6 +235,12 @@ const Footer = () => {
           >
             Tech Talk 2
           </Link>
+        </span>
+
+        <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
+
+        <span className="block w-fit text-center font-medium font-poppins">
+          Copyright 2025 &copy; BRAVE EDUCATION UK LTD
         </span>
 
         <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>

@@ -4,7 +4,16 @@ import GallerySlider from "./GallerySlider";
 
 const GallerySection = () => {
   return (
-    <div className="section bg-white">
+    <div
+      className="section bg-white"
+      style={{
+        background: "url(/white-bg-3.jpg)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <section className="w-full max-w-7xl mx-auto flex flex-col gap-2 items-center justify-center">
         <SectionTitle
           subtext={"Our Pride"}

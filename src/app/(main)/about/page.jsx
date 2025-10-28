@@ -34,8 +34,6 @@ const page = () => {
             text={"Brave Education"}
             align="center"
             style={{
-              fontSize: "50px",
-              fontWeight: "800",
               color: "transparent",
             }}
             animate={false}

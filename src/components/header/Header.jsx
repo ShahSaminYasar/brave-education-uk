@@ -1,5 +1,19 @@
 "use client";
-import { ArrowLeft, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookCopy,
+  ChevronDown,
+  ClipboardClock,
+  FileUser,
+  Folders,
+  HandCoins,
+  HelpingHand,
+  Menu,
+  Plane,
+  ShieldCheck,
+  UserCheck,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -10,8 +24,9 @@ import {
   useScroll,
 } from "motion/react";
 import { useState } from "react";
-import FlowingMenu from "../ui/FlowingMenu";
+// import FlowingMenu from "../ui/FlowingMenu";
 import { usePathname } from "next/navigation";
+import MobileMenuLinkItem from "./MobileMenuLinkItem";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -38,38 +53,6 @@ const Header = () => {
     }
   });
 
-  const menuItems1 = [
-    {
-      link: "/about",
-      text: "About Us",
-      image: "https://picsum.photos/600/400?random=1",
-    },
-    {
-      link: "/services",
-      text: "Services",
-      image: "https://picsum.photos/600/400?random=2",
-    },
-    {
-      callback: () => {
-        setMobileMenuScreen(1);
-      },
-      text: "Courses",
-      image: "https://picsum.photos/600/400?random=3",
-    },
-    {
-      link: "/contact",
-      text: "Contact",
-      image: "https://picsum.photos/600/400?random=4",
-    },
-    {
-      callback: () => {
-        setMobileMenuScreen(2);
-      },
-      text: "More",
-      image: "https://picsum.photos/600/400?random=3",
-    },
-  ];
-
   const menuItemsCourses = [
     {
       link: "/course/life-in-the-uk-prep",
@@ -91,7 +74,7 @@ const Header = () => {
     },
     {
       link: "/airport-pickup",
-      text: "Airport Pickup",
+      text: "Airport Pick-up",
       image: "https://picsum.photos/600/400?random=8",
     },
   ];
@@ -129,6 +112,7 @@ const Header = () => {
         headerVisible ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
+      {/* Large Screen Menu */}
       <div className="w-full h-[65px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 bg-slate-200/60 backdrop-blur-sm rounded-[80px] shadow-sm">
         <Link href="/">
           <Image
@@ -141,16 +125,6 @@ const Header = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          {/* Regular Links */}
-          {/* <Link
-            href="/"
-            className={`text-sm font-medium font-montserrat hover:text-primary flex items-center flex-row gap-2 ${
-              pathname == "/" ? "text-primary" : " text-slate-600"
-            }`}
-          >
-            Home
-          </Link> */}
-
           <Link href="/about" className={navLinkStyle("/about")}>
             About Us
           </Link>
@@ -293,13 +267,14 @@ const Header = () => {
             exit={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{
-              duration: 0.45,
+              duration: 0.25,
               ease: "easeInOut",
               type: "spring",
               damping: 20,
             }}
             className="fixed top-0 left-0 w-full h-screen overflow-y-auto pb-10 pt-20 bg-white"
           >
+            {/* Menu Close Button */}
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -311,28 +286,95 @@ const Header = () => {
               <X size={28} />
             </button>
 
-            {mobileMenuScreen > 0 && (
-              <button
-                onClick={() => {
-                  setMobileMenuScreen(0);
-                }}
-                className="ml-10 mb-3 cursor-pointer"
-              >
-                <ArrowLeft size={28} />
-              </button>
-            )}
-
-            <nav className="w-full h-full min-h-[65vh]">
-              <FlowingMenu
-                items={
-                  mobileMenuScreen === 0
-                    ? menuItems1
-                    : mobileMenuScreen === 1
-                    ? menuItemsCourses
-                    : menuItemsMore
-                }
+            {/* Menu Content */}
+            <motion.nav
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.2 }}
+              className="w-full flex flex-col gap-1 items-center justify-center font-poppins font-medium text-xl"
+            >
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/about"}
+                text={"About"}
               />
-            </nav>
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/services"}
+                text={"Services"}
+                submenu={[
+                  {
+                    link: "/services",
+                    text: "Our Services",
+                    icon: <HelpingHand size={18} />,
+                  },
+                  {
+                    link: "/student-finance",
+                    text: "Student Finance",
+                    icon: <HandCoins size={18} />,
+                  },
+                  {
+                    link: "/airport-pickup",
+                    text: "Airport Pick-up",
+                    icon: <Plane size={18} />,
+                  },
+                ]}
+              />
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/courses"}
+                text={"Courses"}
+                submenu={[
+                  {
+                    link: "/courses",
+                    text: "All Courses",
+                    icon: <BookCopy size={18} />,
+                  },
+                  {
+                    link: "/course/life-in-the-uk-prep",
+                    text: "Life in the UK Preparation",
+                    icon: <Folders size={18} />,
+                  },
+                  {
+                    link: "https://seltbooking.trinitycollege.co.uk/OEWeb/loadExamDtl.do?ref=1-10672391978",
+                    text: "Trinity College Test",
+                    icon: <ShieldCheck size={18} />,
+                    external: true,
+                  },
+                ]}
+              />
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"#"}
+                text={"More"}
+                submenu={[
+                  {
+                    link: "/check-eligibility",
+                    text: "Check your Eligibility",
+                    icon: <UserCheck size={18} />,
+                  },
+                  {
+                    link: "/appointment",
+                    text: "Book Appointment",
+                    icon: <ClipboardClock size={18} />,
+                  },
+                  {
+                    link: "/visa-application",
+                    text: "Visa Application",
+                    icon: <FileUser size={18} />,
+                  },
+                ]}
+              />
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/contact"}
+                text={"Contact"}
+              />
+            </motion.nav>
           </motion.div>
         )}
       </AnimatePresence>

@@ -68,8 +68,6 @@ const page = () => {
             text={"Contact Us"}
             align="center"
             style={{
-              fontSize: "50px",
-              fontWeight: "800",
               color: "transparent",
             }}
             animate={false}
@@ -250,8 +248,8 @@ const page = () => {
               </div>
 
               <h2
-                className="text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl block
-              font-montserrat font-semibold text-transparent"
+                className="text-[40px] lg:text-5xl 2xl:text-6xl block
+              text-transparent"
               >
                 Let's Talk
               </h2>

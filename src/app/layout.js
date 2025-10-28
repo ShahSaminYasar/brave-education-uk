@@ -1,4 +1,11 @@
-import { Germania_One, Montserrat, Poppins, Satisfy } from "next/font/google";
+import {
+  Germania_One,
+  Josefin_Sans,
+  Montserrat,
+  Poppins,
+  Raleway,
+  Satisfy,
+} from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -17,6 +24,12 @@ const satisfy = Satisfy({
   variable: "--font-satisfy",
   subsets: ["latin"],
   weight: ["400"],
+});
+
+const josefinSans = Raleway({
+  variable: "--font-josefin-sans",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 const germania = Germania_One({
@@ -66,7 +79,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ReactLenis root options={{ lerp: 0.05 }}>
         <body
-          className={`${montserrat?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
+          className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
         >
           {children}
         </body>

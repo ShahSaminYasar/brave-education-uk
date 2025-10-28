@@ -58,7 +58,7 @@ const page = () => {
       <Header />
 
       <main
-        className="px-5 py-28"
+        className="px-5 pt-28 pb-20"
         style={{
           background:
             "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), url(/bg-dark.jpg)",
@@ -69,7 +69,7 @@ const page = () => {
         }}
       >
         <section
-          className="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden p-6 flex flex-col gap-8 shadow-xl fade-up mb-28"
+          className="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden p-6 flex flex-col gap-8 shadow-xl fade-up"
           style={{
             background: "url(/bg-dark.jpg)",
             backgroundSize: "cover",
@@ -148,7 +148,7 @@ const page = () => {
 
       <footer className="bg-[#221e52] bg-[radial-gradient(200%_115%_at_50%_0%,rgba(255,255,255,0)_20%,rgba(44,31,187,1)_100%)] -mb-10 min-h-screen flex justify-end flex-col relative">
         <section
-          className="px-5 pb-[80px] pt-[200px] w-full"
+          className="px-5 pb-[80px] pt-[120px] w-full"
           style={{
             background:
               "linear-gradient(182deg, rgba(0, 0, 0, 0.45) 23.3%, rgba(0, 0, 0, 0) 75%)",
@@ -238,7 +238,7 @@ const page = () => {
           </div>
 
           {/* Col 4 */}
-          <div className="flex flex-col gap-3 items-start col-span-1 sm:col-span-2 md:col-span-1">
+          <div className="flex flex-col gap-3 items-start col-span-2 sm:col-span-1">
             <span className="footer-title">Find Us</span>
 
             <Link
@@ -310,12 +310,6 @@ const page = () => {
 
         <div className="w-full py-1 px-3 flex flex-row flex-wrap gap-0 text-[10px] text-[#27117e] items-center justify-center font-normal bg-gradient-to-b from-transparent to-[#09002b] to-100% pt-[90px] sm:pt-[220px] absolute bottom-0 left-0 z-10">
           <span className="block w-fit text-center font-medium font-poppins">
-            Copyright 2025 &copy; BRAVE EDUCATION UK LTD
-          </span>
-
-          <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
-
-          <span className="block w-fit text-center font-medium font-poppins">
             Developed by{" "}
             <Link
               href={"https://shahsaminyasar.vercel.app"}
@@ -332,6 +326,12 @@ const page = () => {
             >
               Tech Talk 2
             </Link>
+          </span>
+
+          <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
+
+          <span className="block w-fit text-center font-medium font-poppins">
+            Copyright 2025 &copy; BRAVE EDUCATION UK LTD
           </span>
 
           <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>

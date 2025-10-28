@@ -64,7 +64,7 @@ const PerksSection = () => {
             <SectionTitle
               subtext={"Perks"}
               text={"Why you should choose us"}
-              align="center"
+              align="left"
               animate={false}
             />
           </div>

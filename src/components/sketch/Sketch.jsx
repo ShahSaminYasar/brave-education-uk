@@ -2,8 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-const Sketch = () => {
-  const containerRef = useRef(null);
+const Sketch = ({ containerRef }) => {
   const canvasRef = useRef(null);
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -69,22 +68,17 @@ const Sketch = () => {
   }, [currentFrame, images]);
 
   return (
-    <section
-      ref={containerRef}
-      className="w-full h-[300vh] md:h-[520vh] relative bg-white"
-    >
-      <div className="sticky top-0 h-screen flex items-center justify-center">
-        <div className="w-full max-w-6xl mx-auto aspect-video rounded-2xl">
-          {isLoading && <div className="text-black">Loading frames...</div>}
-          <canvas
-            ref={canvasRef}
-            width={1280}
-            height={720}
-            className="max-w-full max-h-full object-contain"
-          />
-        </div>
+    <div className="w-full bg-white h-[50vh] md:h-screen flex items-center justify-center">
+      <div className="w-full max-w-6xl mx-auto aspect-video rounded-2xl">
+        {isLoading && <div className="text-black">Loading frames...</div>}
+        <canvas
+          ref={canvasRef}
+          width={1280}
+          height={720}
+          className="max-w-full max-h-full object-contain"
+        />
       </div>
-    </section>
+    </div>
   );
 };
 

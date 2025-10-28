@@ -5,166 +5,182 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 const SketchSection = () => {
   // Refs
-  const textContainerRef = useRef(null);
+  const containerRef = useRef(null);
 
   // Motion
   const { scrollYProgress } = useScroll({
-    target: textContainerRef,
+    target: containerRef,
     offset: ["start start", "end end"],
   });
 
   const text1 = useTransform(
     scrollYProgress,
-    [0, 0.0625, 0.171875, 0.21875],
+    [0, 0.05, 0.15, 0.18],
     [0, 1, 1, 0]
   );
   const text2 = useTransform(
     scrollYProgress,
-    [0.21875, 0.28125, 0.390625, 0.4375],
+    [0.18, 0.23, 0.33, 0.36],
     [0, 1, 1, 0]
   );
   const text3 = useTransform(
     scrollYProgress,
-    [0.4375, 0.5, 0.609375, 0.65625],
+    [0.36, 0.41, 0.51, 0.54],
     [0, 1, 1, 0]
   );
   const text4 = useTransform(
     scrollYProgress,
-    [0.61, 0.65, 0.715, 0.75],
+    [0.54, 0.59, 0.69, 0.72],
     [0, 1, 1, 0]
   );
-  const y = useTransform(scrollYProgress, [0.71, 0.77], [120, 0]);
-  const width = useTransform(scrollYProgress, [0.68, 0.85], ["50%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 0.69, 0.78], [120, 120, 0]);
+  const scale = useTransform(scrollYProgress, [0.77, 1], [1, 1.06]);
+  const width = useTransform(scrollYProgress, [0.68, 0.85], ["0%", "100%"]);
 
   return (
-    <div
-      className="w-full relative bg-transparent"
-      style={{
-        background: "url(/bg-dark.jpg)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <motion.div
-        className="absolute z-0  top-0 left-0 h-full block bg-transparent md:bg-white"
-        style={{
-          width: width,
-        }}
-      ></motion.div>
+    <div className="w-full relative bg-white">
+      <section
+        ref={containerRef}
+        className="font-satisfy relative z-10 h-[520vh]"
+      >
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-0 items-center md:items-start justify-center w-full sticky top-0">
+          <Sketch containerRef={containerRef} />
 
-      <section className="flex flex-col-reverse md:grid md:grid-cols-2 gap-0 items-center md:items-start justify-center font-satisfy relative z-10">
-        <Sketch />
-
-        <div
-          ref={textContainerRef}
-          className="w-full h-[340vh] md:h-[520vh] relative px-7"
-        >
-          <div className="sticky top-0 flex p-5 flex-col items-center justify-center w-full h-screen">
-            <motion.div
+          <div className="flex p-5 md:p-7 w-full h-[50vh] md:h-screen relative bg-white">
+            <div
               style={{
-                opacity: text1,
+                background: "url(/bg-dark.jpg)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundAttachment: "fixed",
               }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#d4d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              className="rounded-2xl w-full h-full flex justify-center items-center relative"
             >
-              <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span
-                  className="text-center block"
-                  style={{
-                    textShadow: "0px 0px 20px #fff",
-                  }}
-                >
-                  We believe every dream deserves the right guidance.
-                </span>
-              </div>
-            </motion.div>
+              <motion.div
+                className="absolute z-0 top-0 left-0 h-full block bg-transparent md:bg-white"
+                style={{
+                  width: width,
+                }}
+              ></motion.div>
 
-            <motion.div
-              style={{
-                opacity: text2,
-              }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#fcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-            >
-              <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span
-                  className="text-center block"
+              <div className="relative z-10 w-full h-full flex-col items-center justify-center">
+                <motion.div
                   style={{
-                    textShadow: "0px 0px 20px #fff",
+                    opacity: text1,
                   }}
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[70%] md:text-[30px] font-light text-[#d4d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
-                  Our experts simplify every step, removing confusion and
-                  hassle.
-                </span>
-              </div>
-            </motion.div>
+                  <div className="w-fit px-2 h-fit overflow-y-hidden">
+                    <span
+                      className="text-center block"
+                      style={{
+                        textShadow: "0px 0px 20px #fff",
+                      }}
+                    >
+                      We believe every dream deserves the right guidance.
+                    </span>
+                  </div>
+                </motion.div>
 
-            <motion.div
-              style={{
-                opacity: text3,
-              }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#f5d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-            >
-              <div className="w-fit px-2 h-fit overflow-y-hidden">
-                <span
-                  className="text-center block"
+                <motion.div
                   style={{
-                    textShadow: "0px 0px 20px #fff",
+                    opacity: text2,
                   }}
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#fcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
-                  With the right support by your side,
-                </span>
-              </div>
-            </motion.div>
+                  <div className="w-fit px-2 h-fit overflow-y-hidden">
+                    <span
+                      className="text-center block"
+                      style={{
+                        textShadow: "0px 0px 20px #fff",
+                      }}
+                    >
+                      Our experts simplify every step, removing confusion and
+                      hassle.
+                    </span>
+                  </div>
+                </motion.div>
 
-            <motion.div
-              style={{
-                opacity: text4,
-              }}
-              className="w-full flex flex-col items-center gap-3 justify-center text-[24px] md:text-[30px] font-light text-[#dcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-            >
-              <div className="w-full h-fit overflow-y-hidden">
-                <span
-                  className="text-center block"
+                <motion.div
                   style={{
-                    textShadow: "0px 0px 20px #fff",
+                    opacity: text3,
                   }}
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#f5d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
-                  we help you
-                </span>
-              </div>
-            </motion.div>
+                  <div className="w-fit px-2 h-fit overflow-y-hidden">
+                    <span
+                      className="text-center block"
+                      style={{
+                        textShadow: "0px 0px 20px #fff",
+                      }}
+                    >
+                      With the right support by your side,
+                    </span>
+                  </div>
+                </motion.div>
 
-            <div className="w-full flex flex-col items-start gap-3 justify-center text-[80px] md:text-[110px] font-light text-rose-500 font-germania-one leading-[100%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-              <div className="w-full h-fit overflow-y-hidden text-[#1b1851]">
-                <motion.span
+                <motion.div
                   style={{
-                    display: "block",
-                    y: y,
+                    opacity: text4,
+                  }}
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#dcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                >
+                  <div className="w-full h-fit overflow-y-hidden">
+                    <span
+                      className="text-center block"
+                      style={{
+                        textShadow: "0px 0px 20px #fff",
+                      }}
+                    >
+                      we assist you to
+                    </span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="w-fit flex flex-col items-center gap-3 justify-center text-[80px] md:text-[110px] font-light text-rose-500 font-germania-one leading-[100%] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                  style={{
+                    scale: scale,
                   }}
                 >
-                  Achieve
-                </motion.span>
-              </div>
-              <div className="w-full h-fit overflow-y-hidden text-green-600 font-satisfy text-[45px] md:text-[75px] leading-[80%] p-1 pt-2">
-                <motion.span
-                  style={{
-                    display: "block",
-                    y: y,
-                  }}
-                >
-                  Your
-                </motion.span>
-              </div>
-              <div className="w-full h-fit overflow-y-hidden text-primary">
-                <motion.span
-                  style={{
-                    display: "block",
-                    y: y,
-                  }}
-                >
-                  Goal
-                </motion.span>
+                  <div className="w-fit md:h-[110px] overflow-y-hidden">
+                    <motion.div
+                      className="bg-gradient-to-b from-sky-300 to-sky-700 bg-clip-text"
+                      style={{
+                        y: y,
+                      }}
+                    >
+                      <span className="text-transparent">Achieve</span>
+                    </motion.div>
+                  </div>
+
+                  <div className="w-fit md:h-[75px] overflow-y-hidden -my-[35px] md:-mt-10 md:-mb-[50px]">
+                    <motion.div
+                      className="bg-gradient-to-b from-rose-600 via-rose-600 via-50% to-rose-800 to-90% bg-clip-text font-satisfy text-[45px] md:text-[75px] leading-[80%]"
+                      style={{
+                        y: y,
+                      }}
+                    >
+                      <motion.span className="text-transparent">
+                        Your
+                      </motion.span>
+                    </motion.div>
+                  </div>
+
+                  <div className="w-fit md:h-[100px] overflow-y-hidden">
+                    <motion.div
+                      className="bg-gradient-to-b from-yellow-500 via-yellow-300 via-50% to-yellow-500 to-80% bg-clip-text"
+                      style={{
+                        y: y,
+                      }}
+                    >
+                      <motion.span className="text-transparent">
+                        Goal
+                      </motion.span>
+                    </motion.div>
+                  </div>
+                </motion.div>
               </div>
             </div>
 
