@@ -4,6 +4,7 @@ import Map from "@/components/Map";
 import SectionTitle from "@/components/ui/SectionTitle";
 import VideoContent from "./VideoContent";
 import * as motion from "motion/react-client";
+import ContactFormSection from "../contact/ContactFormSection";
 
 export const metadata = {
   title: "About Us",
@@ -63,8 +64,7 @@ const page = () => {
       <VideoContent />
       <AboutPageCounters />
       <AboutPageMissionVision />
-      {/* TODO: */}
-      <Map />
+      <ContactFormSection />
     </main>
   );
 };

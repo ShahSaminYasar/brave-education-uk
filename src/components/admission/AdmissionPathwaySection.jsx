@@ -59,7 +59,6 @@ const AdmissionPathwaySection = () => {
   const [sectionTitleVisible, setSectionTitleVisible] = useState(false);
 
   useMotionValueEvent(processesScrollYProgress, "change", (current) => {
-    console.log(current);
     const diff = current - processesScrollYProgress?.getPrevious();
 
     if (current > 0.04 && diff > 0) {

@@ -19,10 +19,6 @@ const AboutPageCounters = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], ["-66.667%", "0%"]);
   const y3 = useTransform(scrollYProgress, [0, 1], ["-80%", "0%"]);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-  });
-
   return (
     <div
       className="w-full min-h-screen flex justify-center items-center"

@@ -1,6 +1,6 @@
 import {
   Germania_One,
-  Josefin_Sans,
+  // Josefin_Sans,
   Montserrat,
   Poppins,
   Raleway,
@@ -39,6 +39,9 @@ const germania = Germania_One({
 });
 
 import { ReactLenis } from "@/utils/Lenis";
+import { Toaster } from "@/components/ui/sonner";
+import { MainProvider } from "@/providers/MainProvider";
+import { TanstackQueryProvider } from "@/providers/TanstackQueryProvider";
 
 export const metadata = {
   title: {
@@ -77,12 +80,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ReactLenis root options={{ lerp: 0.05 }}>
-        <body
-          className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
-        >
-          {children}
-        </body>
+      <ReactLenis root options={{ lerp: 0.105 }}>
+        <MainProvider>
+          <TanstackQueryProvider>
+            <body
+              className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
+            >
+              {children}
+              <Toaster />
+            </body>
+          </TanstackQueryProvider>
+        </MainProvider>
       </ReactLenis>
     </html>
   );

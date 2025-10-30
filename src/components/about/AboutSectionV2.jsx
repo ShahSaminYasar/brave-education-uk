@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
+import { useMainContext } from "@/hooks/useMainContext";
 
 const AboutSectionV2 = () => {
   // Refs
@@ -47,7 +48,7 @@ const AboutSectionV2 = () => {
     <>
       {/* Video Section */}
       <div ref={videoSectionRef} className="w-[100%] min-h-[150vh] relative">
-        <section className="w-full overflow-x-hidden min-h-screen flex items-center justify-center section sticky top-0">
+        <section className="w-full overflow-hidden min-h-screen flex items-center justify-center section sticky top-0">
           <motion.div
             className="w-full max-w-4xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden mx-auto origin-center relative group"
             style={{
@@ -71,7 +72,9 @@ const AboutSectionV2 = () => {
 
             <div
               className={`absolute top-0 left-0 w-full h-full block md:hidden ${
-                playing ? "opacity-0" : "opacity-100"
+                playing
+                  ? "opacity-0 pointer-events-none"
+                  : "pointer-events-auto opacity-100"
               } duration-100`}
               style={{
                 background:
@@ -83,7 +86,9 @@ const AboutSectionV2 = () => {
 
             <div
               className={`absolute top-0 left-0 w-full h-full hidden md:block ${
-                playing ? "opacity-0" : "opacity-100"
+                playing
+                  ? "opacity-0 pointer-events-none"
+                  : "pointer-events-auto opacity-100"
               } duration-100`}
               style={{
                 background:

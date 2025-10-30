@@ -31,7 +31,6 @@ import MobileMenuLinkItem from "./MobileMenuLinkItem";
 const Header = () => {
   const { scrollY } = useScroll();
   const pathname = usePathname();
-  console.log(pathname);
 
   // const [scrollDirection, setScrollDirection] = useState("down");
   const [headerVisible, setHeaderVisible] = useState(true);

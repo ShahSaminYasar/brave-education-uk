@@ -1,6 +1,5 @@
 "use client";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 
@@ -18,7 +17,7 @@ const MobileMenuLinkItem = ({
         setMobileMenuOpen(false);
         return redirect(link);
       }}
-      className="w-full text-left block text-zinc-800 bg-white p-3 border-b border-b-zinc-400 capitalize"
+      className="w-full text-left block text-zinc-800 bg-white p-3 border-b border-b-zinc-400 capitalize cursor-pointer"
     >
       {text}
     </button>
@@ -26,7 +25,7 @@ const MobileMenuLinkItem = ({
     <div className="relative w-full border-b border-b-zinc-400 text-zinc-800">
       <button
         onClick={() => setSubmenuOpen((prev) => !prev)}
-        className="w-full flex justify-between items-center gap-3 bg-white p-3 capitalize"
+        className="w-full flex justify-between items-center gap-3 bg-white p-3 capitalize cursor-pointer"
       >
         {text}
 
@@ -51,7 +50,7 @@ const MobileMenuLinkItem = ({
                 ? window.open(item?.link, "_blank")
                 : redirect(item?.link);
             }}
-            className="w-full bg-zinc-50 text-lg font-normal text-zinc-700 p-3 pl-6 border-b border-b-zinc-200 last:border-b-transparent capitalize text-left flex flex-row items-center gap-3"
+            className="w-full bg-zinc-50 text-lg font-normal text-zinc-700 p-3 pl-6 border-b border-b-zinc-200 last:border-b-transparent capitalize text-left flex flex-row items-center gap-3 cursor-pointer"
           >
             {item?.icon}
             {item?.text}

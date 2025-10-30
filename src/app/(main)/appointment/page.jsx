@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Calendar,
   Facebook,
@@ -6,9 +5,9 @@ import {
   Linkedin,
   MessageSquare,
   Music2,
-  Send,
 } from "lucide-react";
 import Link from "next/link";
+import AppointmentForm from "./AppointmentForm";
 
 export const metadata = {
   title: "Appointment Booking",
@@ -100,185 +99,7 @@ const page = () => {
               Schedule your consultation with our education experts
             </p>
           </div>
-
-          <form className="flex flex-col w-full gap-6">
-            {/* Your Name */}
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">
-                Your Name *
-              </label>
-              <input
-                type="text"
-                placeholder="E.g. John"
-                className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
-              />
-            </div>
-
-            {/* Email Address */}
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                placeholder="E.g. john@doe.com"
-                className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
-              />
-            </div>
-
-            {/* Phone Number */}
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                placeholder="E.g. +1 3004005000"
-                className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
-              />
-            </div>
-
-            {/* Date and Time Section */}
-            <div className="space-y-4">
-              {/* Date */}
-              <div className="space-y-2">
-                <label className="text-white/80 text-sm font-medium">
-                  Date *
-                </label>
-                <input
-                  type="date"
-                  className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent"
-                />
-              </div>
-
-              {/* Time Selection */}
-              <div className="grid grid-cols-3 gap-4">
-                {/* Time Hours */}
-                <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">
-                    Time Hours *
-                  </label>
-                  <select className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent">
-                    <option value="" className="text-zinc-800">
-                      Select
-                    </option>
-                    {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
-                      <option key={hour} value={hour} className="text-zinc-800">
-                        {hour.toString().padStart(2, "0")}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Minutes */}
-                <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">
-                    Minutes *
-                  </label>
-                  <select className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent">
-                    <option value="" className="text-zinc-800">
-                      Select
-                    </option>
-                    <option value="00" className="text-zinc-800">
-                      00
-                    </option>
-                    <option value="15" className="text-zinc-800">
-                      15
-                    </option>
-                    <option value="30" className="text-zinc-800">
-                      30
-                    </option>
-                    <option value="45" className="text-zinc-800">
-                      45
-                    </option>
-                  </select>
-                </div>
-
-                {/* AM/PM */}
-                <div className="space-y-2">
-                  <label className="text-white/80 text-sm font-medium">
-                    AM/PM *
-                  </label>
-                  <select className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent">
-                    <option value="" className="text-zinc-800">
-                      Select
-                    </option>
-                    <option value="AM" className="text-zinc-800">
-                      AM
-                    </option>
-                    <option value="PM" className="text-zinc-800">
-                      PM
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Message */}
-            <div className="space-y-2">
-              <label className="text-white/80 text-sm font-medium">
-                Message
-              </label>
-              <textarea
-                placeholder="Enter your message..."
-                rows={4}
-                className="p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px] bg-transparent resize-none"
-              />
-              <div className="flex justify-between items-center">
-                <span className="text-white/60 text-xs">0 / 180</span>
-                <span className="text-white/60 text-xs">Optional</span>
-              </div>
-            </div>
-
-            {/* reCAPTCHA Placeholder */}
-            {/* <div className="space-y-2">
-              <div className="flex items-center gap-2 mb-2">
-                <input type="checkbox" id="robot-check" className="w-4 h-4" />
-                <label
-                  htmlFor="robot-check"
-                  className="text-white/80 text-sm font-medium"
-                >
-                  I'm not a robot
-                </label>
-              </div>
-              <div className="bg-white/10 border border-white/20 rounded px-4 py-6 text-center">
-                <p className="text-white/60 text-sm mb-2">
-                  reCAPTCHA is changing its terms of service. Take action.
-                </p>
-                <div className="bg-white/20 rounded px-4 py-2 inline-block">
-                  <span className="text-white/80 text-sm font-medium">
-                    reCAPTCHA
-                  </span>
-                </div>
-              </div>
-            </div> */}
-
-            {/* Proxy Terms */}
-            <div className="space-y-2">
-              {/* <label className="text-white/80 text-sm font-medium">
-                Proxy Terms
-              </label> */}
-              <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                <p className="text-white/60 text-sm text-center">
-                  By booking this appointment, you agree to our terms and
-                  conditions regarding consultation scheduling and data
-                  processing.
-                </p>
-              </div>
-            </div>
-
-            <Button
-              className={"w-full border border-zinc-600 mt-4"}
-              size={"lg"}
-            >
-              BOOK APPOINTMENT <Send size={18} />
-            </Button>
-
-            <p className="text-white/60 text-xs text-center">
-              Fields marked with * are required. We'll confirm your appointment
-              via email within 2 hours.
-            </p>
-          </form>
+          <AppointmentForm />
         </div>
       </section>
     </div>

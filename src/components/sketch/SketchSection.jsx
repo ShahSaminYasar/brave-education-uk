@@ -35,7 +35,8 @@ const SketchSection = () => {
   );
   const y = useTransform(scrollYProgress, [0, 0.69, 0.78], [120, 120, 0]);
   const scale = useTransform(scrollYProgress, [0.77, 1], [1, 1.06]);
-  const width = useTransform(scrollYProgress, [0.68, 0.85], ["0%", "100%"]);
+  // const width = useTransform(scrollYProgress, [0.68, 0.85], ["0%", "100%"]);
+  const width = useTransform(scrollYProgress, [0.85, 1], ["0%", "0%"]);
 
   return (
     <div className="w-full relative bg-white">
