@@ -112,7 +112,7 @@ const VideoContent = () => {
             }}
           >
             <ReactPlayer
-              src="/assets/videos/about_section_video.mp4"
+              src="https://vimeo.com/1131962110?share=copy&fl=sv&fe=ci"
               width="100%"
               height="100%"
               playing={playing}

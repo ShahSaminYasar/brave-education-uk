@@ -334,7 +334,7 @@ const page = () => {
             Copyright 2025 &copy; BRAVE EDUCATION UK LTD
           </span>
 
-          <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
+          {/* <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
 
           <Link
             href={`https://wa.me/+8801706898827?text=${encodeURIComponent(
@@ -344,7 +344,7 @@ const page = () => {
             className="font-normal font-poppins underline hidden sm:block"
           >
             Report a bug
-          </Link>
+          </Link> */}
         </div>
       </footer>
     </>

@@ -9,6 +9,7 @@ import HeroSection from "@/components/hero/HeroSection";
 import PerksSection from "@/components/perks/PerksSection";
 import ServicesSection from "@/components/services/ServicesSection";
 import SketchSection from "@/components/sketch/SketchSection";
+import SplashScreen from "@/components/SplashScreen";
 import Image from "next/image";
 
 const page = () => {
@@ -31,11 +32,12 @@ const page = () => {
         </div>
         <AdmissionPathwaySection />
         <PerksSection />
-        {/* <FeaturedSection /> */}
         <GallerySection />
         <SketchSection />
       </main>
       <Footer />
+
+      <SplashScreen />
 
       {/* BG */}
       <div className="fixed top-0 left-0 bottom-0 w-full -z-50">

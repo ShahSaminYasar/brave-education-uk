@@ -18,6 +18,8 @@ import Image from "next/image";
 import { useMainContext } from "@/hooks/useMainContext";
 
 const AboutSectionV2 = () => {
+  const { siteLoaded, setSiteLoaded } = useMainContext();
+
   // Refs
   const videoSectionRef = useRef(null);
 
@@ -57,7 +59,8 @@ const AboutSectionV2 = () => {
             }}
           >
             <ReactPlayer
-              src="/assets/videos/about_section_video.mp4"
+              // src="/assets/videos/about_section_video.mp4"
+              src="https://vimeo.com/1131962110?share=copy&fl=sv&fe=ci"
               width="100%"
               height="100%"
               playing={playing}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
 import { useState } from "react";
 
-const AdminNavItem = ({ link, text, submenu = [] }) => {
+const AdminNavItem = ({ link, text, submenu = [], className }) => {
   const [submenuOpen, setSubmenuOpen] = useState(true);
 
   const pathname = usePathname();
@@ -14,17 +14,17 @@ const AdminNavItem = ({ link, text, submenu = [] }) => {
   return submenu?.length === 0 ? (
     <Link
       href={link}
-      className={`w-full text-left block bg-white p-3 border-b border-b-zinc-400 capitalize cursor-pointer text-sm font-medium ${
+      className={`w-full text-left block bg-white p-3 border-b border-zinc-400 capitalize cursor-pointer text-sm font-medium ${
         isActive ? "text-primary" : "text-zinc-900"
-      }`}
+      } ${className && className}`}
     >
       {text}
     </Link>
   ) : (
     <div
-      className={`relative w-full border-b border-b-zinc-400 text-zinc-800  ${
+      className={`relative w-full border-b border-zinc-400 text-zinc-800  ${
         isActive ? "text-primary" : "text-zinc-900"
-      }`}
+      } ${className && className}`}
     >
       <button
         onClick={() => setSubmenuOpen((prev) => !prev)}
