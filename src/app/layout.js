@@ -42,6 +42,7 @@ import { ReactLenis } from "@/utils/Lenis";
 import { Toaster } from "@/components/ui/sonner";
 import { MainProvider } from "@/providers/MainProvider";
 import { TanstackQueryProvider } from "@/providers/TanstackQueryProvider";
+import FeaturedPopup from "@/components/FeaturedPopup";
 
 export const metadata = {
   title: {
@@ -87,6 +88,7 @@ export default function RootLayout({ children }) {
               className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
             >
               {children}
+              <FeaturedPopup />
               <Toaster />
             </body>
           </TanstackQueryProvider>

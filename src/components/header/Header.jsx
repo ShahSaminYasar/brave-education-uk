@@ -54,7 +54,7 @@ const Header = () => {
 
   const menuItemsCourses = [
     {
-      link: "/course/life-in-the-uk-prep",
+      link: "/revision-notes",
       text: "Life in the UK Preparation",
       image: "https://picsum.photos/600/400?random=4",
     },
@@ -120,6 +120,7 @@ const Header = () => {
             height={400}
             alt="Brave Education"
             className="w-full max-w-[160px]"
+            priority
           />
         </Link>
 
@@ -332,7 +333,7 @@ const Header = () => {
                     icon: <BookCopy size={18} />,
                   },
                   {
-                    link: "/course/life-in-the-uk-prep",
+                    link: "/revision-notes",
                     text: "Life in the UK Preparation",
                     icon: <Folders size={18} />,
                   },

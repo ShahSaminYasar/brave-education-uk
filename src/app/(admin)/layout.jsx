@@ -11,7 +11,7 @@ const layout = ({ children }) => {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1024);
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -22,10 +22,10 @@ const layout = ({ children }) => {
     <>
       <Header setNavBarOpen={setNavBarOpen} />
 
-      <main className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 text-sm font-poppins font-medium text-secondary-foreground md:left-0 relative min-h-[300vh]">
+      <main className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6 text-sm font-poppins font-medium text-secondary-foreground lg:left-0 relative min-h-[100vh]">
         <div
           className={`${
-            navBarOpen ? "block md:hidden" : "hidden"
+            navBarOpen ? "block lg:hidden" : "hidden"
           } fixed top-0 left-0 w-full h-full z-20 bg-white/40 backdrop-blur-[2px]`}
           onClick={() => setNavBarOpen(false)}
         ></div>
@@ -38,11 +38,11 @@ const layout = ({ children }) => {
             type: "keyframes",
             ease: "easeOut",
           }}
-          className={`w-2/3 md:w-full h-screen overflow-y-auto flex flex-col items-start gap-0 border-r border-slate-300 @min-7xl:border-l fixed md:sticky top-0 z-30 bg-white pt-[79px] md:pt-[0px] shadow-xl md:shadow-none`}
+          className={`w-full max-w-[280px] lg:max-w-full h-screen overflow-y-auto flex flex-col items-start gap-0 border-r border-slate-300 @min-7lg:border-l fixed lg:sticky top-0 z-30 bg-white pt-[79px] lg:pt-[0px] shadow-xl lg:shadow-none`}
         >
           <button
             onClick={() => setNavBarOpen(false)}
-            className="cursor-pointer text-zinc-900 absolute top-8 left-5 block md:hidden"
+            className="cursor-pointer text-zinc-900 absolute top-8 left-5 block lg:hidden"
           >
             <X size={20} />
           </button>
@@ -50,7 +50,7 @@ const layout = ({ children }) => {
           <AdminNavItem
             link={"/admin"}
             text={"Overview"}
-            className={"border-t md:border-t-0"}
+            className={"border-t lg:border-t-0"}
           />
           <AdminNavItem
             link={"/admin/submissions"}
