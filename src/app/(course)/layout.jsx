@@ -4,6 +4,7 @@ import Header from "./Header";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import CourseNavItem from "./CourseNavItem";
+import Footer from "@/components/footer/Footer";
 
 const layout = ({ children }) => {
   const [navBarOpen, setNavBarOpen] = useState(false);
@@ -189,6 +190,8 @@ const layout = ({ children }) => {
           {children}
         </div>
       </main>
+
+      <Footer />
     </>
   );
 };

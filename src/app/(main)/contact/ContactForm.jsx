@@ -1,14 +1,16 @@
 "use client";
-import { Send } from "lucide-react";
+import { CheckCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useAxios } from "@/hooks/useAxios";
+import { AnimatePresence, motion } from "motion/react";
 
 const ContactForm = () => {
   const axios = useAxios();
 
   const [sending, setSending] = useState(false);
+  const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
@@ -32,7 +34,8 @@ const ContactForm = () => {
       });
 
       if (res?.data?.ok) {
-        return toast.success("Message sent successfully");
+        // return toast.success("Message sent successfully");
+        return setConfirmationModalOpen(true);
       } else {
         return toast.error(
           res?.data?.message || "Failed to send message, please try again"
@@ -51,44 +54,81 @@ const ContactForm = () => {
     "p-2 border-b border-zinc-200 block w-full text-sm text-zinc-100 placeholder:text-zinc-200 outline-[0px]";
 
   return (
-    <form onSubmit={handleSendMessage} className="flex flex-col w-full gap-6">
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Your name"
-        className={inputStyle}
-      />
-      <input
-        type="tel"
-        placeholder="Your phone number"
-        className={inputStyle}
-        name="phone"
-        required
-      />
-      <input
-        type="email"
-        placeholder="Your email address"
-        className={inputStyle}
-        name="email"
-        required
-      />
-      <textarea
-        name="message"
-        placeholder="Message"
-        className={inputStyle}
-        rows={5}
-      ></textarea>
+    <>
+      <form onSubmit={handleSendMessage} className="flex flex-col w-full gap-6">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Your name"
+          className={inputStyle}
+        />
+        <input
+          type="tel"
+          placeholder="Your phone number"
+          className={inputStyle}
+          name="phone"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Your email address"
+          className={inputStyle}
+          name="email"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Message"
+          className={inputStyle}
+          rows={5}
+        ></textarea>
 
-      <Button
-        type="submit"
-        className={"w-full border border-zinc-700 disabled:opacity-50"}
-        size={"lg"}
-        disabled={sending}
-      >
-        {sending ? "Sending..." : "Send Message"} <Send size={18} />
-      </Button>
-    </form>
+        <Button
+          type="submit"
+          className={"w-full border border-zinc-700 disabled:opacity-50"}
+          size={"lg"}
+          disabled={sending}
+        >
+          {sending ? "Sending..." : "Send Message"} <Send size={18} />
+        </Button>
+      </form>
+
+      <AnimatePresence>
+        {confirmationModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="w-full h-full fixed top-0 left-0 z-[70] bottom-0 right-0 bg-black/30 backdrop-blur-[3px] flex items-center justify-center p-8 font-montserrat"
+          >
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, type: "spring" }}
+              className="w-full max-w-md rounded-xl bg-white shadow-lg p-5 flex flex-col items-center justify-center gap-4"
+            >
+              <CheckCircle size={50} className="text-green-600" />
+              <span className="text-3xl text-green-600 font-semibold font-josefin-sans block text-center -mt-3">
+                Thank You
+              </span>
+              <p className="text-xs font-medium text-zinc-600 block text-center">
+                We received your message and our team will get in touch with you
+                soon.
+              </p>
+              <Button
+                variant={"default"}
+                className={"w-[120px]"}
+                onClick={() => setConfirmationModalOpen(false)}
+              >
+                Okay
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 export default ContactForm;

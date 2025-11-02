@@ -14,7 +14,7 @@ const CourseNavItem = ({ link, text, submenu = [], className }) => {
   return submenu?.length === 0 ? (
     <Link
       href={link}
-      className={`w-full text-left block p-3 border-b border-zinc-400 cursor-pointer text-xs font-medium ${
+      className={`w-full text-left block p-3 border-b border-b-zinc-400 cursor-pointer text-xs font-medium ${
         isActive ? "text-white bg-primary" : "text-zinc-900 bg-white"
       } ${className && className}`}
     >
@@ -22,7 +22,7 @@ const CourseNavItem = ({ link, text, submenu = [], className }) => {
     </Link>
   ) : (
     <div
-      className={`relative w-full border-b border-zinc-400 text-zinc-800 text-left ${
+      className={`relative w-full border-b border-b-zinc-400 text-zinc-800 text-left ${
         isActive ? "text-primary" : "text-zinc-900"
       } ${className && className}`}
     >

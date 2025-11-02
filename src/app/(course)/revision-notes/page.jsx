@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/ui/SectionTitle";
+import Link from "next/link";
 
 export const metadata = {
   title: "Life in the UK Test: Revision Notes",
@@ -35,7 +36,7 @@ const page = () => {
           {/* Using space-y-8 to stack the content cards */}
           <div className="space-y-8">
             {/* Features Section */}
-            <div
+            {/* <div
               id="features"
               className="bg-white rounded-lg border border-zinc-200 p-6"
             >
@@ -74,7 +75,7 @@ const page = () => {
                   <span>🌙 Dark mode</span>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             {/* Structure Section */}
             <div className="bg-white rounded-lg border border-zinc-200 p-6">
@@ -141,7 +142,10 @@ const page = () => {
                   <span>Review the notes before your test.</span>
                 </li>
               </ul>
-              <p className="text-secondary-foreground mt-4">
+            </div>
+
+            <div className="bg-teal-200 rounded-lg border-2 border-teal-600 text-teal-600 p-6">
+              <p className="text-secondary-foreground">
                 Remember, while these notes provide a solid foundation, they are
                 a condensed version of the original guide. For the most
                 comprehensive preparation, consider using these notes in
@@ -188,28 +192,22 @@ const page = () => {
             {/* Copyright Section */}
             <div className="bg-white rounded-lg border border-zinc-200 p-6">
               <h2 className="text-2xl font-semibold text-primary mb-4">
-                Copyright
+                Acknowledgment
               </h2>
               <div className="space-y-3 text-secondary-foreground">
                 <p>
-                  Copyright by Britizen. Reproduction, copying and quoting these
-                  learning materials is allowed as long as full attribution is
-                  provided (see below). Commerical use is allowed for
-                  educational bodies (teachers, courses) as long as appropriate
-                  attribution is provided. If in doubt, please contact us.
+                  Educational content featured here is sourced and adapted from
+                  materials by{" "}
+                  <Link
+                    href={"https://britizen.uk/revision-notes"}
+                    target="_blank"
+                    className="font-semibold"
+                  >
+                    Britizen
+                  </Link>
+                  . Reproduced with attribution in accordance with their usage
+                  policy. All rights to the original content belong to Britizen.
                 </p>
-                <p>Appropriate attribution:</p>
-                <blockquote className="border-l-4 border-zinc-300 pl-4 italic text-secondary-foreground/80 space-y-2">
-                  <p>
-                    A direct link to the copied section if allowed by the medium
-                    (HTML)
-                  </p>
-                  <p>
-                    A textual acknoledgement ("Britizen" mention) if HTML
-                    deep-linking is not allowed e.g. "Revision Notes from
-                    Britizen".
-                  </p>
-                </blockquote>
               </div>
             </div>
           </div>

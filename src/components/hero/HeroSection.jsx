@@ -7,6 +7,7 @@ import { DK, IE, US } from "country-flag-icons/react/3x2";
 import ShinyText from "../ui/ShinyText";
 import { motion } from "motion/react";
 import { useMainContext } from "@/hooks/useMainContext";
+import Link from "next/link";
 
 const HeroSection = () => {
   const { siteLoaded } = useMainContext();
@@ -90,13 +91,17 @@ const HeroSection = () => {
             transition={{ delay: 0.7, duration: 0.4 }}
             className="flex flex-row items-center gap-3 justify-center mt-1"
           >
-            <Button>
-              Explore Options <ArrowUpRight />
-            </Button>
+            <Link href={"/about"}>
+              <Button>
+                More about us <ArrowUpRight />
+              </Button>
+            </Link>
 
-            <Button variant={"secondary"}>
-              Check Eligibility <ArrowUpRight />
-            </Button>
+            <Link href={"/check-eligibility"}>
+              <Button variant={"secondary"}>
+                Check Eligibility <ArrowUpRight />
+              </Button>
+            </Link>
           </motion.div>
 
           <ReviewCard
