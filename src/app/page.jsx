@@ -1,5 +1,6 @@
 // import AboutSection from "@/components/about/AboutSection";
 import AboutSectionV2 from "@/components/about/AboutSectionV2";
+import AccreditationsSection from "@/components/accreditations/AccreditationsSection";
 import AdmissionPathwaySection from "@/components/admission/AdmissionPathwaySection";
 // import FeaturedSection from "@/components/featured/FeaturedSection";
 import Footer from "@/components/footer/Footer";
@@ -32,6 +33,7 @@ const page = () => {
         </div>
         <AdmissionPathwaySection />
         <PerksSection />
+        <AccreditationsSection />
         <GallerySection />
         <SketchSection />
       </main>

@@ -10,6 +10,7 @@ import Perk from "./Perk";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "motion/react";
 import SectionTitle from "../ui/SectionTitle";
+import Image from "next/image";
 
 const PerksSection = () => {
   // Refs
