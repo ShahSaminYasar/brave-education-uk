@@ -14,7 +14,8 @@ const page = () => {
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["appointments"],
-    queryFn: () => axios.get("/appointment"),
+    queryFn: () =>
+      axios.get(`/appointment?token=${localStorage.getItem("token")}`),
   });
 
   return (

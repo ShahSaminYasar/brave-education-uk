@@ -21,7 +21,7 @@ const ContactFormSection = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="col-span-2 grid grid-cols-3 gap-4 justify-center items-center bg-white/10 backdrop-blur-[5px] rounded-2xl p-6 text-sm text-white">
+        <div className="w-full col-span-3 md:col-span-2 grid grid-cols-3 gap-4 justify-center items-center bg-white/10 backdrop-blur-[5px] rounded-2xl p-6 text-sm text-white">
           <div>
             <span className="font-semibold block">Phone Number</span>
             <Link href={"tel:+4408009991257"}>0800 999 1257</Link>

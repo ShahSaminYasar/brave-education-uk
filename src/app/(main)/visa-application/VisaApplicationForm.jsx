@@ -734,7 +734,7 @@ const VisaApplicationForm = () => {
               <p className="text-xs font-medium text-zinc-600 block text-center">
                 Your visa application was submitted successfully. We have sent
                 you an email regarding this and our team will get in touch with
-                you soon.
+                you as soon as possible.
               </p>
               <Button
                 variant={"default"}

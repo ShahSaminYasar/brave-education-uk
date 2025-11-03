@@ -115,7 +115,7 @@ const ContactForm = () => {
               </span>
               <p className="text-xs font-medium text-zinc-600 block text-center">
                 We received your message and our team will get in touch with you
-                soon.
+                as soon as possible.
               </p>
               <Button
                 variant={"default"}

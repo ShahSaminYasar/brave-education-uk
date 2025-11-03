@@ -102,6 +102,7 @@ const PopUpUploadForm = () => {
         image: imageUpload?.data?.data?.display_url,
         link,
         type,
+        token: localStorage?.getItem("token"),
       });
 
       if (result?.data?.ok) {

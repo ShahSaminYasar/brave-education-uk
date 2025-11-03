@@ -5,6 +5,7 @@ import { CheckCircle, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { AnimatePresence, motion } from "motion/react";
+import moment from "moment-timezone";
 
 const AppointmentForm = () => {
   const axios = useAxios();
@@ -31,15 +32,27 @@ const AppointmentForm = () => {
       if (!name || !email)
         return toast.warning("Please fill up the required fields");
 
-      const datetime = new Date(date);
+      // const datetime = new Date(date);
       if (ampm === "PM" && hour !== 12) {
         hour += 12;
       } else if (ampm === "AM" && hour == 12) {
         hour = 0;
       }
-      datetime.setHours(hour, minute, 0, 0);
+      // datetime.setHours(hour, minute, 0, 0);
+      // Construct UTC datetime
+      const datetime = moment
+        .utc(`${date} ${hour}:${minute}`, "YYYY-MM-DD HH:mm")
+        .toDate();
 
-      const data = { name, email, phone, datetime, message };
+      const data = {
+        name,
+        email,
+        phone,
+        datetime: datetime?.toISOString(),
+        message,
+      };
+
+      // console.log(data);
 
       const res = await axios.post("/appointment", data);
 

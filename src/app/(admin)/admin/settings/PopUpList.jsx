@@ -34,7 +34,9 @@ const PopUpList = () => {
 
   const handleDeletePopup = async (id) => {
     try {
-      const result = await axios.delete(`/popup?id=${id}`);
+      const result = await axios.delete(
+        `/popup?id=${id}&token=${localStorage?.getItem("token")}`
+      );
 
       if (result?.data?.ok) {
         return refetch();

@@ -1,6 +1,7 @@
 "use client";
 import { useAxios } from "@/hooks/useAxios";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export const MainContext = createContext(undefined);
 
@@ -15,6 +16,7 @@ export const MainProvider = ({ children }) => {
     image: "",
     title: "",
   });
+  const [authStatus, setAuthStatus] = useState("loading");
 
   // Effects
   useEffect(() => {
@@ -43,9 +45,50 @@ export const MainProvider = ({ children }) => {
       }
     };
 
-    const timeout = setTimeout(getSetOnlinePopup, 15000);
+    const timeout = setTimeout(getSetOnlinePopup, 12000);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    if (!localToken) return setAuthStatus("unauthenticated");
+
+    const checkToken = async () => {
+      const res = await axios.post(`/auth`, { token: localToken });
+
+      if (res?.data?.ok) {
+        console.log(res?.data?.message);
+        return setAuthStatus("authenticated");
+      } else {
+        console.log(res?.data?.message);
+        return setAuthStatus("unauthenticated");
+      }
+    };
+
+    checkToken();
+  }, []);
+
+  const adminLogin = async (username, password) => {
+    try {
+      const res = await axios.post(`/auth`, {
+        uname: username,
+        pass: password,
+      });
+
+      if (res?.data?.ok && res?.data?.token) {
+        localStorage.setItem("token", res?.data?.token);
+        toast.success(res?.data?.message);
+        return setAuthStatus("authenticated");
+      } else {
+        toast.error(res?.data?.message || "Login failed");
+        return setAuthStatus("unauthenticated");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error?.message);
+      return setAuthStatus("unauthenticated");
+    }
+  };
 
   const values = {
     loadingProgress,
@@ -56,6 +99,9 @@ export const MainProvider = ({ children }) => {
     setPopupOpen,
     popupData,
     setPopupData,
+    authStatus,
+    setAuthStatus,
+    adminLogin,
   };
 
   return <MainContext.Provider value={values}>{children}</MainContext.Provider>;

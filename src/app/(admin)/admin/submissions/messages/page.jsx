@@ -14,7 +14,7 @@ const page = () => {
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["messages"],
-    queryFn: () => axios.get("/contact"),
+    queryFn: () => axios.get(`/contact?token=${localStorage.getItem("token")}`),
   });
 
   return (
@@ -49,7 +49,7 @@ const page = () => {
                     className="cursor-pointer text-slate-200"
                     onClick={() => {
                       navigator.clipboard.writeText(
-                        `Appointment Information
+                        `Contact Message Information
 (${moment(item?.createdAt)
                           .tz("Europe/London")
                           .format("hh:mma, DD/MM/YYYY")}(GMT))
@@ -57,9 +57,7 @@ const page = () => {
 Name: ${item?.name}
 Phone: ${item?.phone}
 Email: ${item?.email}
-Message: ${item?.message || "---"}
-Appointment date: ${moment(item?.datetime).format("DD MMMM YYYY")}
-Appointment time: ${moment(item?.datetime).format("hh:mma")}`
+Message: ${item?.message || "---"}`
                       );
                       toast("Copied to clipboard", {
                         icon: <Copy size={12} />,
@@ -71,7 +69,7 @@ Appointment time: ${moment(item?.datetime).format("hh:mma")}`
                 </div>
               </div>
 
-              <div className="w-full bg-white group-hover:bg-gradient-to-br from-white via-purple-50 to-white px-5 pb-3">
+              <div className="w-full bg-white group-hover:bg-gradient-to-br from-white via-sky-50 to-white px-5 pb-3">
                 <div className="w-full flex items-center justify-between gap-2 border-b border-zinc-200 py-3">
                   <span className="text-zinc-700">Phone</span>
                   {item?.phone ? (
@@ -98,27 +96,13 @@ Appointment time: ${moment(item?.datetime).format("hh:mma")}`
                   </Link>
                 </div>
 
-                <div className="w-full flex items-center justify-between gap-2 py-3 border-b border-zinc-200">
+                <div className="w-full flex items-center justify-between gap-2 py-3">
                   <span className="text-zinc-700 block text-nowrap">
                     Message
                   </span>
                   <p className="block text-right text-zinc-400">
                     {item?.message}
                   </p>
-                </div>
-
-                <div className="w-full flex items-center justify-between gap-2 py-3 border-b border-zinc-200">
-                  <span className="text-zinc-700 block text-nowrap">
-                    Apointment date
-                  </span>
-                  <span>{moment(item?.datetime).format("DD MMMM YYYY")}</span>
-                </div>
-
-                <div className="w-full flex items-center justify-between gap-2 py-3  border-zinc-200">
-                  <span className="text-zinc-700 block text-nowrap">
-                    Apointment time
-                  </span>
-                  <span>{moment(item?.datetime).format("hh:mma")}</span>
                 </div>
               </div>
             </div>

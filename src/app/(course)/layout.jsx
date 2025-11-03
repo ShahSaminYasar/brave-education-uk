@@ -1,5 +1,5 @@
 "use client";
-import { ClipboardClock, FileUser, UserCheck, X } from "lucide-react";
+import { X } from "lucide-react";
 import Header from "./Header";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";

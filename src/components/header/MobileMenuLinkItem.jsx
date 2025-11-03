@@ -15,6 +15,7 @@ const MobileMenuLinkItem = ({
     <button
       onClick={() => {
         setMobileMenuOpen(false);
+        document.body.classList.remove("scroll-block");
         return redirect(link);
       }}
       className="w-full text-left block text-zinc-800 bg-white p-3 border-b border-b-zinc-400 capitalize cursor-pointer"
@@ -46,6 +47,7 @@ const MobileMenuLinkItem = ({
             key={`${id}_${item?.link}`}
             onClick={() => {
               setMobileMenuOpen(false);
+              document.body.classList.remove("scroll-block");
               return item?.external
                 ? window.open(item?.link, "_blank")
                 : redirect(item?.link);

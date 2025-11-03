@@ -1,9 +1,13 @@
 "use client";
+import { useMainContext } from "@/hooks/useMainContext";
 import { Home, LogOut, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const Header = ({ setNavBarOpen }) => {
+  const { setAuthStatus } = useMainContext();
+
   return (
     <>
       <div className={`block lg:hidden relative w-full mb-[80px]`}></div>
@@ -41,8 +45,12 @@ const Header = ({ setNavBarOpen }) => {
           </Link>
 
           <button
-            onClick={() => alert("UNDER DEVELOPMENT")}
-            className="w-fit rounded-md bg-red-500 p-2 text-[10px] text-red-100 font-semibold font-montserrat flex items-center gap-1 ml-auto"
+            onClick={() => {
+              localStorage.removeItem("token");
+              setAuthStatus("unauthenticated");
+              return redirect("/admin");
+            }}
+            className="w-fit rounded-md bg-red-500 p-2 text-[10px] text-red-100 font-semibold font-montserrat flex items-center gap-1 ml-auto cursor-pointer"
           >
             <LogOut size={12} /> Logout
           </button>
