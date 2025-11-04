@@ -6,7 +6,18 @@ import * as motion from "motion/react-client";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Our Services",
+  title: "Our Student Services",
+  description:
+    "Explore the full range of services at Brave Education UK, from university application support and student finance guidance to airport pickup and test preparation courses.",
+  keywords: [
+    "Student services",
+    "university application help",
+    "student finance advice",
+    "airport pickup service",
+    "Life in the UK course",
+    "educational services",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {

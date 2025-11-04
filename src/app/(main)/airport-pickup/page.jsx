@@ -5,7 +5,17 @@ import Image from "next/image";
 import ReservationForm from "./ReservationForm";
 
 export const metadata = {
-  title: "Airport Pick-up Service",
+  title: "Student Airport Pick-Up Service",
+  description:
+    "Ensure a safe, reliable, and welcoming arrival with Brave Education UK's dedicated airport pick-up service for international students arriving in the UK.",
+  keywords: [
+    "Student airport pickup",
+    "UK airport transfer",
+    "Heathrow student pickup",
+    "Gatwick airport transfer",
+    "international student arrival service",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {
@@ -288,22 +298,35 @@ const page = () => {
             <div
               className="rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/20"
               style={{
-                background: "url(/bg-dark.jpg)",
-                backgroundPosition: "center",
+                backgroundImage: "url(/assets/images/suv-airport.jpeg)",
                 backgroundSize: "cover",
+                backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
+                backgroundAttachment: "fixed",
               }}
             >
-              <Image
-                src={"/assets/images/suv-airport.jpg"}
+              {/* <Image
+                src={"/assets/images/suv-airport.jpeg"}
                 width={1000}
                 height={1000}
                 alt="SUV in Airport"
                 className="w-full h-full object-cover col-span-1"
-              />
+              /> */}
+              <div className="w-full h-full min-h-[200px] col-span-1"></div>
 
-              <div className="w-full px-3 py-20 col-span-2 flex justify-center min-h-[80vh]">
-                <ReservationForm />
+              <div
+                className="w-full p-5 col-span-2 bg-blue-900/60 backdrop-blur-sm"
+                // style={{
+                //   backgroundImage: "url(/bg-dark.jpg)",
+                //   backgroundSize: "cover",
+                //   backgroundPosition: "80% 50%",
+                //   backgroundRepeat: "no-repeat",
+                //   backgroundAttachment: "fixed",
+                // }}
+              >
+                <div className="w-full px-3 py-20 bg-white/20 rounded-xl flex justify-center min-h-[80vh]">
+                  <ReservationForm />
+                </div>
               </div>
             </div>
           </section>

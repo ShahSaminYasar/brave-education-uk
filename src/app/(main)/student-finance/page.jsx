@@ -3,7 +3,17 @@ import * as motion from "motion/react-client";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Student Finance",
+  title: "Student Finance Guidance",
+  description:
+    "Get expert help with student finance, tuition fee loans, and scholarship applications. Brave Education UK guides you through the process of funding your international education.",
+  keywords: [
+    "Student finance UK",
+    "international student finance",
+    "student loan advice",
+    "tuition fee loan",
+    "university scholarship help",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {

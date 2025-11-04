@@ -66,7 +66,7 @@ const AboutSectionV2 = () => {
               playing={playing}
               loop={true}
               controls={false}
-              playsinline={true}
+              playsInline={true}
               style={{
                 pointerEvents: "none",
                 scale: 1.06,

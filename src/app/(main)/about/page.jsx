@@ -7,7 +7,17 @@ import * as motion from "motion/react-client";
 import ContactFormSection from "../contact/ContactFormSection";
 
 export const metadata = {
-  title: "About Us",
+  title: "About Us - Our Mission & Team",
+  description:
+    "Learn about the Brave Education UK team, our mission, and our commitment to helping international students achieve their academic goals. Find out why students choose us.",
+  keywords: [
+    "About Brave Education UK",
+    "our mission",
+    "educational consultants",
+    "student support team",
+    "why choose us",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {

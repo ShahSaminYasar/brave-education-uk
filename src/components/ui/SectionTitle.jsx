@@ -45,7 +45,7 @@ const SectionTitle = ({
       {subtext && (
         <>
           <span
-            className={`block w-full text-${align} text-sm font-semibold text-primary`}
+            className={`block w-full text-${align} text-sm font-semibold text-primary font-josefin-sans`}
           >
             {subtext}
           </span>
@@ -56,7 +56,7 @@ const SectionTitle = ({
                 : align == "center"
                 ? "mx-auto"
                 : "ml-auto"
-            } -mt-1`}
+            } mb-1`}
           ></span>
         </>
       )}
@@ -66,7 +66,7 @@ const SectionTitle = ({
           variants={containerVariant}
           initial="hidden"
           whileInView="visible"
-        className={`text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 ${
+          className={`text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 font-josefin-sans leading-[50px] lg:leading-[55px] 2xl:leading-[60px] mb-0 ${
             className && className
           } ${
             align == "left"
@@ -94,7 +94,7 @@ const SectionTitle = ({
         </motion.h2>
       ) : (
         <h2
-          className={`text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 ${
+          className={`text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 font-josefin-sans leading-[50px] lg:leading-[55px] 2xl:leading-[60px] mb-0 ${
             className && className
           } ${
             align == "left"

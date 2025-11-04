@@ -2,7 +2,18 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Life in the UK Test: Revision Notes",
+  title: "Revision Notes & Study Guides",
+  description:
+    "Access effective revision notes, practice materials, and study guides for your A1, B1, Life in the UK, and Theory test courses. Study smarter with Brave Education UK.",
+  keywords: [
+    "Revision notes",
+    "study guides",
+    "Life in the UK test revision",
+    "B1 test practice",
+    "theory test revision notes",
+    "exam preparation materials",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {

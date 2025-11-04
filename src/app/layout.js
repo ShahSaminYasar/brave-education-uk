@@ -47,17 +47,37 @@ import FeaturedPopup from "@/components/FeaturedPopup";
 export const metadata = {
   title: {
     template: "%s | Brave Education UK",
-    default: "Brave Education UK",
+    default: "Brave Education UK - University Admission, Law, English & HR",
   },
-  description: "From guidance to graduation, we help you achieve your goal.",
+  description:
+    "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
   icons: "/favicon.jpg",
-  keywords: [],
+  keywords: [
+    "Brave Education UK",
+    "university admission",
+    "study in UK",
+    "Brave Law",
+    "law courses",
+    "English courses",
+    "B1 English",
+    "A2 English",
+    "Life in the UK test",
+    "Brave HR",
+    "human resources solutions",
+    "student consultancy UK",
+    "educational counselling",
+    "study abroad consultants",
+    "UK university application",
+    "international student support",
+    "higher education consultants",
+  ],
   robots: "index, follow",
   authors: [{ name: "Brave Education" }],
   metadataBase: new URL("https://www.braveeducationuk.com"),
   openGraph: {
-    title: "Brave Education UK",
-    description: "From guidance to graduation, we help you achieve your goal.",
+    title: "Brave Education UK - University Admission, Law, English & HR",
+    description:
+      "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
     url: "https://www.braveeducationuk.com",
     siteName: "Brave Education UK",
     type: "website",
@@ -72,8 +92,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Brave Education UK",
-    description: "From guidance to graduation, we help you achieve your goal.",
+    title: "Brave Education UK - University Admission, Law, English & HR",
+    description:
+      "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
     images: ["/og-image.jpg"],
   },
 };

@@ -56,7 +56,7 @@ function Button({
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{
         once: false,
-        margin: "0px 0px -100px 0px",
+        margin: "0px 0px 100px 0px",
       }}
       transition={{
         duration: 0.4,

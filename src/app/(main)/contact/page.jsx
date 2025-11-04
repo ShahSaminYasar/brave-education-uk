@@ -6,7 +6,17 @@ import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
 
 export const metadata = {
-  title: "Contact",
+  title: "Contact Us",
+  description:
+    "Get in touch with the Brave Education UK team today for personalized educational advice. Call, email, or fill out our contact form to start your application process.",
+  keywords: [
+    "Contact Brave Education UK",
+    "get in touch",
+    "start application",
+    "educational counselling contact",
+    "book consultation",
+  ],
+  robots: "index, follow",
 };
 
 const page = () => {

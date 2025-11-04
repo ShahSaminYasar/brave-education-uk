@@ -479,3 +479,47 @@ h2 {
     transform: translateX(-100%);
   }
 }
+
+.animate-success-carousel {
+  animation: successCarousel 9s ease-in-out infinite;
+}
+
+@keyframes successCarousel {
+  /* Card 1 */
+  0%,
+  30% {
+    transform: translateX(-180px);
+  }
+  /* Transition to Card 2 */
+  33% {
+    transform: translateX(-540px);
+  }
+  /* Card 2 */
+  33%,
+  63% {
+    transform: translateX(-540px);
+  }
+  /* Transition to Card 3 */
+  66% {
+    transform: translateX(-900px);
+  }
+  /* Card 3 */
+  66%,
+  96% {
+    transform: translateX(-900px);
+  }
+  /* Transition back to Card 1 */
+  100% {
+    transform: translateX(-180px);
+  }
+}
+
+.success_carousel_item {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+.success_carousel_item.active {
+  opacity: 1;
+  transform: scale(1);
+}

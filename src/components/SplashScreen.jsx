@@ -50,7 +50,7 @@ const SplashScreen = () => {
           initial={{ y: "0%" }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="bg-slate-50 fixed top-0 left-0 w-full h-full flex justify-center items-center z-[999] text-3xl md:text-5xl font-josefin-sans font-medium text-zinc-900"
+          className="bg-slate-50 fixed top-0 left-0 right-0 bottom-0 w-full h-full flex justify-center items-center z-[999] text-3xl md:text-5xl font-josefin-sans font-medium text-zinc-900"
         >
           {/* TimeStamp Display */}
           {/* <div className="fixed top-0 left-0 w-fit bg-green-600 text-white text-xs font-medium py-1 px-5 font-poppins">
