@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, MessageCircle, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import SpotlightCard from "../SpotlightCard";
@@ -17,6 +17,7 @@ const CourseBox = ({
   style,
   bgColor = "#231f52",
   accentColor = "#44406c",
+  waLink = "#",
   link = "#",
   slug,
 }) => {
@@ -83,12 +84,12 @@ const CourseBox = ({
 
           <div className="flex flex-row items-center gap-3">
             <Link
-              href={`/course/${slug}`}
+              href={waLink}
               target="_blank"
-              className="w-fit px-8 py-2 text-sm font-bold bg-yellow-400 text-slate-900 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
+              className="w-fit px-8 py-2 text-sm font-bold bg-[#42ea60] text-green-800 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
               // style={{ background: "#fffff" }}
             >
-              Details <ArrowUpRight size={20} />
+              Enquire <MessageCircle size={20} />
             </Link>
 
             <Link

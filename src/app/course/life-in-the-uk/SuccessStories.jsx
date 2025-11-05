@@ -17,42 +17,53 @@ const SuccessStories = () => {
     const updateActiveCard = () => {
       const animation = carousel.getAnimations()[0];
       if (animation) {
-        const progress = (animation.currentTime % 9000) / 9000; // 9s duration
+        const progress = (animation.currentTime % 15000) / 15000;
 
         let newIndex;
-        if (progress < 0.33) {
-          // Card 1: 0% - 33%
+        if (progress < 0.19) {
+          // Card 1: 0% - 19%
           newIndex = 0;
-        } else if (progress < 0.66) {
-          // Card 2: 33% - 66%
+        } else if (progress < 0.38) {
+          // Card 2: 19% - 38%
           newIndex = 1;
-        } else {
-          // Card 3: 66% - 100%
+        } else if (progress < 0.57) {
+          // Card 3: 38% - 57%
           newIndex = 2;
+        } else if (progress < 0.76) {
+          // Card 4: 57% - 76%
+          newIndex = 3;
+        } else {
+          // Card 5: 76% - 100%
+          newIndex = 4;
         }
 
         setActiveIndex(newIndex);
       }
     };
 
-    // Update frequently for smooth transitions
     const interval = setInterval(updateActiveCard, 50);
-    updateActiveCard(); // Initial call
+    updateActiveCard();
 
     return () => clearInterval(interval);
   }, []);
 
   const items = [
     {
-      image: "/assets/videos/about_section_video_thumbnail_portrait.jpg",
-      video: "https://youtube.com/shorts/tGiQTBK__Zw?si=XgcHP9vfgPbuq8pw",
+      image: "/assets/images/reviews/1.jpg",
+      video: "https://www.youtube.com/shorts/UY32T1NGggQ",
     },
     {
-      image: "/assets/videos/about_section_video_thumbnail_portrait.jpg",
+      image: "/assets/images/reviews/2.jpg",
+      video: "https://youtu.be/Ub6e-DJAJNU",
     },
     {
-      image: "/assets/videos/about_section_video_thumbnail_portrait.jpg",
-      video: "https://youtube.com/shorts/OWPvNi0npXk?si=WcpGVPBd6SLT5XO9",
+      image: "/assets/images/reviews/3.jpg",
+    },
+    {
+      image: "/assets/images/reviews/4.jpg",
+    },
+    {
+      image: "/assets/images/reviews/5.jpg",
     },
   ];
 

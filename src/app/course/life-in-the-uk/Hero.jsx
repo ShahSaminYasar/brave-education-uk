@@ -97,7 +97,11 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.34 }}
         >
           <Link href={"#form"}>
-            <Button className={"w-[180px]"}>
+            <Button
+              className={
+                "w-[180px] bg-white text-orange-500 hover:text-white font-bold"
+              }
+            >
               Book Your Seat Now <ArrowRight size={14} />
             </Button>
           </Link>

@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "Privacy Policy",
+};
+
 const page = () => {
   return (
     <div className="bg-white pt-20 px-5 pb-[0px]">

@@ -88,7 +88,8 @@ const page = () => {
               image={"/assets/images/courses/ise_b1.jpg"}
               bgColor="#231f52"
               accentColor="#b50e12"
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/9B6cMYbOX0xu0TsbVTdIA0b`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B1 English Test (ISE I), please tell me the details."
               )}`}
             />
@@ -103,7 +104,8 @@ const page = () => {
               image={"/assets/images/courses/ise_b2.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/00w00c8CL3JG8lU9NLdIA0d`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B2 English Test (ISE II), please tell me the details."
               )}`}
             />
@@ -116,7 +118,8 @@ const page = () => {
               fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/bJeaEQ5qzcgcby63pndIA0a`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B1 English Course (GESE Grade 5), please tell me the details."
               )}`}
             />
@@ -131,7 +134,8 @@ const page = () => {
               image={"/assets/images/courses/a1.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/5kQ9AM6uD3JG6dMe41dIA0e`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in A1 English Course (GESE Grade 2), please tell me the details."
               )}`}
             />
@@ -146,7 +150,8 @@ const page = () => {
               image={"/assets/images/courses/a2.jpg"}
               bgColor="#231f52"
               accentColor="#b50e12"
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/aFaaEQbOXdkg9pYaRPdIA0f`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in A2 English Test (GESE Grade 3), please tell me the details."
               )}`}
             />
@@ -161,7 +166,8 @@ const page = () => {
               image={"/assets/images/courses/life-in-the-uk.jpg"}
               bgColor="#262626"
               accentColor="#3b3b3b"
-              link={`https://wa.me/+447862042900?text=${encodeURIComponent(
+              link={`https://buy.stripe.com/3cI7sEdX5dkg6dMbVTdIA0c`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in the course 'Life in the UK', please tell me the details."
               )}`}
             />

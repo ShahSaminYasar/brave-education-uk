@@ -1,5 +1,12 @@
 "use client";
-import { ClipboardClock, FileUser, Plane, UserCheck, X } from "lucide-react";
+import {
+  ClipboardClock,
+  FileUser,
+  Plane,
+  UserCheck,
+  Users,
+  X,
+} from "lucide-react";
 import AdminNavItem from "./AdminNavItem";
 import Header from "./Header";
 import { useEffect, useState } from "react";
@@ -161,6 +168,11 @@ const layout = ({ children }) => {
                   link: "/admin/submissions/airport-pickup",
                   text: "Airport Pickup",
                   icon: <Plane size={15} />,
+                },
+                {
+                  link: "/admin/submissions/leads",
+                  text: "Leads",
+                  icon: <Users size={15} />,
                 },
               ]}
             />

@@ -1,12 +1,23 @@
 "use client";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { Spinner } from "@/components/ui/spinner";
+import { useAxios } from "@/hooks/useAxios";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { toast } from "sonner";
 
 const Form = () => {
+  const axios = useAxios();
+  const router = useRouter();
+
+  // Refs
   const containerRef = useRef(null);
+
+  // States
+  const [loading, setLoading] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -26,6 +37,40 @@ const Form = () => {
   );
   const imageScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
 
+  // Functions
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+
+      const form = new FormData(e?.target);
+      const name = form?.get("name");
+      const email = form?.get("email");
+      const phone = form?.get("phone");
+
+      const res = await axios.post("/lead/life-in-the-uk", {
+        name,
+        email,
+        phone,
+      });
+
+      if (res?.data?.ok) {
+        return router.push("/course/life-in-the-uk/checkout");
+      } else {
+        console.log(res?.data);
+        return toast.warning(res?.data?.message);
+      }
+    } catch (error) {
+      console.error(error);
+      return toast.error(
+        error?.message ||
+          "Unknown error occured, please try again or contact us directly"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -43,14 +88,12 @@ const Form = () => {
         }}
       >
         <form
-          onSubmit={() => {
-            return alert("UNDER DEVELOPMENT");
-          }}
+          onSubmit={handleSubmit}
           className="w-full md:col-span-2 relative z-20 bg-[#121163] rounded-2xl p-8 flex flex-col gap-5 items-start justify-center"
         >
           <SectionTitle
             align="left"
-            text={"Start Your Journey Today"}
+            text={"Book Your Seat Now"}
             subtext={"Secure your spot in the next batch"}
             style={{ color: "#fff" }}
             animate={false}
@@ -66,7 +109,7 @@ const Form = () => {
             name="name"
             placeholder="Your full name"
             required
-            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30"
+            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30 outline-none focus:border-white/40"
           />
 
           <input
@@ -74,7 +117,7 @@ const Form = () => {
             name="email"
             placeholder="Your email address"
             required
-            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30"
+            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30 outline-none focus:border-white/40"
           />
 
           <input
@@ -82,14 +125,23 @@ const Form = () => {
             name="phone"
             placeholder="Your phone number"
             required
-            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30"
+            className="w-full py-2 px-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/30 outline-none focus:border-white/40"
           />
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 text-sm font-medium text-white py-2 px-3 bg-gradient-to-r from-red-600 via-red-500 to-red-600 rounded-xl shadow-sm hover:shadow-xl cursor-pointer mt-2"
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-1 text-sm font-medium text-white py-2 px-3 bg-gradient-to-r from-red-600 via-red-500 to-red-600 rounded-xl shadow-sm hover:shadow-xl cursor-pointer mt-2 hover:from-white/80 hover:via-white/100 hover:to-white/80 transition-all duration-100 active:shadow-none hover:gap-3 hover:text-red-600 disabled:grayscale-[50%] disabled:opacity-50"
           >
-            Enroll <ArrowRight size={14} />
+            {loading ? (
+              <>
+                <Spinner /> Processing
+              </>
+            ) : (
+              <>
+                Enroll <ArrowRight size={14} />
+              </>
+            )}
           </button>
         </form>
 

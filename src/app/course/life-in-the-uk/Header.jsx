@@ -45,7 +45,7 @@ const Header = () => {
       }`}
     >
       {/* Large Screen Menu */}
-      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 md:pr-2 grid grid-cols-2 md:grid-cols-3 items-center gap-4 md:gap-8 bg-slate-100 rounded-[80px] shadow-sm">
+      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 md:pr-2 grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-8 bg-slate-100 rounded-[80px] shadow-sm">
         <Link
           href={"/"}
           className="w-fit rounded-md bg-slate-100 p-2 text-[10px] text-slate-800 font-semibold font-montserrat hidden md:flex items-center gap-1"
@@ -64,7 +64,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="flex flex-row items-center justify-end gap-3 md:gap-5">
+        {/* <div className="flex flex-row items-center justify-end gap-3 md:gap-5">
           <Link href={"/appointment"}>
             <Button className={"hidden md:flex"}>
               Consult for free <ArrowUpRight />
@@ -75,7 +75,7 @@ const Header = () => {
               Consult free <ArrowUpRight />
             </Button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </motion.header>
   );
