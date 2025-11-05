@@ -102,7 +102,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      {/* <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -112,7 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-WJVGMD2N');
           `}
         </Script>
-      </head>
+      </head> */}
       <ReactLenis root options={{ lerp: 0.105 }}>
         <MainProvider>
           <TanstackQueryProvider>
@@ -120,7 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
             >
               {/* Google Tag Manager (noscript) */}
-              <noscript>
+              {/* <noscript>
                 <iframe
                   src="https://www.googletagmanager.com/ns.html?id=GTM-WJVGMD2N"
                   height="0"
@@ -130,7 +130,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     visibility: "hidden",
                   }}
                 ></iframe>
-              </noscript>
+              </noscript> */}
               {/* End Google Tag Manager (noscript) */}
 
               {children}
