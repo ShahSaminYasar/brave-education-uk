@@ -57,10 +57,10 @@ export const MainProvider = ({ children }) => {
       const res = await axios.post(`/auth`, { token: localToken });
 
       if (res?.data?.ok) {
-        console.log(res?.data?.message);
+        // console.log(res?.data?.message);
         return setAuthStatus("authenticated");
       } else {
-        console.log(res?.data?.message);
+        // console.log(res?.data?.message);
         return setAuthStatus("unauthenticated");
       }
     };

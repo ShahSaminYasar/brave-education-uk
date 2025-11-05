@@ -112,22 +112,26 @@ const VideoContent = () => {
             }}
           >
             <ReactPlayer
+              // src="/assets/videos/about_section_video.mp4"
               src="https://vimeo.com/1131962110?share=copy&fl=sv&fe=ci"
               width="100%"
               height="100%"
               playing={playing}
               loop={true}
-              controls={false}
+              muted={false}
+              controls={true}
               playsInline={true}
               style={{
-                pointerEvents: "none",
+                pointerEvents: playing ? "all" : "none",
                 scale: 1.06,
               }}
             />
 
             <div
               className={`absolute top-0 left-0 w-full h-full block md:hidden ${
-                playing ? "opacity-0" : "opacity-100"
+                playing
+                  ? "opacity-0 pointer-events-none"
+                  : "pointer-events-auto opacity-100"
               } duration-100`}
               style={{
                 background:
@@ -139,7 +143,9 @@ const VideoContent = () => {
 
             <div
               className={`absolute top-0 left-0 w-full h-full hidden md:block ${
-                playing ? "opacity-0" : "opacity-100"
+                playing
+                  ? "opacity-0 pointer-events-none"
+                  : "pointer-events-auto opacity-100"
               } duration-100`}
               style={{
                 background:
