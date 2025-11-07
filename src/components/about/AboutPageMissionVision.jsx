@@ -138,8 +138,8 @@ const AboutPageMissionVision = () => {
           </motion.div>
 
           <Link
-            href={"#"}
-            className="w-full px-3 py-2 text-sm font-medium text-white bg-primary rounded-lg flex items-center justify-center gap-2"
+            href={"/courses"}
+            className="w-full px-3 py-2 text-sm font-medium text-white bg-primary hover:bg-red-700 transition-all duration-100 rounded-lg flex items-center justify-center gap-2"
           >
             See our Courses <ArrowUpRight size={18} />
           </Link>

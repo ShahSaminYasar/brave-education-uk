@@ -36,6 +36,7 @@ const Header = () => {
   const [headerVisible, setHeaderVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileMenuScreen, setMobileMenuScreen] = useState(0);
+  const [topped, setTopped] = useState(true);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     if (mobileMenuOpen) return;
@@ -49,6 +50,16 @@ const Header = () => {
       setHeaderVisible(false);
     } else if (diff < 0 || current <= 100) {
       setHeaderVisible(true);
+    }
+
+    if (current <= 450) {
+      if (!topped) {
+        setTopped(true);
+      }
+    } else {
+      if (topped) {
+        setTopped(false);
+      }
     }
   });
 
@@ -98,21 +109,28 @@ const Header = () => {
 
   const navLinkStyle = (path) => {
     return `text-sm font-medium font-montserrat hover:text-primary flex items-center flex-row gap-2 ${
-      pathname?.startsWith(path) ? "text-primary" : " text-slate-600"
+      pathname?.startsWith(path) ? "text-primary" : " text-slate-500"
     }`;
   };
-  ("");
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
-      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full p-2 pt-3 md:p-5 md:pt-5 ${
+      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full bg-transparent ${
+        topped ? "backdrop-blur-sm" : "backdrop-blur-none"
+      } pt-2 pb-2 ${
         headerVisible ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
       {/* Large Screen Menu */}
-      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 bg-slate-200/60 backdrop-blur-sm rounded-[80px] shadow-sm">
+      <div
+        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 rounded-[80px] transition-all duration-300 ${
+          topped
+            ? "shadow-none bg-transparent backdrop-blur-none"
+            : "bg-white/90 shadow-xl backdrop-blur-[4px]"
+        }`}
+      >
         <Link href="/">
           <Image
             src={"/logo.svg"}

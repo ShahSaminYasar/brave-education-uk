@@ -18,16 +18,16 @@ const page = () => {
     <>
       <Header />
       <main>
-        <HeroSection />
         <div
           className="relative h-fit w-full"
           style={{
-            background: "url(/white-bg-2.jpg)",
+            background: "url(/main-bg.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
+          <HeroSection />
           <AboutSectionV2 />
           <ServicesSection />
         </div>

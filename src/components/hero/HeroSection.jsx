@@ -13,7 +13,7 @@ const HeroSection = () => {
   const { siteLoaded } = useMainContext();
 
   return (
-    <section className="section min-h-screen relative flex flex-col justify-center">
+    <section className="section min-h-screen relative flex flex-col justify-center w-full">
       {/* BG Layer */}
       {/* <div className="absolute top-0 left-0 w-full h-full bg-white/40 backdrop-blur-sm mix-blend-multiply block lg:hidden"></div> */}
 
@@ -23,7 +23,7 @@ const HeroSection = () => {
             initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[50px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto"
+            className="text-[50px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto text-zinc-900"
           >
             From Guidance to{" "}
             <span className="relative w-fit inline-block p-2">

@@ -91,7 +91,8 @@ const VisaApplicationForm = () => {
 
       if (res?.data?.ok) {
         // return toast.success("Application submitted successfully");
-        return setConfirmationModalOpen(true);
+        setConfirmationModalOpen(true);
+        e?.target?.reset();
       } else {
         return toast.error(
           res?.data?.message ||

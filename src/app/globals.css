@@ -541,3 +541,13 @@ h2 {
   opacity: 1;
   transform: scale(1);
 }
+
+.mask-gradient-to-b {
+  mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 65%,
+    transparent 100%
+  );
+}

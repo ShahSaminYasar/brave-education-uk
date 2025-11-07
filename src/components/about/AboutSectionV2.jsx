@@ -44,6 +44,8 @@ const AboutSectionV2 = () => {
     [0.4, 1, 1.1, 1.2, 2]
   );
 
+  const opacity = useTransform(scrollYProgress, [0, 0.7, 0.9], [1, 1, 0]);
+
   const y = useTransform(scrollYProgress, [0, 0.44], [200, 0]);
 
   return (
@@ -56,6 +58,7 @@ const AboutSectionV2 = () => {
             style={{
               scale: scale,
               y: y,
+              opacity: opacity,
             }}
           >
             <ReactPlayer

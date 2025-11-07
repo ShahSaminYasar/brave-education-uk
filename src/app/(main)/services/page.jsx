@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 // import ScrollReveal from "@/components/ui/ScrollReveal";
 // import SectionTitle from "@/components/ui/SectionTitle";
-import { ArrowUpRight, Pen } from "lucide-react";
+import {
+  ArrowUpRight,
+  GraduationCap,
+  Info,
+  Lightbulb,
+  Pen,
+  Puzzle,
+} from "lucide-react";
 import * as motion from "motion/react-client";
 import Link from "next/link";
 
@@ -27,49 +34,50 @@ const page = () => {
   };
 
   return (
-    <main
-      style={{
-        background:
-          "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/white-bg.jpg)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Title Section */}
-      <motion.section
-        initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-        animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-        transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-        className="py-[100px] px-5 flex flex-col gap-3 items-center justify-center min-h-[100vh]"
+    <main>
+      <div
+        style={{
+          background:
+            "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(page_bg_2.jpg)",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
-          <h2 className="text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 font-[800]">
-            <span className="text-transparent">Our Services</span>
-          </h2>
-        </div>
-
-        <p className="para block text-center w-full max-w-md mx-auto">
-          Transforming education into an experience. Where curiosity meets
-          clarity, and every step brings students closer to their dreams.
-        </p>
-
-        {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        {/* Title Section */}
+        <motion.section
+          initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+          animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+          transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+          className="py-[100px] px-5 flex flex-col gap-3 items-center justify-center min-h-[100vh]"
         >
-          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
-            />
+          <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
+            <h2 className="text-[40px] lg:text-5xl 2xl:text-6xl block text-zinc-900 font-[800]">
+              <span className="text-transparent">Our Services</span>
+            </h2>
           </div>
-        </motion.div>
-      </motion.section>
+
+          <p className="para block text-center w-full max-w-md mx-auto">
+            Transforming education into an experience. Where curiosity meets
+            clarity, and every step brings students closer to their dreams.
+          </p>
+
+          {/* Scroll indicator */}
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          >
+            <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1 h-3 bg-gray-300 rounded-full mt-2"
+              />
+            </div>
+          </motion.div>
+        </motion.section>
+      </div>
 
       {/* Cards */}
       <div className="w-full section bg-white">
@@ -78,7 +86,7 @@ const page = () => {
           <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
             {/* Icon Container */}
             <div className="w-14 h-14 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-              <Pen size={32} className="text-indigo-600" />
+              <Info size={32} className="text-indigo-600" />
             </div>
 
             {/* Content */}
@@ -96,7 +104,7 @@ const page = () => {
 
           <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
             <div className="w-14 h-14 bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-              <Pen size={32} className="text-emerald-600" />
+              <Lightbulb size={32} className="text-emerald-600" />
             </div>
 
             <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
@@ -112,7 +120,7 @@ const page = () => {
 
           <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
             <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-red-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-              <Pen size={32} className="text-primary" />
+              <GraduationCap size={32} className="text-primary" />
             </div>
 
             <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-red-700 transition-colors duration-300">
@@ -128,7 +136,7 @@ const page = () => {
 
           <div className="group bg-white border border-zinc-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 max-w-sm w-full">
             <div className="w-14 h-14 bg-gradient-to-br from-purple-50 to-yellow-100 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-              <Pen size={32} className="text-yellow-600" />
+              <Puzzle size={32} className="text-yellow-600" />
             </div>
 
             <h4 className="text-xl font-medium text-gray-900 mb-3 group-hover:text-yellow-700 transition-colors duration-300">

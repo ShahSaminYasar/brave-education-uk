@@ -16,7 +16,7 @@ const AccreditationsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          viewport={{ margin: "-200px 0px -30% 0px" }}
+          viewport={{ margin: "700px 0px -30% 0px" }}
           className="w-full max-w-5xl mx-auto flex flex-row gap-x-14 gap-y-5 items-center justify-center flex-wrap mt-10"
         >
           <Image

@@ -12,8 +12,8 @@ const ServicesSection = () => {
 
   const { scrollYProgress } = useScroll({ target: containerRef });
 
-  const x = useTransform(scrollYProgress, [0, 0.75, 1], ["33%", "20%", "16%"]);
-  const y = useTransform(scrollYProgress, [0, 0.75, 1], ["33%", "20%", "16%"]);
+  const x = useTransform(scrollYProgress, [0, 0.79, 1], ["33%", "20%", "18%"]);
+  const y = useTransform(scrollYProgress, [0, 0.79, 1], ["33%", "20%", "18%"]);
 
   const contentVariant = {
     hidden: { opacity: 0, scale: 0.85 },
@@ -22,13 +22,22 @@ const ServicesSection = () => {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.08, 0.25, 1],
+    [0, 0.1, 0.55, 1],
     [0, 0, 1, 1]
   );
-  const scale = useTransform(scrollYProgress, [0, 0.19, 1], [0.82, 0.82, 0.9]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.21, 0.8, 1],
+    [0.9, 0.9, 0.87, 0.83]
+  );
+  const layerOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.65, 1],
+    [1, 0, 0, 1]
+  );
 
   return (
-    <div ref={containerRef} className="relative min-h-[250vh] w-full section">
+    <div ref={containerRef} className="relative min-h-[140vh] w-full section">
       <div
         className="absolute top-0 left-0 w-full h-full z-0"
         style={{
@@ -169,6 +178,13 @@ const ServicesSection = () => {
           </motion.div>
         </>
       </section>
+
+      <motion.div
+        className="absolute top-0 left-0 w-full h-full bg-white z-0"
+        style={{
+          opacity: layerOpacity,
+        }}
+      ></motion.div>
     </div>
   );
 };

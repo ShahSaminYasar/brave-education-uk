@@ -40,12 +40,18 @@ const PerksSection = () => {
     [0.18, 0.18, 1]
   );
 
+  const layerOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.65, 1],
+    [1, 0, 0, 0.35]
+  );
+
   return (
-    <div ref={containerRef} className="w-full min-h-[300vh] relative">
+    <div ref={containerRef} className="w-full min-h-[130vh] relative">
       <div
-        className="w-full sticky top-0"
+        className="w-full sticky top-0 z-0"
         style={{
-          background: "url(/white-bg.jpg)",
+          background: "url(/white-bg-2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -120,6 +126,13 @@ const PerksSection = () => {
             </div>
           </motion.div>
         </section>
+
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full bg-white -z-10"
+          style={{
+            opacity: layerOpacity,
+          }}
+        ></motion.div>
       </div>
     </div>
   );

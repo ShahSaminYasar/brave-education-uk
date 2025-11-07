@@ -12,7 +12,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { MainProvider } from "@/providers/MainProvider";
 import { TanstackQueryProvider } from "@/providers/TanstackQueryProvider";
 import FeaturedPopup from "@/components/FeaturedPopup";
-import Script from "next/script";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -102,40 +102,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <head>
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WJVGMD2N');
-          `}
-        </Script>
-      </head> */}
       <ReactLenis root options={{ lerp: 0.105 }}>
         <MainProvider>
           <TanstackQueryProvider>
             <body
               className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
             >
-              {/* Google Tag Manager (noscript) */}
-              {/* <noscript>
-                <iframe
-                  src="https://www.googletagmanager.com/ns.html?id=GTM-WJVGMD2N"
-                  height="0"
-                  width="0"
-                  style={{
-                    display: "none",
-                    visibility: "hidden",
-                  }}
-                ></iframe>
-              </noscript> */}
-              {/* End Google Tag Manager (noscript) */}
-
               {children}
               <FeaturedPopup />
               <Toaster />
+              <GoogleTagManager gtmId="GTM-WJVGMD2N" />
             </body>
           </TanstackQueryProvider>
         </MainProvider>
