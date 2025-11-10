@@ -5,6 +5,7 @@ import * as motion from "motion/react-client";
 import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
 import CourseSwiper from "./CourseSwiper";
+import OfferSection from "@/components/offer/OfferSection";
 
 export const metadata = {
   title: "English (A1-B2), Life in UK & Theory Courses",
@@ -24,7 +25,9 @@ export const metadata = {
 
 const page = () => {
   return (
-    <main>
+    <main className="mt-[105px]">
+      <OfferSection />
+
       {/* Title Section */}
       <motion.section
         initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
@@ -69,26 +72,28 @@ const page = () => {
         </motion.div>
       </motion.section>
 
-      <div className="bg-white w-full px-5 py-20">
+      <div className="bg-white w-full px-5 py-20" id="our_courses_section">
         <div className="w-full max-w-6xl mx-auto">
-          <section className="w-full flex flex-col items-center justify-center gap-6">
-            <SectionTitle
-              text={"Our Courses"}
-              subtext={"Education"}
-              align="center"
-            />
+          <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start justify-center gap-6">
+            <div className="w-full sm:col-span-2 lg:col-span-3">
+              <SectionTitle
+                text={"Our Courses"}
+                subtext={"Education"}
+                align="center"
+              />
+            </div>
 
             <CourseBox
               name={"B1 English Test (ISE I)"}
-              classNo={"21"}
-              mockNo={"02"}
+              classNo={"21 Classes"}
+              mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£380"}
               mode={"In person"}
               image={"/assets/images/courses/ise_b1.jpg"}
               bgColor="#231f52"
               accentColor="#b50e12"
-              link={`https://buy.stripe.com/9B6cMYbOX0xu0TsbVTdIA0b`}
+              link={`https://buy.stripe.com/9B6cMYbOX0xu0TsbVTdIA0b?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B1 English Test (ISE I), please tell me the details."
               )}`}
@@ -96,15 +101,15 @@ const page = () => {
 
             <CourseBox
               name={"B2 English Test (ISE II)"}
-              classNo={"21"}
-              mockNo={"02"}
+              classNo={"21 Classes"}
+              mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£380"}
               mode={"In person"}
               image={"/assets/images/courses/ise_b2.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
-              link={`https://buy.stripe.com/00w00c8CL3JG8lU9NLdIA0d`}
+              link={`https://buy.stripe.com/00w00c8CL3JG8lU9NLdIA0d?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B2 English Test (ISE II), please tell me the details."
               )}`}
@@ -112,13 +117,13 @@ const page = () => {
 
             <CourseBox
               name={"B1 English Course (GESE Grade 5)"}
-              classNo={"14"}
-              mockNo={"02"}
+              classNo={"14 Classes"}
+              mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
-              link={`https://buy.stripe.com/bJeaEQ5qzcgcby63pndIA0a`}
+              link={`https://buy.stripe.com/bJeaEQ5qzcgcby63pndIA0a?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in B1 English Course (GESE Grade 5), please tell me the details."
               )}`}
@@ -126,15 +131,15 @@ const page = () => {
 
             <CourseBox
               name={"A1 English Course (GESE Grade 2)"}
-              classNo={"14"}
-              mockNo={"02"}
+              classNo={"14 Classes"}
+              mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/a1.jpg"}
               bgColor="#e02f33"
               accentColor="#b50e12"
-              link={`https://buy.stripe.com/5kQ9AM6uD3JG6dMe41dIA0e`}
+              link={`https://buy.stripe.com/5kQ9AM6uD3JG6dMe41dIA0e?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in A1 English Course (GESE Grade 2), please tell me the details."
               )}`}
@@ -142,15 +147,15 @@ const page = () => {
 
             <CourseBox
               name={"A2 English Test (GESE Grade 3)"}
-              classNo={"14"}
-              mockNo={"02"}
+              classNo={"14 Classes"}
+              mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£240"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/a2.jpg"}
               bgColor="#231f52"
               accentColor="#b50e12"
-              link={`https://buy.stripe.com/aFaaEQbOXdkg9pYaRPdIA0f`}
+              link={`https://buy.stripe.com/aFaaEQbOXdkg9pYaRPdIA0f?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in A2 English Test (GESE Grade 3), please tell me the details."
               )}`}
@@ -158,17 +163,34 @@ const page = () => {
 
             <CourseBox
               name={"Life in the UK"}
-              classNo={"10"}
-              mockNo={"2"}
+              classNo={"10 Classes"}
+              mockNo={"2 Mock Tests"}
               duration={"1 hr 10 mins"}
               fees={"£150"}
               mode={"Online/Offline"}
               image={"/assets/images/courses/life-in-the-uk.jpg"}
               bgColor="#262626"
               accentColor="#3b3b3b"
-              link={`https://buy.stripe.com/3cI7sEdX5dkg6dMbVTdIA0c`}
+              link={`https://buy.stripe.com/3cI7sEdX5dkg6dMbVTdIA0c?prefilled_promo_code=bb40`}
               waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
                 "I am interested in the course 'Life in the UK', please tell me the details."
+              )}`}
+            />
+
+            <CourseBox
+              name={"SIA Door Supervisor + First Aid"}
+              classNo={"6 days in a week"}
+              mockNo={"Session: 9:30 - 18:00"}
+              duration={"Result & Certificate"}
+              four={"7 - 14 days"}
+              fees={"£150"}
+              mode={"Online/Offline"}
+              image={"/assets/images/courses/door_supervisor.jpg"}
+              bgColor="#231f52"
+              accentColor="#3b3b3b"
+              link={`https://buy.stripe.com/bJeaEQbOXfso59I6BzdIA0g?prefilled_promo_code=bb40`}
+              waLink={`https://wa.me/+447862042900?text=${encodeURIComponent(
+                "I am interested in the course 'SIA Door Supervisor + First Aid', please tell me the details."
               )}`}
             />
           </section>

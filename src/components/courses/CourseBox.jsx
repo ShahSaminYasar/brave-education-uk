@@ -11,6 +11,7 @@ const CourseBox = ({
   mockNo,
   fees,
   duration,
+  four,
   mode,
   image,
   className,
@@ -29,18 +30,18 @@ const CourseBox = ({
       viewport={{
         margin: "200px 0px -20% 0px",
       }}
-      className="w-full max-w-5xl mx-auto"
+      className="w-full mx-auto h-full"
     >
       <SpotlightCard
-        className={`w-full rounded-3xl p-5 text-white flex flex-col-reverse gap-8 justify-center items-center md:grid md:grid-cols-2 shadow-sm ${
+        className={`w-full h-full rounded-3xl p-[18px] text-white flex flex-col-reverse gap-4 justify-end items-center shadow-sm ${
           className && className
         }`}
         style={{ background: bgColor }}
       >
-        <div className="flex flex-col items-start gap-5">
-          <div className="flex flex-col flex-nowrap gap-2 items-start">
-            <div className="bg-gradient-to-br from-white/5 via-white/20 border border-white/30 to-white/5 rounded-2xl p-px">
-              <div className="flex flex-row items-center justify-center gap-2 bg-white/5 text-white/90 text-[12px] font-semibold rounded-2xl px-4 py-[2px]">
+        <div className="w-full flex flex-col items-start gap-6">
+          <div className="w-full flex flex-col flex-nowrap gap-2 items-start">
+            <div className="bg-gradient-to-br from-white/5 via-white/20 border border-white/30 to-white/5 rounded-2xl p-px mb-1">
+              <div className="flex flex-row items-center justify-center gap-2 bg-white/5 text-white/90 text-[10px] font-semibold rounded-2xl px-4 py-[2px]">
                 <span
                   className="block bg-gradient-to-br from-white/80 from-30% 
                       via-white/90 via-50% 
@@ -51,38 +52,36 @@ const CourseBox = ({
               </div>
             </div>
 
-            <h3 className="text-3xl md:text-4xl font-black text-white">
-              {name}
-            </h3>
+            <h3 className="text-2xl font-black text-white">{name}</h3>
           </div>
 
-          <div className="w-fit grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-5 items-start justify-start text-lg font-montserrat mb-1">
-            <div className="flex flex-col gap-3 lg:col-span-1">
-              <span className="flex flex-row items-center gap-2 max-w-[150px]">
+          <div className="w-full grid grid-cols-1 gap-3 items-start justify-start text-sm font-montserrat">
+            <div className="w-full flex flex-col gap-3 lg:col-span-1">
+              <span className="w-full flex flex-row items-center gap-2">
                 <ShieldCheck size={22} />
-                <span>{classNo} Classes</span>
+                <span>{classNo}</span>
               </span>
 
-              <span className="flex flex-row items-center gap-2 max-w-[150px]">
+              <span className="w-full flex flex-row items-center gap-2">
                 <ShieldCheck size={22} />
                 <span>{duration}</span>
               </span>
             </div>
 
-            <div className="flex flex-col gap-3 lg:col-span-2">
-              <span className="flex flex-row items-center gap-2 max-w-[170px]">
+            <div className="w-full flex flex-col gap-3 lg:col-span-2">
+              <span className="w-full flex flex-row items-center gap-2">
                 <ShieldCheck size={22} />
-                <span>{mockNo} Mock Tests</span>
+                <span>{mockNo}</span>
               </span>
 
-              <span className="flex flex-row items-center gap-2 max-w-[300px]">
+              <span className="w-full flex flex-row items-center gap-2">
                 <ShieldCheck size={22} />
-                <span>Qualified Teachers</span>
+                <span>{four || "Qualified Teachers"}</span>
               </span>
             </div>
           </div>
 
-          <div className="flex flex-row items-center gap-3">
+          <div className="w-full flex flex-row items-center justify-center mt-auto gap-3">
             <Link
               href={waLink}
               target="_blank"

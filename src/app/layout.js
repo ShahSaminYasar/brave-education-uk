@@ -102,6 +102,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="LJao6sy599bbhCe9JuTfvHFr6zhDhobUJGNtW_bpCCM"
+        />
+      </head>
       <ReactLenis root options={{ lerp: 0.105 }}>
         <MainProvider>
           <TanstackQueryProvider>

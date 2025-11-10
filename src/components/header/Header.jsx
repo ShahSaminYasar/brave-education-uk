@@ -27,6 +27,7 @@ import { useState } from "react";
 // import FlowingMenu from "../ui/FlowingMenu";
 import { usePathname } from "next/navigation";
 import MobileMenuLinkItem from "./MobileMenuLinkItem";
+import OfferTopBar from "../offer/OfferTopBar";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -117,19 +118,15 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
-      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full bg-transparent ${
-        topped ? "backdrop-blur-sm" : "backdrop-blur-none"
-      } pt-2 pb-2 ${
-        headerVisible ? "pointer-events-auto" : "pointer-events-none"
-      }`}
+      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full ${
+        topped ? "backdrop-blur-sm bg-white/70" : "backdrop-blur-none bg-white"
+      } py-0 ${headerVisible ? "pointer-events-auto" : "pointer-events-none"}`}
     >
+      <OfferTopBar />
+
       {/* Large Screen Menu */}
       <div
-        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 rounded-[80px] transition-all duration-300 ${
-          topped
-            ? "shadow-none bg-transparent backdrop-blur-none"
-            : "bg-white/90 shadow-xl backdrop-blur-[4px]"
-        }`}
+        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 transition-all duration-300`}
       >
         <Link href="/">
           <Image

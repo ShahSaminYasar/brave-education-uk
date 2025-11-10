@@ -18,7 +18,9 @@ const HeroSection = () => {
       {/* <div className="absolute top-0 left-0 w-full h-full bg-white/40 backdrop-blur-sm mix-blend-multiply block lg:hidden"></div> */}
 
       {siteLoaded && (
-        <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5 pt-[35px]">
+        <motion.div className="w-full max-w-6xl mx-auto relative flex flex-col items-center justify-center gap-5 pt-[55px]">
+          {/* pt-[35px] (Without OfferTopBar) */}
+          {/* pt-[55px] (With OfferTopBar) */}
           <motion.h1
             initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
