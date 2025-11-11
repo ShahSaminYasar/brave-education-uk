@@ -1,0 +1,12 @@
+# This file tells search engine crawlers which pages to crawl or not crawl.
+
+User-agent: *
+
+# Directories to block from all crawlers
+Disallow: /admin/
+
+# (Optional) Uncomment the line below if you have search result pages
+# Disallow: /search
+
+# Point crawlers to your sitemap
+Sitemap: https://braveeducationuk.com/sitemap.xml

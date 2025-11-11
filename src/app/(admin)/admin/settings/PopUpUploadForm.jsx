@@ -97,13 +97,16 @@ const PopUpUploadForm = () => {
           "Image upload failed, please check your internet and try again"
         );
 
-      const result = await axiosSelf.post("/popup", {
-        title,
-        image: imageUpload?.data?.data?.display_url,
-        link,
-        type,
-        token: localStorage?.getItem("token"),
-      });
+      const result = await axiosSelf.post(
+        `/popup?token=${localStorage.getItem("token")}`,
+        {
+          title,
+          image: imageUpload?.data?.data?.display_url,
+          link,
+          type,
+          token: localStorage?.getItem("token"),
+        }
+      );
 
       if (result?.data?.ok) {
         queryClient?.invalidateQueries(["popups"]);

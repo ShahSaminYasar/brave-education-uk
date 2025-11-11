@@ -118,8 +118,9 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
+      transition={{ type: "keyframes", duration: 0.3 }}
       className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full ${
-        topped ? "backdrop-blur-sm bg-white/70" : "backdrop-blur-none bg-white"
+        topped ? "backdrop-blur-sm bg-white/90" : "backdrop-blur-none bg-white"
       } py-0 ${headerVisible ? "pointer-events-auto" : "pointer-events-none"}`}
     >
       <OfferTopBar />

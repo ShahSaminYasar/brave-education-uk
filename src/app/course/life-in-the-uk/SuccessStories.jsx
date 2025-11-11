@@ -1,9 +1,18 @@
 "use client";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { Award, Badge, Flower, Play, X } from "lucide-react";
+import { useSuccessStories } from "@/hooks/useSuccessStories";
+import { Award, Badge, Play, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
+import Autoplay from "embla-carousel-autoplay";
 
 const SuccessStories = () => {
   const carouselRef = useRef(null);
@@ -47,25 +56,7 @@ const SuccessStories = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const items = [
-    {
-      image: "/assets/images/reviews/1.jpg",
-      video: "https://www.youtube.com/shorts/UY32T1NGggQ",
-    },
-    {
-      image: "/assets/images/reviews/2.jpg",
-      video: "https://youtu.be/Ub6e-DJAJNU",
-    },
-    {
-      image: "/assets/images/reviews/3.jpg",
-    },
-    {
-      image: "/assets/images/reviews/4.jpg",
-    },
-    {
-      image: "/assets/images/reviews/5.jpg",
-    },
-  ];
+  const items = useSuccessStories();
 
   return (
     <>
@@ -88,7 +79,7 @@ const SuccessStories = () => {
           />
 
           {/* Review Videos Carousel */}
-          <div className="w-full overflow-x-hidden -mt-20 py-20 relative">
+          {/* <div className="w-full overflow-x-hidden -mt-20 py-20 relative">
             <div
               ref={carouselRef}
               className="w-full whitespace-nowrap mx-auto animate-success-carousel relative left-1/2"
@@ -122,7 +113,60 @@ const SuccessStories = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
+
+          <Carousel
+            plugins={[
+              Autoplay({
+                delay: 2800,
+                stopOnFocusIn: false,
+                stopOnInteraction: false,
+                stopOnLastSnap: false,
+                stopOnMouseEnter: false,
+              }),
+            ]}
+            opts={{
+              align: "center",
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {[...items]?.map((item, index) => (
+                <CarouselItem
+                  key={index}
+                  className={"md:basis-1/2 lg:basis-1/3"}
+                >
+                  <div className="p-1">
+                    <div
+                      className="w-full flex items-center justify-center max-w-[300px] rounded-2xl aspect-[9/15] mx-auto"
+                      style={{
+                        backgroundImage: `url(${item?.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      {item?.video ? (
+                        <button
+                          className="cursor-pointer"
+                          onClick={() => setActiveVideoLink(item?.video)}
+                        >
+                          <Play size={70} className="text-white" />
+                        </button>
+                      ) : (
+                        <span
+                          aria-hidden
+                          className="block w-[70px] aspect-square"
+                        ></span>
+                      )}
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </section>
       </div>
 

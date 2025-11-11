@@ -6,6 +6,8 @@ import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
 import CourseSwiper from "./CourseSwiper";
 import OfferSection from "@/components/offer/OfferSection";
+import Counters from "@/app/course/life-in-the-uk/Counters";
+import SuccessStories from "@/app/course/life-in-the-uk/SuccessStories";
 
 export const metadata = {
   title: "English (A1-B2), Life in UK & Theory Courses",
@@ -184,7 +186,7 @@ const page = () => {
               duration={"Result & Certificate"}
               four={"7 - 14 days"}
               fees={"£150"}
-              mode={"Online/Offline"}
+              mode={"Location: Bethnal Green"}
               image={"/assets/images/courses/door_supervisor.jpg"}
               bgColor="#231f52"
               accentColor="#3b3b3b"
@@ -229,6 +231,10 @@ const page = () => {
           </section>
         </div>
       </div>
+
+      <Counters />
+
+      <SuccessStories />
     </main>
   );
 };
