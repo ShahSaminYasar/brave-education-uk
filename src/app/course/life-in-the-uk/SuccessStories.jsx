@@ -164,8 +164,8 @@ const SuccessStories = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            {/* <CarouselPrevious />
+            <CarouselNext /> */}
           </Carousel>
         </section>
       </div>
