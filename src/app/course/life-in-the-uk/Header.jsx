@@ -61,11 +61,11 @@ const Header = () => {
 
       {/* Large Screen Menu */}
       <div
-        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 transition-all duration-300`}
+        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-center items-center gap-4 md:gap-8 transition-all duration-300 relative`}
       >
         <Link
           href={"/"}
-          className="w-fit rounded-md bg-slate-100 p-2 text-[10px] text-slate-800 font-semibold font-montserrat hidden md:flex items-center gap-1"
+          className="w-fit rounded-md bg-slate-100 p-2 text-[10px] text-slate-800 font-semibold font-montserrat hidden md:flex items-center gap-1 absolute top-1/2 left-5 -translate-y-1/2"
         >
           <Home size={12} /> Home
         </Link>
@@ -80,8 +80,6 @@ const Header = () => {
             priority
           />
         </Link>
-
-        <span></span>
 
         {/* <div className="flex flex-row items-center justify-end gap-3 md:gap-5">
           <Link href={"/appointment"}>
