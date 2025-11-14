@@ -6,6 +6,7 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import OfferTopBar from "@/components/offer/OfferTopBar";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -14,6 +15,7 @@ const Header = () => {
   // const [scrollDirection, setScrollDirection] = useState("down");
   const [headerVisible, setHeaderVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [topped, setTopped] = useState(true);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     if (mobileMenuOpen) return;
@@ -28,6 +30,16 @@ const Header = () => {
     } else if (diff < 0 || current <= 100) {
       setHeaderVisible(true);
     }
+
+    if (current <= 450) {
+      if (!topped) {
+        setTopped(true);
+      }
+    } else {
+      if (topped) {
+        setTopped(false);
+      }
+    }
   });
 
   const navLinkStyle = (path) => {
@@ -40,12 +52,17 @@ const Header = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
-      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full p-2 pt-3 md:p-5 md:pt-5 ${
-        headerVisible ? "pointer-events-auto" : "pointer-events-none"
-      }`}
+      transition={{ type: "keyframes", duration: 0.3 }}
+      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full ${
+        topped ? "backdrop-blur-sm bg-white/90" : "backdrop-blur-none bg-white"
+      } py-0 ${headerVisible ? "pointer-events-auto" : "pointer-events-none"}`}
     >
+      <OfferTopBar />
+
       {/* Large Screen Menu */}
-      <div className="w-full h-[65px] max-w-6xl mx-auto px-5 md:pr-2 grid grid-cols-1 md:grid-cols-3 items-center gap-4 md:gap-8 bg-slate-100 rounded-[80px] shadow-sm">
+      <div
+        className={`w-full h-[70px] max-w-6xl mx-auto px-5 flex justify-between items-center gap-4 md:gap-8 transition-all duration-300`}
+      >
         <Link
           href={"/"}
           className="w-fit rounded-md bg-slate-100 p-2 text-[10px] text-slate-800 font-semibold font-montserrat hidden md:flex items-center gap-1"
@@ -63,6 +80,8 @@ const Header = () => {
             priority
           />
         </Link>
+
+        <span></span>
 
         {/* <div className="flex flex-row items-center justify-end gap-3 md:gap-5">
           <Link href={"/appointment"}>

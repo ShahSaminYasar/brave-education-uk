@@ -51,7 +51,7 @@ const OfferTopBar = () => {
 
       <div className="relative z-10 w-fit h-full bg-gradient-to-r from-[rgba(240,34,34, 0)] via-[rgba(240,34,34,1)] to-[rgba(240,34,34,0)] rounded-sm px-10 text-xs font-medium text-white flex items-center justify-center">
         <p>Claim 40% off all courses</p>
-        <div className="ml-2 w-fit px-3 py-1 bg-[#f85858] rounded-sm min-w-[112px]">
+        <div className="ml-2 w-fit px-3 py-1 bg-[#f85858] rounded-sm min-w-[128px] flex items-center justify-center">
           {countdownDate && (
             <Countdown date={countdownDate} renderer={renderer} />
           )}

@@ -9,7 +9,7 @@ const OfferSection = () => {
     <>
       {/* <OfferTopBar /> */}
       <section
-        className="bg-red-800 px-5 py-8 pt-[80px] md:pt-[32px] md:py-12 min-h-[80vh] flex items-center justify-center"
+        className="bg-red-800 px-5 py-8 pt-[80px] md:pt-[32px] md:py-12 min-h-[90vh] flex items-center justify-center"
         style={{
           backgroundImage: "url(/offer_bg.jpg)",
           backgroundSize: "cover",
@@ -39,7 +39,7 @@ const OfferSection = () => {
               Apply code BB40 during payment
             </button>
             <Link
-              href={"#our_courses_section"}
+              href={"#all_courses"}
               className="px-6 py-3 bg-gradient-to-r from-red-600 via-red-400 to-red-600 rounded-4xl shadow-lg hover:shadow-2xl active:shadow-sm font-semibold text-sm flex items-center gap-2 justify-center"
             >
               <BookCheck size={16} /> Select Your Course

@@ -17,7 +17,7 @@ const Counters = () => {
 
   return (
     <div
-      className="w-full min-h-[50vh] section flex justify-center items-center font-montserrat"
+      className="w-full min-h-[80vh] section flex justify-center items-center font-montserrat"
       style={{
         background: "url(/white-bg-3.jpg)",
         backgroundSize: "cover",

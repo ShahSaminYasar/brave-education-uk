@@ -48,10 +48,11 @@ const Form = () => {
       const email = form?.get("email");
       const phone = form?.get("phone");
 
-      const res = await axios.post("/lead/life-in-the-uk", {
+      const res = await axios.post("/lead", {
         name,
         email,
         phone,
+        course: "Life in the UK",
       });
 
       if (res?.data?.ok) {

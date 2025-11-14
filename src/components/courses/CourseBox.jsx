@@ -1,9 +1,33 @@
 "use client";
-import { ArrowUpRight, MessageCircle, ShieldCheck } from "lucide-react";
+import {
+  ArrowUpRight,
+  Grid2X2Check,
+  MessageCircle,
+  ShieldCheck,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import SpotlightCard from "../SpotlightCard";
 import { motion } from "motion/react";
+import { useCallback } from "react";
+
+const useScrollTo = () => {
+  const scrollToSection = useCallback((sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = -150;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
+  return scrollToSection;
+};
 
 const CourseBox = ({
   name,
@@ -21,7 +45,11 @@ const CourseBox = ({
   waLink = "#",
   link = "#",
   slug,
+  id,
+  setSelectedCourse,
 }) => {
+  const scrollTo = useScrollTo();
+
   return (
     <motion.div
       initial={{ opacity: 0.1, scale: 1, y: 50 }}
@@ -38,7 +66,7 @@ const CourseBox = ({
         }`}
         style={{ background: bgColor }}
       >
-        <div className="w-full flex flex-col items-start gap-6">
+        <div className="w-full flex flex-col items-start gap-6 h-full">
           <div className="w-full flex flex-col flex-nowrap gap-2 items-start">
             <div className="bg-gradient-to-br from-white/5 via-white/20 border border-white/30 to-white/5 rounded-2xl p-px mb-1">
               <div className="flex flex-row items-center justify-center gap-2 bg-white/5 text-white/90 text-[10px] font-semibold rounded-2xl px-4 py-[2px]">
@@ -81,24 +109,28 @@ const CourseBox = ({
             </div>
           </div>
 
-          <div className="w-full flex flex-row items-center justify-center mt-auto gap-3">
-            <Link
+          <div className="mt-auto w-full flex flex-row items-center justify-center gap-3">
+            {/* <Link
               href={waLink}
               target="_blank"
               className="w-fit px-8 py-2 text-sm font-bold bg-[#42ea60] text-green-800 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
               // style={{ background: "#fffff" }}
             >
               Enquire <MessageCircle size={20} />
-            </Link>
+            </Link> */}
 
-            <Link
-              href={link}
+            <button
+              // href={link}
+              onClick={() => {
+                setSelectedCourse(id);
+                scrollTo("course_confirm_form");
+              }}
               target="_blank"
-              className="w-fit px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row items-center gap-2 flex-nowrap hover:scale-105 duration-100"
+              className="w-full px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row justify-center items-center gap-2 flex-nowrap hover:scale-[102%] duration-100 cursor-pointer"
               // style={{ background: "#fffff" }}
             >
-              Enroll <ArrowUpRight size={20} />
-            </Link>
+              Book Your Seat <Grid2X2Check size={20} />
+            </button>
 
             {/* <Link
               href={link}
