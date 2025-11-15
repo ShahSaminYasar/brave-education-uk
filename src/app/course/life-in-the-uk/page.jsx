@@ -1,3 +1,4 @@
+import SupportButton from "@/components/SupportButton";
 import Counters from "./Counters";
 import Details from "./Details";
 // import FAQ from "./FAQ";
@@ -31,6 +32,7 @@ const page = () => {
       <Perks />
       {/* <FAQ /> */}
       <Form />
+      <SupportButton />
     </>
   );
 };

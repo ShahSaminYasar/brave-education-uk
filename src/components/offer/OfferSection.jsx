@@ -9,7 +9,7 @@ const OfferSection = () => {
     <>
       {/* <OfferTopBar /> */}
       <section
-        className="bg-red-800 px-5 py-8 pt-[80px] md:pt-[32px] md:py-12 min-h-[90vh] flex items-center justify-center"
+        className="bg-red-800 px-5 py-20 pt-[30px] md:pt-[32px] md:py-12 min-h-[75vh] md:min-h-[90vh] flex items-center justify-center"
         style={{
           backgroundImage: "url(/offer_bg.jpg)",
           backgroundSize: "cover",

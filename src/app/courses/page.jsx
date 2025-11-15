@@ -66,32 +66,46 @@ const page = () => {
       <OfferSection />
 
       {/* Title Section */}
-      <motion.section
-        initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-        animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-        transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-        className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 max-w-6xl mx-auto bg-white"
-      >
+      <motion.section className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 max-w-6xl mx-auto bg-white">
         <div className="flex flex-col items-center justify-center gap-6 w-full max-w-3xl mx-auto">
-          <div className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text">
+          <motion.div
+            initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+            whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+            transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+            viewport={{ margin: "400px 0px -30% 0px" }}
+            className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text"
+          >
             <h2 className="text-[40px] lg:text-5xl 2xl:text-6xl block text-center text-zinc-900 font-[800]">
               Courses We <span className="text-transparent">Offer</span>
             </h2>
-          </div>
+          </motion.div>
 
-          <p className="para block text-center" style={{ fontWeight: 400 }}>
+          <motion.p
+            initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+            whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+            transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+            viewport={{ margin: "400px 0px -30% 0px" }}
+            className="para block text-center"
+            style={{ fontWeight: 400 }}
+          >
             A language course is a structured program of study designed to teach
             individuals a specific language.Language courses can cover various
             aspects of language learning, including grammar, vocabulary,
             pronunciation, cultural nuances, and practical
-          </p>
+          </motion.p>
         </div>
 
-        <div className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-full max-w-md mx-auto">
+        <motion.div
+          initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+          whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+          transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+          viewport={{ margin: "400px 0px -30% 0px" }}
+          className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-full max-w-md mx-auto"
+        >
           <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden aspect-[10/7]">
             <CourseSwiper />
           </div>
-        </div>
+        </motion.div>
 
         {/* Scroll indicator */}
         {/* <motion.div
@@ -254,7 +268,13 @@ const page = () => {
       </div>
 
       <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-red-500 via-red-600 to-red-500">
-        <div className="flex flex-row items-center justify-center gap-2">
+        <motion.div
+          initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+          whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+          transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+          viewport={{ margin: "400px 0px -40% 0px" }}
+          className="flex flex-row items-center justify-center gap-2"
+        >
           <BookOpenCheck size={50} className="text-[#fff] -mt-3" />
           <SectionTitle
             text={"Tests"}
@@ -264,7 +284,7 @@ const page = () => {
             }}
             animate={false}
           />
-        </div>
+        </motion.div>
 
         <Link
           href={

@@ -56,7 +56,7 @@ const Form = () => {
       });
 
       if (res?.data?.ok) {
-        return router.push("/course/life-in-the-uk/checkout");
+        return router.push("/course/life-in-the-uk/thank-you");
       } else {
         console.log(res?.data);
         return toast.warning(res?.data?.message);

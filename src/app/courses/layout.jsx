@@ -1,3 +1,4 @@
+import SupportButton from "@/components/SupportButton";
 import Footer from "../course/life-in-the-uk/Footer";
 import Header from "../course/life-in-the-uk/Header";
 
@@ -23,6 +24,8 @@ const layout = ({ children }) => {
       <Header />
 
       <main className="mt-[105px]">{children}</main>
+
+      <SupportButton />
 
       <Footer />
     </>

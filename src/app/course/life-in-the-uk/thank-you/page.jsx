@@ -4,7 +4,7 @@ import Link from "next/link";
 const page = () => {
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-5 pt-28 pb-10 font-josefin-sans"
+      className="min-h-screen flex items-center justify-center px-5 pt-[145px] pb-10 font-josefin-sans"
       style={{
         backgroundImage: "url(/white-bg-2.jpg)",
         backgroundSize: "cover",

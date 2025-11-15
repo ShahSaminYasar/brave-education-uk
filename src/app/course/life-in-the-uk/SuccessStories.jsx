@@ -128,7 +128,7 @@ const SuccessStories = () => {
             opts={{
               align: "center",
             }}
-            className="w-full"
+            className="w-full max-w-[83%] mx-auto"
           >
             <CarouselContent>
               {[...items]?.map((item, index) => (
@@ -164,8 +164,8 @@ const SuccessStories = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* <CarouselPrevious />
-            <CarouselNext /> */}
+            <CarouselPrevious />
+            <CarouselNext />
           </Carousel>
         </section>
       </div>

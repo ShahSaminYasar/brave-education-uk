@@ -28,7 +28,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
   const imageY = useTransform(
     scrollYProgress,
     [0, 0.4, 1],
-    ["0px", "-380px", "-400px"]
+    ["0px", "-350px", "-380px"]
   );
   const imageX = useTransform(
     scrollYProgress,
@@ -55,7 +55,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
       const res = await axios.post("/lead", data);
 
       if (res?.data?.ok) {
-        return router.push("/courses/checkout");
+        return router.push("/courses/thank-you");
       } else {
         console.log(res?.data);
         return toast.warning(res?.data?.message);
@@ -77,13 +77,14 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
       id="course_confirm_form"
       className="w-full px-5 pb-24 pt-[400px] md:pt-[200px] bg-white"
     >
+      {/* pb-24 pt-[400px] md:pt-[200px] */}
       <motion.section
         className="w-full max-w-6xl mx-auto rounded-3xl p-5 md:p-10 flex flex-col md:grid md:grid-cols-3 items-center justify-center gap-10 relative pt-[130px] md:pt-10"
         style={{
           background: "url(/bg-dark.jpg)",
-          backgroundSize: "450%",
+          backgroundSize: "cover",
           backgroundPositionX: "center",
-          backgroundPositionY: y,
+          backgroundPositionY: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
@@ -149,7 +150,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
 
             <div
               className={`w-full ${
-                selectedCourse ? "max-h-[120]" : "max-h-[0px]"
+                selectedCourse ? "max-h-[120px]" : "max-h-[0px]"
               } transition-all duration-700`}
             >
               <AnimatePresence>
@@ -158,15 +159,18 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3, type: "keyframes" }}
-                    className={`w-full origin-top grid grid-cols-6 gap-3 bg-white/5 rounded-xl text-white text-xs font-medium items-center justify-center overflow-hidden p-3`}
+                    transition={{
+                      duration: 0.5,
+                      type: "keyframes",
+                    }}
+                    className={`w-full origin-top grid grid-cols-5 gap-3 bg-white/5 rounded-xl text-white text-xs font-medium items-center justify-center overflow-hidden p-3`}
                   >
                     <Image
                       src={courses?.find((c) => c?.id == selectedCourse)?.image}
                       width={120}
                       height={120}
                       alt={courses?.find((c) => c?.id == selectedCourse)?.name}
-                      className="w-full rounded-lg col-span-2"
+                      className="w-full rounded-lg col-span-1"
                     />
 
                     <p className="block text-center col-span-3">
