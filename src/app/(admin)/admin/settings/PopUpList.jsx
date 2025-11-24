@@ -3,7 +3,13 @@ import ErrorMessage from "@/components/ui/ErrorMessage";
 import { Spinner } from "@/components/ui/spinner";
 import { useAxios } from "@/hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import { CirclePower, MousePointerClick, Trash, View } from "lucide-react";
+import {
+  CirclePower,
+  Clipboard,
+  MousePointerClick,
+  Trash,
+  View,
+} from "lucide-react";
 import moment from "moment-timezone";
 import Image from "next/image";
 import { toast } from "sonner";
@@ -62,7 +68,7 @@ const PopUpList = () => {
           </div>
         ) : isError ? (
           <ErrorMessage error={error} />
-        ) : (
+        ) : data?.data?.data?.length > 0 ? (
           data?.data?.data?.map((item) => (
             <div
               key={item?._id}
@@ -144,6 +150,11 @@ const PopUpList = () => {
               </div>
             </div>
           ))
+        ) : (
+          <div className="w-full max-w-sm flex flex-col items-center justify-center gap-2 mt-3 p-5 rounded-lg bg-slate-100 text-xs text-slate-400 font-medium">
+            <Clipboard size={55} />
+            <p>No popups yet.</p>
+          </div>
         )}
       </div>
     </div>

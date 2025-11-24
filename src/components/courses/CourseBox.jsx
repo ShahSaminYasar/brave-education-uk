@@ -58,10 +58,10 @@ const CourseBox = ({
       viewport={{
         margin: "200px 0px -20% 0px",
       }}
-      className="w-full mx-auto h-full"
+      className="w-full mx-auto h-full relative rounded-3xl"
     >
       <SpotlightCard
-        className={`w-full h-full rounded-3xl p-[18px] text-white flex flex-col-reverse gap-4 justify-end items-center shadow-sm ${
+        className={`w-full h-full rounded-3xl p-[18px] text-white flex flex-col-reverse gap-4 justify-end items-center shadow-lg ${
           className && className
         }`}
         style={{ background: bgColor }}
@@ -126,10 +126,19 @@ const CourseBox = ({
                 scrollTo("course_confirm_form");
               }}
               target="_blank"
-              className="w-full px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row justify-center items-center gap-2 flex-nowrap hover:scale-[102%] duration-100 cursor-pointer"
+              className="w-full relative px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row justify-center items-center gap-2 flex-nowrap hover:scale-[102%] duration-100 cursor-pointer"
               // style={{ background: "#fffff" }}
             >
-              Book Your Seat <Grid2X2Check size={20} />
+              {/* Book Your Seat <Grid2X2Check size={20} /> */}
+              Book Your Seat
+              <div className="absolute top-0 right-0 h-full p-2 rounded-r-lg bg-gradient-to-br from-[#43ff63] via-[#29e849] to-[#43ff63] flex flex-row flex-nowrap w-fit items-center justify-center gap-1 text-xs font-medium">
+                <span className="text-white font-semibold text-[17px]">
+                  £{fees - fees * 0.4}
+                </span>
+                <del className="font-medium text-[12px] text-slate-500">
+                  £{fees}
+                </del>
+              </div>
             </button>
 
             {/* <Link
@@ -154,8 +163,22 @@ const CourseBox = ({
           width={800}
           height={500}
           alt="B1 course thumbnail"
-          className="mx-auto md:ml-auto w-full max-w-md rounded-2xl border-zinc-200"
+          className="mx-auto md:ml-auto w-full max-w-md rounded-xl border-zinc-200 relative z-0"
         />
+
+        <div className="-mb-20 relative z-10 w-full -ml-[60px] -mt-[35px]">
+          <div className="border-4 border-white rounded-full p-3 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-300 text-white w-fit aspect-square shadow-lg -rotate-[20deg] hover:rotate-0 hover:scale-105 transition-all duration-150">
+            <span className="block text-center text-[10px] font-medium text-transparent">
+              Discount
+            </span>
+            <span className="text-3xl font-semibold block text-center">
+              40%
+            </span>
+            <span className="block text-center text-[12px] font-medium text-white">
+              OFF
+            </span>
+          </div>
+        </div>
       </SpotlightCard>
     </motion.div>
   );

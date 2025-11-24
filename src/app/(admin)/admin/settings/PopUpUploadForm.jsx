@@ -83,6 +83,10 @@ const PopUpUploadForm = () => {
       const image = form.get("popup_image");
       const link = form.get("link");
       const type = form.get("link_type");
+      const excludedLinks =
+        form.get("excluded_links")?.length > 0
+          ? form.get("excluded_links")?.replace(/\s+/g, "")?.split(",")
+          : [];
 
       const data = new FormData();
       data.append("image", image);
@@ -105,6 +109,7 @@ const PopUpUploadForm = () => {
           link,
           type,
           token: localStorage?.getItem("token"),
+          excludedLinks,
         }
       );
 
@@ -176,6 +181,15 @@ const PopUpUploadForm = () => {
               value={"external"}
             />
           </div>
+        </div>
+
+        <div className="w-full bg-white rounded-xl p-3">
+          <input
+            type="text"
+            placeholder="Excluded links (eg. /about, /services)"
+            name="excluded_links"
+            className="w-full p-2 rounded-lg border-2 border-sky-600"
+          />
         </div>
 
         {/* Image Input */}

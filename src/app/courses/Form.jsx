@@ -75,11 +75,11 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
     <div
       ref={containerRef}
       id="course_confirm_form"
-      className="w-full px-5 pb-24 pt-[400px] md:pt-[200px] bg-white"
+      className="w-full px-5 pb-24 pt-[0px] md:pt-[200px] bg-white"
     >
       {/* pb-24 pt-[400px] md:pt-[200px] */}
       <motion.section
-        className="w-full max-w-6xl mx-auto rounded-3xl p-5 md:p-10 flex flex-col md:grid md:grid-cols-3 items-center justify-center gap-10 relative pt-[130px] md:pt-10"
+        className="w-full max-w-6xl mx-auto rounded-3xl p-5 md:p-10 flex flex-col md:grid md:grid-cols-3 items-center justify-center gap-10 relative pt-[20px] md:pt-10"
         style={{
           background: "url(/bg-dark.jpg)",
           backgroundSize: "cover",
@@ -211,7 +211,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
           </button>
         </form>
 
-        <motion.div
+        {/* <motion.div
           className="absolute block left-1/2 -translate-x-1/2 z-0 md:hidden"
           style={{
             top: imageY,
@@ -225,7 +225,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
             alt="Big Ben Tower of London"
             className="w-[300px] h-fit"
           />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           className="absolute hidden bottom-0 right-14 z-0 md:block"

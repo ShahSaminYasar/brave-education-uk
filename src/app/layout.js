@@ -74,6 +74,9 @@ export const metadata = {
   robots: "index, follow",
   authors: [{ name: "Brave Education" }],
   metadataBase: new URL("https://www.braveeducationuk.com"),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     title: "Brave Education UK - University Admission, Law, English & HR",
     description:

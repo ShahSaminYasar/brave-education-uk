@@ -13,8 +13,10 @@ export const MainProvider = ({ children }) => {
   const [siteLoaded, setSiteLoaded] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupData, setPopupData] = useState({
+    id: "",
     image: "",
     title: "",
+    excludedLinks: "",
   });
   const [authStatus, setAuthStatus] = useState("loading");
 
@@ -28,14 +30,17 @@ export const MainProvider = ({ children }) => {
         let localViewed = JSON.parse(localStorage.getItem("popups")) || [];
         if (!localViewed?.includes(activeKey)) {
           setPopupData({
+            id: res?.data?.data?.[0]?._id,
             image: res?.data?.data?.[0]?.image,
             title: res?.data?.data?.[0]?.title,
             link: res?.data?.data?.[0]?.link,
             type: res?.data?.data?.[0]?.type,
+            key: res?.data?.data?.[0]?.key,
+            excludedLinks: res?.data?.data?.[0]?.excludedLinks,
           });
           setPopupOpen(true);
-          localViewed = [...localViewed, activeKey];
-          localStorage.setItem("popups", JSON.stringify(localViewed));
+          // localViewed = [...localViewed, activeKey];
+          // localStorage.setItem("popups", JSON.stringify(localViewed));
         }
       } catch (error) {
         console.error(error);

@@ -66,7 +66,7 @@ const page = () => {
       <OfferSection />
 
       {/* Title Section */}
-      <motion.section className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 max-w-6xl mx-auto bg-white">
+      {/* <motion.section className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 max-w-6xl mx-auto bg-white">
         <div className="flex flex-col items-center justify-center gap-6 w-full max-w-3xl mx-auto">
           <motion.div
             initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
@@ -107,8 +107,7 @@ const page = () => {
           </div>
         </motion.div>
 
-        {/* Scroll indicator */}
-        {/* <motion.div
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
@@ -120,15 +119,15 @@ const page = () => {
               className="w-1 h-3 bg-gray-300 rounded-full mt-2"
             />
           </div>
-        </motion.div> */}
-      </motion.section>
+        </motion.div>
+      </motion.section> */}
 
       <div
         className="bg-gradient-to-b from-slate-50 to-white w-full px-5 py-20"
         id="all_courses"
       >
         <div className="w-full max-w-6xl mx-auto">
-          <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start justify-center gap-6">
+          <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start justify-center gap-8">
             <div className="w-full sm:col-span-2 lg:col-span-3">
               <SectionTitle
                 text={"Our Courses"}
@@ -142,7 +141,7 @@ const page = () => {
               classNo={"21 Classes"}
               mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£380"}
+              fees={380}
               mode={"In person"}
               image={"/assets/images/courses/ise_b1.jpg"}
               bgColor="#231f52"
@@ -160,7 +159,7 @@ const page = () => {
               classNo={"21 Classes"}
               mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£380"}
+              fees={380}
               mode={"In person"}
               image={"/assets/images/courses/ise_b2.jpg"}
               bgColor="#e02f33"
@@ -178,7 +177,7 @@ const page = () => {
               classNo={"14 Classes"}
               mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£240"}
+              fees={240}
               mode={"Online/Offline"}
               image={"/assets/images/courses/b1.jpg"}
               link={`https://buy.stripe.com/bJeaEQ5qzcgcby63pndIA0a?prefilled_promo_code=bb40`}
@@ -194,7 +193,7 @@ const page = () => {
               classNo={"14 Classes"}
               mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£240"}
+              fees={240}
               mode={"Online/Offline"}
               image={"/assets/images/courses/a1.jpg"}
               bgColor="#e02f33"
@@ -212,7 +211,7 @@ const page = () => {
               classNo={"14 Classes"}
               mockNo={"02 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£240"}
+              fees={240}
               mode={"Online/Offline"}
               image={"/assets/images/courses/a2.jpg"}
               bgColor="#231f52"
@@ -230,7 +229,7 @@ const page = () => {
               classNo={"10 Classes"}
               mockNo={"2 Mock Tests"}
               duration={"1 hr 10 mins"}
-              fees={"£150"}
+              fees={140}
               mode={"Online/Offline"}
               image={"/assets/images/courses/life-in-the-uk.jpg"}
               bgColor="#e02f33"
@@ -249,7 +248,7 @@ const page = () => {
               mockNo={"Session: 9:30 - 18:00"}
               duration={"Result & Certificate"}
               four={"7 - 14 days"}
-              fees={"£150"}
+              fees={550}
               mode={"Location: Bethnal Green"}
               image={"/assets/images/courses/door_supervisor.jpg"}
               bgColor="#231f52"
