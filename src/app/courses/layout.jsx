@@ -23,7 +23,7 @@ const layout = ({ children }) => {
     <>
       <Header />
 
-      <main className="mt-[105px]">{children}</main>
+      <main className="mt-[100px]">{children}</main>
 
       <SupportButton />
 

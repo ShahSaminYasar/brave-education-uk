@@ -31,7 +31,7 @@ const OfferTopBar = () => {
   return (
     <Link
       href={"/courses"}
-      className="w-full h-[35px] shine relative flex items-center justify-center"
+      className="w-full h-[30px] shine relative flex items-center justify-center"
       style={{
         backgroundImage:
           "linear-gradient(120deg, rgba(240, 34, 34, 1) 0%, rgba(240, 34, 34, 1) 40%, rgba(250, 70, 70, 1) 45%, rgba(250, 70, 70, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(240, 34, 34, 1) 100%)",
@@ -51,7 +51,7 @@ const OfferTopBar = () => {
 
       <div className="relative z-10 w-fit h-full bg-gradient-to-r from-[rgba(240,34,34, 0)] via-[rgba(240,34,34,1)] to-[rgba(240,34,34,0)] rounded-sm px-10 text-xs font-medium text-white flex items-center justify-center">
         <p>Claim 40% off all courses</p>
-        <div className="ml-2 w-fit px-3 py-1 bg-[#f85858] rounded-sm min-w-[128px] flex items-center justify-center">
+        <div className="ml-2 w-fit px-1 py-0 rounded-sm min-w-[100px] flex items-center justify-center">
           {countdownDate && (
             <Countdown date={countdownDate} renderer={renderer} />
           )}

@@ -35,7 +35,7 @@ const FeaturedPopup = () => {
   useEffect(() => {
     if (!popupOpen) return;
 
-    if (!popupData?.excludedLinks?.includes(pathname)) {
+    if (!popupData.excludedLinks.some((link) => pathname.includes(link))) {
       // console.log("Not found in excluded list");
 
       let localViewed = JSON.parse(localStorage.getItem("popups")) || [];

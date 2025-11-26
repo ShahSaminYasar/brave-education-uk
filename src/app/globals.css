@@ -551,3 +551,7 @@ h2 {
     transparent 100%
   );
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

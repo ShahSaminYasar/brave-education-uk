@@ -61,7 +61,7 @@ const PopUpList = () => {
         Published Popups
       </h4>
 
-      <div className="w-full h-full space-y-2 max-h-[70vh] overflow-y-auto">
+      <div className="w-full h-full space-y-2 max-h-[80vh] overflow-y-auto">
         {isLoading ? (
           <div className="flex justify-center py-10">
             <Spinner />
@@ -86,7 +86,7 @@ const PopUpList = () => {
                 {item?.title}
               </div>
 
-              <div className="w-full grid grid-cols-4 items-center gap-3 p-3">
+              <div className="w-full grid grid-cols-4 items-start gap-3 p-3">
                 <div className="space-y-2">
                   <Image
                     src={item?.image}
@@ -117,6 +117,20 @@ const PopUpList = () => {
                   </span>
 
                   <span className="text-zinc-500">Key: {item?.key}</span>
+
+                  <span className="text-zinc-500">
+                    Link: {item?.link} ({item?.type})
+                  </span>
+
+                  <span className="text-zinc-500">
+                    Excluded:{" "}
+                    {item?.excludedLinks?.map(
+                      (l, li) =>
+                        `${l}${
+                          li !== item?.excludedLinks?.length - 1 ? " • " : ""
+                        }`
+                    )}
+                  </span>
 
                   <div className="w-full flex flex-row items-center gap-3 justify-start font-semibold">
                     <span className="flex items-center gap-1">

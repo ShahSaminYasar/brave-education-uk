@@ -51,7 +51,7 @@ const PerksSection = () => {
       <div
         className="w-full sticky top-0 z-0"
         style={{
-          background: "url(/white-bg-2.jpg)",
+          background: "url(/white-bg.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -128,10 +128,10 @@ const PerksSection = () => {
         </section>
 
         <motion.div
-          className="absolute top-0 left-0 w-full h-full bg-white -z-10"
-          style={{
-            opacity: layerOpacity,
-          }}
+          className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-white to-transparent -z-10"
+          // style={{
+          //   opacity: layerOpacity,
+          // }}
         ></motion.div>
       </div>
     </div>

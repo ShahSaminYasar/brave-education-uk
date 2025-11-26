@@ -5,13 +5,16 @@ import { useAxios } from "@/hooks/useAxios";
 import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
 
 const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
   const axios = useAxios();
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   // Refs
   const containerRef = useRef(null);
@@ -40,6 +43,13 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
   // Functions
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // if (!executeRecaptcha) {
+    //   return;
+    // }
+
+    const token = await executeRecaptcha("form_submit");
+
     try {
       setLoading(true);
 
@@ -52,7 +62,7 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
 
       const data = { name, email, phone, course };
 
-      const res = await axios.post("/lead", data);
+      const res = await axios.post(`/lead?captoken=${token}`, data);
 
       if (res?.data?.ok) {
         return router.push("/courses/thank-you");
@@ -209,6 +219,18 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
               </>
             )}
           </button>
+
+          <p className="block w-full text-center text-[9px] text-white/40 font-normal">
+            This site is protected by reCAPTCHA and the Google{" "}
+            <Link href="https://policies.google.com/privacy" target="_blank">
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link href="https://policies.google.com/terms" target="_blank">
+              Terms of Service
+            </Link>{" "}
+            apply.
+          </p>
         </form>
 
         {/* <motion.div

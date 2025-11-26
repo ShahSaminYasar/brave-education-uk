@@ -27,11 +27,12 @@ const AdmissionPathwaySection = () => {
 
   const subtitleOpacity = useTransform(scrollYProgress, [0, 0.035], [0, 1]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.05, 0.1], [0, 0, 1]);
-  const titleScale = useTransform(
-    scrollYProgress,
-    [0, 0.05, 0.14],
-    [1.1, 1.1, 1]
-  );
+  const titleScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+  // const titleScale = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.05, 0.14],
+  //   [1.1, 1.1, 1]
+  // );
 
   const progressContainerScale = useTransform(
     processesScrollYProgress,
@@ -96,16 +97,16 @@ const AdmissionPathwaySection = () => {
           {/* <div className="absolute top-0 right-0 left-0 bottom-0 w-full h-screen backdrop-blur-[30px] bg-gradient-to-b from-white to-transparent -z-10"></div> */}
 
           <motion.h4
-            style={{
-              opacity: subtitleOpacity,
-            }}
+            // style={{
+            //   opacity: subtitleOpacity,
+            // }}
             className={`block w-full text-center text-sm font-semibold text-primary`}
           >
             Educational Consultancy
           </motion.h4>
           <motion.h2
             style={{
-              opacity: titleOpacity,
+              // opacity: titleOpacity,
               scale: titleScale,
             }}
             className="text-3xl sm:text-3xl lg:text-4xl 2xl:text-5xl block font-montserrat text-center font-semibold text-zinc-900"
@@ -134,7 +135,7 @@ const AdmissionPathwaySection = () => {
           </motion.div>
         </section>
 
-        <div className="h-[50vh]"></div>
+        <div className="h-[10vh]"></div>
       </div>
       <div className="w-full relative">
         <section
@@ -148,7 +149,7 @@ const AdmissionPathwaySection = () => {
               y: sectionTitleVisible ? 0 : -20,
             }}
             transition={{ duration: 0.15, ease: "easeInOut" }}
-            className="sticky top-0 left-0 w-full p-5 z-40"
+            className="sticky top-[75px] left-0 w-full p-5 z-40"
           >
             <motion.div
               className={`w-full max-w-sm mx-auto rounded-[100px] shadow-sm border-x-2 border-slate-200 flex flex-col items-center justify-center pt-3 px-5 overflow-hidden`}

@@ -5,15 +5,21 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { useAxios } from "@/hooks/useAxios";
 import { AnimatePresence, motion } from "motion/react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import Link from "next/link";
 
 const ContactForm = () => {
   const axios = useAxios();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [sending, setSending] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
+
+    const token = await executeRecaptcha("form_submit");
+
     try {
       setSending(true);
 
@@ -26,7 +32,7 @@ const ContactForm = () => {
         return toast.warning("Name, email and phone are required");
       }
 
-      const res = await axios.post("/contact", {
+      const res = await axios.post(`/contact?captoken=${token}`, {
         name,
         email,
         phone,
@@ -35,8 +41,10 @@ const ContactForm = () => {
 
       if (res?.data?.ok) {
         // return toast.success("Message sent successfully");
+        e.target.reset();
         return setConfirmationModalOpen(true);
       } else {
+        console.log(res?.data);
         return toast.error(
           res?.data?.message || "Failed to send message, please try again"
         );
@@ -92,6 +100,18 @@ const ContactForm = () => {
         >
           {sending ? "Sending..." : "Send Message"} <Send size={18} />
         </Button>
+
+        <p className="block w-full text-center text-[9px] text-white/40 font-normal">
+          This site is protected by reCAPTCHA and the Google{" "}
+          <Link href="https://policies.google.com/privacy" target="_blank">
+            Privacy Policy
+          </Link>{" "}
+          and{" "}
+          <Link href="https://policies.google.com/terms" target="_blank">
+            Terms of Service
+          </Link>{" "}
+          apply.
+        </p>
       </form>
 
       <AnimatePresence>

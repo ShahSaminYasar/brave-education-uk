@@ -266,7 +266,7 @@ const page = () => {
         </div>
       </div>
 
-      <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-red-500 via-red-600 to-red-500">
+      <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-amber-300 to-amber-300">
         <motion.div
           initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
           whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}

@@ -37,7 +37,7 @@ const ServicesSection = () => {
   );
 
   return (
-    <div ref={containerRef} className="relative min-h-[140vh] w-full section">
+    <div ref={containerRef} className="relative min-h-[170vh] w-full section">
       <div
         className="absolute top-0 left-0 w-full h-full z-0"
         style={{
