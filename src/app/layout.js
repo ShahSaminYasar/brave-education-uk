@@ -13,7 +13,6 @@ import { MainProvider } from "@/providers/MainProvider";
 import { TanstackQueryProvider } from "@/providers/TanstackQueryProvider";
 import FeaturedPopup from "@/components/FeaturedPopup";
 import { GoogleTagManager } from "@next/third-parties/google";
-import ReCaptchaProvider from "@/providers/ReCaptchaProvider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -118,7 +117,7 @@ export default function RootLayout({ children }) {
             <body
               className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
             >
-              <ReCaptchaProvider>{children}</ReCaptchaProvider>
+              {children}
               <FeaturedPopup />
               <Toaster />
               <GoogleTagManager gtmId="GTM-WJVGMD2N" />

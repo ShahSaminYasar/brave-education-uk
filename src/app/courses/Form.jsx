@@ -8,19 +8,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import ReCAPTCHA from "react-google-recaptcha";
+// import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
 
 const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
   const axios = useAxios();
   const router = useRouter();
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  // const { executeRecaptcha } = useGoogleReCaptcha();
 
   // Refs
   const containerRef = useRef(null);
 
   // States
   const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,11 +46,12 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!executeRecaptcha) {
-    //   return;
-    // }
+    // const token = await executeRecaptcha("form_submit");
 
-    const token = await executeRecaptcha("form_submit");
+    if (!token)
+      return toast.error(
+        "ReCaptcha failed, please check the 'I'm not a robot' button"
+      );
 
     try {
       setLoading(true);
@@ -204,10 +207,19 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
             </div>
           </div>
 
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            onChange={(value) => {
+              if (value) {
+                setToken(value);
+              }
+            }}
+          />
+
           <button
             type="submit"
-            disabled={loading}
-            className="w-full flex items-center justify-center gap-1 text-sm font-medium text-white py-2 px-3 bg-gradient-to-r from-red-600 via-red-500 to-red-600 rounded-xl shadow-sm hover:shadow-xl cursor-pointer mt-2 hover:from-white/80 hover:via-white/100 hover:to-white/80 transition-all duration-100 active:shadow-none hover:gap-3 hover:text-red-600 disabled:grayscale-[80%] disabled:opacity-50 disabled:cursor-auto"
+            disabled={loading || !token}
+            className="w-full flex items-center justify-center gap-1 text-sm font-medium text-white py-2 px-3 bg-gradient-to-r from-red-600 via-red-500 to-red-600 rounded-xl shadow-sm hover:shadow-xl cursor-pointer mt-2 hover:from-white/80 hover:via-white/100 hover:to-white/80 transition-all duration-100 active:shadow-none hover:gap-3 hover:text-red-600 disabled:grayscale-[90%] disabled:cursor-auto disabled:pointer-events-none"
           >
             {loading ? (
               <>

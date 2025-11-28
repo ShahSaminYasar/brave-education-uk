@@ -5,20 +5,18 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { useAxios } from "@/hooks/useAxios";
 import { AnimatePresence, motion } from "motion/react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = () => {
   const axios = useAxios();
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [sending, setSending] = useState(false);
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false);
+  const [token, setToken] = useState(null);
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-
-    const token = await executeRecaptcha("form_submit");
 
     try {
       setSending(true);
@@ -32,6 +30,11 @@ const ContactForm = () => {
         return toast.warning("Name, email and phone are required");
       }
 
+      if (!token)
+        return toast.error(
+          "ReCaptcha failed, please check the 'I'm not a robot' button"
+        );
+
       const res = await axios.post(`/contact?captoken=${token}`, {
         name,
         email,
@@ -40,7 +43,6 @@ const ContactForm = () => {
       });
 
       if (res?.data?.ok) {
-        // return toast.success("Message sent successfully");
         e.target.reset();
         return setConfirmationModalOpen(true);
       } else {
@@ -92,11 +94,20 @@ const ContactForm = () => {
           rows={5}
         ></textarea>
 
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          onChange={(value) => {
+            if (value) {
+              setToken(value);
+            }
+          }}
+        />
+
         <Button
           type="submit"
-          className={"w-full border border-zinc-700 disabled:opacity-50"}
+          className={"w-full border border-zinc-700 disabled:grayscale-100"}
           size={"lg"}
-          disabled={sending}
+          disabled={sending || !token}
         >
           {sending ? "Sending..." : "Send Message"} <Send size={18} />
         </Button>
