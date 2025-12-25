@@ -1,6 +1,6 @@
 import SupportButton from "@/components/SupportButton";
-import Footer from "../course/life-in-the-uk/Footer";
-import Header from "../course/life-in-the-uk/Header";
+// import Footer from "../course/life-in-the-uk/Footer";
+// import Header from "../course/life-in-the-uk/Header";
 
 export const metadata = {
   title: "English (A1-B2), Life in UK & Theory Courses",
@@ -21,13 +21,13 @@ export const metadata = {
 const layout = ({ children }) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <main className="mt-[100px]">{children}</main>
 
       <SupportButton />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

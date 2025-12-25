@@ -106,7 +106,7 @@ const HeroSection = () => {
             </Link>
           </motion.div>
 
-          <ReviewCard
+          {/* <ReviewCard
             name={"Amit Hasan"}
             flag={<US className="w-[30px]" />}
             description={
@@ -141,7 +141,7 @@ const HeroSection = () => {
               "absolute bottom-[-170px] left-[16%] -z-20 hidden lg:block"
             }
             delay={3.2}
-          />
+          /> */}
         </motion.div>
       )}
     </section>

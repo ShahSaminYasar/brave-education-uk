@@ -10,7 +10,7 @@ export const MainProvider = ({ children }) => {
 
   // States
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const [siteLoaded, setSiteLoaded] = useState(false);
+  const [siteLoaded, setSiteLoaded] = useState(true);
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupData, setPopupData] = useState({
     id: "",

@@ -10,6 +10,7 @@ const GallerySection = () => {
           subtext={"Our Pride"}
           text={"Graduates Gallery"}
           align="center"
+          animate={false}
         />
 
         <p className="para text-center block max-w-[490px] mb-7">
@@ -20,7 +21,7 @@ const GallerySection = () => {
         <GallerySlider />
 
         <div className="hidden md:block w-full h-[80vh]">
-          <GraduatesGallery />
+          <GraduatesGallery segments={34} imageBorderRadius="20px" fit={1} />
         </div>
       </section>
     </div>

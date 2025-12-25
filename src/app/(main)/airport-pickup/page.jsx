@@ -315,7 +315,7 @@ const page = () => {
               <div className="w-full h-full min-h-[200px] col-span-1"></div>
 
               <div
-                className="w-full p-5 col-span-2 bg-blue-900/60 backdrop-blur-sm"
+                className="w-full p-5 col-span-2 bg-linear-to-br from-blue-900 to-blue-800"
                 // style={{
                 //   backgroundImage: "url(/bg-dark.jpg)",
                 //   backgroundSize: "cover",
@@ -324,7 +324,7 @@ const page = () => {
                 //   backgroundAttachment: "fixed",
                 // }}
               >
-                <div className="w-full px-3 py-20 bg-white/20 rounded-xl flex justify-center min-h-[80vh]">
+                <div className="w-full px-3 py-20 bg-transparent rounded-xl flex justify-center min-h-[80vh]">
                   <ReservationForm />
                 </div>
               </div>

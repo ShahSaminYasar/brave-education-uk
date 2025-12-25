@@ -133,11 +133,11 @@ const CourseBox = ({
               Book Your Seat
               <div className="absolute top-0 right-0 h-full p-2 rounded-r-lg bg-gradient-to-br from-[#43ff63] via-[#29e849] to-[#43ff63] flex flex-row flex-nowrap w-fit items-center justify-center gap-1 text-xs font-medium">
                 <span className="text-white font-semibold text-[17px]">
-                  £{fees - fees * 0.4}
+                  £{fees}.00
                 </span>
-                <del className="font-medium text-[12px] text-slate-500">
+                {/* <del className="font-medium text-[12px] text-slate-500">
                   £{fees}
-                </del>
+                </del> */}
               </div>
             </button>
 
@@ -166,7 +166,8 @@ const CourseBox = ({
           className="mx-auto md:ml-auto w-full max-w-md rounded-xl border-zinc-200 relative z-0"
         />
 
-        <div className="-mb-20 relative z-10 w-full -ml-[60px] -mt-[35px]">
+        {/* Badge */}
+        {/* <div className="-mb-20 relative z-10 w-full -ml-[60px] -mt-[35px]">
           <div className="border-4 border-white rounded-full p-3 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-300 text-white w-fit aspect-square shadow-lg -rotate-[20deg] hover:rotate-0 hover:scale-105 transition-all duration-150">
             <span className="block text-center text-[10px] font-medium text-transparent">
               Discount
@@ -178,7 +179,7 @@ const CourseBox = ({
               OFF
             </span>
           </div>
-        </div>
+        </div> */}
       </SpotlightCard>
     </motion.div>
   );

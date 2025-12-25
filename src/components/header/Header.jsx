@@ -27,7 +27,7 @@ import { useState } from "react";
 // import FlowingMenu from "../ui/FlowingMenu";
 import { usePathname } from "next/navigation";
 import MobileMenuLinkItem from "./MobileMenuLinkItem";
-import OfferTopBar from "../offer/OfferTopBar";
+// import OfferTopBar from "../offer/OfferTopBar";
 
 const Header = () => {
   const { scrollY } = useScroll();
@@ -53,7 +53,7 @@ const Header = () => {
       setHeaderVisible(true);
     }
 
-    if (current <= 450) {
+    if (current <= 100) {
       if (!topped) {
         setTopped(true);
       }
@@ -119,15 +119,11 @@ const Header = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: headerVisible ? 1 : 0, y: headerVisible ? 0 : -20 }}
       transition={{ type: "keyframes", duration: 0.3 }}
-      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full ${
-        topped
-          ? "backdrop-blur-sm bg-white/10"
-          : "shadow-sm shadow-black/5 backdrop-blur-sm bg-white/70"
-      } py-0 transition-all duration-150 ${
+      className={`fixed top-0 z-50 left-1/2 -translate-x-1/2 w-full shadow-black/5 backdrop-blur-2xl bg-white/90 py-0 transition-all duration-150 ${
         headerVisible ? "pointer-events-auto" : "pointer-events-none"
-      }`}
+      } ${topped ? "shadow-none" : "shadow-lg"}`}
     >
-      <OfferTopBar />
+      {/* <OfferTopBar /> */}
 
       {/* Large Screen Menu */}
       <div

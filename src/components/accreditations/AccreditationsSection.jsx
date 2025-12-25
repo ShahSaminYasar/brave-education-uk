@@ -68,6 +68,13 @@ const AccreditationsSection = () => {
             alt="British Council logo"
             className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
           />
+          <Image
+            src={"/assets/images/accreditations/eaie.jpg"}
+            width={200}
+            height={200}
+            alt="European Association for International Education logo"
+            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
+          />
         </motion.div>
       </section>
     </div>

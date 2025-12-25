@@ -211,7 +211,7 @@ html.lenis body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(128, 128, 128, 0.4); /* subtle gray */
+  background-color: rgba(128, 128, 128, 0.5); /* subtle gray */
   border-radius: 4px;
 }
 

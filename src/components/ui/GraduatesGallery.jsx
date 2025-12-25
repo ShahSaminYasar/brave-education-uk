@@ -9,7 +9,7 @@ const DEFAULTS = {
   maxVerticalRotationDeg: 10,
   dragSensitivity: 20,
   enlargeTransitionMs: 300,
-  segments: 50,
+  segments: 55,
 };
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
@@ -93,7 +93,7 @@ const calculateOptimalSegments = (imageCount) => {
 
 export default function GraduatesGallery({
   images = DEFAULT_IMAGES,
-  fit = 0.3,
+  fit = 0.28,
   fitBasis = "width",
   minRadius = 600,
   maxRadius = Infinity,
@@ -102,7 +102,7 @@ export default function GraduatesGallery({
   maxVerticalRotationDeg = DEFAULTS.maxVerticalRotationDeg,
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
-  segments = calculateOptimalSegments(50),
+  segments = calculateOptimalSegments(55),
   dragDampening = 2,
   openedImageWidth = "400px",
   openedImageHeight = "400px",

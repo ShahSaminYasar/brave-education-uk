@@ -220,6 +220,10 @@ export const useImages = () => {
       src: "/assets/images/graduates/54.jpg",
       alt: "Graduate image",
     },
+    {
+      src: "/assets/images/graduates/55.jpg",
+      alt: "Graduate image",
+    },
   ];
 
   return images;

@@ -5,12 +5,12 @@ import CourseBox from "@/components/courses/CourseBox";
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import { BookOpenCheck } from "lucide-react";
-import OfferSection from "@/components/offer/OfferSection";
+// import OfferSection from "@/components/offer/OfferSection";
 import Counters from "@/app/course/life-in-the-uk/Counters";
 import SuccessStories from "@/app/course/life-in-the-uk/SuccessStories";
-import CourseSwiper from "../(main)/courses_back/CourseSwiper";
 import Form from "./Form";
 import { useState } from "react";
+import CourseSwiper from "@/app/courses_back/CourseSwiper";
 
 const page = () => {
   const courses = [
@@ -63,10 +63,18 @@ const page = () => {
 
   return (
     <>
-      <OfferSection />
+      {/* <OfferSection /> */}
 
       {/* Title Section */}
-      {/* <motion.section className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 max-w-6xl mx-auto bg-white">
+      <motion.section
+        className="pt-[100px] px-5 pb-20 min-h-screen flex flex-col justify-center items-center gap-8 mx-auto"
+        style={{
+          background: "url(/white-bg-2.jpg)",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="flex flex-col items-center justify-center gap-6 w-full max-w-3xl mx-auto">
           <motion.div
             initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
@@ -107,7 +115,7 @@ const page = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
@@ -119,13 +127,10 @@ const page = () => {
               className="w-1 h-3 bg-gray-300 rounded-full mt-2"
             />
           </div>
-        </motion.div>
-      </motion.section> */}
+        </motion.div> */}
+      </motion.section>
 
-      <div
-        className="bg-gradient-to-b from-slate-50 to-white w-full px-5 py-20"
-        id="all_courses"
-      >
+      <div className="bg-white w-full px-5 py-20" id="all_courses">
         <div className="w-full max-w-6xl mx-auto">
           <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start justify-center gap-8">
             <div className="w-full sm:col-span-2 lg:col-span-3">
@@ -133,6 +138,7 @@ const page = () => {
                 text={"Our Courses"}
                 subtext={"Education"}
                 align="center"
+                animate={false}
               />
             </div>
 
@@ -268,10 +274,10 @@ const page = () => {
 
       <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-amber-300 to-amber-300">
         <motion.div
-          initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-          whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-          transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-          viewport={{ margin: "400px 0px -40% 0px" }}
+          // initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
+          // whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+          // transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
+          // viewport={{ margin: "400px 0px -40% 0px" }}
           className="flex flex-row items-center justify-center gap-2"
         >
           <BookOpenCheck size={50} className="text-[#fff] -mt-3" />
