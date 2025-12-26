@@ -16,6 +16,7 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { useMainContext } from "@/hooks/useMainContext";
+import Link from "next/link";
 
 const AboutSectionV2 = () => {
   const { siteLoaded, setSiteLoaded } = useMainContext();
@@ -149,9 +150,11 @@ const AboutSectionV2 = () => {
               we’re here to guide you step by step.
             </ScrollReveal>
 
-            <Button animatedEntry={true} className={"mt-2"}>
-              Our Team <ArrowUpRight />
-            </Button>
+            <Link href="/services">
+              <Button animatedEntry={true} className={"mt-2"}>
+                Our Services <ArrowUpRight />
+              </Button>
+            </Link>
           </div>
 
           <div className="md:ml-auto h-full bg-[#0b006b] rounded-2xl overflow-hidden border-[8px] border-white max-h-[500px] aspect-[12/9] md:aspect-[9/12] hidden md:block">

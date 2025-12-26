@@ -70,7 +70,7 @@ const SketchSection = () => {
                   style={{
                     opacity: text1,
                   }}
-                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[70%] md:text-[30px] font-light text-[#d4d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[70%] md:text-[30px] font-light text-[#c1b2ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
                   <div className="w-fit px-2 h-fit overflow-y-hidden">
                     <span
@@ -88,7 +88,7 @@ const SketchSection = () => {
                   style={{
                     opacity: text2,
                   }}
-                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#fcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#f6ff79] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
                   <div className="w-fit px-2 h-fit overflow-y-hidden">
                     <span
@@ -107,7 +107,7 @@ const SketchSection = () => {
                   style={{
                     opacity: text3,
                   }}
-                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#f5d3ff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#ebaaff] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
                   <div className="w-fit px-2 h-fit overflow-y-hidden">
                     <span
@@ -125,7 +125,7 @@ const SketchSection = () => {
                   style={{
                     opacity: text4,
                   }}
-                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#dcffd3] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+                  className="w-full flex flex-col items-center gap-3 justify-center text-[24px] max-w-[80%] md:text-[30px] font-light text-[#9fff87] absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
                 >
                   <div className="w-full h-fit overflow-y-hidden">
                     <span

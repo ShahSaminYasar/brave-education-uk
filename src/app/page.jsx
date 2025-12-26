@@ -33,9 +33,9 @@ const page = () => {
         </div>
         <AdmissionPathwaySection />
         <PerksSection />
-        <AccreditationsSection />
         <GallerySection />
         <SketchSection />
+        <AccreditationsSection />
       </main>
       <Footer />
 

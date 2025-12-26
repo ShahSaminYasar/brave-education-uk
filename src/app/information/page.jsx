@@ -331,7 +331,7 @@ const page = () => {
           <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>
 
           <span className="block w-fit text-center font-medium font-poppins">
-            Copyright 2025 &copy; BRAVE EDUCATION UK LTD
+            Copyright {new Date().getFullYear()} &copy; BRAVE EDUCATION UK LTD
           </span>
 
           {/* <span className="w-2 h-2 border-r border-[#27117e] mr-2 hidden sm:block"></span>

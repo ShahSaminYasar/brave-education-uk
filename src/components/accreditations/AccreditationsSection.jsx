@@ -4,7 +4,7 @@ import * as motion from "motion/react-client";
 
 const AccreditationsSection = () => {
   return (
-    <div className="section bg-white">
+    <div className="bg-white px-[20px] pt-[90px] pb-0">
       <section className="w-full max-w-6xl mx-auto">
         <SectionTitle
           text={"Accreditations"}

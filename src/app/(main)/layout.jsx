@@ -1,6 +1,8 @@
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import Image from "next/image";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const layout = ({ children }) => {
   return (
@@ -18,7 +20,7 @@ const layout = ({ children }) => {
           />
         </div>
 
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
       </main>
       <Footer />
     </>

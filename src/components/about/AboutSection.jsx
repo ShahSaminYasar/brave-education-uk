@@ -6,6 +6,7 @@ import SectionTitle from "../ui/SectionTitle";
 import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const AboutSection = () => {
   const { scrollY } = useScroll();
@@ -94,9 +95,9 @@ const AboutSection = () => {
             we’re here to guide you step by step.
           </ScrollReveal>
 
-          <Button animatedEntry={true} className={"mt-2"}>
-            Our Team <ArrowUpRight />
-          </Button>
+          <Link href="/services" className={"mt-2"}>
+            Our Services <ArrowUpRight />
+          </Link>
         </div>
 
         <motion.div
