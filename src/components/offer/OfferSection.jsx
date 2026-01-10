@@ -9,7 +9,7 @@ const OfferSection = () => {
     <>
       {/* <OfferTopBar /> */}
       <section
-        className="bg-red-800 px-5 py-20 pt-[30px] md:pt-[32px] md:py-12 min-h-[90vh] md:min-h-[90vh] flex items-center justify-center"
+        className="bg-red-800 px-5 py-20 pt-[100px] md:pt-[100px] md:py-12 min-h-[90vh] md:min-h-[90vh] flex items-center justify-center"
         style={{
           backgroundImage: "url(/offer_bg.jpg)",
           backgroundSize: "cover",
@@ -21,26 +21,26 @@ const OfferSection = () => {
           {/* First */}
           <div className="font-josefin-sans text-sm font-medium text-white col-span-3 flex flex-col items-center md:items-start justify-center gap-1 md:gap-3 relative z-10">
             <h2 className="text-5xl md:text-6xl font-bold block mb-3 text-center md:text-left">
-              Black Friday Offer
+              Limited Half Deal
             </h2>
-            <p>40% off on all courses</p>
+            <p>50% off on selected courses</p>
             <p>
               <ShieldCheck size={17} className="inline" /> In person and online
               classes available
             </p>
             <button
               onClick={() => window.navigator.clipboard.writeText("BB40")}
-              className="group px-3 py-1 bg-white text-red-800 text-xs font-semibold rounded-2xl block my-4"
+              className="group px-3 py-1 bg-white text-blue-900 text-xs font-semibold rounded-2xl block my-4"
             >
               <Copy
                 size={12}
                 className="inline-block mr-2 mb-1 cursor-pointer group-active:scale-85 duration-100 transition-all opacity-70"
               />
-              Apply code BB40 during payment
+              Apply code BE50 during payment
             </button>
             <Link
               href={"#all_courses"}
-              className="px-6 py-3 bg-gradient-to-r from-red-600 via-red-400 to-red-600 rounded-4xl shadow-lg hover:shadow-2xl active:shadow-sm font-semibold text-sm flex items-center gap-2 justify-center"
+              className="px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-4xl shadow-lg hover:shadow-2xl active:shadow-sm font-semibold text-sm flex items-center gap-2 justify-center"
             >
               <BookCheck size={16} /> Select Your Course
             </Link>

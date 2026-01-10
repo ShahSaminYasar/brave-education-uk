@@ -192,11 +192,17 @@ const Form = ({ courses, selectedCourse, setSelectedCourse }) => {
 
                     <div className="flex flex-col w-full items-end justify-center gap-1 text-xs font-medium">
                       <span className="text-green-400 font-semibold">
-                        £{courses?.find((c) => c?.id == selectedCourse)?.price}
+                        £
+                        {courses?.find((c) => c?.id == selectedCourse)
+                          ?.offerFees ||
+                          courses?.find((c) => c?.id == selectedCourse)?.fees}
                       </span>
-                      {/* <del className="font-normal text-white/40">
-                        £{courses?.find((c) => c?.id == selectedCourse)?.price}
-                      </del> */}
+                      {courses?.find((c) => c?.id == selectedCourse)
+                        ?.offerFees && (
+                        <del className="font-normal text-white/40">
+                          £{courses?.find((c) => c?.id == selectedCourse)?.fees}
+                        </del>
+                      )}
                     </div>
                   </motion.div>
                 )}

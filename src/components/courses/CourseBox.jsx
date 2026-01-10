@@ -34,6 +34,7 @@ const CourseBox = ({
   classNo,
   mockNo,
   fees,
+  offerFees,
   duration,
   four,
   mode,
@@ -127,17 +128,17 @@ const CourseBox = ({
               }}
               target="_blank"
               className="w-full relative px-8 py-2 text-sm font-bold bg-white text-slate-900 rounded-lg shadow-sm flex flex-row justify-center items-center gap-2 flex-nowrap hover:scale-[102%] duration-100 cursor-pointer"
-              // style={{ background: "#fffff" }}
             >
-              {/* Book Your Seat <Grid2X2Check size={20} /> */}
               Book Your Seat
               <div className="absolute top-0 right-0 h-full p-2 rounded-r-lg bg-gradient-to-br from-[#43ff63] via-[#29e849] to-[#43ff63] flex flex-row flex-nowrap w-fit items-center justify-center gap-1 text-xs font-medium">
                 <span className="text-white font-semibold text-[17px]">
-                  £{fees}.00
+                  £{offerFees || fees}
                 </span>
-                {/* <del className="font-medium text-[12px] text-slate-500">
-                  £{fees}
-                </del> */}
+                {offerFees && (
+                  <del className="font-medium text-[12px] text-slate-500">
+                    £{fees}
+                  </del>
+                )}
               </div>
             </button>
 
@@ -162,24 +163,26 @@ const CourseBox = ({
           src={image}
           width={800}
           height={500}
-          alt="B1 course thumbnail"
+          alt={name}
           className="mx-auto md:ml-auto w-full max-w-md rounded-xl border-zinc-200 relative z-0"
         />
 
         {/* Badge */}
-        {/* <div className="-mb-20 relative z-10 w-full -ml-[60px] -mt-[35px]">
-          <div className="border-4 border-white rounded-full p-3 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-300 text-white w-fit aspect-square shadow-lg -rotate-[20deg] hover:rotate-0 hover:scale-105 transition-all duration-150">
-            <span className="block text-center text-[10px] font-medium text-transparent">
-              Discount
-            </span>
-            <span className="text-3xl font-semibold block text-center">
-              40%
-            </span>
-            <span className="block text-center text-[12px] font-medium text-white">
-              OFF
-            </span>
+        {offerFees && (
+          <div className="-mb-20 relative z-10 w-full -ml-[55px] -mt-[30px]">
+            <div className="border-4 border-white rounded-full p-3 bg-gradient-to-br from-yellow-300 via-amber-500 to-yellow-300 text-white w-fit aspect-square shadow-lg -rotate-[20deg] hover:rotate-0 hover:scale-105 transition-all duration-150">
+              <span className="block text-center text-[10px] font-medium text-transparent">
+                Discount
+              </span>
+              <span className="text-3xl font-semibold block text-center">
+                {(offerFees / fees) * 100}%
+              </span>
+              <span className="block text-center text-[12px] font-medium text-white">
+                OFF
+              </span>
+            </div>
           </div>
-        </div> */}
+        )}
       </SpotlightCard>
     </motion.div>
   );
