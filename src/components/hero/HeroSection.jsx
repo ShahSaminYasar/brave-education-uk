@@ -80,7 +80,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            className="para text-center block w-fit max-w-[380px] md:max-w-[480px] text-muted"
+            className="para text-center block w-fit max-w-[380px] md:max-w-[570px] text-muted"
           >
             For international and UK students, our licensed consultants provide
             end-to-end support from course selection and applications to visa
@@ -100,7 +100,10 @@ const HeroSection = () => {
             </Link>
 
             <Link href={"/check-eligibility"}>
-              <Button variant={"secondary"}>
+              <Button
+                variant={"secondary"}
+                className={"border-2 border-[#180d5d] text-[#180d5d] bg-white"}
+              >
                 Check Eligibility <ArrowUpRight />
               </Button>
             </Link>

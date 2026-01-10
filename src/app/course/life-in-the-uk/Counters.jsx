@@ -46,12 +46,12 @@ const Counters = () => {
                   y: y1,
                 }}
               >
+                <span>100</span>
                 <span>98</span>
-                <span>97</span>
                 <span>96</span>
-                <span>95</span>
+                <span>94</span>
               </motion.div>
-              <span className="opacity-0 block px-1">98</span>
+              <span className="opacity-0 block px-1">100</span>
             </div>
             <span className="text-4xl font-bold text-green-600 block ml-1">
               %
@@ -88,7 +88,7 @@ const Counters = () => {
             </span>
           </div>
           <span className="text-lg font-light text-slate-800 block text-center text-nowrap">
-            Years Experience
+            Years of Experience
           </span>
         </div>
 
@@ -106,13 +106,13 @@ const Counters = () => {
                     y: y3,
                   }}
                 >
-                  <span>4.9</span>
+                  <span>5.0</span>
                   <span>4.8</span>
                   <span>3.6</span>
                   <span>2.7</span>
                   <span>1.5</span>
                 </motion.div>
-                <span className="opacity-0 block px-1">4.9</span>
+                <span className="opacity-0 block px-1">5.0</span>
               </div>
               <span className="text-5xl font-bold text-pink-600 block -ml-2 mt-1">
                 /5

@@ -19,42 +19,43 @@ const SuccessStories = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeVideoLink, setActiveVideoLink] = useState("");
 
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
+  // For Custom Carousel Only
+  // useEffect(() => {
+  //   const carousel = carouselRef.current;
+  //   if (!carousel) return;
 
-    const updateActiveCard = () => {
-      const animation = carousel.getAnimations()[0];
-      if (animation) {
-        const progress = (animation.currentTime % 15000) / 15000;
+  //   const updateActiveCard = () => {
+  //     const animation = carousel.getAnimations()[0];
+  //     if (animation) {
+  //       const progress = (animation.currentTime % 15000) / 15000;
 
-        let newIndex;
-        if (progress < 0.19) {
-          // Card 1: 0% - 19%
-          newIndex = 0;
-        } else if (progress < 0.38) {
-          // Card 2: 19% - 38%
-          newIndex = 1;
-        } else if (progress < 0.57) {
-          // Card 3: 38% - 57%
-          newIndex = 2;
-        } else if (progress < 0.76) {
-          // Card 4: 57% - 76%
-          newIndex = 3;
-        } else {
-          // Card 5: 76% - 100%
-          newIndex = 4;
-        }
+  //       let newIndex;
+  //       if (progress < 0.19) {
+  //         // Card 1: 0% - 19%
+  //         newIndex = 0;
+  //       } else if (progress < 0.38) {
+  //         // Card 2: 19% - 38%
+  //         newIndex = 1;
+  //       } else if (progress < 0.57) {
+  //         // Card 3: 38% - 57%
+  //         newIndex = 2;
+  //       } else if (progress < 0.76) {
+  //         // Card 4: 57% - 76%
+  //         newIndex = 3;
+  //       } else {
+  //         // Card 5: 76% - 100%
+  //         newIndex = 4;
+  //       }
 
-        setActiveIndex(newIndex);
-      }
-    };
+  //       setActiveIndex(newIndex);
+  //     }
+  //   };
 
-    const interval = setInterval(updateActiveCard, 50);
-    updateActiveCard();
+  //   const interval = setInterval(updateActiveCard, 50);
+  //   updateActiveCard();
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const items = useSuccessStories();
 

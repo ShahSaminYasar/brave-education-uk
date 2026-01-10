@@ -15,23 +15,6 @@ import CourseSwiper from "@/app/courses_back/CourseSwiper";
 const page = () => {
   const courses = [
     {
-      name: "B1 English Test (ISE I)",
-      classNo: "21 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 380.0,
-      offerFees: null,
-      mode: "In person",
-      image: "/assets/images/courses/ise_b1.jpg",
-      bgColor: "#231f52",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/9B6cMYbOX0xu0TsbVTdIA0b?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in B1 English Test (ISE I), please let me know the details."
-      )}`,
-      id: "b1ise1",
-    },
-    {
       name: "B2 English Test (ISE II)",
       classNo: "21 Classes",
       mockNo: "02 Mock Tests",
@@ -246,7 +229,7 @@ const page = () => {
         </div>
       </div>
 
-      <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-amber-300 to-amber-300">
+      <section className="w-full section flex flex-col items-center justify-center gap-6 bg-gradient-to-b from-slate-100 to-white">
         <motion.div
           // initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
           // whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
@@ -254,15 +237,8 @@ const page = () => {
           // viewport={{ margin: "400px 0px -40% 0px" }}
           className="flex flex-row items-center justify-center gap-2"
         >
-          <BookOpenCheck size={50} className="text-[#fff] -mt-3" />
-          <SectionTitle
-            text={"Tests"}
-            align="center"
-            style={{
-              color: "#fff",
-            }}
-            animate={false}
-          />
+          <BookOpenCheck size={50} className="text-[#18181b] -mt-3" />
+          <SectionTitle text={"Tests"} align="center" animate={false} />
         </motion.div>
 
         <Link

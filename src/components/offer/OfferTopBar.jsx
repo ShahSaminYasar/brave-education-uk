@@ -31,7 +31,7 @@ const OfferTopBar = () => {
   return (
     <Link
       href={"/courses"}
-      className="w-full h-[30px] shine relative flex items-center justify-center"
+      className="w-full h-[30px] shine relative hidden items-center justify-center"
       style={{
         backgroundImage:
           "linear-gradient(120deg, rgba(240, 34, 34, 1) 0%, rgba(240, 34, 34, 1) 40%, rgba(250, 70, 70, 1) 45%, rgba(250, 70, 70, 1) 50%, rgba(240, 34, 34, 1) 55%, rgba(240, 34, 34, 1) 100%)",
