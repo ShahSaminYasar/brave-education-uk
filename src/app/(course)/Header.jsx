@@ -195,13 +195,10 @@ const Header = ({ setNavBarOpen }) => {
               </span>
 
               <Link
-                href={
-                  "https://seltbooking.trinitycollege.co.uk/OEWeb/loadExamDtl.do?ref=1-10672391978"
-                }
-                target="_blank"
+                href={"/trinity-college-tests"}
                 className={`p-2 text-xs w-full bg-white text-slate-700 last:border-b-0 hover:bg-slate-100 text-left font-medium font-montserrat rounded-none hover:first:rounded-t-sm hover:last:rounded-b-sm hover:text-primary duration-100`}
               >
-                Trinity College Test
+                Trinity College Tests
               </Link>
             </div>
           </div>
@@ -339,10 +336,10 @@ const Header = ({ setNavBarOpen }) => {
                     icon: <Folders size={18} />,
                   },
                   {
-                    link: "https://seltbooking.trinitycollege.co.uk/OEWeb/loadExamDtl.do?ref=1-10672391978",
-                    text: "Trinity College Test",
+                    link: "/trinity-college-tests",
+                    text: "Trinity College Tests",
                     icon: <ShieldCheck size={18} />,
-                    external: true,
+                    external: false,
                   },
                 ]}
               />

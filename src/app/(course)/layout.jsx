@@ -40,7 +40,7 @@ const layout = ({ children }) => {
             type: "keyframes",
             ease: "easeOut",
           }}
-          className={`w-full col-span-2 max-w-[280px] lg:max-w-full h-screen overflow-y-auto flex flex-col items-start gap-0 border-r border-slate-300 @min-7lg:border-l fixed lg:sticky top-0 z-[999] lg:z-30 bg-white pt-[0px] shadow-xl lg:shadow-none`}
+          className={`w-full col-span-2 max-w-[280px] lg:max-w-full h-screen overflow-y-auto flex flex-col items-start gap-0 border-r border-b border-slate-300 @min-7lg:border-l fixed lg:sticky top-0 z-[999] lg:z-30 bg-white pt-[0px] shadow-xl lg:shadow-none`}
         >
           <button
             onClick={() => setNavBarOpen(false)}
@@ -177,17 +177,17 @@ const layout = ({ children }) => {
 
         {/* Main Content */}
         <div
-          className="w-full col-span-8 p-0 font-montserrat pt-[100px] lg:pt-[70px]"
+          className="w-full col-span-8 p-0 font-montserrat pt-[100px] lg:pt-[70px] relative"
           style={{
-            background:
-              "linear-gradient(182deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(/white-bg-4.jpg)",
+            background: "url(/white-bg-4.jpg)",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
           }}
         >
-          {children}
+          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-white/20 to-white z-0"></div>
+          <div className="relative z-10">{children}</div>
         </div>
       </main>
 

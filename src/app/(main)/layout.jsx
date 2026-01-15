@@ -9,7 +9,7 @@ const layout = ({ children }) => {
     <>
       <Header />
       <main>
-        <div className="fixed top-0 left-0 bottom-0 w-full -z-50">
+        {/* <div className="fixed top-0 left-0 bottom-0 w-full -z-50">
           <Image
             src={"/bg-1.jpg"}
             width={1280}
@@ -18,7 +18,7 @@ const layout = ({ children }) => {
             alt="bg image"
             priority
           />
-        </div>
+        </div> */}
 
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </main>
