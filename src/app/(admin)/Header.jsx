@@ -14,7 +14,7 @@ const Header = ({ setNavBarOpen }) => {
       <header
         className={`w-full h-[80px] flex items-center bg-white px-5 py-[20px] border-b border-slate-300 fixed lg:relative top-0 left-0 z-30`}
       >
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-3 items-center gap-8">
+        <div className="w-full grid grid-cols-3 items-center gap-8">
           <div className="flex items-center gap-3">
             <button
               onClick={() => {

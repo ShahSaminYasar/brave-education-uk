@@ -93,12 +93,12 @@ const PopUpUploadForm = () => {
 
       const imageUpload = await axios.post(
         `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API}`,
-        data
+        data,
       );
 
       if (!imageUpload?.data?.success)
         return toast.error(
-          "Image upload failed, please check your internet and try again"
+          "Image upload failed, please check your internet and try again",
         );
 
       const result = await axiosSelf.post(
@@ -110,18 +110,18 @@ const PopUpUploadForm = () => {
           type,
           token: localStorage?.getItem("token"),
           excludedLinks,
-        }
+        },
       );
 
       if (result?.data?.ok) {
         queryClient?.invalidateQueries(["popups"]);
         event?.target?.reset();
         return toast.success(
-          result?.data?.message || "Popup published successfully"
+          result?.data?.message || "Popup published successfully",
         );
       } else {
         return toast.error(
-          result?.data?.message || "Failed to publish popup, please try again"
+          result?.data?.message || "Failed to publish popup, please try again",
         );
       }
     } catch (error) {

@@ -10,114 +10,19 @@ import Counters from "@/app/course/life-in-the-uk/Counters";
 import SuccessStories from "@/app/course/life-in-the-uk/SuccessStories";
 import Form from "./Form";
 import { useState } from "react";
-import CourseSwiper from "@/app/courses_back/CourseSwiper";
+import { useQuery } from "@tanstack/react-query";
+import { useAxios } from "@/hooks/useAxios";
+import { Spinner } from "@/components/ui/spinner";
 
 const page = () => {
-  const courses = [
-    {
-      name: "B2 English Test (ISE II)",
-      classNo: "21 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 450.0,
-      offerFees: 225.0,
-      mode: "In person",
-      image: "/assets/images/courses/ise_b2.jpg",
-      bgColor: "#e02f33",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/00w00c8CL3JG8lU9NLdIA0d?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in B2 English Test (ISE II), please let me know the details."
-      )}`,
-      id: "b2ise2",
-    },
-    {
-      name: "B1 English Course (GESE Grade 5)",
-      classNo: "14 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 300.0,
-      offerFees: 150.0,
-      mode: "Online/Offline",
-      image: "/assets/images/courses/b1.jpg",
-      bgColor: "#231f52",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/bJeaEQ5qzcgcby63pndIA0a?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in B1 English Course (GESE Grade 5), please let me know the details."
-      )}`,
-      id: "b1g5",
-    },
-    {
-      name: "A1 English Course (GESE Grade 2)",
-      classNo: "14 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 240.0,
-      offerFees: null,
-      mode: "Online/Offline",
-      image: "/assets/images/courses/a1.jpg",
-      bgColor: "#e02f33",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/5kQ9AM6uD3JG6dMe41dIA0e?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in A1 English Course (GESE Grade 2), please let me know the details."
-      )}`,
-      id: "a1g2",
-    },
-    {
-      name: "A2 English Test (GESE Grade 3)",
-      classNo: "14 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 240.0,
-      offerFees: null,
-      mode: "Online/Offline",
-      image: "/assets/images/courses/a2.jpg",
-      bgColor: "#231f52",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/aFaaEQbOXdkg9pYaRPdIA0f?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in A2 English Test (GESE Grade 3), please let me know the details."
-      )}`,
-      id: "a2g3",
-    },
-    {
-      name: "Life in the UK",
-      classNo: "10 Classes",
-      mockNo: "02 Mock Tests",
-      duration: "1 hr 10 mins",
-      fees: 200.0,
-      offerFees: 100.0,
-      mode: "Online/Offline",
-      image: "/assets/images/courses/life-in-the-uk.jpg",
-      bgColor: "#e02f33",
-      accentColor: "#b50e12",
-      link: "https://buy.stripe.com/3cI7sEdX5dkg6dMbVTdIA0c?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in the course 'Life in the UK', please let me know the details."
-      )}`,
-      id: "lituk",
-    },
-    {
-      name: "SIA Door Supervisor + First Aid",
-      classNo: "06 days in a week",
-      mockNo: "Session: 09:30 - 18:00",
-      duration: "Result & Certificate",
-      four: "7 - 14 days",
-      fees: 550.0,
-      offerFees: null,
-      mode: "Location: Bethnal Green",
-      image: "/assets/images/courses/door_supervisor.jpg",
-      bgColor: "#231f52",
-      accentColor: "#3b3b3b",
-      link: "https://buy.stripe.com/bJeaEQbOXfso59I6BzdIA0g?prefilled_promo_code=be50",
-      waLink: `https://wa.me/+447862042900?text=${encodeURIComponent(
-        "I am interested in the course 'SIA Door Supervisor + First Aid', please let me know the details."
-      )}`,
-      id: "sia",
-    },
-  ];
+  const axiosSelf = useAxios();
+
+  const { data, isLoading, isError, error, refetch } = useQuery({
+    queryKey: ["courses"],
+    queryFn: () => axiosSelf.get("/courses"),
+  });
+
+  const courses = data?.data?.data || [];
 
   // States
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -125,71 +30,6 @@ const page = () => {
   return (
     <>
       <OfferSection />
-
-      {/* Title Section */}
-      <motion.section
-        className="pt-[100px] px-5 pb-20 min-h-screen hidden flex-col justify-center items-center gap-8 mx-auto"
-        style={{
-          background: "url(/white-bg-2.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="flex flex-col items-center justify-center gap-6 w-full max-w-3xl mx-auto">
-          <motion.div
-            initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-            whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-            transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-            viewport={{ margin: "400px 0px -30% 0px" }}
-            className="w-fit bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 bg-clip-text"
-          >
-            <h2 className="text-[40px] lg:text-5xl 2xl:text-6xl block text-center text-zinc-900 font-[800]">
-              Courses We <span className="text-transparent">Offer</span>
-            </h2>
-          </motion.div>
-
-          <motion.p
-            initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-            whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-            transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-            viewport={{ margin: "400px 0px -30% 0px" }}
-            className="para block text-center"
-            style={{ fontWeight: 400 }}
-          >
-            A language course is a structured program of study designed to teach
-            individuals a specific language.Language courses can cover various
-            aspects of language learning, including grammar, vocabulary,
-            pronunciation, cultural nuances, and practical
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ filter: "blur(5px)", scale: 0.98, opacity: 0.7 }}
-          whileInView={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
-          transition={{ delay: 0.05, duration: 0.15, ease: "linear" }}
-          viewport={{ margin: "400px 0px -30% 0px" }}
-          className="bg-white p-2 border border-zinc-300 shadow-sm rounded-2xl w-full max-w-md mx-auto"
-        >
-          <div className="md:ml-auto w-full bg-[#0b006b] rounded-2xl overflow-hidden aspect-[10/7]">
-            <CourseSwiper />
-          </div>
-        </motion.div>
-
-        {/* <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-9 border-2 border-gray-300 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-gray-300 rounded-full mt-2"
-            />
-          </div>
-        </motion.div> */}
-      </motion.section>
 
       <div className="bg-white w-full px-5 py-20" id="all_courses">
         <div className="w-full max-w-6xl mx-auto">
@@ -202,6 +42,12 @@ const page = () => {
                 animate={false}
               />
             </div>
+
+            {isLoading && (
+              <div className="sm:col-span-2 lg:col-span-3 min-h-[70vh] w-full grid place-content-center bg-white">
+                <Spinner />
+              </div>
+            )}
 
             {courses?.map((course) => (
               <CourseBox

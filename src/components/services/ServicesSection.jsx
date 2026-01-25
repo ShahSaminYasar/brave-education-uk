@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useScroll, motion, useTransform, scale } from "motion/react";
 import { Button } from "../ui/button";
 import SectionTitle from "../ui/SectionTitle";
+import Link from "next/link";
 
 const ServicesSection = () => {
   // Refs
@@ -23,17 +24,17 @@ const ServicesSection = () => {
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.1, 0.55, 1],
-    [0, 0, 1, 1]
+    [0, 0, 1, 1],
   );
   const scale = useTransform(
     scrollYProgress,
     [0, 0.21, 0.8, 1],
-    [0.9, 0.9, 0.87, 0.83]
+    [0.9, 0.9, 0.87, 0.83],
   );
   const layerOpacity = useTransform(
     scrollYProgress,
     [0, 0.1, 0.65, 1],
-    [1, 0, 0, 1]
+    [1, 0, 0, 1],
   );
 
   return (
@@ -123,9 +124,12 @@ const ServicesSection = () => {
             counselling and university admissions to visa assistance, English
             courses, and even company setup in the UK.
           </p>
-          <Button>
+          <Link
+            href={"/appointment"}
+            className="bg-gradient-to-r from-[#261a75] via-[#090041] to-[#261a75] text-primary-foreground hover:bg-primary/90 px-4 py-2 flex items-center justify-center gap-1 rounded-4xl"
+          >
             Free Counselling <ArrowUpRight />
-          </Button>
+          </Link>
         </motion.div>
 
         {/* Screens >= md */}

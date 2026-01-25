@@ -175,7 +175,7 @@ const CourseBox = ({
                 Discount
               </span>
               <span className="text-3xl font-semibold block text-center">
-                {(offerFees / fees) * 100}%
+                {parseInt(((fees - offerFees) / fees) * 100)}%
               </span>
               <span className="block text-center text-[12px] font-medium text-white">
                 OFF

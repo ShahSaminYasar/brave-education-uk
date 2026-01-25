@@ -1,7 +1,9 @@
 "use client";
 import {
+  Book,
   ClipboardClock,
   FileUser,
+  Megaphone,
   Plane,
   UserCheck,
   Users,
@@ -64,7 +66,7 @@ const layout = ({ children }) => {
                 setAuthenticating(true);
                 adminLogin(
                   e?.target?.username?.value,
-                  e?.target?.password?.value
+                  e?.target?.password?.value,
                 );
               } catch (error) {
                 console.error(error);
@@ -115,7 +117,7 @@ const layout = ({ children }) => {
       <>
         <Header setNavBarOpen={setNavBarOpen} />
 
-        <main className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6 text-sm font-poppins font-medium text-secondary-foreground lg:left-0 relative min-h-[100vh]">
+        <main className="w-full grid grid-cols-1 lg:grid-cols-6 text-sm font-poppins font-medium text-secondary-foreground lg:left-0 relative min-h-[100vh]">
           <div
             className={`${
               navBarOpen ? "block lg:hidden" : "hidden"
@@ -148,6 +150,7 @@ const layout = ({ children }) => {
             <AdminNavItem
               link={"/admin/submissions"}
               text={"Form Submissions"}
+              collapsed={true}
               submenu={[
                 {
                   link: "/admin/submissions/appointments",
@@ -176,11 +179,34 @@ const layout = ({ children }) => {
                 },
               ]}
             />
+            <AdminNavItem
+              link={"/admin/courses"}
+              text={"Courses"}
+              collapsed={true}
+              submenu={[
+                {
+                  link: "/admin/courses",
+                  text: "Manage Courses",
+                  icon: <Book size={15} />,
+                },
+                {
+                  link: "/admin/courses/banner",
+                  text: "Featured Banner",
+                  icon: <Megaphone size={15} />,
+                },
+              ]}
+            />
+            <AdminNavItem
+              link={"/admin/success-stories"}
+              text={"Success Stories"}
+            />
             <AdminNavItem link={"/admin/settings"} text={"Website Settings"} />
           </motion.nav>
 
           {/* Main Content */}
-          <div className="w-full col-span-5 p-5">{children}</div>
+          <div className="w-full col-span-5 p-5 max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
       </>
     )

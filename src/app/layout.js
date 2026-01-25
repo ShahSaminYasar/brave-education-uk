@@ -79,7 +79,6 @@ export const metadata = {
     canonical: "./",
   },
   openGraph: {
-    title: "Brave Education UK - University Admission, Law, English & HR",
     description:
       "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
     url: "https://www.braveeducationuk.com",

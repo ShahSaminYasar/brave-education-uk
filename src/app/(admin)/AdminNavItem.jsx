@@ -4,8 +4,14 @@ import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
 import { useState } from "react";
 
-const AdminNavItem = ({ link, text, submenu = [], className }) => {
-  const [submenuOpen, setSubmenuOpen] = useState(true);
+const AdminNavItem = ({
+  link,
+  text,
+  submenu = [],
+  className,
+  collapsed = false,
+}) => {
+  const [submenuOpen, setSubmenuOpen] = useState(!collapsed);
 
   const pathname = usePathname();
 

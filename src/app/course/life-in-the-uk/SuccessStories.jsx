@@ -13,11 +13,14 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import Autoplay from "embla-carousel-autoplay";
+import { Spinner } from "@/components/ui/spinner";
 
 const SuccessStories = () => {
   const carouselRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeVideoLink, setActiveVideoLink] = useState("");
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // For Custom Carousel Only
   // useEffect(() => {
@@ -57,7 +60,15 @@ const SuccessStories = () => {
   //   return () => clearInterval(interval);
   // }, []);
 
-  const items = useSuccessStories();
+  useEffect(() => {
+    const getSetItems = async () => {
+      const successStories = await useSuccessStories();
+      setItems(successStories);
+      setLoading(false);
+    };
+
+    getSetItems();
+  }, []);
 
   return (
     <>
@@ -115,6 +126,12 @@ const SuccessStories = () => {
               ))}
             </div>
           </div> */}
+
+          {loading && (
+            <div className="min-h-[70vh] w-full grid place-content-center bg-white">
+              <Spinner />
+            </div>
+          )}
 
           <Carousel
             plugins={[
