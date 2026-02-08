@@ -177,6 +177,11 @@ const layout = ({ children }) => {
                   text: "Leads",
                   icon: <Users size={15} />,
                 },
+                {
+                  link: "/admin/submissions/complaints",
+                  text: "Complaints",
+                  icon: <Users size={15} />,
+                },
               ]}
             />
             <AdminNavItem

@@ -27,7 +27,7 @@ const page = () => {
 Name: ${item?.name}
 Phone: ${item?.phone}
 Email: ${item?.email}
-Message: ${item?.message || "---"}`
+Message: ${item?.message || "---"}`,
     );
     toast.success("Copied to clipboard", {
       icon: <Copy size={16} />,
@@ -35,7 +35,7 @@ Message: ${item?.message || "---"}`
   };
 
   const formatDate = (date) => {
-    return moment(date).tz("Europe/London").format("hh:mma, DD/MM/YYYY");
+    return moment(date).tz("Europe/London").format("hh:mma, DD MMM YYYY");
   };
 
   return (

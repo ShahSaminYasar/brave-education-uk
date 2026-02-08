@@ -136,7 +136,7 @@ Address Same: ${item?.parents?.addressSame || "---"}
 Travel History:
 ------------------------
 Previous Refusal: ${item?.refusal || "---"}
-Travelled to Other Countries: ${item?.travelledAnyCountry || "---"}`
+Travelled to Other Countries: ${item?.travelledAnyCountry || "---"}`,
     );
     toast.success("Visa application copied to clipboard", {
       icon: <Copy size={16} />,
@@ -145,7 +145,7 @@ Travelled to Other Countries: ${item?.travelledAnyCountry || "---"}`
 
   const formatDate = (date) => {
     return (
-      moment(date)?.tz("Europe/London")?.format("hh:mma, DD/MM/YYYY") ||
+      moment(date)?.tz("Europe/London")?.format("hh:mma, DD MMM YYYY") ||
       "Unknown date"
     );
   };

@@ -9,6 +9,7 @@ import {
   HandCoins,
   HelpingHand,
   Menu,
+  MessageSquareWarning,
   Plane,
   ShieldCheck,
   UserCheck,
@@ -106,6 +107,11 @@ const Header = () => {
       text: "Visa Application",
       image: "https://picsum.photos/600/400?random=14",
     },
+    {
+      link: "/complaint",
+      text: "File a Complaint",
+      icon: <MessageSquareWarning size={18} />,
+    },
   ];
 
   const navLinkStyle = (path) => {
@@ -149,7 +155,7 @@ const Header = () => {
             <Link
               href={"/services"}
               className={`${navLinkStyle(
-                "/services"
+                "/services",
               )} cursor-pointer leading-[40px]`}
             >
               Services <ChevronDown size={16} />
@@ -173,7 +179,7 @@ const Header = () => {
             <Link
               href={"/courses"}
               className={`${navLinkStyle(
-                "/courses"
+                "/courses",
               )} cursor-pointer leading-[40px]`}
             >
               Courses <ChevronDown size={16} />
@@ -222,7 +228,7 @@ const Header = () => {
           <div className="relative group">
             <span
               className={`${navLinkStyle(
-                "/more"
+                "/more",
               )} cursor-pointer leading-[40px]`}
             >
               More <ChevronDown size={16} />
@@ -378,6 +384,11 @@ const Header = () => {
                     link: "/visa-application",
                     text: "Visa Application",
                     icon: <FileUser size={18} />,
+                  },
+                  {
+                    link: "/complaint",
+                    text: "File a Complaint",
+                    icon: <MessageSquareWarning size={18} />,
                   },
                 ]}
               />

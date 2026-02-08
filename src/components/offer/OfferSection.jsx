@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useAxios } from "@/hooks/useAxios";
 import * as motion from "motion/react-client";
 import CourseSwiper from "@/app/courses_back/CourseSwiper";
+// import { Spinner } from "../ui/spinner";
+import { Skeleton } from "../ui/skeleton";
 
 const OfferSection = () => {
   const axios = useAxios();
@@ -48,7 +50,27 @@ const OfferSection = () => {
   const themeColor = banner?.themeColor || "#2563eb";
   const lightColor = lightenColor(themeColor, 35);
 
-  if (loading || !banner)
+  if (loading)
+    return (
+      <div className="min-h-screen w-full py-10 px-5 text-slate-900 bg-linear-to-br from-slate-300 via-slate-50 to-slate-300 flex items-center justify-center">
+        <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="w-full flex flex-col gap-4 max-w-2xl">
+            <Skeleton className={"w-[60%] h-[60px]"} />
+            <Skeleton className={"w-[40%] h-[60px]"} />
+            <Skeleton className={"w-[80%] h-[20px]"} />
+            <Skeleton className={"w-[54%] h-[20px]"} />
+            <Skeleton className={"w-[76%] h-[20px]"} />
+            <Skeleton className={"w-[150px] mt-5 h-[40px]"} />
+          </div>
+
+          <Skeleton
+            className={"w-full max-w-380px] aspect-square rounded-full"}
+          />
+        </div>
+      </div>
+    );
+
+  if (!loading && !banner)
     return (
       <>
         {/* Title Section */}
@@ -120,9 +142,9 @@ const OfferSection = () => {
 
   return (
     <section
-      className="bg-white px-5 py-20 pt-[100px] md:pt-[100px] md:py-12 min-h-[90vh] md:min-h-[90vh] flex items-center justify-center"
+      className="bg-white px-5 py-20 pt-[100px] md:pt-[100px] md:py-12 min-h-[90vh] md:min-h-[90vh] flex items-center justify-center fade"
       style={{
-        backgroundImage: `url(${banner.bg})`,
+        backgroundImage: `url(${banner?.bg})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -132,22 +154,22 @@ const OfferSection = () => {
         {/* Text Section */}
         <div className="font-josefin-sans text-sm font-medium text-white col-span-3 flex flex-col items-center md:items-start gap-3 relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold text-center md:text-left mb-3">
-            {banner.title}
+            {banner?.title}
           </h2>
 
-          <p>{banner.description}</p>
+          <p>{banner?.description}</p>
 
-          {banner.keyPoints?.map((point, i) => (
+          {banner?.keyPoints?.map((point, i) => (
             <p key={i}>
               <ShieldCheck size={17} className="inline mr-1" />
               {point}
             </p>
           ))}
 
-          {banner.badge && (
+          {banner?.badge && (
             <button
               onClick={() =>
-                window.navigator.clipboard.writeText(banner.badge.copyText)
+                window.navigator.clipboard.writeText(banner?.badge?.copyText)
               }
               className="group px-3 py-1 bg-white text-xs font-semibold rounded-2xl my-4"
               style={{
@@ -158,30 +180,34 @@ const OfferSection = () => {
                 size={12}
                 className="inline-block mr-2 mb-1 group-active:scale-90 transition"
               />
-              {banner.badge.displayText}
+              {banner?.badge?.displayText}
             </button>
           )}
 
-          <Link
-            href={banner.button?.link || "#all_courses"}
-            style={{
-              backgroundImage: `linear-gradient(90deg, ${themeColor}, ${lightColor}, ${themeColor})`,
-            }}
-            className="px-6 py-3 rounded-full shadow-lg hover:shadow-2xl font-semibold text-sm flex items-center gap-2 transition-all"
-          >
-            <BookCheck size={16} />
-            {banner.button?.text}
-          </Link>
+          {banner?.button?.text && (
+            <Link
+              href={banner?.button?.link || "#all_courses"}
+              style={{
+                backgroundImage: `linear-gradient(90deg, ${themeColor}, ${lightColor}, ${themeColor})`,
+              }}
+              className="px-6 py-3 rounded-full shadow-lg hover:shadow-2xl font-semibold text-sm flex items-center gap-2 transition-all"
+            >
+              <BookCheck size={16} />
+              {banner?.button?.text}
+            </Link>
+          )}
         </div>
 
         {/* Image Section */}
-        <Image
-          src={banner.hero}
-          width={1000}
-          height={1000}
-          alt={banner.title}
-          className="w-full h-fit object-contain col-span-4 -mt-[100px] md:mt-0"
-        />
+        {banner?.hero && (
+          <Image
+            src={banner?.hero}
+            width={1000}
+            height={1000}
+            alt={banner?.title}
+            className="w-full h-fit object-contain col-span-4 -mt-[100px] md:mt-0"
+          />
+        )}
       </div>
     </section>
   );

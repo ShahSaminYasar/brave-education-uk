@@ -46,7 +46,7 @@ Phone: ${item?.phone}
 Email: ${item?.email}
 Message: ${item?.message || "---"}
 Appointment date: ${moment(item?.datetime).format("DD MMMM YYYY")}
-Appointment time: ${moment(item?.datetime).format("hh:mma")}`
+Appointment time: ${moment(item?.datetime).format("hh:mma")}`,
     );
     toast.success("Appointment details copied to clipboard", {
       icon: <Copy size={16} />,
@@ -54,7 +54,7 @@ Appointment time: ${moment(item?.datetime).format("hh:mma")}`
   };
 
   const formatDate = (date) => {
-    return moment(date).tz("Europe/London").format("hh:mma, DD/MM/YYYY");
+    return moment(date).tz("Europe/London").format("hh:mma, DD MMM YYYY");
   };
 
   const toggleSection = (section) => {
@@ -82,22 +82,22 @@ Appointment time: ${moment(item?.datetime).format("hh:mma")}`
 
       return groups;
     },
-    { today: [], upcoming: [], past: [] }
+    { today: [], upcoming: [], past: [] },
   );
 
   // Sort appointments within each group
   if (groupedAppointments) {
     // Today: sort by time (soonest first)
     groupedAppointments.today.sort((a, b) =>
-      moment(a.datetime).diff(moment(b.datetime))
+      moment(a.datetime).diff(moment(b.datetime)),
     );
     // Upcoming: sort by date (soonest first)
     groupedAppointments.upcoming.sort((a, b) =>
-      moment(a.datetime).diff(moment(b.datetime))
+      moment(a.datetime).diff(moment(b.datetime)),
     );
     // Past: sort by date (most recent first)
     groupedAppointments.past.sort((a, b) =>
-      moment(b.datetime).diff(moment(a.datetime))
+      moment(b.datetime).diff(moment(a.datetime)),
     );
   }
 
@@ -181,15 +181,15 @@ Appointment time: ${moment(item?.datetime).format("hh:mma")}`
               status === "today"
                 ? "bg-red-100 text-red-700"
                 : status === "upcoming"
-                ? "bg-green-100 text-green-700"
-                : "bg-zinc-100 text-zinc-600"
+                  ? "bg-green-100 text-green-700"
+                  : "bg-zinc-100 text-zinc-600"
             }`}
           >
             {status === "today"
               ? "Today"
               : status === "upcoming"
-              ? "Upcoming"
-              : "Completed"}
+                ? "Upcoming"
+                : "Completed"}
           </span>
         </div>
       </div>
