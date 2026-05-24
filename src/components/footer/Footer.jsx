@@ -11,8 +11,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import SectionTitle from "../ui/SectionTitle";
-import { motion } from "motion/react";
 import WhatsAppLink from "../ui/WhatsAppLink";
 
 const Footer = () => {
@@ -97,13 +95,15 @@ const Footer = () => {
       <div className="w-full section max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 items-start text-white">
         {/* Col 1 */}
         <div className="col-span-2 flex flex-col items-start gap-5">
-          <Image
-            src={"/logo-white.svg"}
-            width={500}
-            height={500}
-            alt="Brave Education Logo"
-            className="w-full max-w-[300px]"
-          />
+          <div className="flex items-center gap-3">
+            <Image
+              src={"/logo-white.svg"}
+              width={500}
+              height={500}
+              alt="Brave Education Logo"
+              className="w-full max-w-[300px]"
+            />
+          </div>
 
           {/* 
           <p className="text-sm font-normal text-zinc-200 block text-left w-[300px]">
@@ -111,8 +111,8 @@ const Footer = () => {
           </p> */}
 
           <p className="text-sm font-medium text-zinc-300 block text-left w-full max-w-[350px]">
-            All Rights Reserved &copy; 2025 Brave Education UK Ltd (Company No:
-            14672260)
+            All Rights Reserved &copy; {new Date().getFullYear()} Brave
+            Education UK Ltd (Company No: 14672260)
           </p>
         </div>
 

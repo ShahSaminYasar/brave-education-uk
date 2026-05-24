@@ -1,6 +1,36 @@
 import Image from "next/image";
 import SectionTitle from "../ui/SectionTitle";
 import * as motion from "motion/react-client";
+import IASBadge from "../IASBadge";
+
+const logos = [
+  {
+    src: "/assets/images/accreditations/tcl.jpg",
+    alt: "Trinity College London",
+  },
+  {
+    src: "/assets/images/accreditations/bbcci.jpg",
+    alt: "British Bangladesh Chamber of Commerce & Industry",
+  },
+  {
+    src: "/assets/images/accreditations/british_council.jpg",
+    alt: "British Council IELTS",
+  },
+  {
+    src: "/assets/images/accreditations/ccot.jpg",
+    alt: "Chartered College of Teaching",
+  },
+  { src: "/assets/images/accreditations/idp.jpg", alt: "IDP" },
+  {
+    src: "/assets/images/accreditations/ukrlp.jpg",
+    alt: "UK Register of Learning Providers",
+  },
+  { src: "/assets/images/accreditations/bc.jpg", alt: "British Council" },
+  {
+    src: "/assets/images/accreditations/eaie.jpg",
+    alt: "European Association for International Education",
+  },
+];
 
 const AccreditationsSection = () => {
   return (
@@ -13,68 +43,48 @@ const AccreditationsSection = () => {
         />
 
         <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ margin: "700px 0px -10% 0px" }}
+          className="relative mx-auto mt-10 mb-4 w-full max-w-sm"
+        >
+          {/* Subtle glow ring */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-50 to-white blur-xl opacity-80 -z-10 scale-105" />
+
+          <div className="relative flex flex-col items-center gap-4 rounded-2xl border border-blue-100 bg-gradient-to-b from-blue-50 to-white px-10 py-8 shadow-xl shadow-blue-100/60">
+            {/* Badge */}
+            <IASBadge />
+
+            {/* Descriptor */}
+            <p className="text-center text-xs text-slate-500 leading-relaxed max-w-[220px]">
+              ICEF-accredited agency - meeting the highest global standards in
+              international education.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           viewport={{ margin: "700px 0px -30% 0px" }}
-          className="w-full max-w-5xl mx-auto flex flex-row gap-x-14 gap-y-5 items-center justify-center flex-wrap mt-10"
+          className="w-full max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px items-center justify-center flex-wrap mt-10 border border-slate-100 rounded-xl p-0 overflow-hidden bg-slate-100 shadow-xl mb-7 shadow-black/5"
         >
-          <Image
-            src={"/assets/images/accreditations/tcl.jpg"}
-            width={200}
-            height={200}
-            alt="Trinity College London logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/bbcci.jpg"}
-            width={200}
-            height={200}
-            alt="British Bangladesh Chamber of Commerce & Industry logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/british_council.jpg"}
-            width={200}
-            height={200}
-            alt="British Council IELTS logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/ccot.jpg"}
-            width={200}
-            height={200}
-            alt="Chartered College of Teaching logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/idp.jpg"}
-            width={200}
-            height={200}
-            alt="IDP logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/ukrlp.jpg"}
-            width={200}
-            height={200}
-            alt="UK Register of Learning Providers logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/bc.jpg"}
-            width={200}
-            height={200}
-            alt="British Council logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
-          <Image
-            src={"/assets/images/accreditations/eaie.jpg"}
-            width={200}
-            height={200}
-            alt="European Association for International Education logo"
-            className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
-          />
+          {logos?.map((logo, index) => (
+            <div
+              key={`logo_${index}`}
+              className="bg-white w-full h-full flex justify-center items-center p-6"
+            >
+              <Image
+                src={logo?.src}
+                width={200}
+                height={200}
+                alt={logo?.alt}
+                className="w-full max-w-[140px] md:max-w-[160px] xl:max-w-[200px]"
+              />
+            </div>
+          ))}
         </motion.div>
       </section>
     </div>
