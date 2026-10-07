@@ -205,6 +205,12 @@ const layout = ({ children }) => {
               link={"/admin/success-stories"}
               text={"Success Stories"}
             />
+            <AdminNavItem link={"/admin/team"} text={"Our Team"} />
+            <AdminNavItem link={"/admin/updates"} text={"Updates"} />
+            <AdminNavItem
+              link={"/admin/contact-info"}
+              text={"Contact & General Info"}
+            />
             <AdminNavItem link={"/admin/settings"} text={"Website Settings"} />
           </motion.nav>
 

@@ -3,8 +3,11 @@ import Header from "@/components/header/Header";
 import Image from "next/image";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { getContactSettings } from "@/lib/settings";
 
-const layout = ({ children }) => {
+const layout = async ({ children }) => {
+  const contact = await getContactSettings();
+
   return (
     <>
       <Header />
@@ -22,7 +25,7 @@ const layout = ({ children }) => {
 
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </main>
-      <Footer />
+      <Footer contact={contact} />
     </>
   );
 };

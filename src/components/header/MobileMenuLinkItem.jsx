@@ -39,7 +39,7 @@ const MobileMenuLinkItem = ({
       </button>
       <div
         className={`w-full overflow-y-hidden ${
-          submenuOpen ? "max-h-[250px]" : "max-h-[0px]"
+          submenuOpen ? "max-h-[640px]" : "max-h-[0px]"
         } transition-all duration-500`}
       >
         {submenu?.map((item, id) => (

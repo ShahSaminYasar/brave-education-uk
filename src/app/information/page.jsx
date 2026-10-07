@@ -312,19 +312,11 @@ const page = () => {
           <span className="block w-fit text-center font-medium font-poppins">
             Developed by{" "}
             <Link
-              href={"https://shahsaminyasar.vercel.app"}
+              href={"https://axiqo.tech"}
               target="_blank"
               className="font-bold font-satisfy"
             >
-              Shah Samin Yasar
-            </Link>{" "}
-            &{" "}
-            <Link
-              href={"https://techtalk2.com/"}
-              target="_blank"
-              className="font-bold font-satisfy"
-            >
-              Tech Talk 2
+              Axiqo
             </Link>
           </span>
 

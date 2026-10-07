@@ -1,19 +1,21 @@
-import {
-  Calendar,
-  Facebook,
-  Instagram,
-  Linkedin,
-  MessageSquare,
-  Music2,
-} from "lucide-react";
-import Link from "next/link";
-import AppointmentForm from "./AppointmentForm";
+import { Calendar } from "lucide-react";
+// import AppointmentForm from "./AppointmentForm";
+import CalBooking from "./CalBooking";
+import ContactInfoRow from "@/components/ui/ContactInfoRow";
+import { getContactSettings } from "@/lib/settings";
+import { CONSULTATIONS } from "@/lib/immigration";
 
 export const metadata = {
   title: "Appointment Booking",
 };
 
-const page = () => {
+const page = async ({ searchParams }) => {
+  const [contact, { event }] = await Promise.all([
+    getContactSettings(),
+    searchParams,
+  ]);
+  const calEvent = CONSULTATIONS.some((c) => c.id === event) ? event : null;
+
   return (
     <div className="px-5 pb-0 pt-28 bg-[#fff]">
       <section
@@ -26,52 +28,11 @@ const page = () => {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="w-full grid grid-cols-3 gap-4 justify-center items-center bg-white/10 rounded-2xl p-6 text-sm text-white">
-          <div>
-            <span className="font-semibold block">Phone Number</span>
-            <Link href={"tel:+4408009991257"}>0800 999 1257</Link>
-          </div>
+        {/* <div className="w-full grid grid-cols-3 gap-4 justify-center items-center bg-white/10 rounded-2xl p-6 text-sm text-white">
+          <ContactInfoRow contact={contact} />
+        </div> */}
 
-          <div className="col-span-2 flex flex-wrap items-center justify-end gap-2">
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-blue-800 duration-200"
-            >
-              <Facebook size={15} />
-            </Link>
-            <Link
-              href={"https://uk.linkedin.com/company/braveedu"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-sky-600 duration-200"
-            >
-              <Linkedin size={15} />
-            </Link>
-            <Link
-              href={"https://www.instagram.com/braveeducationuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-pink-600 duration-200"
-            >
-              <Instagram size={15} />
-            </Link>
-            <Link
-              href={"https://wa.me/+447862042900"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
-            >
-              <MessageSquare size={15} />
-            </Link>
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-slate-800 duration-200"
-            >
-              <Music2 size={15} />
-            </Link>
-          </div>
-        </div>
-
-        <div className="w-full col-span-3 space-y-4 bg-white/10 rounded-2xl p-8">
+        <div className="w-full col-span-3 space-y-4 bg-white/10 rounded-2xl p-4 md:p-8">
           <div className="bg-gradient-to-br from-white/100 to-white/5 bg-clip-text space-y-4 mb-7">
             {/* Badge */}
             <div className="bg-gradient-to-br from-white/5 via-white/20 border border-white/30 to-white/5 rounded-2xl p-px w-fit">
@@ -99,7 +60,9 @@ const page = () => {
               Schedule your consultation with our education experts
             </p>
           </div>
-          <AppointmentForm />
+          {/* Previous in-house form, kept as a backup (bookings now go through Cal.com) */}
+          {/* <AppointmentForm /> */}
+          <CalBooking event={calEvent} />
         </div>
       </section>
     </div>

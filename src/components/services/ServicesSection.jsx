@@ -90,7 +90,7 @@ const ServicesSection = () => {
             >
               <ServiceBox
                 id={17.5}
-                title={"Brave HR"}
+                title={"HRM Systems"}
                 icon={<Users size={20} />}
               />
             </motion.div>
@@ -128,7 +128,7 @@ const ServicesSection = () => {
             href={"/appointment"}
             className="bg-gradient-to-r from-[#261a75] via-[#090041] to-[#261a75] text-primary-foreground hover:bg-primary/90 px-4 py-2 flex items-center justify-center gap-1 rounded-4xl"
           >
-            Free Counselling <ArrowUpRight />
+            Book an Appointment <ArrowUpRight />
           </Link>
         </motion.div>
 
@@ -142,7 +142,7 @@ const ServicesSection = () => {
               transform: "translate(-50%, 50%)",
             }}
           >
-            <ServiceBox title={"Brave HR"} icon={<Users size={20} />} />
+            <ServiceBox title={"HRM Systems"} icon={<Users size={20} />} />
           </motion.div>
 
           <motion.div
@@ -153,7 +153,11 @@ const ServicesSection = () => {
               transform: "translate(50%, -50%)",
             }}
           >
-            <ServiceBox title={"Brave Law"} icon={<Plane size={20} />} />
+            <ServiceBox
+              title={"Brave Immigration"}
+              icon={<Plane size={20} />}
+              href={"/services/immigration"}
+            />
           </motion.div>
 
           <motion.div

@@ -1,19 +1,15 @@
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  MessageSquare,
-  Music2,
-  AlertCircle,
-} from "lucide-react";
-import Link from "next/link";
+import { AlertCircle } from "lucide-react";
 import ComplaintForm from "./ComplaintForm";
+import ContactInfoRow from "@/components/ui/ContactInfoRow";
+import { getContactSettings } from "@/lib/settings";
 
 export const metadata = {
   title: "Submit a Complaint",
 };
 
-const ComplaintPage = () => {
+const ComplaintPage = async () => {
+  const contact = await getContactSettings();
+
   return (
     <div className="px-5 pb-0 pt-28 bg-[#fff]">
       <section
@@ -28,46 +24,7 @@ const ComplaintPage = () => {
       >
         {/* Footer Info Bar */}
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 justify-center items-center bg-white/10 rounded-2xl p-6 text-sm text-white">
-          <div>
-            <span className="font-semibold block text-white/60">
-              Support Line
-            </span>
-            <Link href={"tel:+4408009991257"}>0800 999 1257</Link>
-          </div>
-
-          <div className="md:col-span-2 flex flex-wrap items-center justify-end gap-2">
-            {[
-              {
-                icon: Facebook,
-                href: "https://facebook.com...",
-                color: "hover:text-blue-800",
-              },
-              {
-                icon: Linkedin,
-                href: "https://linkedin.com...",
-                color: "hover:text-sky-600",
-              },
-              {
-                icon: Instagram,
-                href: "https://instagram.com...",
-                color: "hover:text-pink-600",
-              },
-              {
-                icon: MessageSquare,
-                href: "https://wa.me/...",
-                color: "hover:text-green-600",
-              },
-            ].map((social, i) => (
-              <Link
-                key={i}
-                href={social.href}
-                target="_blank"
-                className={`block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 ${social.color} duration-200`}
-              >
-                <social.icon size={15} />
-              </Link>
-            ))}
-          </div>
+          <ContactInfoRow contact={contact} label="Support Line" />
         </div>
 
         {/* Form Container */}

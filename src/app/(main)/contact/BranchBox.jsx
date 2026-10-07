@@ -2,7 +2,7 @@ import { PhoneCall } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const BranchBox = ({ image, name, address, mapLink, phone }) => {
+const BranchBox = ({ image, name, address, mapLink, phone, dial }) => {
   return (
     <div className="w-full max-w-2xl grid grid-cols-12 gap-1 items-center justify-center rounded-sm shadow-xl overflow-hidden border-0 border-zinc-200">
       <Image
@@ -29,7 +29,7 @@ const BranchBox = ({ image, name, address, mapLink, phone }) => {
 
         {phone && (
           <Link
-            href={`tel:${phone}`}
+            href={`tel:${dial || phone}`}
             className="flex items-center gap-2 w-fit font-semibold"
           >
             <PhoneCall size={20} /> {phone}

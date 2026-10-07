@@ -2,6 +2,7 @@ import Image from "next/image";
 import SectionTitle from "../ui/SectionTitle";
 import * as motion from "motion/react-client";
 import IASBadge from "../IASBadge";
+import IAABadge from "../IAABadge";
 
 const logos = [
   {
@@ -47,7 +48,7 @@ const AccreditationsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ margin: "700px 0px -10% 0px" }}
-          className="relative mx-auto mt-10 mb-4 w-full max-w-sm"
+          className="relative mx-auto mt-10 mb-4 w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
           {/* Subtle glow ring */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-50 to-white blur-xl opacity-80 -z-10 scale-105" />
@@ -60,6 +61,17 @@ const AccreditationsSection = () => {
             <p className="text-center text-xs text-slate-500 leading-relaxed max-w-[220px]">
               ICEF-accredited agency - meeting the highest global standards in
               international education.
+            </p>
+          </div>
+
+          <div className="relative flex flex-col items-center gap-4 rounded-2xl border border-blue-100 bg-gradient-to-b from-blue-50 to-white px-10 py-8 shadow-xl shadow-blue-100/60">
+            {/* Badge */}
+            <IAABadge />
+
+            {/* Descriptor */}
+            <p className="text-center text-xs text-slate-500 leading-relaxed max-w-[220px]">
+              Authorised and regulated by the Immigration Advice Authority
+              (IAA) to provide immigration advice.
             </p>
           </div>
         </motion.div>

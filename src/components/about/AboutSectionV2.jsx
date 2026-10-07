@@ -17,8 +17,11 @@ import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { useMainContext } from "@/hooks/useMainContext";
 import Link from "next/link";
+import { DEFAULT_GENERAL_SETTINGS } from "@/lib/contactDefaults";
 
-const AboutSectionV2 = () => {
+const AboutSectionV2 = ({
+  videoUrl = DEFAULT_GENERAL_SETTINGS.introVideoUrl,
+}) => {
   const { siteLoaded, setSiteLoaded } = useMainContext();
 
   // Refs
@@ -63,8 +66,7 @@ const AboutSectionV2 = () => {
             }}
           >
             <ReactPlayer
-              // src="/assets/videos/about_section_video.mp4"
-              src="https://vimeo.com/1131962110?share=copy&fl=sv&fe=ci"
+              src={videoUrl}
               width="100%"
               height="100%"
               playing={playing}

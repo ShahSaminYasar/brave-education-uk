@@ -8,12 +8,32 @@ import {
   MessageSquare,
   Music2,
   Phone,
+  Youtube,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import WhatsAppLink from "../ui/WhatsAppLink";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { DEFAULT_CONTACT_SETTINGS } from "@/lib/contactDefaults";
 
-const Footer = () => {
+const Footer = ({ contact = DEFAULT_CONTACT_SETTINGS }) => {
+  const primaryPhone = contact?.phones?.[0];
+  const socials = contact?.socials || {};
+
+  const socialLinks = [
+    { key: "facebook", href: socials.facebook, icon: Facebook, hover: "hover:text-blue-800" },
+    { key: "linkedin", href: socials.linkedin, icon: Linkedin, hover: "hover:text-sky-600" },
+    { key: "instagram", href: socials.instagram, icon: Instagram, hover: "hover:text-pink-600" },
+    { key: "youtube", href: socials.youtube, icon: Youtube, hover: "hover:text-red-600" },
+    {
+      key: "whatsapp",
+      href: contact?.whatsapp?.dial ? buildWhatsAppLink(contact.whatsapp.dial) : null,
+      icon: MessageSquare,
+      hover: "hover:text-green-600",
+    },
+    { key: "tiktok", href: socials.tiktok, icon: Music2, hover: "hover:text-slate-800" },
+  ].filter((s) => s.href);
+
   const links1 = [
     {
       link: "/about",
@@ -28,8 +48,16 @@ const Footer = () => {
       name: "Services",
     },
     {
+      link: "/services/immigration",
+      name: "Immigration",
+    },
+    {
       link: "/airport-pickup",
       name: "Pickup",
+    },
+    {
+      link: "/updates",
+      name: "Updates",
     },
   ];
 
@@ -88,7 +116,7 @@ const Footer = () => {
           </p>
 
           {/* WhatsApp */}
-          <WhatsAppLink />
+          <WhatsAppLink whatsapp={contact?.whatsapp} />
         </div>
       </section>
 
@@ -113,6 +141,11 @@ const Footer = () => {
           <p className="text-sm font-medium text-zinc-300 block text-left w-full max-w-[350px]">
             All Rights Reserved &copy; {new Date().getFullYear()} Brave
             Education UK Ltd (Company No: 14672260)
+          </p>
+
+          <p className="text-sm font-medium text-zinc-300 block text-left w-full max-w-[350px]">
+            ICEF-accredited agency, authorised and regulated by the
+            Immigration Advice Authority (IAA), reference number F202641136.
           </p>
         </div>
 
@@ -161,50 +194,27 @@ const Footer = () => {
             Mosque)
           </Link>
 
-          <Link
-            href={"tel:+08009991257"}
-            target="_blank"
-            className="text-sm font-normal text-zinc-200 hover:text-primary flex gap-2 items-center"
-          >
-            <Phone size={15} /> 0800 999 1257
-          </Link>
+          {primaryPhone && (
+            <Link
+              href={`tel:${primaryPhone.dial}`}
+              target="_blank"
+              className="text-sm font-normal text-zinc-200 hover:text-primary flex gap-2 items-center"
+            >
+              <Phone size={15} /> {primaryPhone.display}
+            </Link>
+          )}
 
           <div className="flex flex-wrap items-center gap-2 mt-3">
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-blue-800 duration-200"
-            >
-              <Facebook size={15} />
-            </Link>
-            <Link
-              href={"https://uk.linkedin.com/company/braveedu"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-sky-600 duration-200"
-            >
-              <Linkedin size={15} />
-            </Link>
-            <Link
-              href={"https://www.instagram.com/braveeducationuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-pink-600 duration-200"
-            >
-              <Instagram size={15} />
-            </Link>
-            <Link
-              href={"https://wa.me/+447862042900"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
-            >
-              <MessageSquare size={15} />
-            </Link>
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-slate-800 duration-200"
-            >
-              <Music2 size={15} />
-            </Link>
+            {socialLinks.map(({ key, href, icon: Icon, hover }) => (
+              <Link
+                key={key}
+                href={href}
+                target="_blank"
+                className={`block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 ${hover} duration-200`}
+              >
+                <Icon size={15} />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -221,19 +231,11 @@ const Footer = () => {
         <span className="block w-fit text-center font-medium font-poppins">
           Developed by{" "}
           <Link
-            href={"https://shahsaminyasar.vercel.app"}
+            href={"https://axiqo.tech"}
             target="_blank"
             className="font-bold font-satisfy"
           >
-            Shah Samin Yasar
-          </Link>{" "}
-          &{" "}
-          <Link
-            href={"https://techtalk2.com/"}
-            target="_blank"
-            className="font-bold font-satisfy"
-          >
-            Tech Talk 2
+            Axiqo
           </Link>
         </span>
 

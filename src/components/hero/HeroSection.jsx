@@ -1,7 +1,7 @@
 "use client";
 // import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 import { Button } from "../ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 import { DK, IE, US } from "country-flag-icons/react/3x2";
 import ShinyText from "../ui/ShinyText";
@@ -48,6 +48,25 @@ const HeroSection = () => {
             ~ We Get You There
           </motion.h1>
 
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <Link
+              href="/services/immigration"
+              className="group inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-primary"
+            >
+              <ShieldCheck size={16} className="shrink-0" aria-hidden="true" />
+              Now offering UK Immigration Services
+              <ArrowUpRight
+                size={15}
+                className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+            </Link>
+          </motion.div>
+
           {/* <BlurText
           text="From Guidance to Graduation ~ We Get You There"
           delay={150}
@@ -69,7 +88,7 @@ const HeroSection = () => {
             }}
           >
             <ShinyText
-              text={"Certified by British Council"}
+              text={"ICEF & IAA Authorized"}
               className="text-[10px] leading-[100%] sm:text-xs block text-center uppercase font-medium"
               disabled={false}
               speed={3}
@@ -82,9 +101,10 @@ const HeroSection = () => {
             transition={{ delay: 0.75 }}
             className="para text-center block w-fit max-w-[380px] md:max-w-[570px] text-muted"
           >
-            For international and UK students, our licensed consultants provide
-            end-to-end support from course selection and applications to visa
-            assistance and placements in top universities worldwide.
+            For students and visa applicants, our licensed consultants and
+            accredited advisors provide end-to-end support from course selection
+            and global university placements to full visa and immigration
+            assistance.
           </motion.p>
 
           <motion.div
@@ -99,12 +119,12 @@ const HeroSection = () => {
               </Button>
             </Link>
 
-            <Link href={"/check-eligibility"}>
+            <Link href={"/appointment"}>
               <Button
                 variant={"secondary"}
                 className={"border-2 border-[#180d5d] text-[#180d5d] bg-white"}
               >
-                Check Eligibility <ArrowUpRight />
+                Book Appointment <ArrowUpRight />
               </Button>
             </Link>
           </motion.div>

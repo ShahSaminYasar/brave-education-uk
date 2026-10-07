@@ -4,6 +4,7 @@ import BranchBox from "./BranchBox";
 import { CalendarClock, Mail } from "lucide-react";
 import Link from "next/link";
 import ContactFormSection from "./ContactFormSection";
+import { getContactSettings } from "@/lib/settings";
 
 export const metadata = {
   title: "Contact Us",
@@ -19,14 +20,18 @@ export const metadata = {
   robots: "index, follow",
 };
 
-const page = () => {
+const page = async () => {
+  const contact = await getContactSettings();
+  const findPhone = (id) => contact?.phones?.find((p) => p.id === id);
+
   const branches = [
     {
       image: "/assets/images/london.jpg",
       name: "London, UK",
       address: "129 Whitechapel road, E1 1DT (Opposite to East London Mosque)",
       mapLink: "https://maps.app.goo.gl/5eXR1csBfzyFFnn46",
-      phone: "0800 999 1257",
+      phone: findPhone("head-office")?.display || "",
+      dial: findPhone("head-office")?.dial || "",
     },
     {
       image: "/assets/images/sylhet.jpg",
@@ -34,7 +39,8 @@ const page = () => {
       address:
         "House No. 05,1st floor, Block-C, Main Road, Shahjalal Upashahar Sylhet",
       mapLink: "https://maps.app.goo.gl/9QK7BF1UxGBxJ6Us9",
-      phone: "+8801623999611",
+      phone: findPhone("sylhet-office")?.display || "",
+      dial: findPhone("sylhet-office")?.dial || "",
     },
     {
       image:
@@ -43,6 +49,7 @@ const page = () => {
       address: "",
       mapLink: "",
       phone: "",
+      dial: "",
     },
   ];
 
@@ -171,13 +178,14 @@ const page = () => {
                 address={branch?.address}
                 mapLink={branch?.mapLink}
                 phone={branch?.phone}
+                dial={branch?.dial}
               />
             ))}
           </div>
         </section>
       </div>
 
-      <ContactFormSection />
+      {/* <ContactFormSection contact={contact} /> */}
     </main>
   );
 };

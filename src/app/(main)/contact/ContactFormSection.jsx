@@ -1,15 +1,8 @@
 import ContactForm from "./ContactForm";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  MessageSquare,
-  Music2,
-  Mail,
-} from "lucide-react";
-import Link from "next/link";
+import { Mail } from "lucide-react";
+import ContactInfoRow from "@/components/ui/ContactInfoRow";
 
-const ContactFormSection = () => {
+const ContactFormSection = ({ contact }) => {
   return (
     <div className="section bg-[#fff]">
       <section
@@ -22,48 +15,7 @@ const ContactFormSection = () => {
         }}
       >
         <div className="w-full col-span-3 md:col-span-2 grid grid-cols-3 gap-4 justify-center items-center bg-white/10 backdrop-blur-[5px] rounded-2xl p-6 text-sm text-white">
-          <div>
-            <span className="font-semibold block">Phone Number</span>
-            <Link href={"tel:+4408009991257"}>0800 999 1257</Link>
-          </div>
-
-          <div className="col-span-2 flex flex-wrap items-center justify-end gap-2">
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-blue-800 duration-200"
-            >
-              <Facebook size={15} />
-            </Link>
-            <Link
-              href={"https://uk.linkedin.com/company/braveedu"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-sky-600 duration-200"
-            >
-              <Linkedin size={15} />
-            </Link>
-            <Link
-              href={"https://www.instagram.com/braveeducationuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-pink-600 duration-200"
-            >
-              <Instagram size={15} />
-            </Link>
-            <Link
-              href={"https://wa.me/+447862042900"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-green-600 duration-200"
-            >
-              <MessageSquare size={15} />
-            </Link>
-            <Link
-              href={"https://www.facebook.com/braveeduuk/"}
-              target="_blank"
-              className="block aspect-square p-2 rounded-full bg-white/20 text-white/70 hover:bg-white/90 hover:text-slate-800 duration-200"
-            >
-              <Music2 size={15} />
-            </Link>
-          </div>
+          <ContactInfoRow contact={contact} />
         </div>
 
         <div className="col-span-3 space-y-4 bg-white/10 rounded-2xl p-8">

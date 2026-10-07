@@ -1,10 +1,13 @@
 import AboutPageCounters from "@/components/about/AboutPageCounters";
 import AboutPageMissionVision from "@/components/about/AboutPageMissionVision";
+import TeamSection from "@/components/about/TeamSection";
 import Map from "@/components/Map";
 import SectionTitle from "@/components/ui/SectionTitle";
 import VideoContent from "./VideoContent";
 import * as motion from "motion/react-client";
 import ContactFormSection from "../contact/ContactFormSection";
+import { getContactSettings, getGeneralSettings } from "@/lib/settings";
+import { getTeamMembers } from "@/lib/team";
 
 export const metadata = {
   title: "About Us - Our Mission & Team",
@@ -20,7 +23,13 @@ export const metadata = {
   robots: "index, follow",
 };
 
-const page = () => {
+const page = async () => {
+  const [contact, general, teamMembers] = await Promise.all([
+    getContactSettings(),
+    getGeneralSettings(),
+    getTeamMembers(),
+  ]);
+
   return (
     <main>
       {/* Title Section */}
@@ -72,10 +81,11 @@ const page = () => {
           </motion.div>
         </motion.section>
       </div>
-      <VideoContent />
+      <VideoContent videoUrl={general?.introVideoUrl} />
       <AboutPageCounters />
       <AboutPageMissionVision />
-      <ContactFormSection />
+      <TeamSection members={teamMembers} />
+      {/* <ContactFormSection contact={contact} /> */}
     </main>
   );
 };

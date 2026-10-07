@@ -12,8 +12,14 @@ import ServicesSection from "@/components/services/ServicesSection";
 import SketchSection from "@/components/sketch/SketchSection";
 import SplashScreen from "@/components/SplashScreen";
 import Image from "next/image";
+import { getContactSettings, getGeneralSettings } from "@/lib/settings";
 
-const page = () => {
+const page = async () => {
+  const [contact, general] = await Promise.all([
+    getContactSettings(),
+    getGeneralSettings(),
+  ]);
+
   return (
     <>
       <Header />
@@ -28,7 +34,7 @@ const page = () => {
           }}
         >
           <HeroSection />
-          <AboutSectionV2 />
+          <AboutSectionV2 videoUrl={general?.introVideoUrl} />
           <ServicesSection />
         </div>
         <AdmissionPathwaySection />
@@ -37,7 +43,7 @@ const page = () => {
         <SketchSection />
         <AccreditationsSection />
       </main>
-      <Footer />
+      <Footer contact={contact} />
 
       {/* <SplashScreen /> */}
     </>

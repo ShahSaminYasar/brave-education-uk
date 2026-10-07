@@ -10,8 +10,11 @@ import {
 } from "motion/react";
 import { useRef, useState } from "react";
 import ReactPlayer from "react-player";
+import { DEFAULT_GENERAL_SETTINGS } from "@/lib/contactDefaults";
 
-const VideoContent = () => {
+const VideoContent = ({
+  videoUrl = DEFAULT_GENERAL_SETTINGS.introVideoUrl,
+}) => {
   // Refs
   const videoSectionRef = useRef(null);
 
@@ -42,7 +45,7 @@ const VideoContent = () => {
   const scale = useTransform(
     scrollYProgress,
     [0, 0.38, 0.73, 0.83, 1],
-    [0.4, 1, 1.1, 1.2, 2]
+    [0.4, 1, 1.1, 1.2, 2],
   );
 
   const y = useTransform(scrollYProgress, [0, 0.44], [200, 0]);
@@ -54,28 +57,45 @@ const VideoContent = () => {
         <div className="w-full max-w-6xl mx-auto hidden lg:block">
           <ScrollReveal
             baseRotation={0}
-            style={{ fontSize: "30px", fontWeight: "400" }}
+            style={{ fontSize: "20px", fontWeight: "400" }}
           >
-            Brave Education UK Limited, founded in 2021 and based in London and
-            Sylhet, is a British Council–certified student consultancy
-            specializing in recruiting students for top universities worldwide.
-            With a strong record of successful enrollments and satisfied
-            students, we offer tailored support across fields like Medicine,
-            Business, IT, Law, and Engineering. In addition to this, we offer a
-            range of language courses.
+            Founded in 2021 with dual operations in London and Sylhet, Brave
+            Education UK Limited is a British Council and ICEF-certified
+            educational consultancy and an IAA-regulated immigration practice.
+            We specialize in connecting ambitious students with top-tier
+            universities worldwide, delivering tailored admissions support
+            across high-demand fields including Medicine, Business, IT, Law, and
+            Engineering. To ensure students are fully prepared for international
+            study, we also provide structured English language training programs
+            from foundational to advanced proficiency. Beyond academic
+            placement, Brave Education offers authorized UK immigration advice
+            and visa application services. From securing initial Student Visas
+            and transitioning to Graduate or Skilled Worker routes, to handling
+            family, visitor, and settlement applications, our regulated advisers
+            provide compliant, end-to-end legal guidance at every stage of our
+            clients' academic and professional journeys in the UK.
           </ScrollReveal>
         </div>
         <div className="w-full max-w-6xl mx-auto block lg:hidden">
           <ScrollReveal
             baseRotation={0}
-            style={{ fontSize: "22", fontWeight: "400" }}
+            style={{ fontSize: "14px", fontWeight: "400" }}
           >
-            Brave Education UK Limited, founded in 2021 and based in London and
-            Sylhet, is a British Council–certified global agency specializing in
-            recruiting students for top universities worldwide. With a strong
-            record of successful enrollments and satisfied students, we offer
-            tailored support across fields like Medicine, Business, IT, Law, and
-            Engineering.
+            Founded in 2021 with dual operations in London and Sylhet, Brave
+            Education UK Limited is a British Council and ICEF-certified
+            educational consultancy and an IAA-regulated immigration practice.
+            We specialize in connecting ambitious students with top-tier
+            universities worldwide, delivering tailored admissions support
+            across high-demand fields including Medicine, Business, IT, Law, and
+            Engineering. To ensure students are fully prepared for international
+            study, we also provide structured English language training programs
+            from foundational to advanced proficiency. Beyond academic
+            placement, Brave Education offers authorized UK immigration advice
+            and visa application services. From securing initial Student Visas
+            and transitioning to Graduate or Skilled Worker routes, to handling
+            family, visitor, and settlement applications, our regulated advisers
+            provide compliant, end-to-end legal guidance at every stage of our
+            clients' academic and professional journeys in the UK.
           </ScrollReveal>
         </div>
       </div>
@@ -112,8 +132,7 @@ const VideoContent = () => {
             }}
           >
             <ReactPlayer
-              // src="/assets/videos/about_section_video.mp4"
-              src="https://vimeo.com/1131962110?share=copy&fl=sv&fe=ci"
+              src={videoUrl}
               width="100%"
               height="100%"
               playing={playing}

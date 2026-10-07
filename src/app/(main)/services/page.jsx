@@ -8,6 +8,7 @@ import {
   Lightbulb,
   Pen,
   Puzzle,
+  ShieldCheck,
 } from "lucide-react";
 import * as motion from "motion/react-client";
 import Link from "next/link";
@@ -152,6 +153,40 @@ const page = () => {
         </section>
       </div>
 
+      {/* Immigration Services */}
+      <div className="w-full px-5 pb-16 bg-white">
+        <section className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-br from-[#261a75] via-[#14094f] to-[#221e52] px-6 py-10 md:px-12 md:py-12 text-white shadow-2xl shadow-[#261a75]/25 flex flex-col md:flex-row md:items-center gap-8">
+          <div className="flex-1 space-y-3">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium">
+              <ShieldCheck size={14} aria-hidden="true" /> Regulated by the IAA
+            </span>
+            <h3 className="font-josefin-sans text-3xl md:text-4xl font-semibold">
+              UK Immigration Services
+            </h3>
+            <p className="text-white/80 max-w-xl">
+              Fixed-fee help with work, study, family, visitor and settlement
+              applications, from an adviser regulated by the Immigration Advice
+              Authority.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/services/immigration"
+              className="inline-flex items-center justify-center gap-2 rounded-3xl h-11 px-6 text-sm font-medium bg-white text-[#180d5d] shadow-lg transition-all hover:scale-[103%]"
+            >
+              Explore immigration services{" "}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              href="/services/immigration/fees"
+              className="inline-flex items-center justify-center gap-2 rounded-3xl h-11 px-6 text-sm font-medium border-2 border-white/70 text-white transition-all hover:bg-white/10"
+            >
+              View fees
+            </Link>
+          </div>
+        </section>
+      </div>
+
       {/* Text */}
       <div
         className="w-full relative"
@@ -220,6 +255,19 @@ const page = () => {
                 viewport={{ margin: "50px 0px -20% 0px" }}
                 className="space-y-2 bg-white p-3 rounded-2xl border border-zinc-200"
               >
+                <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                      Immigration & Legal Advice
+                    </h3>
+                    <p className="para">
+                      Regulated visa and immigration support from a certified
+                      Immigration Advisor.
+                    </p>
+                  </div>
+                </div>
+
                 <div className="flex items-start gap-5 bg-transparent p-2 rounded-2xl hover:bg-white transition-all duration-300 group/item">
                   <div className="w-2 h-2 bg-primary rounded-full mt-4 group-hover/item:scale-150 transition-transform duration-300"></div>
                   <div>
@@ -506,7 +554,7 @@ const page = () => {
       <div className="px-5 flex items-center justify-center bg-white">
         <Link href={"/check-eligibility"}>
           <Button>
-            Check your eligibility <ArrowUpRight size={18} />
+            Check University Admission eligibility <ArrowUpRight size={18} />
           </Button>
         </Link>
       </div>

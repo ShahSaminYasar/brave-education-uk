@@ -14,6 +14,7 @@ import { TanstackQueryProvider } from "@/providers/TanstackQueryProvider";
 import FeaturedPopup from "@/components/FeaturedPopup";
 import { GoogleTagManager } from "@next/third-parties/google";
 import SupportButton from "@/components/SupportButton";
+import { getContactSettings } from "@/lib/settings";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -102,7 +103,21 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const contact = await getContactSettings();
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Brave Education UK",
+    url: "https://www.braveeducationuk.com",
+    logo: "https://www.braveeducationuk.com/logo.svg",
+    ...(contact?.phones?.[0]?.dial && {
+      telephone: contact.phones[0].dial,
+    }),
+    sameAs: Object.values(contact?.socials || {}).filter(Boolean),
+  };
+
   return (
     <html lang="en">
       <head>
@@ -110,15 +125,21 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="LJao6sy599bbhCe9JuTfvHFr6zhDhobUJGNtW_bpCCM"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
       </head>
-      <ReactLenis root options={{ lerp: 0.105 }}>
+      <ReactLenis root options={{ lerp: 0.125 }}>
         <MainProvider>
           <TanstackQueryProvider>
             <body
               className={`${montserrat?.variable} ${josefinSans?.variable} ${satisfy?.variable} ${poppins?.variable} ${germania?.variable} antialiased`}
             >
               {children}
-              <SupportButton />
+              <SupportButton contact={contact} />
               <FeaturedPopup />
               <Toaster />
               <GoogleTagManager gtmId="GTM-WJVGMD2N" />

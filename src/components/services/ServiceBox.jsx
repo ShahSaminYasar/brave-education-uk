@@ -1,7 +1,11 @@
-const ServiceBox = ({ title, icon, id = 0 }) => {
-  return (
+import Link from "next/link";
+
+const ServiceBox = ({ title, icon, id = 0, href }) => {
+  const content = (
     <div
-      className="p-px rounded-3xl bg-gradient-to-r from-[#59caff] via-[#f1fbff] to-[#59caff] service-card"
+      className={`p-px rounded-3xl bg-gradient-to-r from-[#59caff] via-[#f1fbff] to-[#59caff] service-card ${
+        href ? "transition-transform duration-200 hover:scale-105" : ""
+      }`}
       style={{
         animationDelay: `${id}s`,
       }}
@@ -11,6 +15,14 @@ const ServiceBox = ({ title, icon, id = 0 }) => {
         {title}
       </div>
     </div>
+  );
+
+  return href ? (
+    <Link href={href} className="block rounded-3xl">
+      {content}
+    </Link>
+  ) : (
+    content
   );
 };
 export default ServiceBox;
