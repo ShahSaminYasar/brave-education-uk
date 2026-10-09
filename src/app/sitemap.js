@@ -1,4 +1,5 @@
 import { getBlogPosts } from "@/lib/blog";
+import { getPublishedEvents } from "@/lib/events";
 
 const BASE_URL = "https://www.braveeducationuk.com";
 
@@ -6,6 +7,8 @@ const staticRoutes = [
   "",
   "/about",
   "/services",
+  "/success-stories",
+  "/events",
   "/services/immigration",
   "/services/immigration/work-and-study",
   "/services/immigration/family",
@@ -56,7 +59,7 @@ const staticRoutes = [
 ];
 
 export default async function sitemap() {
-  const posts = await getBlogPosts();
+  const [posts, events] = await Promise.all([getBlogPosts(), getPublishedEvents()]);
 
   const staticEntries = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
@@ -72,5 +75,12 @@ export default async function sitemap() {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...postEntries];
+  const eventEntries = events.map((event) => ({
+    url: `${BASE_URL}/events/${event.slug}`,
+    lastModified: new Date(event.updatedAt || event.createdAt),
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...postEntries, ...eventEntries];
 }

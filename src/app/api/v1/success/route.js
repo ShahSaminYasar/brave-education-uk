@@ -3,17 +3,28 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 import { requireAdmin } from "@/lib/auth";
 import { readJsonBody } from "@/lib/http";
+import { DEFAULT_SUCCESS_CATEGORY, SUCCESS_CATEGORIES } from "@/lib/successStories";
 
 export async function POST(request) {
   const authFail = await requireAdmin(request);
   if (authFail) return authFail;
 
   try {
-    const { video, image } = await readJsonBody(request);
+    const { video, image, category, country } = await readJsonBody(request);
+
+    if (!SUCCESS_CATEGORIES.includes(category)) {
+      return NextResponse.json(
+        { ok: false, message: "A valid category is required." },
+        { status: 400 },
+      );
+    }
+
     const db = await getDb();
     const result = await db.collection("success").insertOne({
       video,
       image,
+      category,
+      ...(category === "Immigration" && country ? { country } : {}),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -50,10 +61,18 @@ export async function GET() {
       .sort({ updatedAt: -1 })
       .toArray();
 
+    // Stories created before the category field existed have no category in
+    // the database. Rather than a bulk migration, default them here at read
+    // time so they still render under a section on the public page.
+    const data = result.map((story) => ({
+      ...story,
+      category: story.category || DEFAULT_SUCCESS_CATEGORY,
+    }));
+
     return NextResponse.json({
       ok: true,
       message: "Success stories fetched successfully.",
-      data: result,
+      data,
     });
   } catch (error) {
     console.error(error);
@@ -100,15 +119,29 @@ export async function PUT(request) {
 
   try {
     const id = request.nextUrl.searchParams.get("id");
-    const { video, image } = await readJsonBody(request);
+    const { video, image, category, country } = await readJsonBody(request);
+
+    if (category && !SUCCESS_CATEGORIES.includes(category)) {
+      return NextResponse.json(
+        { ok: false, message: "A valid category is required." },
+        { status: 400 },
+      );
+    }
 
     const updateDoc = {
       $set: {
         ...(video && { video }),
         ...(image && { image }),
+        ...(category && { category }),
         updatedAt: new Date(),
       },
     };
+
+    if (category === "Immigration" && country) {
+      updateDoc.$set.country = country;
+    } else if (category && category !== "Immigration") {
+      updateDoc.$unset = { country: "" };
+    }
 
     const db = await getDb();
     const result = await db

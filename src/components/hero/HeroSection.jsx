@@ -1,7 +1,7 @@
 "use client";
 // import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
 import { Button } from "../ui/button";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 import { DK, IE, US } from "country-flag-icons/react/3x2";
 import ShinyText from "../ui/ShinyText";
@@ -25,55 +25,17 @@ const HeroSection = () => {
             initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[50px] md:text-[55px] lg:text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[595px] mx-auto text-zinc-900"
+            className="text-[42px] sm:text-[50px] md:text-[55px] lg:text-[64px] font-poppins block text-center font-[500] leading-[110%] tracking-[-0.03em] w-full max-w-[640px] lg:max-w-[720px] mx-auto text-zinc-900"
           >
             From Guidance to{" "}
-            <span className="relative w-fit inline-block p-2">
-              <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 598 124"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute top-0 right-0 left-0 bottom-0"
-              >
-                <path
-                  d="M330.907 5.78624C275.907 26.0222 38.3972 1.78624 8.89665 52.2755C-4.68935 75.5274 7.39717 92.7755 38.3972 101.775C69.3972 110.775 582.319 149.752 594.5 83.7755C600.5 51.2755 552.092 33.6495 496.5 21.7755C445 10.7755 330.907 27.2755 268.499 3.03952"
-                  stroke="#C8102E"
-                  strokeWidth="5"
-                />
-              </svg>
-              <span className="z-10 relative">Graduation</span>
-            </span>{" "}
-            ~ We Get You There
+            {/* Coloured in the logo's exact red rather than the earlier
+            hand-drawn SVG circle, which was hand-tuned for one short word
+            and broke as soon as the headline grew to a longer phrase. A
+            plain text colour needs no special handling to stay correct
+            when this wraps across lines at any viewport width. */}
+            <span className="text-[#E02F33]">Graduation &amp; Immigration</span>{" "}
+            We Get You There
           </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <Link
-              href="/services/immigration"
-              className="group inline-flex items-center gap-1.5 text-sm md:text-base font-semibold text-primary"
-            >
-              <ShieldCheck size={16} className="shrink-0" aria-hidden="true" />
-              Now offering UK Immigration Services
-              <ArrowUpRight
-                size={15}
-                className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                aria-hidden="true"
-              />
-            </Link>
-          </motion.div>
-
-          {/* <BlurText
-          text="From Guidance to Graduation ~ We Get You There"
-          delay={150}
-          direction="bottom"
-          stepDuration={0.27}
-          className="text-[70px] font-poppins block text-center font-[500] leading-[95%] tracking-[-0.05em] w-full max-w-[610px] mx-auto justify-center"
-        /> */}
 
           <motion.div
             initial={{ opacity: 0 }}

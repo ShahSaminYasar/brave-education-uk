@@ -40,6 +40,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Posts created before the Tiptap editor existed have plain text content
+// (literal newlines, no tags) and relied on `whitespace-pre-line` to keep
+// their paragraph breaks. Posts from the new editor always start with a
+// block tag (Tiptap never emits bare text). Rather than migrate the old
+// docs, detect the format at render time and render each correctly.
+const isHtmlContent = (content) => /^\s*</.test(content || "");
+
 const page = async ({ params }) => {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
@@ -83,9 +90,16 @@ const page = async ({ params }) => {
           </div>
         )}
 
-        <div className="flex flex-col gap-4 text-base text-zinc-700 leading-relaxed whitespace-pre-line">
-          {post.content}
-        </div>
+        {isHtmlContent(post.content) ? (
+          <div
+            className="prose prose-sm sm:prose-base max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        ) : (
+          <div className="flex flex-col gap-4 text-base text-zinc-700 leading-relaxed whitespace-pre-line">
+            {post.content}
+          </div>
+        )}
       </article>
     </main>
   );

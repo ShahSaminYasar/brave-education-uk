@@ -246,6 +246,17 @@ const Header = () => {
             </div>
           </div>
 
+          <Link
+            href="/success-stories"
+            className={navLinkStyle("/success-stories")}
+          >
+            Success Stories
+          </Link>
+
+          <Link href="/events" className={navLinkStyle("/events")}>
+            Events
+          </Link>
+
           <Link href="/updates" className={navLinkStyle("/updates")}>
             Updates
           </Link>
@@ -371,6 +382,18 @@ const Header = () => {
                     external: false,
                   },
                 ]}
+              />
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/success-stories"}
+                text={"Success Stories"}
+              />
+
+              <MobileMenuLinkItem
+                setMobileMenuOpen={setMobileMenuOpen}
+                link={"/events"}
+                text={"Events"}
               />
 
               <MobileMenuLinkItem

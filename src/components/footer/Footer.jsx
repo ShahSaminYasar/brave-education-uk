@@ -12,13 +12,22 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import WhatsAppLink from "../ui/WhatsAppLink";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { DEFAULT_CONTACT_SETTINGS } from "@/lib/contactDefaults";
+import AdviserProfileSection from "./AdviserProfileSection";
 
 const Footer = ({ contact = DEFAULT_CONTACT_SETTINGS }) => {
+  const pathname = usePathname();
   const primaryPhone = contact?.phones?.[0];
   const socials = contact?.socials || {};
+
+  // ICEF's badge script hardcodes `getElementById('iasBadge')`, so only one
+  // instance can safely exist per page. The home page already renders it via
+  // AccreditationsSection, so this section is scoped to immigration pages
+  // only and explicitly never shown on "/".
+  const showAdviserProfile = pathname?.startsWith("/services/immigration");
 
   const socialLinks = [
     { key: "facebook", href: socials.facebook, icon: Facebook, hover: "hover:text-blue-800" },
@@ -52,6 +61,10 @@ const Footer = ({ contact = DEFAULT_CONTACT_SETTINGS }) => {
       name: "Immigration",
     },
     {
+      link: "/success-stories",
+      name: "Success Stories",
+    },
+    {
       link: "/airport-pickup",
       name: "Pickup",
     },
@@ -82,8 +95,10 @@ const Footer = ({ contact = DEFAULT_CONTACT_SETTINGS }) => {
 
   return (
     <footer className="bg-[#221e52] bg-[radial-gradient(200%_115%_at_50%_0%,rgba(255,255,255,0)_20%,rgba(44,31,187,1)_100%)] -mb-10 min-h-screen flex justify-end flex-col relative">
+      {showAdviserProfile && <AdviserProfileSection />}
+
       <section
-        className="px-5 pb-[80px] pt-[200px] w-full bg-white"
+        className={`px-5 pb-[80px] ${showAdviserProfile ? "pt-[90px]" : "pt-[200px]"} w-full bg-white`}
         style={{
           background:
             "linear-gradient(182deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 23%, rgba(0, 0, 0, 0.45) 23.3%, rgba(0, 0, 0, 0) 75%)",

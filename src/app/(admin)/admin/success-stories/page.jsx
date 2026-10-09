@@ -16,6 +16,11 @@ import { useAxios } from "@/hooks/useAxios";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
+import {
+  DEFAULT_SUCCESS_CATEGORY,
+  SUCCESS_CATEGORIES,
+  SUCCESS_STORY_COUNTRIES,
+} from "@/lib/successStories";
 
 const SuccessStories = () => {
   const axiosSelf = useAxios();
@@ -26,6 +31,7 @@ const SuccessStories = () => {
   const [stories, setStories] = useState([]);
   const [editData, setEditData] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [category, setCategory] = useState(DEFAULT_SUCCESS_CATEGORY);
 
   const { isLoading } = useQuery({
     queryKey: ["success"],
@@ -42,6 +48,7 @@ const SuccessStories = () => {
       document.body.style.overflow = "unset";
       setEditData(null);
       setPreview(null);
+      setCategory(DEFAULT_SUCCESS_CATEGORY);
     }
   }, [isModalOpen]);
 
@@ -66,6 +73,7 @@ const SuccessStories = () => {
       setLoading(true);
       const form = new FormData(event.target);
       const video = form.get("video");
+      const country = form.get("country");
       const imageFile = form.get("image");
       let imageUrl = editData?.image;
 
@@ -79,7 +87,12 @@ const SuccessStories = () => {
         imageUrl = imgRes.data.data.display_url;
       }
 
-      const payload = { video, image: imageUrl };
+      const payload = {
+        video,
+        image: imageUrl,
+        category,
+        ...(category === "Immigration" && country ? { country } : {}),
+      };
       const config = { params: { token: localStorage.getItem("token") } };
 
       if (editData) {
@@ -138,6 +151,10 @@ const SuccessStories = () => {
                     <PlayCircle className="text-white opacity-80" size={40} />
                   </a>
                 )}
+                <span className="absolute top-2 left-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+                  {story?.category || DEFAULT_SUCCESS_CATEGORY}
+                  {story?.country ? ` · ${story.country}` : ""}
+                </span>
               </div>
               <div className="p-3 flex justify-between items-center bg-white">
                 <span className="text-[10px] font-mono text-gray-400">
@@ -151,6 +168,7 @@ const SuccessStories = () => {
                     onClick={() => {
                       setEditData(story);
                       setPreview(story.image);
+                      setCategory(story.category || DEFAULT_SUCCESS_CATEGORY);
                       setIsModalOpen(true);
                     }}
                     className="text-gray-400 hover:text-purple-600 p-1 transition-colors cursor-pointer"
@@ -190,6 +208,45 @@ const SuccessStories = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="p-5 space-y-4">
+              <div className="space-y-1">
+                <label className="text-[10px] font-bold text-gray-500 uppercase">
+                  Category
+                </label>
+                <select
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  required
+                  className="w-full p-2.5 text-sm rounded-lg border border-gray-200 outline-none focus:ring-1 focus:ring-purple-500 bg-gray-50/30"
+                >
+                  {SUCCESS_CATEGORIES.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {category === "Immigration" && (
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-gray-500 uppercase">
+                    Country (Optional)
+                  </label>
+                  <select
+                    name="country"
+                    defaultValue={editData?.country || ""}
+                    className="w-full p-2.5 text-sm rounded-lg border border-gray-200 outline-none focus:ring-1 focus:ring-purple-500 bg-gray-50/30"
+                  >
+                    <option value="">No country</option>
+                    {SUCCESS_STORY_COUNTRIES.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-gray-500 uppercase">
                   YouTube Video Link (Optional)

@@ -8,62 +8,25 @@ import {
 } from "@/components/ui/carousel";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { useSuccessStories } from "@/hooks/useSuccessStories";
-import { Award, Badge, Play, X } from "lucide-react";
+import { ArrowUpRight, Award, Badge, Play, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import Autoplay from "embla-carousel-autoplay";
 import { Spinner } from "@/components/ui/spinner";
 
+const LATEST_COUNT = 10;
+
 const SuccessStories = () => {
-  const carouselRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [activeVideoLink, setActiveVideoLink] = useState("");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // For Custom Carousel Only
-  // useEffect(() => {
-  //   const carousel = carouselRef.current;
-  //   if (!carousel) return;
-
-  //   const updateActiveCard = () => {
-  //     const animation = carousel.getAnimations()[0];
-  //     if (animation) {
-  //       const progress = (animation.currentTime % 15000) / 15000;
-
-  //       let newIndex;
-  //       if (progress < 0.19) {
-  //         // Card 1: 0% - 19%
-  //         newIndex = 0;
-  //       } else if (progress < 0.38) {
-  //         // Card 2: 19% - 38%
-  //         newIndex = 1;
-  //       } else if (progress < 0.57) {
-  //         // Card 3: 38% - 57%
-  //         newIndex = 2;
-  //       } else if (progress < 0.76) {
-  //         // Card 4: 57% - 76%
-  //         newIndex = 3;
-  //       } else {
-  //         // Card 5: 76% - 100%
-  //         newIndex = 4;
-  //       }
-
-  //       setActiveIndex(newIndex);
-  //     }
-  //   };
-
-  //   const interval = setInterval(updateActiveCard, 50);
-  //   updateActiveCard();
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   useEffect(() => {
     const getSetItems = async () => {
       const successStories = await useSuccessStories();
-      setItems(successStories);
+      setItems(successStories.slice(0, LATEST_COUNT));
       setLoading(false);
     };
 
@@ -89,43 +52,6 @@ const SuccessStories = () => {
             align="center"
             animate={false}
           />
-
-          {/* Review Videos Carousel */}
-          {/* <div className="w-full overflow-x-hidden -mt-20 py-20 relative">
-            <div
-              ref={carouselRef}
-              className="w-full whitespace-nowrap mx-auto animate-success-carousel relative left-1/2"
-            >
-              {[...items]?.map((item, index) => (
-                <div
-                  key={`${index}_${item?.image}`}
-                  className={`success_carousel_item w-[280px] inline-flex items-center justify-around flex-col mx-10 max-w-sm aspect-[9/16] rounded-2xl overflow-hidden transition-all duration-150 ease-in relative ${
-                    activeIndex === index ? "active shadow-2xl" : "shadow-none"
-                  }`}
-                  style={{
-                    backgroundImage: `url(${item?.image})`,
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  {item?.video ? (
-                    <button
-                      className="cursor-pointer"
-                      onClick={() => setActiveVideoLink(item?.video)}
-                    >
-                      <Play size={70} className="text-white" />
-                    </button>
-                  ) : (
-                    <span
-                      aria-hidden
-                      className="block w-[70px] aspect-square"
-                    ></span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div> */}
 
           {loading && (
             <div className="min-h-[70vh] w-full grid place-content-center bg-white">
@@ -185,6 +111,13 @@ const SuccessStories = () => {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+
+          <Link
+            href="/success-stories"
+            className="inline-flex items-center gap-1.5 rounded-3xl border-2 border-[#180d5d] px-6 py-2.5 text-sm font-medium text-[#180d5d] bg-white transition-all hover:scale-[103%]"
+          >
+            View all success stories <ArrowUpRight size={16} />
+          </Link>
         </section>
       </div>
 
@@ -205,7 +138,6 @@ const SuccessStories = () => {
             <div className="relative">
               <div className="w-full aspect-[9/16] max-w-md mx-auto rounded-xl overflow-hidden">
                 <ReactPlayer
-                  // src="/assets/videos/about_section_video.mp4"
                   src={activeVideoLink}
                   width="100%"
                   height="100%"

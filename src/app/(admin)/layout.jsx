@@ -205,6 +205,7 @@ const layout = ({ children }) => {
               link={"/admin/success-stories"}
               text={"Success Stories"}
             />
+            <AdminNavItem link={"/admin/events"} text={"Events"} />
             <AdminNavItem link={"/admin/team"} text={"Our Team"} />
             <AdminNavItem link={"/admin/updates"} text={"Updates"} />
             <AdminNavItem

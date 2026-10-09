@@ -15,6 +15,7 @@ import { useAxios } from "@/hooks/useAxios";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
+import RichTextEditor from "@/components/admin/RichTextEditor";
 
 const UpdatesPage = () => {
   const axiosSelf = useAxios();
@@ -26,6 +27,7 @@ const UpdatesPage = () => {
   const [posts, setPosts] = useState([]);
   const [editData, setEditData] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [content, setContent] = useState("");
 
   const { isLoading } = useQuery({
     queryKey: ["blog-posts"],
@@ -42,6 +44,7 @@ const UpdatesPage = () => {
       document.body.style.overflow = "unset";
       setEditData(null);
       setPreview(null);
+      setContent("");
     }
   }, [isModalOpen]);
 
@@ -52,6 +55,7 @@ const UpdatesPage = () => {
       const res = await axiosSelf.get(`/blog?slug=${post.slug}`);
       setEditData(res?.data?.data);
       setPreview(res?.data?.data?.image);
+      setContent(res?.data?.data?.content || "");
     } catch (error) {
       toast.error("Failed to load post");
       setIsModalOpen(false);
@@ -77,13 +81,21 @@ const UpdatesPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // Tiptap's HTML output defaults to "<p></p>" for an empty editor, so a
+    // plain truthiness/length check isn't enough - strip tags before
+    // deciding whether there's actually any content.
+    if (!content.replace(/<[^>]*>/g, "").trim()) {
+      toast.error("Content is required");
+      return;
+    }
+
     try {
       setLoading(true);
       const form = new FormData(event.target);
       const title = form.get("title");
       const category = form.get("category");
       const excerpt = form.get("excerpt");
-      const content = form.get("content");
       const imageFile = form.get("image");
       let imageUrl = editData?.image;
 
@@ -192,7 +204,7 @@ const UpdatesPage = () => {
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col max-h-[90vh]"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col max-h-[90vh]"
           >
             <div className="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
               <h2 className="font-bold text-gray-800">
@@ -259,14 +271,7 @@ const UpdatesPage = () => {
                   <label className="text-[10px] font-bold text-gray-500 uppercase">
                     Content
                   </label>
-                  <textarea
-                    name="content"
-                    rows={8}
-                    required
-                    defaultValue={editData?.content || ""}
-                    placeholder="Write the full update here. Plain paragraphs - no formatting needed."
-                    className="w-full p-2.5 text-sm rounded-lg border border-gray-200 outline-none focus:ring-1 focus:ring-purple-500 bg-gray-50/30 resize-y"
-                  />
+                  <RichTextEditor content={content} onChange={setContent} />
                 </div>
 
                 <div className="space-y-1">
