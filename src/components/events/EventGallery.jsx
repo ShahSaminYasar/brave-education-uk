@@ -20,10 +20,13 @@ import Autoplay from "embla-carousel-autoplay";
  * serialize functions across the Server->Client boundary and crash the
  * whole page render, not just the gallery.
  */
-const EventGallery = ({ images }) => {
+const EventGallery = ({ images, eventTitle }) => {
   const [selected, setSelected] = useState(null);
 
   if (!images?.length) return null;
+
+  const altFor = (index) =>
+    eventTitle ? `${eventTitle} gallery photo ${index + 1}` : `Gallery photo ${index + 1}`;
 
   return (
     <>
@@ -45,12 +48,12 @@ const EventGallery = ({ images }) => {
             <CarouselItem key={`${src}-${index}`} className="md:basis-1/2 lg:basis-1/3">
               <button
                 type="button"
-                onClick={() => setSelected(src)}
+                onClick={() => setSelected({ src, index })}
                 className="block w-full aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer relative"
               >
                 <Image
                   src={src}
-                  alt=""
+                  alt={altFor(index)}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   className="object-cover hover:scale-105 transition-transform duration-300"
@@ -89,8 +92,8 @@ const EventGallery = ({ images }) => {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={selected}
-                alt=""
+                src={selected.src}
+                alt={altFor(selected.index)}
                 fill
                 sizes="90vw"
                 className="object-contain"

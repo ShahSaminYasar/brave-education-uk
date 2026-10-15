@@ -13,7 +13,7 @@ const EventHero = ({ event }) => {
       <div className="absolute inset-0 -z-10">
         <Image
           src={hero.bgImage}
-          alt=""
+          alt={title}
           fill
           priority
           sizes="100vw"
@@ -69,7 +69,7 @@ const EventHero = ({ event }) => {
           <div className="relative w-full aspect-[4/1] rounded-2xl overflow-hidden shadow-2xl">
             <Image
               src={hero.secondaryImage}
-              alt=""
+              alt={`${title} event photo`}
               fill
               sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-cover"

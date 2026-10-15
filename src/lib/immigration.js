@@ -87,7 +87,10 @@ export const SERVICES = {
       "A TB test certificate, if required for your country",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/skilled-worker-visa" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/skilled-worker-visa",
+      },
     ],
     note: {
       text: "Looking to sponsor yourself through your own UK company?",
@@ -111,7 +114,10 @@ export const SERVICES = {
       "Evidence supporting your talent or promise in your field",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/global-talent" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/global-talent",
+      },
     ],
   },
   "temporary-work": {
@@ -131,14 +137,38 @@ export const SERVICES = {
     ],
     feeLabel: "One fixed fee, all categories",
     officialLinks: [
-      { label: "All work & temporary visas", href: "https://www.gov.uk/browse/visas-immigration/work-visas" },
-      { label: "Charity Worker visa", href: "https://www.gov.uk/temporary-worker-charity-worker-visa" },
-      { label: "Creative Worker visa", href: "https://www.gov.uk/creative-worker-visa" },
-      { label: "Government Authorised Exchange", href: "https://www.gov.uk/government-authorised-exchange" },
-      { label: "International Agreement visa", href: "https://www.gov.uk/international-agreement-worker-visa" },
-      { label: "Religious Worker visa", href: "https://www.gov.uk/religious-worker-visa" },
-      { label: "Seasonal Worker visa", href: "https://www.gov.uk/seasonal-worker-visa" },
-      { label: "Youth Mobility Scheme", href: "https://www.gov.uk/youth-mobility" },
+      {
+        label: "All work & temporary visas",
+        href: "https://www.gov.uk/browse/visas-immigration/work-visas",
+      },
+      {
+        label: "Charity Worker visa",
+        href: "https://www.gov.uk/temporary-worker-charity-worker-visa",
+      },
+      {
+        label: "Creative Worker visa",
+        href: "https://www.gov.uk/creative-worker-visa",
+      },
+      {
+        label: "Government Authorised Exchange",
+        href: "https://www.gov.uk/government-authorised-exchange",
+      },
+      {
+        label: "International Agreement visa",
+        href: "https://www.gov.uk/international-agreement-worker-visa",
+      },
+      {
+        label: "Religious Worker visa",
+        href: "https://www.gov.uk/religious-worker-visa",
+      },
+      {
+        label: "Seasonal Worker visa",
+        href: "https://www.gov.uk/seasonal-worker-visa",
+      },
+      {
+        label: "Youth Mobility Scheme",
+        href: "https://www.gov.uk/youth-mobility",
+      },
     ],
   },
   student: {
@@ -158,7 +188,10 @@ export const SERVICES = {
       "An ATAS certificate or TB test, if required",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/student-visa" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/student-visa",
+      },
     ],
     note: {
       text: "Still choosing a course or university? Our admissions team can help.",
@@ -185,8 +218,14 @@ export const SERVICES = {
     ],
     feeLabel: "Leave to Enter",
     officialLinks: [
-      { label: "Family visa overview", href: "https://www.gov.uk/uk-family-visa" },
-      { label: "Partner / spouse route", href: "https://www.gov.uk/uk-family-visa/partner-spouse" },
+      {
+        label: "Family visa overview",
+        href: "https://www.gov.uk/uk-family-visa",
+      },
+      {
+        label: "Partner / spouse route",
+        href: "https://www.gov.uk/uk-family-visa/partner-spouse",
+      },
     ],
   },
   "leave-to-remain": {
@@ -207,8 +246,14 @@ export const SERVICES = {
     ],
     feeLabel: "Leave to Remain, excluding human rights applications",
     officialLinks: [
-      { label: "Family visa overview", href: "https://www.gov.uk/uk-family-visa" },
-      { label: "All visas & immigration", href: "https://www.gov.uk/browse/visas-immigration" },
+      {
+        label: "Family visa overview",
+        href: "https://www.gov.uk/uk-family-visa",
+      },
+      {
+        label: "All visas & immigration",
+        href: "https://www.gov.uk/browse/visas-immigration",
+      },
     ],
   },
   "euss-family-permit": {
@@ -227,12 +272,15 @@ export const SERVICES = {
       "Your family member's EU Settlement Scheme status",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/family-permit" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/family-permit",
+      },
     ],
   },
   ilr: {
     name: "Indefinite Leave to Remain (ILR)",
-    fee: 1000,
+    fee: 650,
     forWho:
       "People who have completed the qualifying period on their visa route and want to settle in the UK permanently.",
     weHelp: [
@@ -247,7 +295,10 @@ export const SERVICES = {
       "Proof of English language ability",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/indefinite-leave-to-remain" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/indefinite-leave-to-remain",
+      },
     ],
     note: {
       text: "Need to pass the Life in the UK test first?",
@@ -270,12 +321,15 @@ export const SERVICES = {
       "Evidence of your residence in the UK",
     ],
     officialLinks: [
-      { label: "Official GOV.UK guide", href: "https://www.gov.uk/settled-status-eu-citizens-families" },
+      {
+        label: "Official GOV.UK guide",
+        href: "https://www.gov.uk/settled-status-eu-citizens-families",
+      },
     ],
   },
   naturalisation: {
     name: "Naturalisation as a British Citizen",
-    fee: 1000,
+    fee: 600,
     forWho:
       "Adults with indefinite leave to remain or settled status who meet the residence and good character requirements.",
     weHelp: [
@@ -290,8 +344,14 @@ export const SERVICES = {
       "Proof of English language ability",
     ],
     officialLinks: [
-      { label: "Standard route (ILR or settled status)", href: "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain" },
-      { label: "Spouse / civil partner route", href: "https://www.gov.uk/apply-citizenship-spouse" },
+      {
+        label: "Standard route (ILR or settled status)",
+        href: "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+      },
+      {
+        label: "Spouse / civil partner route",
+        href: "https://www.gov.uk/apply-citizenship-spouse",
+      },
     ],
     note: {
       text: "Improve your English or prepare for the Life in the UK test with our courses.",
@@ -314,9 +374,18 @@ export const SERVICES = {
       "Evidence of the parents' immigration or citizenship status",
     ],
     officialLinks: [
-      { label: "Application guidance (Form MN1)", href: "https://www.gov.uk/government/publications/register-child-under-18-as-british-citizen-form-mn1" },
-      { label: "Registering a child (parents with ILR)", href: "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain/apply-for-your-children" },
-      { label: "Born in the UK routes", href: "https://www.gov.uk/apply-citizenship-born-uk" },
+      {
+        label: "Application guidance (Form MN1)",
+        href: "https://www.gov.uk/government/publications/register-child-under-18-as-british-citizen-form-mn1",
+      },
+      {
+        label: "Registering a child (parents with ILR)",
+        href: "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain/apply-for-your-children",
+      },
+      {
+        label: "Born in the UK routes",
+        href: "https://www.gov.uk/apply-citizenship-born-uk",
+      },
     ],
   },
   "uk-visitor": {
@@ -336,8 +405,14 @@ export const SERVICES = {
     ],
     feeLabel: "Same fixed fee for 6-month, 2-year, 5-year and 10-year visas",
     officialLinks: [
-      { label: "Standard Visitor overview", href: "https://www.gov.uk/standard-visitor" },
-      { label: "How to apply", href: "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa" },
+      {
+        label: "Standard Visitor overview",
+        href: "https://www.gov.uk/standard-visitor",
+      },
+      {
+        label: "How to apply",
+        href: "https://www.gov.uk/standard-visitor/apply-standard-visitor-visa",
+      },
     ],
   },
   schengen: {
@@ -356,8 +431,14 @@ export const SERVICES = {
       "Travel insurance, itinerary and proof of funds",
     ],
     officialLinks: [
-      { label: "European Commission Schengen visa portal", href: "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en" },
-      { label: "GOV.UK travel to the EU/Schengen area", href: "https://www.gov.uk/travel-to-eu-schengen-area" },
+      {
+        label: "European Commission Schengen visa portal",
+        href: "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
+      },
+      {
+        label: "GOV.UK travel to the EU/Schengen area",
+        href: "https://www.gov.uk/travel-to-eu-schengen-area",
+      },
     ],
   },
   "canada-visitor": {
@@ -451,7 +532,10 @@ export const FEE_GROUPS = [
     rows: [
       { id: "global-talent" },
       { id: "skilled-worker" },
-      { id: "temporary-work", label: "Temporary Work, formerly Tier 5 (all categories)" },
+      {
+        id: "temporary-work",
+        label: "Temporary Work, formerly Tier 5 (all categories)",
+      },
       { id: "student" },
     ],
   },
@@ -469,24 +553,28 @@ export const FEE_GROUPS = [
     rows: [
       {
         id: "leave-to-enter",
-        label: "Leave to Enter (spouse, fiancé(e), unmarried partner, family member)",
+        label:
+          "Leave to Enter (spouse, fiancé(e), unmarried partner, family member)",
       },
-      { id: "leave-to-remain", label: "Leave to Remain (excluding human rights)" },
+      {
+        id: "leave-to-remain",
+        label: "Leave to Remain (excluding human rights)",
+      },
       { id: "ilr" },
     ],
   },
   {
     title: "Nationality & Citizenship",
-    rows: [
-      { id: "child-registration" },
-      { id: "naturalisation" },
-    ],
+    rows: [{ id: "child-registration" }, { id: "naturalisation" }],
   },
   {
     title: "EU & EEA Applications",
     rows: [
       { id: "euss" },
-      { id: "euss-family-permit", label: "Family Permit (non-EU/EEA family member)" },
+      {
+        id: "euss-family-permit",
+        label: "Family Permit (non-EU/EEA family member)",
+      },
     ],
   },
   {
@@ -507,6 +595,10 @@ export const PROCESS_STEPS = [
   {
     title: "Get a clear plan",
     text: "We confirm the right route, give you a document checklist and tell you the fixed fee upfront.",
+  },
+  {
+    title: "Sign & Confirm",
+    text: "Sign the Letter of Authority (LA) and Client Care Letter (CCL), submit your required documents, and complete the fee payment to formally begin your case.",
   },
   {
     title: "We prepare your application",

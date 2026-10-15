@@ -25,16 +25,20 @@ const HeroSection = () => {
             initial={{ opacity: 0.1, filter: "blur(10px)", y: 10 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[42px] sm:text-[50px] md:text-[55px] lg:text-[64px] font-poppins block text-center font-[500] leading-[110%] tracking-[-0.03em] w-full max-w-[640px] lg:max-w-[720px] mx-auto text-zinc-900"
+            className="font-poppins flex flex-col items-center text-center font-[500] leading-[1.1] tracking-[-0.03em] w-full max-w-[720px] mx-auto text-zinc-900"
           >
-            From Guidance to{" "}
-            {/* Coloured in the logo's exact red rather than the earlier
-            hand-drawn SVG circle, which was hand-tuned for one short word
-            and broke as soon as the headline grew to a longer phrase. A
-            plain text colour needs no special handling to stay correct
-            when this wraps across lines at any viewport width. */}
-            <span className="text-[#E02F33]">Graduation &amp; Immigration</span>{" "}
-            We Get You There
+            <span className="text-[38px] sm:text-[46px] md:text-[52px] lg:text-[60px]">
+              From Guidance to
+            </span>
+            {/* Free to wrap onto two lines below lg - only >=lg has room
+            to keep "Graduation & Immigration" on a single line without
+            shrinking the text, so nowrap is scoped to that breakpoint. */}
+            <span className="text-[#E02F33] text-[38px] sm:text-[46px] md:text-[52px] lg:text-[60px] lg:whitespace-nowrap">
+              Graduation &amp; Immigration
+            </span>
+            <span className="text-[38px] sm:text-[46px] md:text-[52px] lg:text-[60px]">
+              We Get You There
+            </span>
           </motion.h1>
 
           <motion.div

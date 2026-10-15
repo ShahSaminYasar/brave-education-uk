@@ -106,7 +106,7 @@ const page = async ({ params }) => {
       )}
 
       <EventCtaBand cta={event.cta} />
-      <EventGallerySection gallery={event.gallery} />
+      <EventGallerySection gallery={event.gallery} eventTitle={event.title} />
     </>
   );
 };

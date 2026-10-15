@@ -52,13 +52,13 @@ export const metadata = {
     default: "Brave Education UK - University Admission, Law, English & HR",
   },
   description:
-    "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
+    "Get expert help with University Admission, Brave Immigration, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
   icons: "/favicon.jpg",
   keywords: [
     "Brave Education UK",
     "university admission",
     "study in UK",
-    "Brave Law",
+    "Brave Immigration",
     "law courses",
     "English courses",
     "B1 English",
@@ -81,7 +81,7 @@ export const metadata = {
   },
   openGraph: {
     description:
-      "Get expert help with University Admission, Brave Law, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
+      "Get expert help with University Admission, Brave Immigration, English Courses, and Brave HR solutions from Brave Education UK. We guide students towards success.",
     url: "https://www.braveeducationuk.com",
     siteName: "Brave Education UK",
     type: "website",

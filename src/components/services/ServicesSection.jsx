@@ -76,7 +76,7 @@ const ServicesSection = () => {
             >
               <ServiceBox
                 id={8.75}
-                title={"Brave Law"}
+                title={"Brave Immigration"}
                 icon={<Plane size={20} />}
               />
             </motion.div>

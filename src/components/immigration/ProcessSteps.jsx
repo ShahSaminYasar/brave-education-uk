@@ -3,7 +3,7 @@ import { PROCESS_STEPS } from "@/lib/immigration";
 
 const ProcessSteps = () => {
   return (
-    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <ol className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5">
       {PROCESS_STEPS.map((step, index) => (
         <motion.li
           key={step.title}

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { useSuccessStories } from "@/hooks/useSuccessStories";
+import { getSuccessStoryAlt } from "@/lib/successStories";
 import { ArrowUpRight, Award, Badge, Play, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
@@ -81,18 +82,18 @@ const SuccessStories = () => {
                   className={"md:basis-1/2 lg:basis-1/3"}
                 >
                   <div className="p-1">
-                    <div
-                      className="w-full flex items-center justify-center max-w-[300px] rounded-2xl aspect-[9/15] mx-auto"
-                      style={{
-                        backgroundImage: `url(${item?.image})`,
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
-                      }}
-                    >
+                    <div className="relative w-full flex items-center justify-center max-w-[300px] rounded-2xl aspect-[9/15] mx-auto overflow-hidden">
+                      {item?.image && (
+                        <img
+                          src={item.image}
+                          alt={getSuccessStoryAlt(item)}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      )}
+
                       {item?.video ? (
                         <button
-                          className="cursor-pointer"
+                          className="relative cursor-pointer"
                           onClick={() => setActiveVideoLink(item?.video)}
                         >
                           <Play size={70} className="text-white" />
@@ -100,7 +101,7 @@ const SuccessStories = () => {
                       ) : (
                         <span
                           aria-hidden
-                          className="block w-[70px] aspect-square"
+                          className="relative block w-[70px] aspect-square"
                         ></span>
                       )}
                     </div>

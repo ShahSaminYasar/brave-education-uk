@@ -1,7 +1,7 @@
 import SectionHeading from "@/components/immigration/SectionHeading";
 import EventGallery from "./EventGallery";
 
-const EventGallerySection = ({ gallery }) => {
+const EventGallerySection = ({ gallery, eventTitle }) => {
   if (!gallery?.enabled || !gallery.images?.length) return null;
 
   return (
@@ -11,7 +11,7 @@ const EventGallerySection = ({ gallery }) => {
         title={gallery.title || "Gallery"}
         intro={gallery.description}
       />
-      <EventGallery images={gallery.images} />
+      <EventGallery images={gallery.images} eventTitle={eventTitle} />
     </section>
   );
 };

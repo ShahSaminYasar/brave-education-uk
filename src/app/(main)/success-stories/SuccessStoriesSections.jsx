@@ -5,21 +5,21 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import ReactPlayer from "react-player";
 import { Spinner } from "@/components/ui/spinner";
-import { SUCCESS_CATEGORIES } from "@/lib/successStories";
+import { SUCCESS_CATEGORIES, getSuccessStoryAlt } from "@/lib/successStories";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 const PAGE_SIZE = 8;
 
 const StoryCard = ({ item, onPlay }) => (
-  <div
-    className="relative w-full flex items-center justify-center rounded-2xl aspect-[9/15] overflow-hidden"
-    style={{
-      backgroundImage: `url(${item?.image})`,
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-    }}
-  >
+  <div className="relative w-full flex items-center justify-center rounded-2xl aspect-[9/15] overflow-hidden">
+    {item?.image && (
+      <img
+        src={item.image}
+        alt={getSuccessStoryAlt(item)}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+    )}
+
     {item?.video ? (
       <button
         type="button"

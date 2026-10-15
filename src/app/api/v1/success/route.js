@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { getDb } from "@/lib/mongodb";
 import { requireAdmin } from "@/lib/auth";
 import { readJsonBody } from "@/lib/http";
@@ -30,6 +31,7 @@ export async function POST(request) {
     });
 
     if (result?.insertedId) {
+      revalidateTag("success-stories", { expire: 0 });
       return NextResponse.json({
         ok: true,
         message: "Success story added successfully",
@@ -95,6 +97,7 @@ export async function DELETE(request) {
       .deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 1) {
+      revalidateTag("success-stories", { expire: 0 });
       return NextResponse.json({
         ok: true,
         message: "Story deleted successfully",
@@ -149,6 +152,7 @@ export async function PUT(request) {
       .updateOne({ _id: new ObjectId(id) }, updateDoc);
 
     if (result.modifiedCount === 1) {
+      revalidateTag("success-stories", { expire: 0 });
       return NextResponse.json({
         ok: true,
         message: "Story updated successfully",

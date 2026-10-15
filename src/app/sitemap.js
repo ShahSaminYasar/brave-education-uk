@@ -1,5 +1,6 @@
 import { getBlogPosts } from "@/lib/blog";
 import { getPublishedEvents } from "@/lib/events";
+import { getSuccessStoryImages } from "@/lib/successStoryImages";
 
 const BASE_URL = "https://www.braveeducationuk.com";
 
@@ -59,13 +60,22 @@ const staticRoutes = [
 ];
 
 export default async function sitemap() {
-  const [posts, events] = await Promise.all([getBlogPosts(), getPublishedEvents()]);
+  const [posts, events, successStoryImages] = await Promise.all([
+    getBlogPosts(),
+    getPublishedEvents(),
+    getSuccessStoryImages(),
+  ]);
 
   const staticEntries = staticRoutes.map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "daily" : "weekly",
     priority: route === "" ? 1 : 0.7,
+    // Success stories have no individual detail pages, so every story photo
+    // attaches to this single listing URL instead.
+    ...(route === "/success-stories" && successStoryImages.length
+      ? { images: successStoryImages }
+      : {}),
   }));
 
   const postEntries = posts.map((post) => ({
@@ -73,14 +83,24 @@ export default async function sitemap() {
     lastModified: new Date(post.updatedAt || post.createdAt),
     changeFrequency: "monthly",
     priority: 0.6,
+    ...(post.image ? { images: [post.image] } : {}),
   }));
 
-  const eventEntries = events.map((event) => ({
-    url: `${BASE_URL}/events/${event.slug}`,
-    lastModified: new Date(event.updatedAt || event.createdAt),
-    changeFrequency: "weekly",
-    priority: 0.6,
-  }));
+  const eventEntries = events.map((event) => {
+    const images = [
+      event.hero?.bgImage,
+      event.hero?.secondaryImage,
+      ...(event.gallery?.enabled ? event.gallery.images || [] : []),
+    ].filter(Boolean);
+
+    return {
+      url: `${BASE_URL}/events/${event.slug}`,
+      lastModified: new Date(event.updatedAt || event.createdAt),
+      changeFrequency: "weekly",
+      priority: 0.6,
+      ...(images.length ? { images } : {}),
+    };
+  });
 
   return [...staticEntries, ...postEntries, ...eventEntries];
 }

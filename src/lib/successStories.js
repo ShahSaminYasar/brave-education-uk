@@ -19,3 +19,12 @@ export const SUCCESS_STORY_COUNTRIES = [
   "United Kingdom",
   "United States",
 ];
+
+// Story records have no name/title field, only category + (for Immigration)
+// country - build the most descriptive alt text available from those.
+export function getSuccessStoryAlt(item) {
+  const category = item?.category || DEFAULT_SUCCESS_CATEGORY;
+  return item?.country
+    ? `${item.country} ${category} success story`
+    : `${category} success story`;
+}

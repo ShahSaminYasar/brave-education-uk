@@ -27,9 +27,9 @@ const page = () => {
               We provide comprehensive educational consultancy, including but
               not limited to: university and course selection, application
               guidance, interview preparation, student finance advice, visa
-              application assistance ("Brave Law"), and other support services
-              like airport pickup. All services are provided as guidance and
-              facilitation.
+              application assistance ("Brave Immigration"), and other support
+              services like airport pickup. All services are provided as
+              guidance and facilitation.
             </p>
           </section>
 

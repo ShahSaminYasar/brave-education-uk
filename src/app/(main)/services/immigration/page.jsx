@@ -1,4 +1,10 @@
-import { ArrowUpRight, Building2, MapPin, PoundSterling, ShieldCheck } from "lucide-react";
+import {
+  ArrowUpRight,
+  Building2,
+  MapPin,
+  PoundSterling,
+  ShieldCheck,
+} from "lucide-react";
 import Link from "next/link";
 import {
   CONSULTATIONS,
@@ -144,14 +150,19 @@ const page = () => {
           >
             <div className="flex items-center gap-4">
               <span className="grid size-12 shrink-0 place-content-center rounded-xl bg-gradient-to-br from-red-50 to-indigo-100">
-                <Building2 size={24} className="text-[#221e52]" aria-hidden="true" />
+                <Building2
+                  size={24}
+                  className="text-[#221e52]"
+                  aria-hidden="true"
+                />
               </span>
               <div>
                 <h3 className="font-josefin-sans text-xl font-semibold text-zinc-900 group-hover:text-primary transition-colors">
                   Self-Sponsorship
                 </h3>
                 <p className="mt-1 text-sm text-slate-600">
-                  Own and run a UK company? See how it could sponsor your own Skilled Worker visa.
+                  Own and run a UK company? See how it could sponsor your own
+                  Skilled Worker visa.
                 </p>
               </div>
             </div>
@@ -177,10 +188,7 @@ const page = () => {
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             eyebrow="How it works"
-            title="Sign & Confirm"
-            intro={
-              "Sign the Letter of Authority (LA) and Client Care Letter (CCL), submit your required documents, and complete the fee payment to formally begin your case."
-            }
+            title="From First Call to Decision"
           />
           <ProcessSteps />
         </div>
